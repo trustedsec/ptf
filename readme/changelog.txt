@@ -1,5 +1,0 @@
-~~~~~~~~~~~~~~~~~
-version 0.1
-~~~~~~~~~~~~~~~~~
-
-* initial release of the pentesters framework
