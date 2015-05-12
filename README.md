@@ -1,4 +1,5 @@
-The PenTesters Framework (PTF) - A TrustedSec Project - Copyright 2015
+The PenTesters Framework (PTF)
+A TrustedSec Project - Copyright 2015
 Written by: David Kennedy (@HackingDave)
 https://www.trustedsec.com
 Twitter: @TrustedSec, @HackingDave
@@ -33,31 +34,18 @@ First, head over to the modules/ directory, inside of there are sub directories 
 
 Below is a sample module
 
-#!/usr/bin/env python
-#######################################
-# Installation module for BEEF      
-#######################################
-
-# AUTHOR OF MODULE NAME
 AUTHOR="David Kennedy (ReL1K)"
 
-# DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update the Browser Exploitation Framework (BeEF)"
 
-# INSTALL TYPE GIT, SVN, FILE DOWNLOAD
-# OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
-# LOCATION OF THE FILE OR GIT/SVN REPOSITORY
 REPOSITORY_LOCATION="https://github.com/beefproject/beef"
 
-# WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="beef"
 
-# DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="ruby1.9.3,sqlite3,ruby-sqlite3"
 
-# COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef,exit"
 
 ###Module Development:
