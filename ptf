@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+#######################################################################################
+# The PenTesters Framewokr (PTF) - Automatic Penetration Testing Platform Creation
+# Written by: David Kennedy (ReL1K)
+# Twitter: @TrustedSec
+# Website: https://www.trustedsec.com
+#######################################################################################
+
+import sys
+
+try:
+
+    from src.core import *
+    import src.framework
+
+except KeyboardInterrupt:
+    print "\n"
+    exit_ptf()
+    sys.exit()
+
+except Exception, e:
+	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+	print ("[!] Printing that error. Get that error. You get it: " + str(e))
