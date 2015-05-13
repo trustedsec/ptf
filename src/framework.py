@@ -29,7 +29,7 @@ def show_module():
    ----                                                           ---------------
     """)
 
-    print "   modules/install_update_all                                            This will install or update all tools with modules within PTF"
+    print "   modules/install_update_all                                     This will install or update all tools with modules within PTF"
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             # join the structure
