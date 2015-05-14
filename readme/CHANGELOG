@@ -1,4 +1,14 @@
 ~~~~~~~~~~~~~~~~~
+version 0.2
+~~~~~~~~~~~~~~~~~
+
+* git commit to simplify debian package handling (pull request)
+* added module eyewitness (pull reuqest)
+* added module sqlmap (pull request)
+* added module commix (pull request)
+* added new module egressbuster 
+
+~~~~~~~~~~~~~~~~~
 version 0.1
 ~~~~~~~~~~~~~~~~~
 
