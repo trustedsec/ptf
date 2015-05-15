@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.2.1
+~~~~~~~~~~~~~~~~~
+
+* added module discover (thanks PureHate)
+* changed dictionary to sec-list and fixed git
+
+~~~~~~~~~~~~~~~~~
 version 0.2
 ~~~~~~~~~~~~~~~~~
 
