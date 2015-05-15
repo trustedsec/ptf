@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update download a massive list of dictiona
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/danielmiessler/SecLists/tree/master/Passwords"
+REPOSITORY_LOCATION="https://github.com/danielmiessler/SecLists/"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dictionary"
