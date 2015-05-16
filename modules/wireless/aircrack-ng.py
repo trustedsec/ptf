@@ -7,7 +7,7 @@
 AUTHOR="Tim Fowler (roobixx)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update aircrack-ng (without "
+DESCRIPTION="This module will install/update aircrack-ng"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
