@@ -7,7 +7,6 @@
 from src.core import *
 import sys
 import readline 
-
 # print the main welcome banner
 print banner
 
@@ -55,7 +54,10 @@ def use_module(module, all_trigger):
         filename = definepath() + "/" + module + ".py"
 
         # grab the author
-        author = module_parser(filename, "AUTHOR")
+	try:
+	        author = module_parser(filename, "AUTHOR")
+
+	except TypeError: author = "Invalid"
 
         # grab the description
         description = module_parser(filename, "DESCRIPTION")
@@ -236,8 +238,8 @@ while 1:
 	                			filename_short = filename_short.replace(".py", "")
 						print_status("Installing and/or updating your arsenal! Get some.")
 						print_status("Installing and/or updating: " + filename_short)
+						# run the module for install
 						use_module(filename_short, "1")
-	
 
 			print_status("All finished installing/and or updating.. All shiny again.")
 			print_status("Hack the planet.\n")

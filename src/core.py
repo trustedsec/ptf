@@ -44,7 +44,7 @@ def print_error(message):
     print bcolors.RED + bcolors.BOLD + "[!] " + bcolors.ENDC + bcolors.RED + str(message) + bcolors.ENDC
 
 # version information
-grab_version = "0.1"
+grab_version = "0.3"
 
 # banner
 banner = bcolors.RED + r"""
@@ -164,7 +164,7 @@ def show_help_menu():
 
 # exit message for PTF
 def exit_ptf():
-    print_status("Exiting PTF - the gangster pentest platform creation framework.")
+    print_status("Exiting PTF - the easy pentest platform creation framework.")
 
 
 # this is the main handler to check what distribution we are using

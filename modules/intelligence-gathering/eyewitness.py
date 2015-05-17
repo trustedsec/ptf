@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #######################################
-# Installation module for dictionaries
+# Installation module for eyewitness
 #######################################
 
 # AUTHOR OF MODULE NAME
@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/ChrisTruncer/EyeWitness"
 INSTALL_LOCATION="eyewitness"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="python-setuptools"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh,exit"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh,exit,exit"

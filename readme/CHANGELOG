@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 0.3
+~~~~~~~~~~~~~~~~~
+
+* added two modules aircrack-ng and wifite (thanks roobixx)
+* fixed a few typos and updated banner
+* added python setup tools as a depend to eyewitness
+* fixed an exit loop on eyewitness
+* fixed aircrack-ng package from devel to dev
+* added a check to automatically upgrade PTF when launching, then start the framework
+
+~~~~~~~~~~~~~~~~~
 version 0.2.1
 ~~~~~~~~~~~~~~~~~
 

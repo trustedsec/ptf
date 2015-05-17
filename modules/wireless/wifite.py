@@ -1,23 +1,23 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for MeterSSH
+# Installation module for Wifite
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="David Kennedy (ReL1K)"
+AUTHOR="Tim Fowler (roobixx)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update MeterSSH - a tool to use meterpreter over an encrypted SSH"
+DESCRIPTION="This module will install/update wifite - a tool for wireless auditing"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/trustedsec/meterssh"
+REPOSITORY_LOCATION="https://github.com/derv82/wifite" 
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="metershh"
+INSTALL_LOCATION="wifite"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN=""
