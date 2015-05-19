@@ -1,4 +1,4 @@
-#!/usr/local/python
+#!/usr/bin/env python
 #######################################################################################
 # The PenTesters Framework (PTF) - Automatic Penetration Testing Platform Creation
 # Written by: David Kennedy (ReL1K)
