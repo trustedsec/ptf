@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 0.3.1
+~~~~~~~~~~~~~~~~~
+
+* fixed python launcher check
+* added root check when launching ptf
+* new module added king phisher (thanks spencer)
+
+~~~~~~~~~~~~~~~~~
 version 0.3
 ~~~~~~~~~~~~~~~~~
 

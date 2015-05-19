@@ -8,6 +8,12 @@
 
 import sys
 import subprocess
+import os
+
+if os.geteuid() != 0:
+	print "\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)"
+	print "\nThis needs to be run as root. Please sudo it up! Exiting..."
+	exit()
 
 try:
 	# try to update ourself first
