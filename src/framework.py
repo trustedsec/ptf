@@ -7,6 +7,8 @@
 from src.core import *
 import sys
 import readline 
+import os
+
 # print the main welcome banner
 print banner
 
@@ -24,11 +26,11 @@ def show_module():
     print bcolors.BOLD + "The PenTesters Framework Modules" + bcolors.ENDC
     print ("""=================================
 
-   """ + bcolors.BOLD + """Name                                                           Description """ + bcolors.ENDC + """
-   ----                                                           ---------------
+   """ + bcolors.BOLD + """Name                                                 Description """ + bcolors.ENDC + """
+   ----                                                 ---------------
     """)
 
-    print "   modules/install_update_all                                     This will install or update all tools with modules within PTF"
+    print "   modules/install_update_all                           This will install or update all tools with modules within PTF"
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             # join the structure
@@ -41,7 +43,7 @@ def show_module():
                 description = module_parser(filename, "DESCRIPTION")
                 # print the module name
                 if description != None:
-                    temp_number = 63 - len(filename_short)
+                    temp_number = 53 - len(filename_short)
                     print "   " + filename_short + " " * temp_number + description
     print "\n"
 
@@ -233,16 +235,25 @@ while 1:
 	            			filename = os.path.join(path, name)
 	            			# strip un-needed files
 	            			if not "__init__.py" in filename:
-	                			# shorten it up a little bit
-	                			filename_short = filename.replace(os.getcwd() + "/", "")
-	                			filename_short = filename_short.replace(".py", "")
-						print_status("Installing and/or updating your arsenal! Get some.")
-						print_status("Installing and/or updating: " + filename_short)
-						# run the module for install
-						use_module(filename_short, "1")
+						# temporary workaround until kingphisher module is fixed - individual install will still go through however GTK will throw an error in Kali
+						if not "kingphisher" in filename:
+		                			# shorten it up a little bit
+		                			filename_short = filename.replace(os.getcwd() + "/", "")
+		                			filename_short = filename_short.replace(".py", "")
+							print_status("Installing and/or updating your arsenal! Get some.")
+							print_status("Installing and/or updating: " + filename_short)
+							# run the module for install
+							use_module(filename_short, "1")
 
-			print_status("All finished installing/and or updating.. All shiny again.")
-			print_status("Hack the planet.\n")
+			# clear the screen
+			os.system("clear")
+			print "\n"
+			print (""" _   _            _      _   _            ____  _                  _""")
+			print ("""| | | | __ _  ___| | __ | |_| |__   ___  |  _ \| | __ _ _ __   ___| |_""")
+			print ("""| |_| |/ _` |/ __| |/ / | __| '_ \ / _ \ | |_) | |/ _` | '_ \ / _ \ __|""")
+			print ("""|  _  | (_| | (__|   <  | |_| | | |  __/ |  __/| | (_| | | | |  __/ |_ """)
+			print ("""|_| |_|\__,_|\___|_|\_\  \__|_| |_|\___| |_|   |_|\__,_|_| |_|\___|\__|\n\n""")
+			print_status("All finished installing/and or updating.. All shiny again.\n")
 
 		else: print_status("Alright boss. Not installing right now. Tell me when. I want that shiny. I want it now.")
 

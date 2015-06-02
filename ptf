@@ -9,6 +9,20 @@
 import sys
 import subprocess
 import os
+import socket
+
+# check for an Internet connection
+def check_internet():
+        try:
+		print "[*] Checking for an Internet connection..."
+                rhost = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                rhost.connect(('google.com', 0))
+                rhost.settimeout(2)
+		return 1
+
+        except Exception:
+                return 0
+
 
 if os.geteuid() != 0:
 	print "\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)"
@@ -16,17 +30,25 @@ if os.geteuid() != 0:
 	exit()
 
 try:
+        # check internet connection
+        if check_internet() == 0:
+                print ("[!] Unable to detect Internet connection. Needed for PTF.")
+                print ("[!] We will now exit PTF. Launch again when you got a connection.")
+		sys.exit()
+
 	# try to update ourself first
 	print "[*] Trying to update myself first.. Then starting framework."
 	subprocess.Popen("git pull", shell=True).wait()
 
-	# pull in the framework
+	# pull in the core library
 	from src.core import *
+
+	# pull in the framework
 	import src.framework
 
 except KeyboardInterrupt:
 	print "\n"
-	exit_ptf()
+	exit()
 	sys.exit()
 
 except Exception, e:

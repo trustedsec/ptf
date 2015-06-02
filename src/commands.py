@@ -2,36 +2,33 @@
 ##########################
 # After commands module
 ##########################
-import pexpect
+#import pexpect
+import subprocess
+import os
+from src.core import *
+
 # this will execute after everything is over
 def after_commands(command):
     # if there is more than one command iterate through
     if "," in command:
+
+	# get current working directory
+	definepath = os.getcwd()
+
         command = command.split(",")
-	child = pexpect.spawn("/bin/sh")
-	print "[!] Note that this will drop into a bash shell to execute commands. You will need to type exit once completed."
+	# iterate through the commands
         for commands in command:
-		try:
-			child.sendline(commands)
-		except: pass
+		print_status("Sending after command: " + commands)
+		# change directory if CD in command
+		if "cd " in commands:
+			commands = commands.replace("cd ", "")
+			os.chdir(commands)
+		else:
+			subprocess.Popen(commands, shell=True).wait()
 
-	# need to pass an exception here if the install has more things like psexec installer, etc.
-	try:
-		child.interact()
-
-	except: pass
-
-            #subprocess.Popen(commands, shell=True).wait()
+	# restore original directory
+	os.chdir(definepath)
 
     else:
-        child = pexpect.spawn("/bin/sh")
-        print "[!] Note that this will drop into a bash shell to execute commands. You will need to type exit once completed."
-        try:
-        	child.sendline(command)
-        except: pass
-        # need to pass an exception here if the install has more things like psexec installer, etc.
-        try:
-                child.interact()
-
-        except: pass
+	subprocess.Popen(command, shell=True).wait()
 

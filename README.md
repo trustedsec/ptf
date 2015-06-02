@@ -53,7 +53,7 @@ INSTALL_LOCATION="beef"
 
 DEBIAN="ruby1.9.3,sqlite3,ruby-sqlite3"
 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef,exit"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 
 ###Module Development:
 
@@ -67,8 +67,7 @@ After commands are commands that you can insert after an installation. This coul
  
 AFTER_COMMANDS="cp config/dict/rockyou.txt {INSTALL_LOCATION}"
 
-For AFTER_COMMANDS that do self install (don't need user interaction) - place an exit after your commands so it exits the shell.
-
+For AFTER_COMMANDS that do self install (don't need user interaction).
 
 #TODO:
 

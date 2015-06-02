@@ -23,4 +23,4 @@ INSTALL_LOCATION="eyewitness"
 DEBIAN="python-setuptools"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh,exit,exit"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh"

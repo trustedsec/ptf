@@ -1,4 +1,19 @@
 ~~~~~~~~~~~~~~~~~
+version 0.4
+~~~~~~~~~~~~~~~~~
+
+* added Internet connection check when first launching
+* added check before import core and framework
+* fixed an issue that would happen when control-c out before src.core would be imported causing an exception
+* fixed beef installer to gem bundle install and bundler install
+* trimmed description on meterssh
+* rewrote after commands to incorporate waits, and now have to deal with exits
+* fixed discover script to remove exits
+* fixed eyewitness to remove exits
+* fixed installer for aircrackng
+* added a disable for update_all on kingphisher until module can be fixed for Kali - issue is GTK depends are out of date in Kali, modified installer a bit to get through majority of issues however GTK errors still prone - asked module maintainer for assistance
+
+~~~~~~~~~~~~~~~~~
 version 0.3.1
 ~~~~~~~~~~~~~~~~~
 
