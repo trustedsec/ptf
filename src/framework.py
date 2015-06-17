@@ -159,6 +159,14 @@ def use_module(module, all_trigger):
 		    # run after commands
                     after_commands(filename,install_location)
 
+                if install_type.lower() == "svn":
+                    print_status("Updating the tool, be patient while git pull is initiated.")
+			
+                    proc = subprocess.Popen("cd %s;svn update" % (install_location), stderr=subprocess.PIPE, shell=True)
+                    print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
+                    # run after commands
+                    after_commands(filename,install_location)
+
             if not os.path.isdir(install_location):
                 print_error("The tool was not found in the install location. Try running install first!")
 
@@ -190,6 +198,12 @@ def use_module(module, all_trigger):
                     else:
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
    		after_commands(filename,install_location)
+
+		# if we are using svn
+                if install_type.lower() == "svn":
+                    print_status("SVN was the selected method for installation... Using SVN to install.")
+                    proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
+                    print_status("Finished Installing! Enjoy the tool located under: " + install_location)
 
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	

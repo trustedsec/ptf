@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.5
+~~~~~~~~~~~~~~~~~
+
+* added subversion support as a method for checking out
+* added multiple new modules from contributions from github
+
+~~~~~~~~~~~~~~~~~
 version 0.4
 ~~~~~~~~~~~~~~~~~
 
