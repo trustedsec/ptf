@@ -37,6 +37,7 @@ try:
 	                print ("[!] Unable to detect Internet connection. Needed for PTF.")
 	               	print ("[!] We will now exit PTF. Launch again when you got a connection.")
 	               	print ("[!] You can also run ptf with the --no-network-connection argument to bypass the network check.")
+	               	print ("[!] You can also run ptf with the --no-network-connection agument to bypass the network check.")
 			sys.exit()
 
 		# try to update ourself first
