@@ -1,4 +1,17 @@
 ~~~~~~~~~~~~~~~~~
+version 0.6
+~~~~~~~~~~~~~~~~~
+
+* added module metasploit (git pull)
+* added rawr (git pull)
+* added dradis (git pull)
+* added golismero (git pull)
+* added nikto (git pull)
+* tested KingPhisher on module install - looks to be good on a fresh install - removing and re-install gets borked - will investigate further later
+* merged git pull request that adds multiple av-bypass modules (pyobfuscate and veil) from JDogHerman
+* merged git pull request that adds no network check to PTF 
+
+~~~~~~~~~~~~~~~~~
 version 0.5
 ~~~~~~~~~~~~~~~~~
 

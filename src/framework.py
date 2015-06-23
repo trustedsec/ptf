@@ -249,8 +249,6 @@ while 1:
 	            			filename = os.path.join(path, name)
 	            			# strip un-needed files
 	            			if not "__init__.py" in filename:
-						# temporary workaround until kingphisher module is fixed - individual install will still go through however GTK will throw an error in Kali
-						if not "kingphisher" in filename:
 		                			# shorten it up a little bit
 		                			filename_short = filename.replace(os.getcwd() + "/", "")
 		                			filename_short = filename_short.replace(".py", "")
