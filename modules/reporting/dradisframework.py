@@ -23,4 +23,5 @@ INSTALL_LOCATION="dradisframework"
 DEBIAN="ruby1.9.1,ruby-rails-3.2,ruby-all-dev,git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},git checkout dradis3_blackhat-arsenal,ruby bin/setup,bundle exec rails server,exit"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},git checkout dradis3_blackhat-arsenal,ruby bin/setup,exit"
+
