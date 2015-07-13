@@ -197,13 +197,14 @@ def use_module(module, all_trigger):
                         print_error("Install did not complete. Printing error:\n" + error)
                     else:
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-   		after_commands(filename,install_location)
+   			after_commands(filename,install_location)
 
 		# if we are using svn
                 if install_type.lower() == "svn":
                     print_status("SVN was the selected method for installation... Using SVN to install.")
                     proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                    after_commands(filename,install_location)
 
         # if we are using file
                 if install_type.lower() == "file":
