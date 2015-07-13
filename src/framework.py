@@ -205,6 +205,18 @@ def use_module(module, all_trigger):
                     proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
 
+        # if we are using file
+                if install_type.lower() == "file":
+                    print_status("FILE was the selected method for installation... Using curl -o to install.")
+                    repository_file = repository_location.split("/")[-1]
+                    proc = subprocess.Popen("curl -o %s%s %s" % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True)
+                    status = proc.stderr.read().rstrip()
+                    if "Warning" in status:
+                        print_error("Install did not complete. Printing error:\n" + error)
+                    else:
+                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                        after_commands(filename,install_location)
+
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	
 
