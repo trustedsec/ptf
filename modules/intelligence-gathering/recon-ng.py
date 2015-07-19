@@ -7,7 +7,7 @@
 AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Recon-NG"
+DESCRIPTION="This module will install/update Recon-NG - a recon tool" 
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
