@@ -254,8 +254,6 @@ while 1:
         prompt = prompt.split(" ")        
         # do a quick sanity check to see if the module is there first
         if prompt[1] == "modules/install_update_all": 
-
-
 		counter = 3
 		install_query = raw_input("[*] You are about to install/update everything. Proceed? [yes/no]:")
 		if install_query.lower() == "yes" or install_query.lower() == "y":
@@ -287,7 +285,6 @@ while 1:
 	                    	base_install_modules(deb_modules)
 	                    	print_status("Finished updating depends for modules.")
 
-			threads = []
 			for path, subdirs, files in os.walk(modules_path):
 	                        for name in files:
                                         # join the structure
@@ -302,10 +299,6 @@ while 1:
                                                         use_module(filename_short, "1")
 							# sleep a sec
 							time.sleep(0.2)
-
-			# wait for all the threads to terminate
-            		for thread in threads:
-                		thread.join()
 
 			# clear the screen
 			os.system("clear")
