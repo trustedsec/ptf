@@ -7,7 +7,7 @@
 AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update masscan - TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes"
+DESCRIPTION="This module will install/update masscan - a quick TCP/SYN port scanner"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

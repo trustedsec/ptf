@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 0.7
+~~~~~~~~~~~~~~~~~
+
+* added multiple modules from git requests
+* added SVN request fixes from Ben0xa pull request (thanks buddy)
+
+
+~~~~~~~~~~~~~~~~~
 version 0.6
 ~~~~~~~~~~~~~~~~~
 

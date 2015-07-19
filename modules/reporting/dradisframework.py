@@ -7,7 +7,7 @@
 AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update The Dradis Framework is an open-source collaboration and reporting platform for IT security experts."
+DESCRIPTION="This module will install/update - Dradis is a collaboration and reporting platform"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

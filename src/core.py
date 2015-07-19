@@ -44,7 +44,7 @@ def print_error(message):
     print bcolors.RED + bcolors.BOLD + "[!] " + bcolors.ENDC + bcolors.RED + str(message) + bcolors.ENDC
 
 # version information
-grab_version = "0.6"
+grab_version = "0.7"
 
 # banner
 banner = bcolors.RED + r"""
