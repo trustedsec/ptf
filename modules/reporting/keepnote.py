@@ -1,27 +1,26 @@
 #!/usr/bin/env python
 #######################################
-# Installation module for Dradis Framework
+# Installation module for Keepnote
 #######################################
 
 # AUTHOR OF MODULE NAME
 AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update - Dradis is a collaboration and reporting platform"
+DESCRIPTION="This module will install/update "
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/dradis/dradisframework.git"
+REPOSITORY_LOCATION="https://github.com/mdrasmus/keepnote.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="dradisframework"
+INSTALL_LOCATION="keepnote"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="ruby1.9.1,ruby-rails-3.2,git"
+DEBIAN="python-gnome2-extras-dev,aspell,aspell-en,python,python-gtk2,python-glade2,libgtk2.0-dev,libsqlite3-0"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},gem install bundler,ruby bin/setup,exit"
-
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION}"

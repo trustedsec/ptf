@@ -8,6 +8,7 @@ from src.core import *
 import sys
 import readline 
 import os
+import time
 
 # print the main welcome banner
 print banner
@@ -190,6 +191,7 @@ def use_module(module, all_trigger):
                 if install_type.lower() == "git":
                     print_status("GIT was the selected method for installation... Using GIT to install.")
                     proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
+
                     # if there were errors
                     error = proc.stderr.read().rstrip()
 		    print error
@@ -197,13 +199,26 @@ def use_module(module, all_trigger):
                         print_error("Install did not complete. Printing error:\n" + error)
                     else:
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-   		after_commands(filename,install_location)
+   			after_commands(filename,install_location)
 
 		# if we are using svn
                 if install_type.lower() == "svn":
                     print_status("SVN was the selected method for installation... Using SVN to install.")
                     proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                    after_commands(filename,install_location)
+
+	        # if we are using file
+                if install_type.lower() == "file":
+                    print_status("FILE was the selected method for installation... Using curl -o to install.")
+                    repository_file = repository_location.split("/")[-1]
+                    proc = subprocess.Popen("curl -o %s%s %s" % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True)
+                    status = proc.stderr.read().rstrip()
+                    if "Warning" in status:
+                        print_error("Install did not complete. Printing error:\n" + error)
+                    else:
+                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                        after_commands(filename,install_location)
 
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	
@@ -243,6 +258,11 @@ while 1:
 		install_query = raw_input("[*] You are about to install/update everything. Proceed? [yes/no]:")
 		if install_query.lower() == "yes" or install_query.lower() == "y":
 			modules_path = definepath() + "/modules/"
+			# base holder for all debian packages
+			deb_modules = ""
+                        # first we install all depends for all applications
+                        print_status("We are going to first install all prereqs using apt before installing..")
+                        print_status("Cycling through modules and grabbing requirements...")
 	    		for path, subdirs, files in os.walk(modules_path):
 	        		for name in files:
 	            			# join the structure
@@ -251,11 +271,34 @@ while 1:
 	            			if not "__init__.py" in filename:
 		                			# shorten it up a little bit
 		                			filename_short = filename.replace(os.getcwd() + "/", "")
-		                			filename_short = filename_short.replace(".py", "")
-							print_status("Installing and/or updating your arsenal! Get some.")
-							print_status("Installing and/or updating: " + filename_short)
-							# run the module for install
-							use_module(filename_short, "1")
+							# update depend modules
+							ostype = profile_os()
+							if ostype == "DEBIAN":
+					                	from src.platforms.debian import base_install_modules
+                    						# grab all the modules we need
+                    						deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
+
+			# install all of the packages at once
+			ostype = profile_os()
+			if ostype == "DEBIAN":
+				deb_modules = deb_modules.replace(",", " ")
+	                    	base_install_modules(deb_modules)
+	                    	print_status("Finished updating depends for modules.")
+
+			for path, subdirs, files in os.walk(modules_path):
+	                        for name in files:
+                                        # join the structure
+                                        filename = os.path.join(path, name)
+                                        # strip un-needed files
+                                        if not "__init__.py" in filename:
+                                                        # shorten it up a little bit
+                                                        filename_short = filename.replace(os.getcwd() + "/", "")
+                                                        filename_short = filename_short.replace(".py", "")
+                                                        print_status("Installing and/or updating: " + filename_short)
+                                                        # run the module for install
+                                                        use_module(filename_short, "1")
+							# sleep a sec
+							time.sleep(0.2)
 
 			# clear the screen
 			os.system("clear")

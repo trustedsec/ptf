@@ -1,26 +1,26 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for recon-ng
+# Installation module for masscan
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="David Kennedy (ReL1K)"
+AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Recon-NG - a recon tool" 
+DESCRIPTION="This module will install/update masscan - a quick TCP/SYN port scanner"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
+REPOSITORY_LOCATION="https://github.com/robertdavidgraham/masscan.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="recon-ng"
+INSTALL_LOCATION="masscan"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="git,gcc,make,libpcap-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j"
