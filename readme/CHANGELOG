@@ -4,7 +4,7 @@ version 0.7
 
 * added multiple modules from git requests
 * added SVN request fixes from Ben0xa pull request (thanks buddy)
-
+* added ability to install apt packages for all tools first, vs. single - working on fixing it so you will do all tool installs threaded..
 
 ~~~~~~~~~~~~~~~~~
 version 0.6
