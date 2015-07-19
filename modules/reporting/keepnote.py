@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/mdrasmus/keepnote.git"
 INSTALL_LOCATION="keepnote"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-gnome2-extras,aspell,aspell-en,python,python-gtk2,python-glade2,libgtk2.0-dev,libsqlite3-0"
+DEBIAN="python-gnome2-extras-dev,aspell,aspell-en,python,python-gtk2,python-glade2,libgtk2.0-dev,libsqlite3-0"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION}"
