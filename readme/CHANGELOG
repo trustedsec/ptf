@@ -7,6 +7,7 @@ version 0.8
 * added sidestep Metasploit av-evasion module
 * remove veil - ridiculous amounts of prompts and installation criteria - will work on silent install later
 * added total module count to when you first start PTF
+* added automation to smbexec
 
 ~~~~~~~~~~~~~~~~~
 version 0.7
