@@ -27,6 +27,17 @@ class bcolors:
     backCyan = '\033[46m'
     backWhite = '\033[47m'
 
+# get the main SET path
+def definepath():
+    if os.path.isfile("ptf"):
+        return os.getcwd()
+
+    else:
+        if os.path.isdir("/usr/share/ptf/"):
+                return "/usr/share/ptf/"
+        else:
+                return os.getcwd()
+
 # main status calls for print functions
 def print_status(message):
     print bcolors.GREEN + bcolors.BOLD + "[*] " + bcolors.ENDC + str(message)
@@ -42,6 +53,17 @@ def print_warning(message):
 
 def print_error(message):
     print bcolors.RED + bcolors.BOLD + "[!] " + bcolors.ENDC + bcolors.RED + str(message) + bcolors.ENDC
+
+# count all of the modules
+def count_modules():
+        modules_path = definepath() + "/modules/"
+        counter = 0
+        for path, subdirs, files in os.walk(modules_path):
+                for name in files:
+                        filename = os.path.join(path, name)
+                        if not "__init__.py" in filename:
+                                counter = counter + 1
+        return counter
 
 # version information
 grab_version = "0.8"
@@ -92,18 +114,8 @@ banner += """		Twitter: """ + bcolors.BOLD + """@HackingDave, @TrustedSec""" + b
 banner += """                  """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
-"""
-
-# get the main SET path
-def definepath():
-    if os.path.isfile("ptf"):
-        return os.getcwd()
-
-    else:
-	if os.path.isdir("/usr/share/ptf/"):
-	        return "/usr/share/ptf/"
-	else:
-		return os.getcwd()
+""" + bcolors.ENDC + "\n"
+banner += "             Total module/tool count within PTF: " + bcolors.BOLD + str(count_modules()) + bcolors.ENDC + "\n" 
 
 # check the config file and return value
 def check_config(param):
@@ -253,4 +265,5 @@ def after_commands(filename,install_location):
 		print_status("Running after commands for post installation requirements.")
 		after_commands(commands)
 		print_status("Completed running after commands routine..")
+
 
