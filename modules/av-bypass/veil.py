@@ -23,4 +23,4 @@ INSTALL_LOCATION="veil"
 DEBIAN=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./Install.sh -c"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},export DEBIAN_FRONTEND=noninteractive,echo y | ./Install.sh -c"

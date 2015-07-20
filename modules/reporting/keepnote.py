@@ -7,7 +7,7 @@
 AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update "
+DESCRIPTION="This module will install/update keepnote - note taking software"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.8
+~~~~~~~~~~~~~~~~~
+
+* fixed multiple packages that did not install correctly
+* removed repetitive apt-get installs after bulk install was completed
+
+~~~~~~~~~~~~~~~~~
 version 0.7
 ~~~~~~~~~~~~~~~~~
 
