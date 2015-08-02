@@ -7,7 +7,6 @@ version 0.9
 * removed error messaging when successful git pull
 * added wait() delay on subprocess when pulling latest git repository
 * removed metasploit - installer not correct
-* removed smbexec  - installer not correct
 
 ~~~~~~~~~~~~~~~~~
 version 0.8
