@@ -66,7 +66,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9"
+grab_version = "0.9.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -101,11 +101,11 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		  """ + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
+banner += """        		 """ + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """GitDatShiny""" + "\n"
 
-banner += """			""" + bcolors.ENDC + bcolors.backRed + """Red Team Approved""" + bcolors.ENDC + "\n"
+banner += """		       """ + bcolors.ENDC + bcolors.backRed + """Red Team Approved""" + bcolors.ENDC + "\n"
 
 banner += """        	     A project by """ + bcolors.GREEN + bcolors.BOLD + """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 

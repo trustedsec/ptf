@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.1
+~~~~~~~~~~~~~~~~~
+
+* rewrote the metasploit installer
+* removed executing after commands once updating via git or svn
+
+~~~~~~~~~~~~~~~~~
 version 0.9
 ~~~~~~~~~~~~~~~~~
 

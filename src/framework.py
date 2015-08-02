@@ -140,15 +140,11 @@ def use_module(module, all_trigger):
                 if install_type.lower() == "git":
                     print_status("Updating the tool, be patient while git pull is initiated.")
                     proc = subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
-                    # if there were errors
-                    #error = proc.stderr.read().rstrip()
-                    #if error != "": 
-                    #print_error("Install did not complete. Printing error:\n" + error)
-                    #else:
                     print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
 		    # run after commands
-                    after_commands(filename,install_location)
+		    if prompt != "update":
+	                    after_commands(filename,install_location)
 
                 if install_type.lower() == "svn":
                     print_status("Updating the tool, be patient while git pull is initiated.")
@@ -156,7 +152,8 @@ def use_module(module, all_trigger):
                     proc = subprocess.Popen("cd %s;svn update" % (install_location), stderr=subprocess.PIPE, shell=True)
                     print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                     # run after commands
-                    after_commands(filename,install_location)
+		    if prompt != "update":
+	                    after_commands(filename,install_location)
 
             if not os.path.isdir(install_location):
                 print_error("The tool was not found in the install location. Try running install first!")
