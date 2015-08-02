@@ -91,6 +91,9 @@ def use_module(module, all_trigger):
 
 	        if prompt == "show modules": print_warning("In order to show modules, you must type 'back' first")
 
+		# if we are searchign for something
+		if "search " in prompt: search(prompt)
+
         	# options menu - was a choice here to load upon initial load of dynamically pull each time
         	# if changes are made, it makes sense to keep it loading each time
         	if prompt.lower() == "show options":
@@ -132,30 +135,17 @@ def use_module(module, all_trigger):
         # if we are updating the tools
         if prompt.lower() == "update" or prompt.lower() == "upgrade":
 
-            # update depend modules
-            ostype = profile_os()
-            if ostype == "DEBIAN":
-                    from src.platforms.debian import base_install_modules
-                    # grab all the modules we need
-                    deb_modules = module_parser(filename, "DEBIAN")
-                    print_status("Updating depends for %s prior to update." % (module))
-                    base_install_modules(deb_modules)
-                    print_status("Finished updating depends for %s" % (module))
-
-		    # run after commands
-		    after_commands(filename, install_location)
-
             # move to the location
             if os.path.isdir(install_location):
                 if install_type.lower() == "git":
                     print_status("Updating the tool, be patient while git pull is initiated.")
-                    proc = subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True)
+                    proc = subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
                     # if there were errors
-                    error = proc.stderr.read().rstrip()
-                    if error != "": 
-                        print_error("Install did not complete. Printing error:\n" + error)
-                    else:
-                        print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
+                    #error = proc.stderr.read().rstrip()
+                    #if error != "": 
+                    #print_error("Install did not complete. Printing error:\n" + error)
+                    #else:
+                    print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
 		    # run after commands
                     after_commands(filename,install_location)
@@ -247,11 +237,17 @@ while 1:
         base_counter = 1
         show_module()
 
+    # search functionality here
+    if prompt.startswith("search"):
+        base_counter = 1
+        search(prompt)
+
     # if we want to use a module
     if prompt.startswith("use"):
         base_counter = 1
         counter = 0
-        prompt = prompt.split(" ")        
+        prompt = prompt.split(" ")       
+ 
         # do a quick sanity check to see if the module is there first
         if prompt[1] == "modules/install_update_all": 
 		counter = 3
@@ -282,7 +278,7 @@ while 1:
 			ostype = profile_os()
 			if ostype == "DEBIAN":
 				deb_modules = deb_modules.replace(",", " ")
-	                    	base_install_modules(deb_modules)
+	                   	base_install_modules(deb_modules)
 	                    	print_status("Finished updating depends for modules.")
 
 			for path, subdirs, files in os.walk(modules_path):

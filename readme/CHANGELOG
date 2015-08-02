@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9
+~~~~~~~~~~~~~~~~~
+
+* fixed inception downloading library to ptf directory
+* added search functionality into PTF
+* removed error messaging when successful git pull
+* added wait() delay on subprocess when pulling latest git repository
+
+~~~~~~~~~~~~~~~~~
 version 0.8
 ~~~~~~~~~~~~~~~~~
 

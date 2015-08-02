@@ -66,7 +66,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.8"
+grab_version = "0.9"
 
 # banner
 banner = bcolors.RED + r"""
@@ -267,3 +267,29 @@ def after_commands(filename,install_location):
 		print_status("Completed running after commands routine..")
 
 
+# search functionality here
+def search(term):
+	term = term.replace("search ", "")
+        module_files = []
+        for dirpath, subdirs, files in os.walk("modules/"):
+            for x in files:
+                if x.endswith(".py"):
+                    if not "__init__.py" in x:
+                                path = os.path.join(dirpath, x)
+                                if term in path:
+                                        x = x.replace(".py", "")
+                                        module_files.append(os.path.join(dirpath, x))
+
+                                if not term in path:
+                                        data = file(path, "r").read()
+                                        if term in data:
+                                                x = x.replace(".py", "")
+                                                module_files.append(os.path.join(dirpath, x))
+
+	if module_files != []:
+		print_status("Search results below:")
+	        for modules in module_files:
+	                print modules
+
+
+	else: print_warning("Search found no results.")
