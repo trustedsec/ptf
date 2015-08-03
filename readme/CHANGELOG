@@ -4,6 +4,7 @@ version 0.9.1
 
 * rewrote the metasploit installer
 * removed executing after commands once updating via git or svn
+* updated pyobfuscate to automatically install after installation (setup.py install)
 
 ~~~~~~~~~~~~~~~~~
 version 0.9
