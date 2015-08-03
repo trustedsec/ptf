@@ -5,6 +5,17 @@
 import os
 import subprocess
 import select
+import readline
+import glob
+
+# tab completion
+def complete(text, state):
+	return (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "")
+
+readline.set_completer_delims(' \t\n;')
+readline.parse_and_bind("tab: complete")
+readline.set_completer(complete)
+# end tab completion
 
 # color scheme for core
 class bcolors:
@@ -218,41 +229,6 @@ def prep_install():
 
 def home_directory():
          return os.getenv("HOME") + "/.ptf"
-
-# get tab completion to work
-class Completer:
-    def __init__(self, words):
-        self.words = words
-        self.prefix = None
-    def complete(self, prefix, index):
-        if prefix != self.prefix:
-	    # start and find with prefix
-            self.matching_words = [
-                w for w in self.words if w.startswith(prefix)
-                ]
-            self.prefix = prefix
-        try:
-            return self.matching_words[index]
-        except IndexError:
-            return None
-
-import readline
-# our known tab list
-base_list = ["?", "help", "run", "show modules", "show options", "set", "install", "upgrade", "use", "use modules"]
-# dynamically generate modules
-module_files = []
-for dirpath, subdirs, files in os.walk("modules/"):
-    for x in files:
-        if x.endswith(".py"):
-            if not "__init__.py" in x:
-		    x = x.replace(".py", "")
-                    module_files.append("use " + os.path.join(dirpath, x))
-words = base_list + module_files
-
-
-completer = Completer(words)
-readline.parse_and_bind("tab: complete")
-readline.set_completer(completer.complete)
 
 # this will run commands after an install or update on a module
 def after_commands(filename,install_location):
