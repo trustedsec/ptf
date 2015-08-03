@@ -57,7 +57,7 @@ AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 
 ###Module Development:
 
-All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/<PTES_PHASE>/<TOOL_FOLDER>
+All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/PTES_PHASE/TOOL_FOLDER
 
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
 
