@@ -5,6 +5,7 @@ version 0.9.3
 * added powersploit to modules
 * removed old aircrack.py module, was a duplicate
 * added pykek to modules
+* added ikeforce to modules
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.2
