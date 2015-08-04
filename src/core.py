@@ -169,10 +169,11 @@ def module_parser(filename, term):
         if counter == 0:
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
-            print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
-            print_error("Check the module again for errors and try again.")
-            print_error("Module has been removed from the list.")
-            return None
+	    if term != "BYPASS_UPDATE":
+		    print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
+		    print_error("Check the module again for errors and try again.")
+		    print_error("Module has been removed from the list.")
+	    return None
 
     # if the file isn't there
     if not os.path.isfile(filename):

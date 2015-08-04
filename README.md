@@ -53,6 +53,8 @@ INSTALL_LOCATION="beef"
 
 DEBIAN="ruby1.9.3,sqlite3,ruby-sqlite3"
 
+BYPASS_UPDATE="NO"
+
 AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 
 ###Module Development:
@@ -60,6 +62,10 @@ AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/PTES_PHASE/TOOL_FOLDER
 
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
+
+###BYPASS UPDATES:
+
+When using traditional git or svn as a main method, what will happen after a module is installed is it will just go and grab the latest version of the tool. With after commands, normally when installing, you may need to run the after commands after each time you update. If you specify bypass updates to YES (BYPASS_UPDATE="YES"), each time the tool is run, it will check out the latest version and still run after commands. If this is marked to no, it will only git pull the latest version of the system. For "FILE" options, it is recommended to always use BYPASS_UPDATE="YES" so that it will overwrite the files each time.
 
 ###After Commands:
 

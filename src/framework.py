@@ -131,6 +131,9 @@ def use_module(module, all_trigger):
 			print_status("Tool not installed yet, will run through install routine")
 			prompt = "install"
 
+	# check to see if we need to bypass after commands for certain files - this is needed when using FILE and others where after commands need to be run
+        if module_parser(filename, "BYPASS_UPDATE").lower() == "yes": 
+        	prompt = "install"
 
         # if we are updating the tools
         if prompt.lower() == "update" or prompt.lower() == "upgrade":
@@ -199,7 +202,7 @@ def use_module(module, all_trigger):
                 if install_type.lower() == "file":
                     print_status("FILE was the selected method for installation... Using curl -o to install.")
                     repository_file = repository_location.split("/")[-1]
-                    proc = subprocess.Popen("curl -o %s%s %s" % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True)
+                    proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True)
                     status = proc.stderr.read().rstrip()
                     if "Warning" in status:
                         print_error("Install did not complete. Printing error:\n" + error)

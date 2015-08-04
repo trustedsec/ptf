@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.4
+~~~~~~~~~~~~~~~~~
+
+* added shellter av evasion as module and created custom sh launcher for shellter
+* create a new optional config option called BYPASS_UPDATE which by default, when updating (not installing) PTF will not run after commands. When using BYPASS_UPDATE, this will mark the folder for new install and run after commands. This is useful for tools that need after commands each time they are updated.
+* added bypass update to malingo which is a FILE format. Also cleaned up old tar ball after install
+
+~~~~~~~~~~~~~~~~~
 version 0.9.3
 ~~~~~~~~~~~~~~~~~
 
