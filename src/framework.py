@@ -209,7 +209,18 @@ def use_module(module, all_trigger):
                     else:
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         after_commands(filename,install_location)
-
+                        
+                # if we are using wget
+                if install_type.lower() == "wget":
+                    print_status("WGET was the selected method for installation because it plays better that curl -l with Sourceforge.")
+                    proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                    status = proc.stdout.read()
+                    if "Warning" in status:
+                        print_error("Install did not complete. Printing error:\n" + error)
+                    else:
+                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                        after_commands(filename,install_location)
+                        
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	
 
