@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Justin Herman (JDogHerman)"
+AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update BackDoor Factor (BDF) - AV Bypass"
