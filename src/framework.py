@@ -180,21 +180,15 @@ def use_module(module, all_trigger):
 
                 if install_type.lower() == "git":
                     print_status("GIT was the selected method for installation... Using GIT to install.")
-                    proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
-
-                    # if there were errors
-                    error = proc.stderr.read().rstrip()
-		    #print error
-                    if not "Cloning into" in error:
-                        print_error("Install did not complete. Printing error:\n" + error)
-                    else:
-                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-   			after_commands(filename,install_location)
+		    print_status("Installing now.. be patient...")
+                    proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
+                    print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+   		    after_commands(filename,install_location)
 
 		# if we are using svn
                 if install_type.lower() == "svn":
                     print_status("SVN was the selected method for installation... Using SVN to install.")
-                    proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True)
+                    proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
 
@@ -202,24 +196,24 @@ def use_module(module, all_trigger):
                 if install_type.lower() == "file":
                     print_status("FILE was the selected method for installation... Using curl -o to install.")
                     repository_file = repository_location.split("/")[-1]
-                    proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True)
-                    status = proc.stderr.read().rstrip()
-                    if "Warning" in status:
-                        print_error("Install did not complete. Printing error:\n" + error)
-                    else:
-                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename,install_location)
+                    proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
+                    #status = proc.stderr.read().rstrip()
+                    #if "Warning" in status:
+                    #    print_error("Install did not complete. Printing error:\n" + error)
+                    #else:
+                    print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                    after_commands(filename,install_location)
                         
                 # if we are using wget
                 if install_type.lower() == "wget":
                     print_status("WGET was the selected method for installation because it plays better that curl -l with Sourceforge.")
-                    proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                    proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                     status = proc.stdout.read()
-                    if "Warning" in status:
-                        print_error("Install did not complete. Printing error:\n" + error)
-                    else:
-                        print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename,install_location)
+                    #if "Warning" in status:
+                    #    print_error("Install did not complete. Printing error:\n" + error)
+                    #else:
+                    print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                    after_commands(filename,install_location)
                         
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	
