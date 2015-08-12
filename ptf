@@ -31,13 +31,12 @@ if os.geteuid() != 0:
 
 try:	
 	# Bypass network check with argument
-	if not "--no-network-check" in sys.argv[1:]:
+	if not "--no-network-connection" in sys.argv[1:]:
 	        # check internet connection
 	        if check_internet() == 0:
 	                print ("[!] Unable to detect Internet connection. Needed for PTF.")
 	               	print ("[!] We will now exit PTF. Launch again when you got a connection.")
 	               	print ("[!] You can also run ptf with the --no-network-connection argument to bypass the network check.")
-	               	print ("[!] You can also run ptf with the --no-network-connection agument to bypass the network check.")
 			sys.exit()
 
 		# try to update ourself first

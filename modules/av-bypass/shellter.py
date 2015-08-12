@@ -27,3 +27,7 @@ BYPASS_UPDATE="YES"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},unzip -j -o shellter.zip,rm shellter.zip,echo '#/bin/sh' > shellter.sh,echo 'wine shellter.exe' >> shellter.sh,chmod +x shellter.sh"
+
+# THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
+LAUNCHER="shellter"
+

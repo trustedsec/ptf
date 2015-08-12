@@ -57,6 +57,8 @@ BYPASS_UPDATE="NO"
 
 AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 
+LAUNCHER="beef"
+
 ###Module Development:
 
 All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/PTES_PHASE/TOOL_FOLDER
@@ -74,6 +76,12 @@ After commands are commands that you can insert after an installation. This coul
 AFTER_COMMANDS="cp config/dict/rockyou.txt {INSTALL_LOCATION}"
 
 For AFTER_COMMANDS that do self install (don't need user interaction).
+
+###Automatic Launchers
+
+The flag LAUNCHER= in modules is optional. If you add LAUNCHER="setoolkit" for example, PTF will automatically create a launcher for the tool under /usr/local/bin/. In the setoolkit example, when run - PTF will automatically create a file under /usr/local/bin/setoolkit so you can launch SET from anywhere by simply typing setoolkit. All files will still be installed under the appropriate categories, for example /pentest/exploitation/setoolkit however an automatic launcher will be created.
+
+You can have multiple launchers for an application - for example Metasploit you may want msfconsole, msfvenom, etc. etc. In order to add multiple ones, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
 
 #TODO:
 

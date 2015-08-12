@@ -77,7 +77,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9.3"
+grab_version = "0.9.6"
 
 # banner
 banner = bcolors.RED + r"""
@@ -243,6 +243,62 @@ def after_commands(filename,install_location):
 		after_commands(commands)
 		print_status("Completed running after commands routine..")
 
+# launcher - create launcher under /usr/local/bin
+def launcher(filename, install_location):
+	launcher = module_parser(filename, "LAUNCHER")
+	if launcher != "":
+		# create a launcher if it doesn't exist
+		if "," in launcher: launcher = launcher.split(",")
+		for launchers in launcher:
+			# means theres only one command
+			if len(launchers) == 1: launchers = launcher
+
+			if not os.path.isfile("/usr/local/bin/" + launchers):
+
+				# base launcher filename
+				point = ""
+
+				# make sure the actual launcher is there with known filetypes
+				if os.path.isfile(install_location + "/" + launchers):
+					# specific launcher file
+					point = "./" + launchers
+					file_point = launchers
+
+				# check for Python
+				if os.path.isfile(install_location + "/" + launchers + ".py"):
+					point = "./" + launchers + ".py"
+					file_point = launchers + ".py"
+
+				# check for Ruby
+				if os.path.isfile(install_location + "/" + launchers + ".rb"):
+					point = "./" + launchers + ".rb"
+					file_point = launchers + ".rb"
+
+				# check for Perl - ew Perl. Ew ew ew ew ew ew =)
+				if os.path.isfile(install_location + "/" + launchers + ".pl"):
+					point = "./" + launchers + ".pl"
+					file_point = launchers + ".pl"
+
+				# check for bash
+				if os.path.isfile(install_location + "/" + launchers + ".sh"):
+					point = "./" + launchers + ".sh"
+					file_point = launchers + ".sh"
+
+				# check of executable, then flag wine
+				if os.path.isfile(install_location + "/" + launchers + ".exe"):
+					point = "wine " + launchers + ".exe"				
+					file_point = launchers + ".exe"
+
+				# if we found filetype
+				if point != "":					
+					filewrite = file("/usr/local/bin/" + launchers, "w")
+					filewrite.write("#!/bin/sh\ncd %s\nchmod +x %s\n%s" % (install_location,file_point,point))
+					filewrite.close()
+					subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
+					print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
+
+			# just need to do this once
+			if len(launchers) == 1: break
 
 # search functionality here
 def search(term):
@@ -267,6 +323,5 @@ def search(term):
 		print_status("Search results below:")
 	        for modules in module_files:
 	                print modules
-
 
 	else: print_warning("Search found no results.")

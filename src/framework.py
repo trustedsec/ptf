@@ -149,6 +149,9 @@ def use_module(module, all_trigger):
 		    if prompt != "update":
 	                    after_commands(filename,install_location)
 
+                    # check launcher
+		    launcher(filename, install_location)
+
                 if install_type.lower() == "svn":
                     print_status("Updating the tool, be patient while git pull is initiated.")
 			
@@ -158,8 +161,12 @@ def use_module(module, all_trigger):
 		    if prompt != "update":
 	                    after_commands(filename,install_location)
 
+		    # check launcher
+		    launcher(filename, install_location)		
+
             if not os.path.isdir(install_location):
                 print_error("The tool was not found in the install location. Try running install first!")
+
 
         # if we want to install it
         if prompt.lower() == "install":
@@ -184,6 +191,7 @@ def use_module(module, all_trigger):
                     proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
    		    after_commands(filename,install_location)
+		    launcher(filename, install_location)
 
 		# if we are using svn
                 if install_type.lower() == "svn":
@@ -191,6 +199,7 @@ def use_module(module, all_trigger):
                     proc = subprocess.Popen("svn co %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
+		    launcher(filename, install_location)
 
 	        # if we are using file
                 if install_type.lower() == "file":
@@ -199,14 +208,16 @@ def use_module(module, all_trigger):
                     proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
-                        
+		    launcher(filename, install_location)                        
+
                 # if we are using wget
                 if install_type.lower() == "wget":
                     print_status("WGET was the selected method for installation because it plays better that curl -l with Sourceforge.")
                     proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
-                        
+		    launcher(filename, install_location)                        
+
 	# if we update all we need to break out until finished
 	if int(all_trigger) == 1: break	
 

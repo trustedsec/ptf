@@ -1,4 +1,20 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.6
+~~~~~~~~~~~~~~~~~
+
+* fixed --no-network-connection when launching ptf
+* removed duplicate print statement for PTF check
+* added new module variable called launcher - this will allow you to create automatic launchers in /usr/local/bin when installation completes so you can launch a tool from anywhere - this is an optional flag
+* added launcher to SET
+* added launcher to Metasploit
+* added launcher to BeEF 
+* added launcher to Responder
+* added checks for launcher to see if filetype exists for .rb, .py, .sh, and .pl
+* added launcher to unicorn
+* added launcher to shellter
+* added ability to specify exe, if exe specified, will launch wine
+
+~~~~~~~~~~~~~~~~~
 version 0.9.5
 ~~~~~~~~~~~~~~~~~
 
