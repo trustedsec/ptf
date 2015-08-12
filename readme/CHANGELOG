@@ -2,7 +2,8 @@
 version 0.9.5
 ~~~~~~~~~~~~~~~~~
 
-* fixed metasploit install
+* fixed metasploit install automation
+* removed setup.sh automation on discover since it automatically adds kali linux to distros - breaks other non-kali instances. Contacted Lee to see if we can get fixed.
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.4
