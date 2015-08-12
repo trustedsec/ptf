@@ -184,8 +184,8 @@ def use_module(module, all_trigger):
 
                     # if there were errors
                     error = proc.stderr.read().rstrip()
-		    print error
-                    if error != "":
+		    #print error
+                    if not "Cloning into" in error:
                         print_error("Install did not complete. Printing error:\n" + error)
                     else:
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
