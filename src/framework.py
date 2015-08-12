@@ -208,7 +208,7 @@ def use_module(module, all_trigger):
                 if install_type.lower() == "wget":
                     print_status("WGET was the selected method for installation because it plays better that curl -l with Sourceforge.")
                     proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
-                    status = proc.stdout.read()
+                    #status = proc.stdout.read()
                     #if "Warning" in status:
                     #    print_error("Install did not complete. Printing error:\n" + error)
                     #else:
