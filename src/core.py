@@ -77,7 +77,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9.6"
+grab_version = "0.9.7"
 
 # banner
 banner = bcolors.RED + r"""
