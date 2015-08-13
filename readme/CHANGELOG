@@ -13,6 +13,8 @@ version 0.9.6
 * added launcher to unicorn
 * added launcher to shellter
 * added ability to specify exe, if exe specified, will launch wine
+* fixed metasploit launcher installer
+* added randomized funny banner
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.5

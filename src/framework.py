@@ -13,9 +13,13 @@ import time
 # print the main welcome banner
 print banner
 
+# funny random banner
+import random
+funny = random.sample(["Aliens","Clowns", "Mr. Robot", "Zero Cool", "Goats", "Hackers", "Unicorns"], 1)[0]
+
 print_status("Operating system detected as: " + bcolors.BOLD + profile_os() + bcolors.ENDC)
 # main intro here
-print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + "Aliens." + bcolors.ENDC)
+print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + funny + bcolors.ENDC)
 print """
 For a list of available commands type ? or help
 """
@@ -148,9 +152,19 @@ def use_module(module, all_trigger):
 		    # run after commands
 		    if prompt != "update":
 	                    after_commands(filename,install_location)
+			    # special metasploit voodoo needed here
+		    	    if os.path.isfile(install_location + "/msfconsole"):
+				cwd = os.getcwd()
+				os.chdir(install_location)
+				print_status("Needing to perform special Metasploit voodoo to get launcher to work.. Wait for another bundle install...")
+				subprocess.Popen("bundle install", shell=True).wait()
+				print_status("Sacrifice to the ruby Gods complete. MSF should now work outside of the msf directory structure..")
+				os.chdir(cwd)	
 
                     # check launcher
 		    launcher(filename, install_location)
+
+		
 
                 if install_type.lower() == "svn":
                     print_status("Updating the tool, be patient while git pull is initiated.")
