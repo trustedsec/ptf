@@ -157,7 +157,7 @@ def use_module(module, all_trigger):
 				cwd = os.getcwd()
 				os.chdir("/usr/local/bin")
 				print_status("Needing to perform special Metasploit voodoo to get launcher to work.. Wait for another bundle install...")
-				subprocess.Popen("cd /%s;bundle install" % (install_location), shell=True).wait()
+				subprocess.Popen("cd /%s;bundle install;rm -rf /usr/local/rvm/gems/ruby-2.2.2/bin/msf*" % (install_location), shell=True).wait()
 				print_status("Sacrifice to the ruby Gods complete. MSF should now work outside of the msf directory structure..")
 				os.chdir(cwd)	
 
