@@ -77,7 +77,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9.7"
+grab_version = "0.9.8"
 
 # banner
 banner = bcolors.RED + r"""
@@ -170,6 +170,7 @@ def module_parser(filename, term):
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
 	    if term != "BYPASS_UPDATE":
+		if term !="LAUNCHER":
 		    print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
 		    print_error("Check the module again for errors and try again.")
 		    print_error("Module has been removed from the list.")
@@ -246,6 +247,9 @@ def after_commands(filename,install_location):
 # launcher - create launcher under /usr/local/bin
 def launcher(filename, install_location):
 	launcher = module_parser(filename, "LAUNCHER")
+
+	# if its optional
+	if launcher == None: launcher = ""
 	if launcher != "":
 		# create a launcher if it doesn't exist
 		if "," in launcher: launcher = launcher.split(",")

@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.8
+~~~~~~~~~~~~~~~~~
+
+* fixed when a launcher is not found, keep working
+
+~~~~~~~~~~~~~~~~~
 version 0.9.7
 ~~~~~~~~~~~~~~~~~
 
