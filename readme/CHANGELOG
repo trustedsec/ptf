@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.7
+~~~~~~~~~~~~~~~~~
+
+* re-added setup.sh, Lee fixed setup.sh (thanks man!)
+* more metasploit work getting paths to work properly
+
+~~~~~~~~~~~~~~~~~
 version 0.9.6
 ~~~~~~~~~~~~~~~~~
 

@@ -155,9 +155,9 @@ def use_module(module, all_trigger):
 			    # special metasploit voodoo needed here
 		    	    if os.path.isfile(install_location + "/msfconsole"):
 				cwd = os.getcwd()
-				os.chdir(install_location)
+				os.chdir("/usr/local/bin")
 				print_status("Needing to perform special Metasploit voodoo to get launcher to work.. Wait for another bundle install...")
-				subprocess.Popen("bundle install", shell=True).wait()
+				subprocess.Popen("cd /%s;bundle install" % (install_location), shell=True).wait()
 				print_status("Sacrifice to the ruby Gods complete. MSF should now work outside of the msf directory structure..")
 				os.chdir(cwd)	
 
