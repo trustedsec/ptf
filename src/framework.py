@@ -136,8 +136,10 @@ def use_module(module, all_trigger):
 			prompt = "install"
 
 	# check to see if we need to bypass after commands for certain files - this is needed when using FILE and others where after commands need to be run
+	print prompt
         if module_parser(filename, "BYPASS_UPDATE") == "YES": 
-        	prompt = "install"
+		if prompt.lower() == "update":
+	        	prompt = "install"
 
         # if we are updating the tools
         if prompt.lower() == "update" or prompt.lower() == "upgrade":

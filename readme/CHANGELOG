@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.10
+~~~~~~~~~~~~~~~~~
+
+* removed extra aircrackng under exploitation
+* added launchers for a number of other tools
+* fixed issue when BYPASS_UPDATE was in place, any command would trigger install and update
+* updated malingo module to v2.4
+* created automatic launcher for commix
+* improved tab completion added to automatically add forward slash to tab and remove ending tab upon successful module find
+
+~~~~~~~~~~~~~~~~~
 version 0.9.9
 ~~~~~~~~~~~~~~~~~
 

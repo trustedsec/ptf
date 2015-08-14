@@ -10,7 +10,9 @@ import glob
 
 # tab completion
 def complete(text, state):
-	return (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "")
+	a =  (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
+	if os.path.isfile(a[:-1] + ".py"): return a[:-1]
+	else: return a
 
 readline.set_completer_delims(' \t\n;')
 readline.parse_and_bind("tab: complete")
@@ -77,7 +79,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9.9"
+grab_version = "0.9.10"
 
 # banner
 banner = bcolors.RED + r"""
@@ -112,7 +114,7 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		 """ + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
+banner += """        		""" + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """GitDatShiny""" + "\n"
 
