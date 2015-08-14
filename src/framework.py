@@ -259,6 +259,11 @@ while 1:
         base_counter = 1
         show_module()
 
+    # inside joke
+    if prompt == "install sleeves":
+	print_error("Scott White? Sleeves? F Sleeves. Scott Rules.")
+	base_counter = 1
+
     # search functionality here
     if prompt.startswith("search"):
         base_counter = 1
