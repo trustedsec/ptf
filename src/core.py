@@ -79,7 +79,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "0.9.10"
+grab_version = "0.9.11"
 
 # banner
 banner = bcolors.RED + r"""
@@ -187,7 +187,7 @@ def show_help_menu():
     print "Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" + bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC
     print "Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," + bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC
     print "Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC+ "," + bcolors.BOLD + " help" + bcolors.ENDC + "," + bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC
-    print "Update or Install: "+ bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" + bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC
+    print "Update or Install: "+ bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" + bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC
 
 # exit message for PTF
 def exit_ptf():
@@ -310,21 +310,29 @@ def launcher(filename, install_location):
 def search(term):
 	term = term.replace("search ", "")
         module_files = []
-        for dirpath, subdirs, files in os.walk("modules/"):
-            for x in files:
-                if x.endswith(".py"):
-                    if not "__init__.py" in x:
-                                path = os.path.join(dirpath, x)
-                                if term in path:
-                                        x = x.replace(".py", "")
-                                        module_files.append(os.path.join(dirpath, x))
+	if "update" in term or "install" in term:
+		module_files.append("modules/install_update_all")
 
-                                if not term in path:
-                                        data = file(path, "r").read()
-                                        if term in data:
-                                                x = x.replace(".py", "")
-                                                module_files.append(os.path.join(dirpath, x))
-
+	else:
+	        for dirpath, subdirs, files in os.walk("modules/"):
+	            for x in files:
+	                if x.endswith(".py"):
+	                    if not "__init__.py" in x:
+	                                path = os.path.join(dirpath, x)
+	                                if term in path:
+	                                        x = x.replace(".py", "")
+	                                        module_files.append(os.path.join(dirpath, x))
+	
+	                                if not term in path:
+	                                        data = file(path, "r").readlines()
+						# normally just searched entire file, but we don't want to search # lines
+						for line in data:
+							line = line.rstrip()
+		                                        if term in line:
+								if not line.startswith("#"):
+			                                        	x = x.replace(".py", "")
+	                		                        	module_files.append(os.path.join(dirpath, x))
+									break
 	if module_files != []:
 		print_status("Search results below:")
 	        for modules in module_files:

@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 0.9.11
+~~~~~~~~~~~~~~~~~
+
+* removed set.py and renamed to setoolkit.py
+* enhanced search functionality to not search for commented out # within files and also added a search "install" or "update" which will return the module for update_all
+
+~~~~~~~~~~~~~~~~~
 version 0.9.10
 ~~~~~~~~~~~~~~~~~
 
