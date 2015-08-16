@@ -56,9 +56,11 @@ def show_module():
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
 
-    if not "install_Update_all" in module:
-	    # if we are using a normal module
-	    if int(all_trigger) == 0 or int(all_trigger) == 1:
+  # if we aren't using all
+  if not "install_update_all" in module:
+
+    # if we are using a normal module
+    if int(all_trigger) == 0 or int(all_trigger) == 1:
 	        filename = definepath() + "/" + module + ".py"
 	
 	        # grab the author
@@ -82,7 +84,7 @@ def use_module(module, all_trigger):
 	        module_split = module.split("/")
 	        module_split = module_split[1]
 	        install_location = base_install + "/" + module_split + "/" + install_base_location + "/"
-
+    
     while 1:
 
 	# if we aren't doing update/install all
@@ -96,7 +98,7 @@ def use_module(module, all_trigger):
 
 	        if prompt == "show modules": print_warning("In order to show modules, you must type 'back' first")
 
-		# if we are searchign for something
+		# if we are searching for something
 		if "search " in prompt: search(prompt)
 
         	# options menu - was a choice here to load upon initial load of dynamically pull each time
@@ -303,11 +305,10 @@ while 1:
 							# update depend modules
 							ostype = profile_os()
 							if ostype == "DEBIAN":
-								# we don't need to pull this file install_update_all
 								if not "install_update_all" in filename_short:
-						                	from src.platforms.debian import base_install_modules
-	                    						# grab all the modules we need
-	                    						deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
+							                from src.platforms.debian import base_install_modules
+		                    					# grab all the modules we need
+		                    					deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
 
 			# install all of the packages at once
 			ostype = profile_os()
@@ -322,15 +323,14 @@ while 1:
                                         filename = os.path.join(path, name)
                                         # strip un-needed files
                                         if not "__init__.py" in filename:
-						if not "install_update_all" in filename:
-                                                        # shorten it up a little bit
-                                                        filename_short = filename.replace(os.getcwd() + "/", "")
-                                                        filename_short = filename_short.replace(".py", "")
-                                                        print_status("Installing and/or updating: " + filename_short)
-                                                        # run the module for install
-                                                        use_module(filename_short, "1")
-							# sleep a sec
-							time.sleep(0.2)
+                                        	# shorten it up a little bit
+                                                filename_short = filename.replace(os.getcwd() + "/", "")
+                                                filename_short = filename_short.replace(".py", "")
+                                                print_status("Installing and/or updating: " + filename_short)
+                                                # run the module for install
+                                                use_module(filename_short, "1")
+						# sleep a sec
+						time.sleep(0.2)
 
 			# clear the screen
 			os.system("clear")
