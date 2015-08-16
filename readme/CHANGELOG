@@ -4,6 +4,8 @@ version 0.9.11
 
 * removed set.py and renamed to setoolkit.py
 * enhanced search functionality to not search for commented out # within files and also added a search "install" or "update" which will return the module for update_all
+* added auto update feature that will update debian/ubuntu/kali packages automatically for you if it is turned on. By default it is on, you can turn this off by editing config/ptf.config and turning AUTO_UPDATE to off.
+* changed wine to wine /c cmd start <program> instead of just wine
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.10

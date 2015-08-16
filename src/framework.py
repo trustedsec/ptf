@@ -282,6 +282,10 @@ while 1:
 		counter = 3
 		install_query = raw_input("[*] You are about to install/update everything. Proceed? [yes/no]:")
 		if install_query.lower() == "yes" or install_query.lower() == "y":
+
+			# do auto update check first
+			auto_update()
+
 			modules_path = definepath() + "/modules/"
 			# base holder for all debian packages
 			deb_modules = ""
