@@ -41,7 +41,7 @@ def show_module():
             # join the structure
             filename = os.path.join(path, name)
             # strip un-needed files
-            if not "__init__.py" in filename:
+            if not "__init__.py" in filename or not "install_update_all":
                 # shorten it up a little bit
                 filename_short = filename.replace(os.getcwd() + "/", "")
                 filename_short = filename_short.replace(".py", "")
@@ -56,31 +56,32 @@ def show_module():
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
 
-    # if we are using a normal module
-    if int(all_trigger) == 0 or int(all_trigger) == 1:
-        filename = definepath() + "/" + module + ".py"
+    if not "install_Update_all" in module:
+	    # if we are using a normal module
+	    if int(all_trigger) == 0 or int(all_trigger) == 1:
+	        filename = definepath() + "/" + module + ".py"
+	
+	        # grab the author
+		try:
+		        author = module_parser(filename, "AUTHOR")
+	
+		except TypeError: author = "Invalid"
+	
+	        # grab the description
+	        description = module_parser(filename, "DESCRIPTION")
+	
+		# grab install type
+	        install_type = module_parser(filename, "INSTALL_TYPE")
 
-        # grab the author
-	try:
-	        author = module_parser(filename, "AUTHOR")
-
-	except TypeError: author = "Invalid"
-
-        # grab the description
-        description = module_parser(filename, "DESCRIPTION")
-
-        # grab install type
-        install_type = module_parser(filename, "INSTALL_TYPE")
-
-        # grab repository location
-        repository_location = module_parser(filename, "REPOSITORY_LOCATION")
-
-        # grab install path
-        base_install = check_config("BASE_INSTALL_PATH=")
-        install_base_location = module_parser(filename, "INSTALL_LOCATION")
-        module_split = module.split("/")
-        module_split = module_split[1]
-        install_location = base_install + "/" + module_split + "/" + install_base_location + "/"
+	        # grab repository location
+	        repository_location = module_parser(filename, "REPOSITORY_LOCATION")
+	
+	        # grab install path
+	        base_install = check_config("BASE_INSTALL_PATH=")
+	        install_base_location = module_parser(filename, "INSTALL_LOCATION")
+	        module_split = module.split("/")
+	        module_split = module_split[1]
+	        install_location = base_install + "/" + module_split + "/" + install_base_location + "/"
 
     while 1:
 
@@ -136,7 +137,6 @@ def use_module(module, all_trigger):
 			prompt = "install"
 
 	# check to see if we need to bypass after commands for certain files - this is needed when using FILE and others where after commands need to be run
-	print prompt
         if module_parser(filename, "BYPASS_UPDATE") == "YES": 
 		if prompt.lower() == "update":
 	        	prompt = "install"
@@ -303,9 +303,11 @@ while 1:
 							# update depend modules
 							ostype = profile_os()
 							if ostype == "DEBIAN":
-					                	from src.platforms.debian import base_install_modules
-                    						# grab all the modules we need
-                    						deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
+								# we don't need to pull this file install_update_all
+								if not "install_update_all" in filename_short:
+						                	from src.platforms.debian import base_install_modules
+	                    						# grab all the modules we need
+	                    						deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
 
 			# install all of the packages at once
 			ostype = profile_os()
@@ -320,6 +322,7 @@ while 1:
                                         filename = os.path.join(path, name)
                                         # strip un-needed files
                                         if not "__init__.py" in filename:
+						if not "install_update_all" in filename:
                                                         # shorten it up a little bit
                                                         filename_short = filename.replace(os.getcwd() + "/", "")
                                                         filename_short = filename_short.replace(".py", "")

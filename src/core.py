@@ -11,6 +11,7 @@ import glob
 # tab completion
 def complete(text, state):
 	a =  (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
+	a = a.replace("modules//", "modules/")
 	if os.path.isfile(a[:-1] + ".py"): return a[:-1]
 	else: return a
 
@@ -148,7 +149,7 @@ def check_config(param):
 def module_parser(filename, term):
 
     # if the file exists
-    if os.path.isfile(filename):
+    if os.path.isfile(filename) and not "install_update_all" in filename:
 
         # set a base counter
         counter = 0
@@ -173,9 +174,10 @@ def module_parser(filename, term):
             filename_short = filename_short.replace(".py", "")
 	    if term != "BYPASS_UPDATE":
 		if term !="LAUNCHER":
-		    print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
-		    print_error("Check the module again for errors and try again.")
-		    print_error("Module has been removed from the list.")
+		    if filename_short != "install_update_all":
+			    print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
+			    print_error("Check the module again for errors and try again.")
+			    print_error("Module has been removed from the list.")
 	    return None
 
     # if the file isn't there
