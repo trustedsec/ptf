@@ -4,6 +4,7 @@ version 0.9.12
 
 * added owasp zsc to post exploitation
 * added crackmapexec to vulnerability analysis
+* fixed malingo module to 2.4
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.11
