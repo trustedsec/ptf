@@ -3,6 +3,7 @@ version 0.9.12
 ~~~~~~~~~~~~~~~~~
 
 * added owasp zsc to post exploitation
+* added crackmapexec to vulnerability analysis
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.11
