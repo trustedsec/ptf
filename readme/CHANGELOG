@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.0
+~~~~~~~~~~~~~~~~~
+
+* added automatic updates to gems when updating Metasploit
+* fixed ffi bundle install error when building gems for Metasploit - missing libgmp-dev
+* re-added launchers to /usr/local/bin/for metasploit
+* fixed multiple modules using commas (wasn't a problem, just for consistency)
+* added stub in src/framework.py for Metasploit to update gem installers on update
+* fixed malingo module to properly copy and remove old files
+
+~~~~~~~~~~~~~~~~~
 version 0.9.12
 ~~~~~~~~~~~~~~~~~
 

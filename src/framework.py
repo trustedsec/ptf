@@ -167,8 +167,15 @@ def use_module(module, all_trigger):
 
                     # check launcher
 		    launcher(filename, install_location)
-
-		
+		    
+                    # special for Metasploit
+	            if "metasploit" in filename:
+			if prompt == "update":
+				print_status("Ensuring libgmp-dev is installed for ffi...")
+				subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
+				print_status("Updating gem packages for Metasploit....")
+				subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
+				print_status("Finished updating Metasploit.... Enjoy!")
 
                 if install_type.lower() == "svn":
                     print_status("Updating the tool, be patient while git pull is initiated.")
