@@ -235,7 +235,6 @@ def use_module(module, all_trigger):
                     print_status("FILE was the selected method for installation... Using curl -o to install.")
                     repository_file = repository_location.split("/")[-1]
                     proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
-		    time.sleep(1)
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
 		    launcher(filename, install_location)                        
