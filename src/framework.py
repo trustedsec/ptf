@@ -131,6 +131,10 @@ def use_module(module, all_trigger):
 
 	# if we are using run, check first to see if its there, if so, do an upgrade
 	if prompt.lower() == "run":
+
+	        # check if empty directory - if so purge it before anything else
+                check_blank_dir(install_location)
+
 		if os.path.isdir(install_location):
 			print_status("Detected installation already. Going to upgrade for you.")
 			prompt = "update"
@@ -179,7 +183,6 @@ def use_module(module, all_trigger):
 
                 if install_type.lower() == "svn":
                     print_status("Updating the tool, be patient while git pull is initiated.")
-			
                     proc = subprocess.Popen("cd %s;svn update" % (install_location), stderr=subprocess.PIPE, shell=True)
                     print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                     # run after commands
@@ -195,6 +198,7 @@ def use_module(module, all_trigger):
 
         # if we want to install it
         if prompt.lower() == "install":
+
                 # grab the OS type, DEBIAN, CUSTOM, ETC
                 ostype = profile_os()
 
@@ -231,6 +235,7 @@ def use_module(module, all_trigger):
                     print_status("FILE was the selected method for installation... Using curl -o to install.")
                     repository_file = repository_location.split("/")[-1]
                     proc = subprocess.Popen('curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
+		    time.sleep(1)
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
 		    launcher(filename, install_location)                        
@@ -333,6 +338,8 @@ while 1:
                                         	# shorten it up a little bit
                                                 filename_short = filename.replace(os.getcwd() + "/", "")
                                                 filename_short = filename_short.replace(".py", "")
+			                        # check if empty directory - if so purge it before anything else
+                        			check_blank_dir(path)
                                                 print_status("Installing and/or updating: " + filename_short)
                                                 # run the module for install
                                                 use_module(filename_short, "1")

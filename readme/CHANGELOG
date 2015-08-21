@@ -9,6 +9,7 @@ version 1.0
 * added stub in src/framework.py for Metasploit to update gem installers on update
 * fixed malingo module to properly copy and remove old files
 * added automatic creation of ptf launcher - you can now run ptf from any directory
+* added a check for a stale directory - if the directory doesn't fully download or is empty, it will automatically purge the directory and re-install
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.12

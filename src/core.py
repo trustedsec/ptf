@@ -354,3 +354,14 @@ def auto_update():
 		print_status("Finished with normal package updates, moving on to the tools section..")
 	else:
 		print_status("Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
+
+# check if a blank directory exists
+def check_blank_dir(path):
+	if os.path.isdir(path):
+		if os.listdir(path) == []:
+			print_status("Detected an empty folder, purging and re-checking out...") 
+			subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
+
+		if os.listdir(path) == ['.git', '.gitignore']:
+			print_status("Detected an empty folder, purging and re-checking out...")
+			subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
