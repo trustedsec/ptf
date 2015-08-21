@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 1.0.1
+~~~~~~~~~~~~~~~~~
+
+* removed ruby gemspec launchers per issue https://github.com/rapid7/metasploit-framework/issues/4602 - addressed by removing when updating Metasploit
+
+~~~~~~~~~~~~~~~~~
 version 1.0
 ~~~~~~~~~~~~~~~~~
 
