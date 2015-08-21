@@ -8,6 +8,7 @@ version 1.0
 * fixed multiple modules using commas (wasn't a problem, just for consistency)
 * added stub in src/framework.py for Metasploit to update gem installers on update
 * fixed malingo module to properly copy and remove old files
+* added automatic creation of ptf launcher - you can now run ptf from any directory
 
 ~~~~~~~~~~~~~~~~~
 version 0.9.12

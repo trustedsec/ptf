@@ -11,6 +11,16 @@ import subprocess
 import os
 import socket
 
+# create launcher
+def create_launcher():
+	if not os.path.isfile("/usr/local/bin/ptf"):
+		print "[*] Creating an automatic launcher for PTF, you can now call command 'ptf' from anywhere in nix."
+		cwd = os.getcwd()
+		filewrite = file("/usr/local/bin/ptf", "w")
+		filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf" % (cwd))
+		filewrite.close()
+		subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
+
 # check for an Internet connection
 def check_internet():
         try:
@@ -43,6 +53,9 @@ try:
 		print "[*] Trying to update myself first.. Then starting framework."
 		subprocess.Popen("git pull", shell=True).wait()
 
+	# create automatic launcher
+	create_launcher()
+
 	# pull in the core library
 	from src.core import *
 
@@ -54,7 +67,7 @@ except KeyboardInterrupt:
 	exit()
 	sys.exit()
 
-except Exception, e:
-	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
-	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-	print ("[!] Printing that error. Get that error. You get it: " + str(e))
+#except Exception, e:
+#	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+#	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+#	print ("[!] Printing that error. Get that error. You get it: " + str(e))
