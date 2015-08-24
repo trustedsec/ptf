@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.0.3
+~~~~~~~~~~~~~~~~~
+
+* added ignore file for git (thanks KryptonSecurity)
+* new folder for code audit (thanks KryptonSecurity)
+* new module added java decompiler - CFR (Thanks KryptonSecurity)
+* new module added flawfinder - static code analysis for C/C++ (thanks KryptonSecurity)
+* new module added RATS - static code analysis for C/C++ (thanks KryptonSecurity)
+* fixed missing dependency for inception module (thanks KryptonSecurity)
+
+~~~~~~~~~~~~~~~~~
 version 1.0.2
 ~~~~~~~~~~~~~~~~~
 
