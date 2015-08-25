@@ -21,6 +21,8 @@ First check out the config/ptf.config file which contains the base location of w
 
 This will put you in a Metasploitesque type shell which has a similar look and feel for consistency. Show modules, use <modules>, etc. are all accepted commands. First things first, always type help or ? to see a full list of commands.
 
+For a video tutorial on how to use PTF, check out our Vimeo page here: https://vimeo.com/137133837
+
 ###Update EVERYTHING!
 
 If you want to install and/or update everything, simply do the following:

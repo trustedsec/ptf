@@ -64,6 +64,7 @@ try:
 
 except KeyboardInterrupt:
 	print "\n"
+	print "[*] Exiting PTF - the easy pentest platform creation framework."
 	exit()
 	sys.exit()
 
