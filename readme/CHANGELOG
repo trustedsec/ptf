@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.0.4
+~~~~~~~~~~~~~~~~~
+
+* updated launchers to handle command line arguments (./<tool> $*) - thanks to tdelagrange
+* added automatic overwrite of launchers in order to force updates to launchers when needed
+
+~~~~~~~~~~~~~~~~~
 version 1.0.3
 ~~~~~~~~~~~~~~~~~
 

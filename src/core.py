@@ -80,7 +80,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "1.0.3"
+grab_version = "1.0.4"
 
 # banner
 banner = bcolors.RED + r"""
@@ -255,12 +255,18 @@ def launcher(filename, install_location):
 	# if its optional
 	if launcher == None: launcher = ""
 	if launcher != "":
+		print launcher
 		# create a launcher if it doesn't exist
+		base_launcher = 0
 		if "," in launcher: launcher = launcher.split(",")
 		for launchers in launcher:
-			# means theres only one command
-			if len(launchers) == 1: launchers = launcher
 
+			# means there was just one launcher
+			if len(launchers) == 1: 
+				launchers = launcher
+				base_launcher = 1
+					
+			if os.path.isfile("/usr/local/bin/" + launchers): os.remove("/usr/local/bin/" + launchers)
 			if not os.path.isfile("/usr/local/bin/" + launchers):
 
 				# base launcher filename
@@ -300,13 +306,13 @@ def launcher(filename, install_location):
 				# if we found filetype
 				if point != "":					
 					filewrite = file("/usr/local/bin/" + launchers, "w")
-					filewrite.write("#!/bin/sh\ncd %s\nchmod +x %s\n%s" % (install_location,file_point,point))
+					filewrite.write("#!/bin/sh\ncd %s\nchmod +x %s\n%s $*" % (install_location,file_point,point))
 					filewrite.close()
 					subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
 					print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
 
 			# just need to do this once
-			if len(launchers) == 1: break
+			if base_launcher == 1: break
 
 # search functionality here
 def search(term):
