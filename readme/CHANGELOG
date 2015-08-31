@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.0.5
+~~~~~~~~~~~~~~~~~
+
+* fix for nmap (git pull)
+* add for medusa (git pull)
+
+~~~~~~~~~~~~~~~~~
 version 1.0.4
 ~~~~~~~~~~~~~~~~~
 
