@@ -220,6 +220,14 @@ def use_module(module, all_trigger):
                     deb_modules = module_parser(filename, "DEBIAN")
                     base_install_modules(deb_modules)
                     print_status("Pre-reqs for %s have been installed." % (module))
+		# if OSTYPE is ARCHLINUX
+                if ostype == "ARCHLINUX":
+                    print_status("Preparing dependencies for module: " + module) 
+                    from src.platforms.archlinux import base_install_modules
+                    # grab all the modules we need 
+                    arch_modules = module_parser(filename, "ARCHLINUX")
+                    base_install_modules(arch_modules) 
+                    print_status("Pre-reqs for %s have been installed." % (module)) 
 
                 print_status("Making the appropriate directory structure first")
                 subprocess.Popen("mkdir -p %s" % install_location, shell=True).wait()
@@ -330,6 +338,12 @@ while 1:
 							                from src.platforms.debian import base_install_modules
 		                    					# grab all the modules we need
 		                    					deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
+                                                        # archlinux
+                                                        if ostype == "ARCHLINUX":
+                                                            if not "install_update_all" in filename_short:
+                                                                from src.platforms.archlinux import base_install_modules
+                                                                # grab all the modules we need
+                                                                arch_modules = arch_modules + "," + module_parser(filename_short, "ARCHLINUX")
 
 			# install all of the packages at once
 			ostype = profile_os()
@@ -338,6 +352,10 @@ while 1:
 	                   	base_install_modules(deb_modules)
 	                    	print_status("Finished updating depends for modules.")
 
+                        if ostype == "ARCHLINUX":
+                            arch_modules = arch_modules.replace(",", " ")
+                            base_install_modules(arch_modules)
+                            print_status("Finished updating depends for modules.")
 			for path, subdirs, files in os.walk(modules_path):
 	                        for name in files:
                                         # join the structure
