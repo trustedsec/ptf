@@ -51,6 +51,8 @@ INSTALL_TYPE="GIT"
 
 REPOSITORY_LOCATION="https://github.com/beefproject/beef"
 
+X64_LOCATION="https://github.com/something_thats_x64_instead_of_x86
+
 INSTALL_LOCATION="beef"
 
 DEBIAN="ruby1.9.3,sqlite3,ruby-sqlite3"
@@ -66,6 +68,8 @@ LAUNCHER="beef"
 All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/PTES_PHASE/TOOL_FOLDER
 
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
+
+You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
 
 ###BYPASS UPDATES:
 

@@ -7,6 +7,7 @@ import subprocess
 import select
 import readline
 import glob
+import platform
 
 # tab completion
 def complete(text, state):
@@ -80,7 +81,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "1.0.5"
+grab_version = "1.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -115,7 +116,7 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		""" + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
+banner += """        		 """ + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """Tools-R-Us""" + "\n"
 
@@ -175,6 +176,7 @@ def module_parser(filename, term):
 	    if term != "BYPASS_UPDATE":
 		if term !="LAUNCHER":
 		    if filename_short != "install_update_all":
+			if term !="X64_LOCATION":
 			    print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
 			    print_error("Check the module again for errors and try again.")
 			    print_error("Module has been removed from the list.")
@@ -255,7 +257,6 @@ def launcher(filename, install_location):
 	# if its optional
 	if launcher == None: launcher = ""
 	if launcher != "":
-		print launcher
 		# create a launcher if it doesn't exist
 		base_launcher = 0
 		if "," in launcher: launcher = launcher.split(",")
@@ -371,3 +372,8 @@ def check_blank_dir(path):
 		if os.listdir(path) == ['.git', '.gitignore']:
 			print_status("Detected an empty folder, purging and re-checking out...")
 			subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
+
+# do platform detection on 32 or 64 bit
+def arch():
+	return str(platform.architecture()[0]) 
+

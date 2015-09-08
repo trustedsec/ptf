@@ -77,7 +77,15 @@ def use_module(module, all_trigger):
 
 	        # grab repository location
 	        repository_location = module_parser(filename, "REPOSITORY_LOCATION")
-	
+
+		# here we check if we need to do x86 or x64
+		if module_parser(filename, "X64_LOCATION") != None:
+			# grab architecture
+			print module_parser(filename, "X64_LOCATION")
+			arch_detect = arch()
+			if "64bit" in arch_detect:
+				repository_location = module_parser(filename, "X64_LOCATION")
+
 	        # grab install path
 	        base_install = check_config("BASE_INSTALL_PATH=")
 	        install_base_location = module_parser(filename, "INSTALL_LOCATION")

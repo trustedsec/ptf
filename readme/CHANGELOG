@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.1
+~~~~~~~~~~~~~~~~~
+
+* added new module option called X64_LOCATION which will pull a x64 bit image if they are available on the tool, updated documentation to reflect changes
+* removed unused print on tool when creating launcher
+
+~~~~~~~~~~~~~~~~~
 version 1.0.5
 ~~~~~~~~~~~~~~~~~
 
