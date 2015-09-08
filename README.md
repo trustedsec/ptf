@@ -9,7 +9,7 @@ https://www.trustedsec.com
 
 Twitter: @TrustedSec, @HackingDave
 
-The PenTesters Framework (PTF) is a Python script designed for Debian/Ubuntu based distributions to create a similar and familiar distribution for Penetration Testing. As pentesters, we've been accustom to the /pentest/ directories or our own toolsets that we want to keep up-to-date all of the time. We have those "go to" tools that we use on a regular basis, and using the latest and greatest is important.
+The PenTesters Framework (PTF) is a Python script designed for Debian/Ubuntu/ArchLinux based distributions to create a similar and familiar distribution for Penetration Testing. As pentesters, we've been accustom to the /pentest/ directories or our own toolsets that we want to keep up-to-date all of the time. We have those "go to" tools that we use on a regular basis, and using the latest and greatest is important.
 
 PTF attempts to install all of your penetration testing tools (latest and greatest), compile them, build them, and make it so that you can install/update your distribution on any machine. Everything is organized in a fashion that is cohesive to the Penetration Testing Execution Standard (PTES) and eliminates a lot of things that are hardly used. PTF simplifies installation and packaging and creates an entire pentest framework for you. Since this is a framework, you can configure and add as you see fit. We commonly see internally developed repos that you can use as well as part of this framework. It's all up to you.
 
@@ -57,6 +57,8 @@ INSTALL_LOCATION="beef"
 
 DEBIAN="ruby1.9.3,sqlite3,ruby-sqlite3"
 
+ARCHLINUX = "arch-module,etc"
+
 BYPASS_UPDATE="NO"
 
 AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
@@ -70,6 +72,8 @@ All of the fields are pretty easy, on the repository locations, you can use GIT,
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
 
 You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
+
+Note that ArchLinux packages are also supported, it needs to be specified for both DEBIAN and ARCH in order for it to be properly installed on either platform in the module
 
 ###BYPASS UPDATES:
 
@@ -88,7 +92,3 @@ For AFTER_COMMANDS that do self install (don't need user interaction).
 The flag LAUNCHER= in modules is optional. If you add LAUNCHER="setoolkit" for example, PTF will automatically create a launcher for the tool under /usr/local/bin/. In the setoolkit example, when run - PTF will automatically create a file under /usr/local/bin/setoolkit so you can launch SET from anywhere by simply typing setoolkit. All files will still be installed under the appropriate categories, for example /pentest/exploitation/setoolkit however an automatic launcher will be created.
 
 You can have multiple launchers for an application - for example Metasploit you may want msfconsole, msfvenom, etc. etc. In order to add multiple ones, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
-
-#TODO:
-
-* Support other operating systems aside from Kali, Ubuntu, Debian
