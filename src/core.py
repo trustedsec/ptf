@@ -204,7 +204,8 @@ def profile_os():
     # if we are running a debian variant
     if os.path.isfile("/etc/apt/sources.list"):
         return "DEBIAN"
-
+    if os.path.isfile("/etc/arch-release"):
+        return "ARCHLINUX"
     # will add support for more operating systems later
 
     # else use custom
