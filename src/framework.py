@@ -209,7 +209,7 @@ def use_module(module, all_trigger):
         # if we want to install it
         if prompt.lower() == "install":
 
-                # grab the OS type, DEBIAN, CUSTOM, ETC
+                # grab the OS type, DEBIAN, CUSTOM, BSD!!!! WOW!!, ETC
                 ostype = profile_os()
 
                 # if OSTYPE is DEBIAN
@@ -227,6 +227,15 @@ def use_module(module, all_trigger):
                     # grab all the modules we need 
                     arch_modules = module_parser(filename, "ARCHLINUX")
                     base_install_modules(arch_modules) 
+                    print_status("Pre-reqs for %s have been installed." % (module)) 
+
+		# if OSTYPE is OPENBSD
+                if ostype == "OPENBSD":
+                    print_status("Preparing dependencies for module: " + module) 
+                    from src.platforms.openbsd import base_install_modules
+                    # grab all the modules we need 
+                    openbsd_modules = module_parser(filename, "OPENBSD")
+                    base_install_modules(openbsd_modules) 
                     print_status("Pre-reqs for %s have been installed." % (module)) 
 
                 print_status("Making the appropriate directory structure first")
@@ -343,7 +352,13 @@ while 1:
                                                             if not "install_update_all" in filename_short:
                                                                 from src.platforms.archlinux import base_install_modules
                                                                 # grab all the modules we need
-                                                                arch_modules = arch_modules + "," + module_parser(filename_short, "ARCHLINUX")
+                                                                arch_modules = arch_modules + "," + module_parser(filename_short, "ARCHLINUX")                                                                                                                       # archlinux
+                                                        if ostype == "OPENSBD":
+                                                            if not "install_update_all" in filename_short:
+                                                                from src.platforms.openbsd import base_install_modules
+                                                                # grab all the modules we need
+                                                                openbsd_modules = openbsd_modules + "," + module_parser(filename_short, "OPENBSD")
+
 
 			# install all of the packages at once
 			ostype = profile_os()
@@ -356,6 +371,13 @@ while 1:
                             arch_modules = arch_modules.replace(",", " ")
                             base_install_modules(arch_modules)
                             print_status("Finished updating depends for modules.")
+                            
+                            
+						if ostype == "OPENBSD":
+                            openbsd_modules = openbsd_modules.replace(",", " ")
+                            base_install_modules(openbsd_modules)
+                            print_status("Finished updating depends for modules.")    
+                            
 			for path, subdirs, files in os.walk(modules_path):
 	                        for name in files:
                                         # join the structure
