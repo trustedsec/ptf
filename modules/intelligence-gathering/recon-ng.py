@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
 INSTALL_LOCATION="recon-ng"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python python-xlsxwriter python-crypto python-mechanize"
+DEBIAN="python python-xlsxwriter python-crypto python-mechanize python-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="pip install --upgrade pip,pip install dicttoxml"
 
 # CREATE LAUNCHER
 LAUNCHER="recon-ng"
