@@ -220,6 +220,7 @@ def use_module(module, all_trigger):
                     deb_modules = module_parser(filename, "DEBIAN")
                     base_install_modules(deb_modules)
                     print_status("Pre-reqs for %s have been installed." % (module))
+
 		# if OSTYPE is ARCHLINUX
                 if ostype == "ARCHLINUX":
                     print_status("Preparing dependencies for module: " + module) 
@@ -373,7 +374,7 @@ while 1:
                             print_status("Finished updating depends for modules.")
                             
                             
-						if ostype == "OPENBSD":
+			if ostype == "OPENBSD":
                             openbsd_modules = openbsd_modules.replace(",", " ")
                             base_install_modules(openbsd_modules)
                             print_status("Finished updating depends for modules.")    
