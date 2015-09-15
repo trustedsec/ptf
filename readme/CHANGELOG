@@ -5,6 +5,8 @@ version 1.2
 * added dnsenum to modules to intelligence gathering
 * added windows-exploit-suggester to modules intelligence gathering
 * added launcher for recon-ng
+* added jboss-autopwn (thanks firebitsbr)
+* added initial commit for openBSD - not fully implemented yet (thanks firebitsbr)
 
 ~~~~~~~~~~~~~~~~~
 version 1.1
