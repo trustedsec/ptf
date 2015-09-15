@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
 INSTALL_LOCATION="recon-ng"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="python python-xlsxwriter python-crypto python-mechanize"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
