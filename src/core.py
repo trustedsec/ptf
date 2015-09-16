@@ -306,7 +306,7 @@ def launcher(filename, install_location):
 					file_point = launchers + ".exe"
 
 				# normal launcher
-				if ospath.isfile(install_location + "/" + launchers):
+				if os.path.isfile(install_location + "/" + launchers):
 					point = "./" + launchers
 					file_point = launchers 
 
