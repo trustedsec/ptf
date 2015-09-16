@@ -305,6 +305,11 @@ def launcher(filename, install_location):
 					point = "wine cmd /c start " + launchers + ".exe"				
 					file_point = launchers + ".exe"
 
+				# normal launcher
+				if ospath.isfile(install_location + "/" + launchers):
+					point = "./" + launchers
+					file_point = launchers 
+
 				# if we found filetype
 				if point != "":					
 					filewrite = file("/usr/local/bin/" + launchers, "w")
