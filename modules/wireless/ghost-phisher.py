@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/savio-code/ghost-phisher.git"
 INSTALL_LOCATION="ghost-phisher"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,python2.7,python-qt4,dhcp3-server,ettercap-gtk"
+DEBIAN="git,python2.7,python-qt4,isc-dhcp-server,ettercap-graphical"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
