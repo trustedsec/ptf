@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.2.1
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue where empty directory would throw an error
+* fixed the code-audit/splint module - was broke and not properly made
+
+~~~~~~~~~~~~~~~~~
 version 1.2
 ~~~~~~~~~~~~~~~~~
 

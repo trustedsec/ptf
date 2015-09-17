@@ -81,7 +81,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "1.2"
+grab_version = "1.2.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -116,7 +116,7 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		 """ + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
+banner += """        		""" + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """Tools-R-Us""" + "\n"
 
@@ -370,14 +370,17 @@ def auto_update():
 
 # check if a blank directory exists
 def check_blank_dir(path):
+
 	if os.path.isdir(path):
 		if os.listdir(path) == []:
 			print_status("Detected an empty folder, purging and re-checking out...") 
 			subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
-		if os.listdir(path) == ['.git', '.gitignore']:
-			print_status("Detected an empty folder, purging and re-checking out...")
-			subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
+		# we put a second one in there in case the path was removed from above
+		if os.path.isdir(path):
+			if os.listdir(path) == ['.git', '.gitignore']:
+				print_status("Detected an empty folder, purging and re-checking out...")
+				subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
 # do platform detection on 32 or 64 bit
 def arch():
