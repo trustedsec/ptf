@@ -68,7 +68,7 @@ except KeyboardInterrupt:
 	exit()
 	sys.exit()
 
-except Exception, e:
-	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
-	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-	print ("[!] Printing that error. Get that error. You get it: " + str(e))
+#except Exception, e:
+#	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+#	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+#	print ("[!] Printing that error. Get that error. You get it: " + str(e))

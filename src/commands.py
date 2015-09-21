@@ -11,10 +11,8 @@ from src.core import *
 def after_commands(command):
     # if there is more than one command iterate through
     if "," in command:
-
 	# get current working directory
 	definepath = os.getcwd()
-
         command = command.split(",")
 	# iterate through the commands
         for commands in command:
@@ -22,10 +20,10 @@ def after_commands(command):
 		# change directory if CD in command
 		if "cd " in commands:
 			commands = commands.replace("cd ", "")
-			os.chdir(commands)
+			if os.path.isdir(commands):
+				os.chdir(commands)
 		else:
 			subprocess.Popen(commands, shell=True).wait()
-
 	# restore original directory
 	os.chdir(definepath)
 

@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.2.2
+~~~~~~~~~~~~~~~~~
+
+* fixed print statement when using x64 base
+* fixed invalid path error when using after commands
+* fixed hcon to install properly
+* fixed dradisframework by adding libsqlite-dev (thanks Kos)
+* fixed wine install by adding i386 packages (thanks Kos)
+* fixed prompt to not be used when using empire (thanks Kos)
+
+~~~~~~~~~~~~~~~~~
 version 1.2.1
 ~~~~~~~~~~~~~~~~~
 

@@ -19,6 +19,8 @@ funny = random.sample(["Aliens","Clowns", "Mr. Robot", "Zero Cool", "Goats", "Ha
 
 print_status("Operating system detected as: " + bcolors.BOLD + profile_os() + bcolors.ENDC)
 # main intro here
+if profile_os() == "DEBIAN":
+	subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + funny + bcolors.ENDC)
 print """
 For a list of available commands type ? or help
@@ -81,7 +83,7 @@ def use_module(module, all_trigger):
 		# here we check if we need to do x86 or x64
 		if module_parser(filename, "X64_LOCATION") != None:
 			# grab architecture
-			print module_parser(filename, "X64_LOCATION")
+			# print module_parser(filename, "X64_LOCATION")
 			arch_detect = arch()
 			if "64bit" in arch_detect:
 				repository_location = module_parser(filename, "X64_LOCATION")
