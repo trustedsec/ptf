@@ -232,6 +232,15 @@ def use_module(module, all_trigger):
                     base_install_modules(arch_modules) 
                     print_status("Pre-reqs for %s have been installed." % (module)) 
 
+		# if OSTYPE is FEDORA
+                if ostype == "FEDORA":
+                    print_status("Preparing dependencies for module: " + module) 
+                    from src.platforms.fedora import base_install_modules
+                    # grab all the modules we need 
+                    fedora_modules = module_parser(filename, "FEDORA")
+                    base_install_modules(fedora_modules) 
+                    print_status("Pre-reqs for %s have been installed." % (module)) 
+
 		# if OSTYPE is OPENBSD
                 if ostype == "OPENBSD":
                     print_status("Preparing dependencies for module: " + module) 
@@ -355,7 +364,14 @@ while 1:
                                                             if not "install_update_all" in filename_short:
                                                                 from src.platforms.archlinux import base_install_modules
                                                                 # grab all the modules we need
-                                                                arch_modules = arch_modules + "," + module_parser(filename_short, "ARCHLINUX")                                                                                                                       # archlinux
+                                                                arch_modules = arch_modules + "," + module_parser(filename_short, "ARCHLINUX")
+							# fedora
+                                                        if ostype == "FEDORA":
+                                                            if not "install_update_all" in filename_short:
+                                                                from src.platforms.fedora import base_install_modules
+                                                                # grab all the modules we need
+                                                                fedora_modules = fedora_modules + "," + module_parser(filename_short, "FEDORA")
+							# openbsd                                       
                                                         if ostype == "OPENSBD":
                                                             if not "install_update_all" in filename_short:
                                                                 from src.platforms.openbsd import base_install_modules
@@ -374,7 +390,11 @@ while 1:
                             arch_modules = arch_modules.replace(",", " ")
                             base_install_modules(arch_modules)
                             print_status("Finished updating depends for modules.")
-                            
+
+                        if ostype == "FEDORA":
+                            fedora_modules = fedora_modules.replace(",", " ")
+                            base_install_modules(fedora_modules)
+                            print_status("Finished updating depends for modules.")
                             
 			if ostype == "OPENBSD":
                             openbsd_modules = openbsd_modules.replace(",", " ")
