@@ -206,6 +206,8 @@ def profile_os():
         return "DEBIAN"
     if os.path.isfile("/etc/arch-release"):
         return "ARCHLINUX"
+    if os.path.isfile("/etc/fedora-release"):
+        return "FEDORA"
     # will add support for more operating systems later
 
     # else use custom
