@@ -22,6 +22,9 @@ INSTALL_LOCATION="rats"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="build-essential,cmake"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="subversion,make,cmake,automake,gcc,gcc-c++,kernel-devel,expat-devel"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make,make install"
 
