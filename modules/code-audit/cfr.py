@@ -22,6 +22,9 @@ INSTALL_LOCATION="cfr"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="default-jdk"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="java-1.8.0-openjdk"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},printf '#!/bin/sh\njava -jar %s%s\n' '{INSTALL_LOCATION}' 'cfr_0_102.jar'>cfr,chmod o+x cfr"
 

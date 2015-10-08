@@ -22,6 +22,9 @@ INSTALL_LOCATION="sap-dissector-wireshark"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python,wireshark,wireshark-dev,cmake, make"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,wireshark,wireshark-devel,cmake,make"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir build,cd build,cmake ..,make,make install"
 
