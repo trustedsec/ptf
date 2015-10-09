@@ -22,6 +22,9 @@ INSTALL_LOCATION="recon-ng"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python python-xlsxwriter python-crypto python-mechanize python-pip"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,python,python-crypto,python-mechanize"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="pip install --upgrade pip,pip install dicttoxml"
 

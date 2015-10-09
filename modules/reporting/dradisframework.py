@@ -22,6 +22,9 @@ INSTALL_LOCATION="dradisframework"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="ruby1.9.1,ruby-rails-3.2,git,libsqlite-dev"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,ruby,rubygem-rails,git,libsqlite3x-devel"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},gem install bundler,ruby bin/setup,exit"
 

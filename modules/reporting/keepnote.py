@@ -22,5 +22,8 @@ INSTALL_LOCATION="keepnote"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python-gnome2-dev,aspell,aspell-en,python,python-gtk2,python-glade2,libgtk2.0-dev,libsqlite3-0"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,gnome-python2-devel,aspell,aspell-en,python,pygtk2,gtk2-devel,libsqlite3x"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION}"

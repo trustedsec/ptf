@@ -22,5 +22,8 @@ INSTALL_LOCATION="ghost-phisher"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="git,python2.7,python-qt4,isc-dhcp-server,ettercap-graphical"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,dhcp-server,ettercap,PyQt4,scapy"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""

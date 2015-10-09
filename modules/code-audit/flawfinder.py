@@ -22,6 +22,9 @@ INSTALL_LOCATION="flawfinder"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="build-essential"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,make,automake,gcc,gcc-c++,kernel-devel"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make install"
 

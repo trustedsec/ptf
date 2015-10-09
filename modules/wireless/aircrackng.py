@@ -22,5 +22,8 @@ INSTALL_LOCATION="aircrack-ng"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="libsqlite3-dev,libnl-dev"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,libsqlite3x-devel,libnl3-devel"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make strip,make install"

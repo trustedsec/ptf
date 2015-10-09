@@ -22,5 +22,8 @@ INSTALL_LOCATION="masscan"
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="git,gcc,make,libpcap-dev"
 
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git,gcc,make,libpcap-devel"
+
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j"
