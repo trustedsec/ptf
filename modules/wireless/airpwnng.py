@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for aircrack-ng
+# Installation module for airpwn-ng
 #####################################
 
 # AUTHOR OF MODULE NAME
