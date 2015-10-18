@@ -295,7 +295,10 @@ while 1:
     # specify no commands, if counter increments then a command was found
     base_counter = 0
 
-    prompt = raw_input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
+    try:
+        prompt = raw_input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
+    except EOFError:
+        prompt = "quit"
 
     # main help menu
     if prompt == "?" or prompt == "help":
