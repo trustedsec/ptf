@@ -99,7 +99,12 @@ def use_module(module, all_trigger):
 
 	# if we aren't doing update/install all
 	if int(all_trigger) == 0:
-	        prompt = raw_input(bcolors.BOLD + "ptf:" + bcolors.ENDC + "(" + bcolors.RED + "%s" % module + bcolors.ENDC + ")>")
+                try:
+	            prompt = raw_input(bcolors.BOLD + "ptf:" + bcolors.ENDC + "(" + bcolors.RED + "%s" % module + bcolors.ENDC + ")>")
+                except EOFError:
+                    prompt = "back"
+                    print("")
+
 	        # exit if we need to
 	        if prompt == "back" or prompt == "quit" or prompt == "exit": break
 	        # show the help menu
@@ -335,7 +340,11 @@ while 1:
         # do a quick sanity check to see if the module is there first
         if prompt[1] == "modules/install_update_all": 
 		counter = 3
-		install_query = raw_input("[*] You are about to install/update everything. Proceed? [yes/no]:")
+                try:
+		    install_query = raw_input("[*] You are about to install/update everything. Proceed? [yes/no]:")
+                except EOFError:
+                    install_query = "no"
+                    print("")
 		if install_query.lower() == "yes" or install_query.lower() == "y":
 
 			# do auto update check first
