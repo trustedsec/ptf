@@ -304,6 +304,7 @@ while 1:
         prompt = raw_input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
     except EOFError:
         prompt = "quit"
+        print("")
 
     # main help menu
     if prompt == "?" or prompt == "help":
