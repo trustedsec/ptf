@@ -23,10 +23,10 @@ def after_commands(command):
 			if os.path.isdir(commands):
 				os.chdir(commands)
 		else:
-			subprocess.Popen(commands, shell=True).wait()
+			subprocess.Popen(commands, shell=True, executable="/bin/bash").wait()
 	# restore original directory
 	os.chdir(definepath)
 
     else:
-	subprocess.Popen(command, shell=True).wait()
+	subprocess.Popen(command, shell=True, executable="/bin/bash").wait()
 
