@@ -258,6 +258,7 @@ def use_module(module, all_trigger):
                 print_status("Making the appropriate directory structure first")
                 subprocess.Popen("mkdir -p %s" % install_location, shell=True).wait()
 
+		# if we are using git
                 if install_type.lower() == "git":
                     print_status("GIT was the selected method for installation... Using GIT to install.")
 		    print_status("Installing now.. be patient...")
