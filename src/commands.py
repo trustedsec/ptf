@@ -25,11 +25,12 @@ def after_commands(command):
 			if "/metasploit" in commands:
 				install_location = commands
 			filewrite.write(commands + " && ")
+		filewrite.write("echo")
 		filewrite.close()
-		#print_status("Running shell to install Metasploit and source rvm.sh")
-		#subprocess.Popen("chmod +x meta_temp.sh", shell=True).wait()
-		#subprocess.Popen("./meta_temp.sh", shell=True).wait()
-		#if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
+		print_status("Running shell to install Metasploit and source rvm.sh")
+		subprocess.Popen("chmod +x meta_temp.sh", shell=True).wait()
+		subprocess.Popen("./meta_temp.sh", shell=True).wait()
+		if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
 		#filewrite = file("meta_temp.sh", "w")
 		#filewrite.write("#!/bin/bash\nsource /etc/profile.d/rvm.sh\n%s\ngem install bundler\nbundle install" % (install_location))
 		#filewrite.close()
