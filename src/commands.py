@@ -24,17 +24,17 @@ def after_commands(command):
 		for commands in command:
 			if "/metasploit" in commands:
 				install_location = commands
-			filewrite.write(commands + "\n")
+			filewrite.write(commands + " && ")
 		filewrite.close()
-		print_status("Running shell to install Metasploit and source rvm.sh")
-		subprocess.Popen("chmod +x meta_temp.sh", shell=True).wait()
-		subprocess.Popen("./meta_temp.sh", shell=True).wait()
-		if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
-		filewrite = file("meta_temp.sh", "w")
-		filewrite.write("#!/bin/bash\nsource /etc/profile.d/rvm.sh\n%s\ngem install bundler\nbundle install" % (install_location))
-		filewrite.close()
-		print_status("Running bundler again..")
-		subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
+		#print_status("Running shell to install Metasploit and source rvm.sh")
+		#subprocess.Popen("chmod +x meta_temp.sh", shell=True).wait()
+		#subprocess.Popen("./meta_temp.sh", shell=True).wait()
+		#if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
+		#filewrite = file("meta_temp.sh", "w")
+		#filewrite.write("#!/bin/bash\nsource /etc/profile.d/rvm.sh\n%s\ngem install bundler\nbundle install" % (install_location))
+		#filewrite.close()
+		#print_status("Running bundler again..")
+		#subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
 		print_status("I think we're finished here... Moving on.")
 
 	else:
