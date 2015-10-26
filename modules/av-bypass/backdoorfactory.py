@@ -7,7 +7,7 @@
 AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update BackDoor Factor (BDF) - AV Bypass"
+DESCRIPTION="This module will install/update BackDoor Factor (BDF) - AV bypass"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
