@@ -30,7 +30,7 @@ def after_commands(command, install_location):
 		subprocess.Popen("./meta_temp.sh", shell=True).wait()
 		if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
 		filewrite = file("meta_temp.sh", "w")
-		filewrite.write("#!/bin/bash\ncd %s\nsource /etc/profile.d/rvm.sh\ngem install bundler\nbundle install" % (install_location)
+		filewrite.write("#!/bin/bash\ncd %s\nsource /etc/profile.d/rvm.sh\ngem install bundler\nbundle install" % (install_location))
 		filewrite.close()
 		print_status("Running bundler again..")
 		subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
