@@ -31,11 +31,12 @@ def after_commands(command):
 		subprocess.Popen("chmod +x meta_temp.sh", shell=True).wait()
 		subprocess.Popen("./meta_temp.sh", shell=True).wait()
 		if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
-		#filewrite = file("meta_temp.sh", "w")
-		#filewrite.write("#!/bin/bash\nsource /etc/profile.d/rvm.sh\n%s\ngem install bundler\nbundle install" % (install_location))
-		#filewrite.close()
-		#print_status("Running bundler again..")
-		#subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
+		filewrite = file("meta_temp.sh", "w")
+		filewrite.write("#!/bin/bash\ncd %s\nsource /etc/profile.d/rvm.sh\ngem install bundler\nbundle install" % (install_location))
+		filewrite.close()
+		print_status("Running bundler again..")
+		subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
+		os.remove("meta_temp.sh")
 		print_status("I think we're finished here... Moving on.")
 
 	else:
