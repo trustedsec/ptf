@@ -216,7 +216,7 @@ def use_module(module, all_trigger):
         # if we want to install it
         if prompt.lower() == "install":
 
-                # grab the OS type, DEBIAN, CUSTOM, BSD!!!! WOW!!, ETC
+                # grab the OS type, DEBIAN, FEDORA, CUSTOM, BSD!!!! WOW!!, ETC
                 ostype = profile_os()
 
                 # if OSTYPE is DEBIAN
@@ -227,6 +227,11 @@ def use_module(module, all_trigger):
                     deb_modules = module_parser(filename, "DEBIAN")
                     base_install_modules(deb_modules)
                     print_status("Pre-reqs for %s have been installed." % (module))
+
+		    # do some stuff to add metasploit
+		    if "metasploit" in filename:
+			print_status("Installing additional ruby2 libraries for MSF...")
+			subprocess.Popen("echo y | apt-add-repository ppa:brightbox/ruby-ng;apt-get update;apt-get --force-yes -y install ruby2.2 ruby2.2-dev", shell=True).wait()
 
 		# if OSTYPE is ARCHLINUX
                 if ostype == "ARCHLINUX":

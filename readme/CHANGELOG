@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 1.4
+~~~~~~~~~~~~~~~~~
+
+* updated metasploit installer to use ppa instead of rvm - fixes a number of issues on Ubuntu
+
+~~~~~~~~~~~~~~~~~
 version 1.3
 ~~~~~~~~~~~~~~~~~
 
