@@ -8,7 +8,7 @@ import os
 from src.core import *
 
 # this will execute after everything is over
-def after_commands(command):
+def after_commands(command, install_location):
     # if there is more than one command iterate through
     if "," in command:
 	# get current working directory
@@ -22,8 +22,6 @@ def after_commands(command):
 		filewrite = file("meta_temp.sh", "w")
 		filewrite.write("#!/bin/bash\n")
 		for commands in command:
-			if "/metasploit" in commands:
-				install_location = commands
 			filewrite.write(commands + " && ")
 		filewrite.write("echo")
 		filewrite.close()
@@ -32,7 +30,7 @@ def after_commands(command):
 		subprocess.Popen("./meta_temp.sh", shell=True).wait()
 		if os.path.isfile("meta_temp.sh"): os.remove("meta_temp.sh")
 		filewrite = file("meta_temp.sh", "w")
-		filewrite.write("#!/bin/bash\ncd %s\nsource /etc/profile.d/rvm.sh\ngem install bundler\nbundle install" % (install_location))
+		filewrite.write("#!/bin/bash\ncd %s\nsource /etc/profile.d/rvm.sh\ngem install bundler\nbundle install" % (install_location)
 		filewrite.close()
 		print_status("Running bundler again..")
 		subprocess.Popen("chmod +x meta_temp.sh;./meta_temp.sh", shell=True).wait()
