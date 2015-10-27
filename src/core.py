@@ -250,7 +250,7 @@ def after_commands(filename,install_location):
 		if "{INSTALL_LOCATION}" in commands:
 			commands = commands.replace("{INSTALL_LOCATION}", install_location)
 		print_status("Running after commands for post installation requirements.")
-		after_commands(commands)
+		after_commands(commands, install_location)
 		print_status("Completed running after commands routine..")
 
 # launcher - create launcher under /usr/local/bin
