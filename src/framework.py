@@ -402,22 +402,26 @@ while 1:
 			ostype = profile_os()
 			if ostype == "DEBIAN":
 				deb_modules = deb_modules.replace(",", " ")
-	                   	base_install_modules(deb_modules)
+				if deb_modules != None:
+		                   	base_install_modules(deb_modules)
 	                    	print_status("Finished updating depends for modules.")
 
                         if ostype == "ARCHLINUX":
                             arch_modules = arch_modules.replace(",", " ")
-                            base_install_modules(arch_modules)
+			    if arch_modules != None:
+	                            base_install_modules(arch_modules)
                             print_status("Finished updating depends for modules.")
 
                         if ostype == "FEDORA":
                             fedora_modules = fedora_modules.replace(",", " ")
-                            base_install_modules(fedora_modules)
+			    if fedora_modules != None:
+	                            base_install_modules(fedora_modules)
                             print_status("Finished updating depends for modules.")
                             
 			if ostype == "OPENBSD":
                             openbsd_modules = openbsd_modules.replace(",", " ")
-                            base_install_modules(openbsd_modules)
+			    if openbsd_modules != None:
+	                            base_install_modules(openbsd_modules)
                             print_status("Finished updating depends for modules.")    
                             
 			for path, subdirs, files in os.walk(modules_path):
