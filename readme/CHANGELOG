@@ -5,6 +5,7 @@ version 1.4.1
 * added hydra (thanks jayw0k)
 * added enum4linux (vdbaan)
 * added testssl (vdbaan)
+* fixed autoconf error on install with ftpmap
 
 ~~~~~~~~~~~~~~~~~
 version 1.4
