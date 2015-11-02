@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 1.4.1
+~~~~~~~~~~~~~~~~~
+
+* added hydra (thanks jayw0k)
+* added enum4linux (vdbaan)
+* added testssl (vdbaan)
+
+~~~~~~~~~~~~~~~~~
 version 1.4
 ~~~~~~~~~~~~~~~~~
 
