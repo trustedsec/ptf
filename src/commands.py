@@ -3,8 +3,9 @@
 # After commands module
 ##########################
 #import pexpect
+import subprocess
+import os
 from src.core import *
-
 
 # this will execute after everything is over
 def after_commands(command, install_location):
