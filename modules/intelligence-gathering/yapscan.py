@@ -11,7 +11,7 @@ DESCRIPTION="This module will install/update yapscan (Pentest Monkey)."
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
-INSTALL_TYPE="FILE"
+INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
 REPOSITORY_LOCATION="https://github.com/pentestmonkey/yapscan.git"
