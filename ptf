@@ -64,7 +64,6 @@ try:
 		import src.framework
 
 	# if we want to skip going into module
-	print sys.argv[1]
 	if sys.argv[1] == "--update-all":
 		subprocess.Popen("sh src/updateall", shell=True).wait()
 
