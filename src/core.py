@@ -81,7 +81,7 @@ def count_modules():
         return counter
 
 # version information
-grab_version = "1.4.1"
+grab_version = "1.4.2"
 
 # banner
 banner = bcolors.RED + r"""
@@ -365,7 +365,7 @@ def auto_update():
 	if check == "on":
 		print_status("Auto updating is turned to on, this will install normal package updates for you...")
 		print_status("If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
-		subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y", shell=True).wait()
+		subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
 		print_status("Finished with normal package updates, moving on to the tools section..")
 	else:
 		print_status("Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")

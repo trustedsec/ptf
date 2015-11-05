@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for Enum4Linux
+# Installation module for OneSixtyOne
 #####################################
 
 # AUTHOR OF MODULE NAME

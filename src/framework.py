@@ -33,9 +33,9 @@ if check_config("IGNORE_THESE_MODULES") is not None:
 def ignore_module(module):
   result = False
   for check in ignore_these:
-    if check in module:
-      print_warning("Ignoring module: " + module)
-      result = True
+  	if check == module:
+        	print_warning("Ignoring module: " + module)
+        	result = True
   result
 
 # check the folder structure

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for Enum4Linux
+# Installation module for YapScan
 #####################################
 
 # AUTHOR OF MODULE NAME

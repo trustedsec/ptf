@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/mfontanini/dot11decrypt/"
 INSTALL_LOCATION="dot11decrypt"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="libtins1,libtins2,libtins-dev"
+DEBIAN="libtins1,libtins-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA=""

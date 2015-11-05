@@ -1,4 +1,16 @@
 ~~~~~~~~~~~~~~~~~
+version 1.4.2
+~~~~~~~~~~~~~~~~~
+
+* added new IGNORE_THESE_MODULES config option to ignore modules you dont want to install (awesome pull request from vdbaan)
+* added fierce module
+* added config option for ignore these modules
+* added updatedb to automatic update functionality
+* added onesixtyone (vdbaan)
+* added yapscan (vdbaan)
+* added arachni (vdbaan)
+
+~~~~~~~~~~~~~~~~~
 version 1.4.1
 ~~~~~~~~~~~~~~~~~
 
