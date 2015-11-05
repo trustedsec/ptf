@@ -3,9 +3,8 @@
 # After commands module
 ##########################
 #import pexpect
-import subprocess
-import os
 from src.core import *
+
 
 # this will execute after everything is over
 def after_commands(command, install_location):
@@ -18,14 +17,14 @@ def after_commands(command, install_location):
 
         # iterate through commands
         for commands in command:
-                print_status("Sending after command: " + commands)
-                # change directory if CD in command
-                if "cd " in commands:
-                        commands = commands.replace("cd ", "")
-                        if os.path.isdir(commands):
-                                os.chdir(commands)
-                else:
-                        subprocess.Popen(commands, shell=True).wait()
+            print_status("Sending after command: " + commands)
+            # change directory if CD in command
+            if "cd " in commands:
+                commands = commands.replace("cd ", "")
+                if os.path.isdir(commands):
+                    os.chdir(commands)
+            else:
+                subprocess.Popen(commands, shell=True).wait()
 
         # restore original directory
         os.chdir(definepath)

@@ -2,24 +2,32 @@
 ################################
 # Core functions for PTF
 ################################
-import os
-import subprocess
-import select
-import readline
 import glob
+import os
 import platform
+import readline
+import subprocess
+
 
 # tab completion
 def complete(text, state):
-        a =  (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
-        a = a.replace("modules//", "modules/")
-        if os.path.isfile(a[:-1] + ".py"): return a[:-1]
-        else: return a
+    a = (glob.glob(text + '*') + [None])[state].replace("__init__.py", "").replace(".py", "") \
+            .replace("LICENSE", "README.md", "").replace("config", "").replace("ptf", "").replace("readme", "") \
+            .replace("src", "").replace("         ", "") + "/"
+    a = a.replace("modules//", "modules/")
+    if os.path.isfile(a[:-1] + ".py"):
+        return a[:-1]
+    else:
+        return a
+
 
 readline.set_completer_delims(' \t\n;')
 readline.parse_and_bind("tab: complete")
 readline.set_completer(complete)
+
+
 # end tab completion
+
 
 # color scheme for core
 class bcolors:
@@ -42,6 +50,7 @@ class bcolors:
     backCyan = '\033[46m'
     backWhite = '\033[47m'
 
+
 # get the main SET path
 def definepath():
     if os.path.isfile("ptf"):
@@ -49,36 +58,43 @@ def definepath():
 
     else:
         if os.path.isdir("/usr/share/ptf/"):
-                return "/usr/share/ptf/"
+            return "/usr/share/ptf/"
         else:
-                return os.getcwd()
+            return os.getcwd()
+
 
 # main status calls for print functions
 def print_status(message):
     print bcolors.GREEN + bcolors.BOLD + "[*] " + bcolors.ENDC + str(message)
 
+
 def print_info(message):
     print bcolors.BLUE + bcolors.BOLD + "[-] " + bcolors.ENDC + str(message)
+
 
 def print_info_spaces(message):
     print bcolors.BLUE + bcolors.BOLD + "  [-] " + bcolors.ENDC + str(message)
 
+
 def print_warning(message):
     print bcolors.YELLOW + bcolors.BOLD + "[!] " + bcolors.ENDC + str(message)
+
 
 def print_error(message):
     print bcolors.RED + bcolors.BOLD + "[!] " + bcolors.ENDC + bcolors.RED + str(message) + bcolors.ENDC
 
+
 # count all of the modules
 def count_modules():
-        modules_path = definepath() + "/modules/"
-        counter = 0
-        for path, subdirs, files in os.walk(modules_path):
-                for name in files:
-                        filename = os.path.join(path, name)
-                        if not "__init__.py" in filename:
-                                counter = counter + 1
-        return counter
+    modules_path = definepath() + "/modules/"
+    counter = 0
+    for path, subdirs, files in os.walk(modules_path):
+        for name in files:
+            filename = os.path.join(path, name)
+            if not "__init__.py" in filename:
+                counter = counter + 1
+    return counter
+
 
 # version information
 grab_version = "1.4.2"
@@ -130,7 +146,9 @@ banner += """                  """ + bcolors.BOLD + """https://www.trustedsec.co
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
-banner += "             Total module/tool count within PTF: " + bcolors.BOLD + str(count_modules()) + bcolors.ENDC + "\n" 
+banner += "             Total module/tool count within PTF: " + bcolors.BOLD + str(
+    count_modules()) + bcolors.ENDC + "\n"
+
 
 # check the config file and return value
 def check_config(param):
@@ -146,9 +164,9 @@ def check_config(param):
                 line = line.split("=")
                 return line[1]
 
+
 # parser module for module and term
 def module_parser(filename, term):
-
     # if the file exists
     if os.path.isfile(filename) and not "install_update_all" in filename:
 
@@ -174,10 +192,11 @@ def module_parser(filename, term):
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
             if term != "BYPASS_UPDATE":
-                if term !="LAUNCHER":
+                if term != "LAUNCHER":
                     if filename_short != "install_update_all":
-                        if term !="X64_LOCATION":
-                            print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
+                        if term != "X64_LOCATION":
+                            print_error(
+                                "Warning, module %s was found but contains no %s field." % (filename_short, term))
                             print_error("Check the module again for errors and try again.")
                             print_error("Module has been removed from the list.")
             return None
@@ -186,12 +205,14 @@ def module_parser(filename, term):
     if not os.path.isfile(filename):
         return None
 
+
 # help menu for PTF
 def show_help_menu():
     print "Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" + bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC
     print "Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," + bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC
-    print "Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC+ "," + bcolors.BOLD + " help" + bcolors.ENDC + "," + bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC
-    print "Update or Install: "+ bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" + bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC
+    print "Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC + "," + bcolors.BOLD + " help" + bcolors.ENDC + "," + bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC
+    print "Update or Install: " + bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" + bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC
+
 
 # exit message for PTF
 def exit_ptf():
@@ -231,160 +252,170 @@ def logging(log):
     # close the file
     filewrite.close()
 
-# this will install all the proper locations for 
+
+# this will install all the proper locations for
 def prep_install():
     if not os.path.isfile(os.getenv("HOME") + "/.ptf"):
         print_status("This appears to be your first time using PTF.")
         print_status("Creating output directory to: " + os.getenv("HOME") + "/.ptf")
         os.makedirs(os.getenv("HOME") + "/.ptf")
 
+
 def home_directory():
-         return os.getenv("HOME") + "/.ptf"
+    return os.getenv("HOME") + "/.ptf"
+
 
 # this will run commands after an install or update on a module
-def after_commands(filename,install_location):
-        from src.commands import after_commands
-        commands = module_parser(filename, "AFTER_COMMANDS")
-        if commands != "":
-                # here we check if install location needs to be added
-                if "{INSTALL_LOCATION}" in commands:
-                        commands = commands.replace("{INSTALL_LOCATION}", install_location)
-                print_status("Running after commands for post installation requirements.")
-                after_commands(commands, install_location)
-                print_status("Completed running after commands routine..")
+def after_commands(filename, install_location):
+    from src.commands import after_commands
+    commands = module_parser(filename, "AFTER_COMMANDS")
+    if commands != "":
+        # here we check if install location needs to be added
+        if "{INSTALL_LOCATION}" in commands:
+            commands = commands.replace("{INSTALL_LOCATION}", install_location)
+        print_status("Running after commands for post installation requirements.")
+        after_commands(commands, install_location)
+        print_status("Completed running after commands routine..")
+
 
 # launcher - create launcher under /usr/local/bin
 def launcher(filename, install_location):
-        launcher = module_parser(filename, "LAUNCHER")
+    launcher = module_parser(filename, "LAUNCHER")
 
-        # if its optional
-        if launcher == None: launcher = ""
-        if launcher != "":
-                # create a launcher if it doesn't exist
-                base_launcher = 0
-                if "," in launcher: launcher = launcher.split(",")
-                for launchers in launcher:
+    # if its optional
+    if launcher == None: launcher = ""
+    if launcher != "":
+        # create a launcher if it doesn't exist
+        base_launcher = 0
+        if "," in launcher: launcher = launcher.split(",")
+        for launchers in launcher:
 
-                        # means there was just one launcher
-                        if len(launchers) == 1: 
-                                launchers = launcher
-                                base_launcher = 1
-                                        
-                        if os.path.isfile("/usr/local/bin/" + launchers): os.remove("/usr/local/bin/" + launchers)
-                        if not os.path.isfile("/usr/local/bin/" + launchers):
+            # means there was just one launcher
+            if len(launchers) == 1:
+                launchers = launcher
+                base_launcher = 1
 
-                                # base launcher filename
-                                point = ""
+            if os.path.isfile("/usr/local/bin/" + launchers): os.remove("/usr/local/bin/" + launchers)
+            if not os.path.isfile("/usr/local/bin/" + launchers):
 
-                                # make sure the actual launcher is there with known filetypes
-                                if os.path.isfile(install_location + "/" + launchers):
-                                        # specific launcher file
-                                        point = "./" + launchers
-                                        file_point = launchers
+                # base launcher filename
+                point = ""
 
-                                # check for Python
-                                if os.path.isfile(install_location + "/" + launchers + ".py"):
-                                        point = "./" + launchers + ".py"
-                                        file_point = launchers + ".py"
+                # make sure the actual launcher is there with known filetypes
+                if os.path.isfile(install_location + "/" + launchers):
+                    # specific launcher file
+                    point = "./" + launchers
+                    file_point = launchers
 
-                                # check for Ruby
-                                if os.path.isfile(install_location + "/" + launchers + ".rb"):
-                                        point = "./" + launchers + ".rb"
-                                        file_point = launchers + ".rb"
+                # check for Python
+                if os.path.isfile(install_location + "/" + launchers + ".py"):
+                    point = "./" + launchers + ".py"
+                    file_point = launchers + ".py"
 
-                                # check for Perl - ew Perl. Ew ew ew ew ew ew =)
-                                if os.path.isfile(install_location + "/" + launchers + ".pl"):
-                                        point = "./" + launchers + ".pl"
-                                        file_point = launchers + ".pl"
+                # check for Ruby
+                if os.path.isfile(install_location + "/" + launchers + ".rb"):
+                    point = "./" + launchers + ".rb"
+                    file_point = launchers + ".rb"
 
-                                # check for bash
-                                if os.path.isfile(install_location + "/" + launchers + ".sh"):
-                                        point = "./" + launchers + ".sh"
-                                        file_point = launchers + ".sh"
+                # check for Perl - ew Perl. Ew ew ew ew ew ew =)
+                if os.path.isfile(install_location + "/" + launchers + ".pl"):
+                    point = "./" + launchers + ".pl"
+                    file_point = launchers + ".pl"
 
-                                # check of executable, then flag wine
-                                if os.path.isfile(install_location + "/" + launchers + ".exe"):
-                                        point = "wine cmd /c start " + launchers + ".exe"                               
-                                        file_point = launchers + ".exe"
+                # check for bash
+                if os.path.isfile(install_location + "/" + launchers + ".sh"):
+                    point = "./" + launchers + ".sh"
+                    file_point = launchers + ".sh"
 
-                                # normal launcher
-                                if os.path.isfile(install_location + "/" + launchers):
-                                        point = "./" + launchers
-                                        file_point = launchers 
+                # check of executable, then flag wine
+                if os.path.isfile(install_location + "/" + launchers + ".exe"):
+                    point = "wine cmd /c start " + launchers + ".exe"
+                    file_point = launchers + ".exe"
 
-                                # if we found filetype
-                                if point != "":                                 
-                                        filewrite = file("/usr/local/bin/" + launchers, "w")
-                                        filewrite.write("#!/bin/sh\ncd %s\nchmod +x %s\n%s $*" % (install_location,file_point,point))
-                                        filewrite.close()
-                                        subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
-                                        print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
+                # normal launcher
+                if os.path.isfile(install_location + "/" + launchers):
+                    point = "./" + launchers
+                    file_point = launchers
 
-                        # just need to do this once
-                        if base_launcher == 1: break
+                # if we found filetype
+                if point != "":
+                    filewrite = file("/usr/local/bin/" + launchers, "w")
+                    filewrite.write("#!/bin/sh\ncd %s\nchmod +x %s\n%s $*" % (install_location, file_point, point))
+                    filewrite.close()
+                    subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
+                    print_status(
+                        "Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
+
+            # just need to do this once
+            if base_launcher == 1: break
+
 
 # search functionality here
 def search(term):
-        term = term.replace("search ", "")
-        module_files = []
-        if "update" in term or "install" in term:
-                module_files.append("modules/install_update_all")
+    term = term.replace("search ", "")
+    module_files = []
+    if "update" in term or "install" in term:
+        module_files.append("modules/install_update_all")
 
-        else:
-                for dirpath, subdirs, files in os.walk("modules/"):
-                    for x in files:
-                        if x.endswith(".py"):
-                            if not "__init__.py" in x:
-                                        path = os.path.join(dirpath, x)
-                                        if term in path:
-                                                x = x.replace(".py", "")
-                                                module_files.append(os.path.join(dirpath, x))
-        
-                                        if not term in path:
-                                                data = file(path, "r").readlines()
-                                                # normally just searched entire file, but we don't want to search # lines
-                                                for line in data:
-                                                        line = line.rstrip()
-                                                        if term in line:
-                                                                if not line.startswith("#"):
-                                                                        x = x.replace(".py", "")
-                                                                        module_files.append(os.path.join(dirpath, x))
-                                                                        break
-        if module_files != []:
-                print_status("Search results below:")
-                for modules in module_files:
-                        print modules
+    else:
+        for dirpath, subdirs, files in os.walk("modules/"):
+            for x in files:
+                if x.endswith(".py"):
+                    if not "__init__.py" in x:
+                        path = os.path.join(dirpath, x)
+                        if term in path:
+                            x = x.replace(".py", "")
+                            module_files.append(os.path.join(dirpath, x))
 
-        else: print_warning("Search found no results.")
+                        if not term in path:
+                            data = file(path, "r").readlines()
+                            # normally just searched entire file, but we don't want to search # lines
+                            for line in data:
+                                line = line.rstrip()
+                                if term in line:
+                                    if not line.startswith("#"):
+                                        x = x.replace(".py", "")
+                                        module_files.append(os.path.join(dirpath, x))
+                                        break
+    if module_files != []:
+        print_status("Search results below:")
+        for modules in module_files:
+            print modules
+
+    else:
+        print_warning("Search found no results.")
 
 
 # auto update packages
 def auto_update():
-        # if we want to do auto update
-        check = check_config("AUTO_UPDATE=").lower()
-        if check == "on":
-                print_status("Auto updating is turned to on, this will install normal package updates for you...")
-                print_status("If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
-                subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
-                print_status("Finished with normal package updates, moving on to the tools section..")
-        else:
-                print_status("Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
+    # if we want to do auto update
+    check = check_config("AUTO_UPDATE=").lower()
+    if check == "on":
+        print_status("Auto updating is turned to on, this will install normal package updates for you...")
+        print_status("If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
+        subprocess.Popen(
+            "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb",
+            shell=True).wait()
+        print_status("Finished with normal package updates, moving on to the tools section..")
+    else:
+        print_status(
+            "Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
+
 
 # check if a blank directory exists
 def check_blank_dir(path):
+    if os.path.isdir(path):
+        if os.listdir(path) == []:
+            print_status("Detected an empty folder, purging and re-checking out...")
+            subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
+        # we put a second one in there in case the path was removed from above
         if os.path.isdir(path):
-                if os.listdir(path) == []:
-                        print_status("Detected an empty folder, purging and re-checking out...") 
-                        subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
+            if os.listdir(path) == ['.git', '.gitignore']:
+                print_status("Detected an empty folder, purging and re-checking out...")
+                subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
-                # we put a second one in there in case the path was removed from above
-                if os.path.isdir(path):
-                        if os.listdir(path) == ['.git', '.gitignore']:
-                                print_status("Detected an empty folder, purging and re-checking out...")
-                                subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
 # do platform detection on 32 or 64 bit
 def arch():
-        return str(platform.architecture()[0]) 
-
+    return str(platform.architecture()[0])
