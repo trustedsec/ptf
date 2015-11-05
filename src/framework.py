@@ -26,6 +26,18 @@ print """
 For a list of available commands type ? or help
 """
 
+ignore_these = []
+if check_config("IGNORE_THESE_MODULES") is not None:
+	ignore_these = check_config("IGNORE_THESE_MODULES").split(",")
+
+def ignore_module(module):
+  result = False
+  for check in ignore_these:
+    if check in module:
+      print_warning("Ignoring module: " + module)
+      result = True
+  result
+
 # check the folder structure
 def show_module():
     modules_path = os.getcwd() + "/modules/"
@@ -368,7 +380,7 @@ while 1:
 	            			# join the structure
 	            			filename = os.path.join(path, name)
 	            			# strip un-needed files
-	            			if not "__init__.py" in filename:
+	            			if not "__init__.py" in filename and not ignore_module(filename):
 		                			# shorten it up a little bit
 		                			filename_short = filename.replace(os.getcwd() + "/", "")
 							# update depend modules
