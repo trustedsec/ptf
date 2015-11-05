@@ -13,13 +13,11 @@ import socket
 
 # create launcher
 def create_launcher():
-	if not os.path.isfile("/usr/local/bin/ptf"):
-		print "[*] Creating an automatic launcher for PTF, you can now call command 'ptf' from anywhere in nix."
-		cwd = os.getcwd()
-		filewrite = file("/usr/local/bin/ptf", "w")
-		filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf" % (cwd))
-		filewrite.close()
-		subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
+	cwd = os.getcwd()
+	filewrite = file("/usr/local/bin/ptf", "w")
+	filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf $*" % (cwd))
+	filewrite.close()
+	subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
 
 # check for an Internet connection
 def check_internet():
@@ -40,12 +38,6 @@ if os.geteuid() != 0:
 	exit()
 
 try:	
-
-	filewrite = file("/usr/local/bin/ptf", "w")	
-	filewrite.write("#!/bin/sh\ncd /pentest/ptf\nchmod +x ptf\n./ptf $*")
-	filewrite.close()
-	subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
-
 
 	# Bypass network check with argument
 	if not "--no-network-connection" in sys.argv[1:]:
