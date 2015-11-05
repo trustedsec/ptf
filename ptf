@@ -59,8 +59,14 @@ try:
 	# pull in the core library
 	from src.core import *
 
-	# pull in the framework
-	import src.framework
+	if not "--update-all" in sys.argv[1:]:
+		# pull in the framework
+		import src.framework
+
+	# if we want to skip going into module
+	print sys.argv[1]
+	if sys.argv[1] == "--update-all":
+		subprocess.Popen("sh src/updateall", shell=True).wait()
 
 except KeyboardInterrupt:
 	print "\n"
@@ -68,7 +74,7 @@ except KeyboardInterrupt:
 	exit()
 	sys.exit()
 
-#except Exception, e:
-#	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
-#	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-#	print ("[!] Printing that error. Get that error. You get it: " + str(e))
+except Exception, e:
+	print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+	print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+	print ("[!] Printing that error. Get that error. You get it: " + str(e))

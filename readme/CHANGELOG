@@ -9,6 +9,7 @@ version 1.4.2
 * added onesixtyone (vdbaan)
 * added yapscan (vdbaan)
 * added arachni (vdbaan)
+* added ./ptf --update-all which will automatically update without going in the framework
 
 ~~~~~~~~~~~~~~~~~
 version 1.4.1

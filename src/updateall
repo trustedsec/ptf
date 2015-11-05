@@ -1,0 +1,6 @@
+#!/bin/bash
+./ptf <<EOD
+use modules/install_update_all
+yes
+exit
+EOD
