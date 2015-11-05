@@ -40,6 +40,13 @@ if os.geteuid() != 0:
 	exit()
 
 try:	
+
+	filewrite = file("/usr/local/bin/ptf", "w")	
+	filewrite.write("#!/bin/sh\ncd /pentest/ptf\nchmod +x ptf\n./ptf $*")
+	filewrite.close()
+	subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
+
+
 	# Bypass network check with argument
 	if not "--no-network-connection" in sys.argv[1:]:
 	        # check internet connection
