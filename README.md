@@ -31,11 +31,18 @@ If you want to install and/or update everything, simply do the following:
 
 use modules/install_update_all
 
-run
+yes
 
 This will install all of the tools inside of PTF. If they are already installed, this will iterate through and update everything for you automatically.
 
 You can also show options to change information about the modules.
+
+If you only want to install only for example exploitation tools, you can run:
+
+./ptf
+use modules/exploitation/install_update_all
+
+This will only install the exploitation modules. You can do this for any module category.
 
 #Modules:
 

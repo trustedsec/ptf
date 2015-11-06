@@ -11,6 +11,7 @@ version 1.5
 * fix for auto complete (thanks vdbaan)
 * udp proto added (thanks vdbaan)
 * what web added (thanks vdbaan)
+* added install_update_all to each individual module section (thanks vdbaan)
 
 ~~~~~~~~~~~~~~~~~
 version 1.4.2
