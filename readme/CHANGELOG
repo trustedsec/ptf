@@ -1,4 +1,18 @@
 ~~~~~~~~~~~~~~~~~
+version 1.5
+~~~~~~~~~~~~~~~~~
+
+* added kismet wireless
+* added dnscat2 (thanks ryd)
+* fix for discover (thanks jayw0k)
+* fix dnsrecon (thanks jayw0k)
+* fix theharvester (thanks jayw0k)
+* pep8 compliance (thanks vdbaan)
+* fix for auto complete (thanks vdbaan)
+* udp proto added (thanks vdbaan)
+* what web added (thanks vdbaan)
+
+~~~~~~~~~~~~~~~~~
 version 1.4.2
 ~~~~~~~~~~~~~~~~~
 
