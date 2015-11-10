@@ -1,23 +1,23 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for discover
+# Installation module for URLcrazy
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Martin Bos (purehate)"
+AUTHOR="Jason Ashton (@jayw0k)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update discover - an OSINT tool"
+DESCRIPTION="This module will install/update URLcrazy - the study of domainname typos and URL hijacking"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
+REPOSITORY_LOCATION="https://github.com/Eisler/URLCrazy.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="discover"
+INSTALL_LOCATION="urlcrazy"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN=""
@@ -26,4 +26,4 @@ DEBIAN=""
 AFTER_COMMANDS=""
 
 # CREATE LAUNCHER
-LAUNCHER="discover"
+LAUNCHER="urlcrazy"
