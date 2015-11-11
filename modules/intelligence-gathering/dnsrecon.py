@@ -27,3 +27,7 @@ FEDORA="git,python-dns,python-netaddr"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
+
+# CREATE LAUNCHER
+LAUNCHER="dnsrecon"
+
