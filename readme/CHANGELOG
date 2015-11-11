@@ -12,6 +12,8 @@ version 1.5
 * udp proto added (thanks vdbaan)
 * what web added (thanks vdbaan)
 * added install_update_all to each individual module section (thanks vdbaan)
+* added simplyemail - recon/mail harvester
+* added pip - mainframe exploitation
 
 ~~~~~~~~~~~~~~~~~
 version 1.4.2
