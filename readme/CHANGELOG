@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 1.5.1
+~~~~~~~~~~~~~~~~~
+
+* added newline after each module install
+* fixed automatic apt-get when not on debian
+* fixed an undefined message when module would not have a OStype
+
+~~~~~~~~~~~~~~~~~
 version 1.5
 ~~~~~~~~~~~~~~~~~
 
