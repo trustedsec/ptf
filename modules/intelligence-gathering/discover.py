@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
 INSTALL_LOCATION="discover"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="whois, traceroute, whatweb"
 
 # COMMANDS TO RUN AFTER 
 AFTER_COMMANDS=""
