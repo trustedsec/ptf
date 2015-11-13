@@ -24,10 +24,13 @@ fedora_modules = ""
 openbsd_modules = ""
 
 print_status("Operating system detected as: " + bcolors.BOLD + profile_os() + bcolors.ENDC)
+
 # main intro here
 if profile_os() == "DEBIAN":
     subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
 print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + funny + bcolors.ENDC)
+
 print """
 For a list of available commands type ? or help
 """
@@ -99,9 +102,8 @@ def use_module(module, all_trigger):
             repository_location = module_parser(filename, "REPOSITORY_LOCATION")
 
             # here we check if we need to do x86 or x64
-            if module_parser(filename, "X64_LOCATION") != None:
+            if module_parser(filename, "X64_LOCATION") != "":
                 # grab architecture
-                # print module_parser(filename, "X64_LOCATION")
                 arch_detect = arch()
                 if "64bit" in arch_detect:
                     repository_location = module_parser(filename, "X64_LOCATION")
@@ -428,25 +430,25 @@ while 1:
                 ostype = profile_os()
                 if ostype == "DEBIAN":
                     deb_modules = deb_modules.replace(",", " ")
-                    if deb_modules != None:
+                    if deb_modules != "":
                         base_install_modules(deb_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "ARCHLINUX":
                     arch_modules = arch_modules.replace(",", " ")
-                    if arch_modules != None:
+                    if arch_modules != "":
                         base_install_modules(arch_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "FEDORA":
                     fedora_modules = fedora_modules.replace(",", " ")
-                    if fedora_modules != None:
+                    if fedora_modules != "":
                         base_install_modules(fedora_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "OPENBSD":
                     openbsd_modules = openbsd_modules.replace(",", " ")
-                    if openbsd_modules != None:
+                    if openbsd_modules != "":
                         base_install_modules(openbsd_modules)
                     print_status("Finished updating depends for modules.")
 
