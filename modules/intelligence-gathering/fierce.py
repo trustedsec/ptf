@@ -26,7 +26,7 @@ DEBIAN="perl"
 FEDORA="git,perl,perl-CPAN"
 
 # COMMANDS TO RUN AFTER 
-AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',cpan -fi strict Net::hostent Net::DNS IO::Socket Socket Getopt::Long"
+AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',cpan -i strict Net::hostent Net::DNS IO::Socket Socket Getopt::Long"
 
 # create a launcher
 LAUNCHER="fierce"
