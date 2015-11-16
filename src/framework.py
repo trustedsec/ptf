@@ -17,11 +17,20 @@ print banner
 import random
 funny = random.sample(["Aliens","Clowns", "Mr. Robot", "Zero Cool", "Goats", "Hackers", "Unicorns"], 1)[0]
 
+# blank variables used later
+deb_modules = ""
+arch_modules = ""
+fedora_modules = ""
+openbsd_modules = ""
+
 print_status("Operating system detected as: " + bcolors.BOLD + profile_os() + bcolors.ENDC)
+
 # main intro here
 if profile_os() == "DEBIAN":
     subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
 print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + funny + bcolors.ENDC)
+
 print """
 For a list of available commands type ? or help
 """
@@ -99,9 +108,8 @@ def use_module(module, all_trigger):
             repository_location = module_parser(filename, "REPOSITORY_LOCATION")
 
             # here we check if we need to do x86 or x64
-            if module_parser(filename, "X64_LOCATION") != None:
+            if module_parser(filename, "X64_LOCATION") != "":
                 # grab architecture
-                # print module_parser(filename, "X64_LOCATION")
                 arch_detect = arch()
                 if "64bit" in arch_detect:
                     repository_location = module_parser(filename, "X64_LOCATION")
@@ -206,15 +214,16 @@ def use_module(module, all_trigger):
                         launcher(filename, install_location)
 
                         # special for Metasploit
-                        if "metasploit" in filename:
-                            if prompt == "update":
-                                print_status("Ensuring libgmp-dev is installed for ffi...")
-                                subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
-                                print_status("Updating gem packages for Metasploit....")
-                                subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
-                                print_status("Killing ruby gem launchers as this breaks launchers...")
-                                subprocess.Popen("rm /usr/local/rvm/gems/ruby-2.*/bin/msf*", shell=True).wait()
-                                print_status("Finished updating Metasploit.... Enjoy!")
+			if profile_os() == "DEBIAN":
+                            if "metasploit" in filename:
+                               if prompt == "update":
+                                  print_status("Ensuring libgmp-dev is installed for ffi...")
+                                  subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
+                                  print_status("Updating gem packages for Metasploit....")
+                                  subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
+                                  #print_status("Killing ruby gem launchers as this breaks launchers...")
+                                  #subprocess.Popen("rm /usr/local/rvm/gems/ruby-2.*/bin/msf*", shell=True).wait()
+                                  print_status("Finished updating Metasploit.... Enjoy!")
 
                     if install_type.lower() == "svn":
                         print_status("Updating the tool, be patient while git pull is initiated.")
@@ -226,6 +235,9 @@ def use_module(module, all_trigger):
 
                         # check launcher
                         launcher(filename, install_location)
+
+                    print_status("Running updatedb to tidy everything up.")
+                    subprocess.Popen("updatedb", shell=True).wait()
 
                 if not os.path.isdir(install_location):
                     print_error("The tool was not found in the install location. Try running install first!")
@@ -307,15 +319,18 @@ def use_module(module, all_trigger):
                     after_commands(filename,install_location)
                     launcher(filename, install_location)
 
-                    # if we are using wget
+                # if we are using wget
                 if install_type.lower() == "wget":
-                    print_status("WGET was the selected method for installation because it plays better that curl -l with Sourceforge.")
+                    print_status("WGET was the selected method for installation because it plays better than curl -l with Sourceforge.")
                     proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                     print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                     after_commands(filename,install_location)
                     launcher(filename, install_location)
 
-                # if we update all we need to break out until finished
+                print_status("Running updatedb to tidy everything up.")
+                subprocess.Popen("updatedb", shell=True).wait()
+
+            # if we update all we need to break out until finished
             if int(all_trigger) == 1: break
 
 # start the main loop
@@ -396,6 +411,7 @@ while 1:
                                     from src.platforms.debian import base_install_modules
                                     # grab all the modules we need
                                     deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
+
                             # archlinux
                             if ostype == "ARCHLINUX":
                                 if not "install_update_all" in filename_short:
@@ -419,25 +435,25 @@ while 1:
                 ostype = profile_os()
                 if ostype == "DEBIAN":
                     deb_modules = deb_modules.replace(",", " ")
-                    if deb_modules != None:
+                    if deb_modules != "":
                         base_install_modules(deb_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "ARCHLINUX":
                     arch_modules = arch_modules.replace(",", " ")
-                    if arch_modules != None:
+                    if arch_modules != "":
                         base_install_modules(arch_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "FEDORA":
                     fedora_modules = fedora_modules.replace(",", " ")
-                    if fedora_modules != None:
+                    if fedora_modules != "":
                         base_install_modules(fedora_modules)
                     print_status("Finished updating depends for modules.")
 
                 if ostype == "OPENBSD":
                     openbsd_modules = openbsd_modules.replace(",", " ")
-                    if openbsd_modules != None:
+                    if openbsd_modules != "":
                         base_install_modules(openbsd_modules)
                     print_status("Finished updating depends for modules.")
 

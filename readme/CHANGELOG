@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 1.5.1
+~~~~~~~~~~~~~~~~~
+
+* added newline after each module install
+* fixed automatic apt-get when not on debian
+* fixed an undefined message when module would not have a OStype
+
+~~~~~~~~~~~~~~~~~
 version 1.5
 ~~~~~~~~~~~~~~~~~
 
@@ -12,6 +20,8 @@ version 1.5
 * udp proto added (thanks vdbaan)
 * what web added (thanks vdbaan)
 * added install_update_all to each individual module section (thanks vdbaan)
+* added simplyemail - recon/mail harvester
+* added pip - mainframe exploitation
 
 ~~~~~~~~~~~~~~~~~
 version 1.4.2

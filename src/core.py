@@ -81,7 +81,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.5"
+grab_version = "1.5.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -180,7 +180,8 @@ def module_parser(filename, term):
                             print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
                             print_error("Check the module again for errors and try again.")
                             print_error("Module has been removed from the list.")
-            return None
+
+            return ""
 
     # if the file isn't there
     if not os.path.isfile(filename):
@@ -365,11 +366,12 @@ def auto_update():
     if check == "on":
         print_status("Auto updating is turned to on, this will install normal package updates for you...")
         print_status("If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
-        subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
+	if profile_os() == "DEBIAN":
+            subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
         print_status("Finished with normal package updates, moving on to the tools section..")
     else:
         print_status("Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
-
+        
 # check if a blank directory exists
 def check_blank_dir(path):
 
