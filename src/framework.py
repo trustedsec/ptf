@@ -29,13 +29,19 @@ For a list of available commands type ? or help
 ignore_these = []
 if check_config("IGNORE_THESE_MODULES") is not None:
     ignore_these = check_config("IGNORE_THESE_MODULES").split(",")
+    print_info("Ignoring the following modules: "+(", ").join(ignore_these))
 
 def ignore_module(module):
     result = False
     for check in ignore_these:
-        if check == module:
-            print_warning("Ignoring module: " + module)
-            result = True
+        if "/*" in check:
+            if check[:-1] in module:
+                print_warning("Ignoring module: " + module)
+                result = True
+        else:
+            if (os.getcwd() + "/"+check+".py") == module:
+                print_warning("Ignoring module: " + module)
+                result = True
     result
 
 # check the folder structure
@@ -408,7 +414,6 @@ while 1:
                                     from src.platforms.openbsd import base_install_modules
                                     # grab all the modules we need
                                     openbsd_modules = openbsd_modules + "," + module_parser(filename_short, "OPENBSD")
-
 
                 # install all of the packages at once
                 ostype = profile_os()
