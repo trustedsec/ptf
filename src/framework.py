@@ -46,13 +46,13 @@ def ignore_module(module):
     for check in ignore_these:
         if "/*" in check:
             if check[:-1] in module:
-                print_warning("Ignoring module: " + module)
                 result = True
         else:
             if (os.getcwd() + "/"+check+".py") == module:
-                print_warning("Ignoring module: " + module)
                 result = True
-    result
+    if result:
+        print_warning("Ignoring module: " + module)
+    return result
 
 # check the folder structure
 def show_module():
@@ -463,7 +463,8 @@ while 1:
                         # join the structure
                         filename = os.path.join(path, name)
                         # strip un-needed files
-                        if not "__init__.py" in filename:
+
+                        if not "__init__.py" in filename and not ignore_module(filename):
                             # shorten it up a little bit
                             filename_short = filename.replace(os.getcwd() + "/", "")
                             filename_short = filename_short.replace(".py", "")
