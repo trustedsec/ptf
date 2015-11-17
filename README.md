@@ -103,3 +103,7 @@ You can have multiple launchers for an application - for example Metasploit you 
 ### Automatic Command Line
 
 You can also just run ./ptf --update-all and it will automatically update everything for you without having to do into the framework
+
+### IGNORE Modules or Categories
+
+The "IGNORE_THESE_MODULES=" config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: modules/exploitation/metasploit,modules/exploitation/set or entire module categories, like modules/code-audit/*,/modules/reporting/*
