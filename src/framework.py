@@ -222,8 +222,6 @@ def use_module(module, all_trigger):
                                   subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
                                   print_status("Updating gem packages for Metasploit....")
                                   subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
-                                  #print_status("Killing ruby gem launchers as this breaks launchers...")
-                                  #subprocess.Popen("rm /usr/local/rvm/gems/ruby-2.*/bin/msf*", shell=True).wait()
                                   print_status("Finished updating Metasploit.... Enjoy!")
 
                     if install_type.lower() == "svn":
