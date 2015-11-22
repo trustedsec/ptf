@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/jordansissel/xdotool.git"
 INSTALL_LOCATION="xdotool"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="make"
+DEBIAN="make,libx11-dev,libxtst-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="make"
+FEDORA="make,libx11-devel,libxtst-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},cmake -DCMAKE_INSTALL_PREFIX=/pentest/intelligence-gathering/,make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make install"
 
 # CREATE LAUNCHER
 LAUNCHER="xdotool"
