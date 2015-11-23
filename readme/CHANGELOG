@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.6
+~~~~~~~~~~~~~~~~~
+
+* move nmap-dev to nmap
+* fixed spraywmi depends for Ubuntu
+
+~~~~~~~~~~~~~~~~~
 version 1.5.2
 ~~~~~~~~~~~~~~~~~
 
