@@ -11,7 +11,7 @@ import os
 import time
 
 # print the main welcome banner
-print banner
+print (banner)
 
 # funny random banner
 import random
@@ -31,9 +31,9 @@ if profile_os() == "DEBIAN":
 
 print_status("Welcome to PTF - where everything just works...Because.." + bcolors.BOLD + funny + bcolors.ENDC)
 
-print """
+print ("""
 For a list of available commands type ? or help
-"""
+""")
 
 ignore_these = []
 if check_config("IGNORE_THESE_MODULES") is not None:
@@ -57,15 +57,15 @@ def ignore_module(module):
 # check the folder structure
 def show_module():
     modules_path = os.getcwd() + "/modules/"
-    print "\n"
-    print bcolors.BOLD + "The PenTesters Framework Modules" + bcolors.ENDC
+    print ("\n")
+    print (bcolors.BOLD + "The PenTesters Framework Modules" + bcolors.ENDC)
     print ("""=================================
 
-   """ + bcolors.BOLD + """Name                                                 Description """ + bcolors.ENDC + """
+   """) + (bcolors.BOLD) + ("""Name                                                 Description """) + (bcolors.ENDC) + ("""
    ----                                                 ---------------
     """)
 
-    print "   modules/install_update_all                           This will install or update all tools with modules within PTF"
+    print ("   modules/install_update_all                           This will install or update all tools with modules within PTF")
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             # join the structure
@@ -197,11 +197,17 @@ def use_module(module, all_trigger):
                     if install_type.lower() == "git":
                         print_status("Updating the tool, be patient while git pull is initiated.")
                         proc = subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
+			# here we check to see if we need anything we need to run after things are updated
+			update_counter = 0
+			if not "Already up-to-date." in proc.communicate()[0]:
+				after_commands(filename, install_location)
+				upate_counter = 1	 
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
                         # run after commands
                         if prompt != "update":
-                            after_commands(filename,install_location)
+			    if update_counter == 0:
+	                            after_commands(filename,install_location)
                             # special metasploit voodoo needed here
                             if os.path.isfile(install_location + "/msfconsole"):
                                 cwd = os.getcwd()
@@ -476,7 +482,7 @@ while 1:
 
                 # clear the screen
                 os.system("clear")
-                print "\n"
+                print ("\n")
                 print (""" _   _            _      _   _            ____  _                  _""")
                 print ("""| | | | __ _  ___| | __ | |_| |__   ___  |  _ \| | __ _ _ __   ___| |_""")
                 print ("""| |_| |/ _` |/ __| |/ / | __| '_ \ / _ \ | |_) | |/ _` | '_ \ / _ \ __|""")
