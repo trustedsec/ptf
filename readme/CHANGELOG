@@ -4,6 +4,8 @@ version 1.6
 
 * move nmap-dev to nmap
 * fixed spraywmi depends for Ubuntu
+* moved ridenum from exploitation to intelligence-gathering
+* fixed an issue that would not import all of the arguments when using launchers
 
 ~~~~~~~~~~~~~~~~~
 version 1.5.2
