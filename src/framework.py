@@ -225,7 +225,7 @@ def use_module(module, all_trigger):
                                   print_status("Finished updating Metasploit.... Enjoy!")
 
                     if install_type.lower() == "svn":
-                        print_status("Updating the tool, be patient while git pull is initiated.")
+                        print_status("Updating the tool, be patient while svn pull is initiated.")
                         proc = subprocess.Popen("cd %s;svn update" % (install_location), stderr=subprocess.PIPE, shell=True)
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                         # run after commands

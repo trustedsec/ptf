@@ -6,6 +6,7 @@ version 1.6
 * fixed spraywmi depends for Ubuntu
 * moved ridenum from exploitation to intelligence-gathering
 * fixed an issue that would not import all of the arguments when using launchers
+* changed git to svn language to fix typo
 
 ~~~~~~~~~~~~~~~~~
 version 1.5.2
