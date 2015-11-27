@@ -241,7 +241,7 @@ def use_module(module, all_trigger):
 				filewrite.close()
 
 			if os.path.isfile(install_location + "/.goatsvn_storage"):
-				cmp = file(install_location + "/.goatsvn_storage", "w").read()
+				cmp = file(install_location + "/.goatsvn_storage", "r").read()
 				# if we are at a new revision
 				if cmp != proc.communicate()[0]:
 					# change prompt to something other than update
