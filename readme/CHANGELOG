@@ -10,6 +10,9 @@ version 1.6
 * added Python3 compatibility and support
 * added check for github, if new update occurs, run through after commands
 * added autocheck for svn if new updates occur, run through after commands
+* removed build-dep as a non-standard module in sslscan
+* added better handling for all updates - after commands will be now run anytime theres a module update either via SVN or GIT - this already happens for FILE. If something is already up-to-date it won't run after_commands
+* removed prompt for empire
 
 ~~~~~~~~~~~~~~~~~
 version 1.5.2

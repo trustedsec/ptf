@@ -202,7 +202,7 @@ def use_module(module, all_trigger):
 			if not "Already up-to-date." in proc.communicate()[0]:
 				if not "metasploit" in filename:
 					after_commands(filename, install_location)
-					upate_counter = 1	 
+					update_counter = 1	 
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
                         # run after commands
@@ -235,17 +235,19 @@ def use_module(module, all_trigger):
                         print_status("Updating the tool, be patient while svn pull is initiated.")
                         proc = subprocess.Popen("cd %s;svn update" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 			# here we do some funky stuff to store old revisions
-			if not os.path.isfile(install_location + "/.goatsvn_storage"):
-				filewrite = file(install_location + "/.goatsvn_storage", "w")
-				filewrite.write(proc.communicate()[0])
-				filewrite.close()
-
-			if os.path.isfile(install_location + "/.goatsvn_storage"):
-				cmp = file(install_location + "/.goatsvn_storage", "r").read()
-				# if we are at a new revision
-				if cmp != proc.communicate()[0]:
-					# change prompt to something other than update
-					prompt = "goat"
+			try:
+				if not os.path.isfile(install_location + "/.goatsvn_storage"):
+					filewrite = file(install_location + "/.goatsvn_storage", "w")
+					filewrite.write(proc.communicate()[0])
+					filewrite.close()
+	
+				if os.path.isfile(install_location + "/.goatsvn_storage"):
+					cmp = file(install_location + "/.goatsvn_storage", "r").read()
+					# if we are at a new revision
+					if cmp != proc.communicate()[0]:
+						# change prompt to something other than update
+						prompt = "goat"
+			except: pass
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                         # run after commands
                         if prompt != "update":
