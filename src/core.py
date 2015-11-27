@@ -118,7 +118,7 @@ banner += bcolors.ENDC + """Framework\n\n"""
 
 banner += """        		""" + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """Tools-R-Us""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """Goat Runner""" + "\n"
 
 banner += """		       """ + bcolors.ENDC + bcolors.backRed + """Red Team Approved""" + bcolors.ENDC + "\n"
 
