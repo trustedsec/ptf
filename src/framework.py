@@ -196,12 +196,13 @@ def use_module(module, all_trigger):
                 if os.path.isdir(install_location):
                     if install_type.lower() == "git":
                         print_status("Updating the tool, be patient while git pull is initiated.")
-                        proc = subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
+                        proc = subprocess.Popen("cd %s;git pull" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 			# here we check to see if we need anything we need to run after things are updated
 			update_counter = 0
 			if not "Already up-to-date." in proc.communicate()[0]:
-				after_commands(filename, install_location)
-				upate_counter = 1	 
+				if not "metasploit" in filename:
+					after_commands(filename, install_location)
+					upate_counter = 1	 
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
                         # run after commands
@@ -232,7 +233,19 @@ def use_module(module, all_trigger):
 
                     if install_type.lower() == "svn":
                         print_status("Updating the tool, be patient while svn pull is initiated.")
-                        proc = subprocess.Popen("cd %s;svn update" % (install_location), stderr=subprocess.PIPE, shell=True)
+                        proc = subprocess.Popen("cd %s;svn update" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+			# here we do some funky stuff to store old revisions
+			if not os.path.isfile(install_location + "/.goatsvn_storage"):
+				filewrite = file(install_location + "/.goatsvn_storage", "w")
+				filewrite.write(proc.communicate()[0])
+				filewrite.close()
+
+			if os.path.isfile(install_location + "/.goatsvn_storage"):
+				cmp = file(install_location + "/.goatsvn_storage", "w").read()
+				# if we are at a new revision
+				if cmp != proc.communicate()[0]:
+					# change prompt to something other than update
+					prompt = "goat"
                         print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                         # run after commands
                         if prompt != "update":

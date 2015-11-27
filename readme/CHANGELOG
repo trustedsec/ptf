@@ -7,6 +7,9 @@ version 1.6
 * moved ridenum from exploitation to intelligence-gathering
 * fixed an issue that would not import all of the arguments when using launchers
 * changed git to svn language to fix typo
+* added Python3 compatibility and support
+* added check for github, if new update occurs, run through after commands
+* added autocheck for svn if new updates occur, run through after commands
 
 ~~~~~~~~~~~~~~~~~
 version 1.5.2
