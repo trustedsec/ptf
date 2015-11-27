@@ -14,6 +14,7 @@ version 1.6
 * added better handling for all updates - after commands will be now run anytime theres a module update either via SVN or GIT - this already happens for FILE. If something is already up-to-date it won't run after_commands
 * removed prompt for empire
 * added build gem bundles for smbexec but its still a mess - installer is broke, requires a million external depends - will need to work on this one later
+* just completely removed smbexec - hasn't been updated in over a year - no support and super broke
 
 ~~~~~~~~~~~~~~~~~
 version 1.5.2
