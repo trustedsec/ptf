@@ -20,7 +20,10 @@ REPOSITORY_LOCATION="https://github.com/smicallef/spiderfoot.git"
 INSTALL_LOCATION="spiderfoot"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="libxslt1-dev,libxml2-dev"
+
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="libxslt1-devel,libxml2-devel"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="pip install lxml netaddr M2Crypto cherrypy mako"
