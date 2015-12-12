@@ -316,7 +316,7 @@ def launcher(filename, install_location):
                 # if we found filetype
                 if point != "":
                     filewrite = file("/usr/local/bin/" + launchers, "w")
-                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s "$*"' % (install_location,file_point,point))
+                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*' % (install_location,file_point,point))
                     filewrite.close()
                     subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
                     print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
