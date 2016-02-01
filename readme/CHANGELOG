@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 1.6.1
+~~~~~~~~~~~~~~~~~
+
+* add a remove from Gemfile.lock in order to ensure proper git pulls
+
+~~~~~~~~~~~~~~~~~
 version 1.6
 ~~~~~~~~~~~~~~~~~
 
