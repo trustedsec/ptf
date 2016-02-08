@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 1.6.2
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue with hydra not installing ldap-utils
+
+~~~~~~~~~~~~~~~~~
 version 1.6.1
 ~~~~~~~~~~~~~~~~~
 
