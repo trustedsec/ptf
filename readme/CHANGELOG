@@ -3,6 +3,7 @@ version 1.6.2
 ~~~~~~~~~~~~~~~~~
 
 * fixed an issue with hydra not installing ldap-utils
+* ssl certificate issue fixed with openvas (cert does not match)
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.1
