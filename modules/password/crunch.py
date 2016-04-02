@@ -10,8 +10,8 @@ AUTHOR="jklaz"
 DESCRIPTION="This module will install/update crunch - wordlist generator"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
-# OPTIONS = GIT, SVN, FILE
-INSTALL_TYPE="FILE"
+# OPTIONS = GIT, SVN, FILE ,wget
+INSTALL_TYPE="wget"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
 REPOSITORY_LOCATION="https://downloads.sourceforge.net/project/crunch-wordlist/crunch-wordlist/crunch-3.6.tgz"
