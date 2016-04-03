@@ -81,7 +81,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.6.2"
+grab_version = "1.6.3"
 
 # banner
 banner = bcolors.RED + r"""
@@ -397,4 +397,18 @@ def check_blank_dir(path):
 # do platform detection on 32 or 64 bit
 def arch():
     return str(platform.architecture()[0])
+
+# check to see if we are running kali linux
+def check_kali():
+    if os.path.isfile("/etc/apt/sources.list"):
+        kali = open("/etc/apt/sources.list", "r")
+        kalidata = kali.read()
+        if "kali" in kalidata:
+            return "Kali"
+        # if we aren't running kali
+        else:
+            return "Non-Kali"
+    else:
+        print("[!] Not running a Debian variant..")
+        return "Non-Kali"
 

@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.6.3
+~~~~~~~~~~~~~~~~~
+
+* fixed install location to properly work
+* removed sslsplit, python2-dpkt, python-pypcap
+
+~~~~~~~~~~~~~~~~~
 version 1.6.2
 ~~~~~~~~~~~~~~~~~
 
