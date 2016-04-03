@@ -2,7 +2,6 @@
 ##########################
 # After commands module
 ##########################
-#import pexpect
 import subprocess
 import os
 from src.core import *

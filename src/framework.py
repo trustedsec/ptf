@@ -70,12 +70,12 @@ def ignore_module(module):
 def show_module():
     modules_path = os.getcwd() + "/modules/"
     print ("\n")
-    print (bcolors.BOLD + "The PenTesters Framework Modules" + bcolors.ENDC)
-    print ("""=================================
+    print((bcolors.BOLD + "The PenTesters Framework Modules" + bcolors.ENDC))
+    print(("""=================================
 
    """) + (bcolors.BOLD) + ("""Name                                                 Description """) + (bcolors.ENDC) + ("""
    ----                                                 ---------------
-    """)
+    """))
 
     print ("   modules/install_update_all                           This will install or update all tools with modules within PTF")
     for path, subdirs, files in os.walk(modules_path):
@@ -91,8 +91,8 @@ def show_module():
                 # print the module name
                 if description != None:
                     temp_number = 53 - len(filename_short)
-                    print "   " + filename_short + " " * temp_number + description
-    print "\n"
+                    print("   " + filename_short + " " * temp_number + description)
+    print("\n")
 
 
 # this is when a use <module> command is initiated
@@ -168,19 +168,19 @@ def use_module(module, all_trigger):
                 # if changes are made, it makes sense to keep it loading each
                 # time
                 if prompt.lower() == "show options":
-                    print "Module options (%s):" % module
+                    print("Module options (%s):" % module)
 
                 # if we are using a normal module
                 if module != "modules/install_update_all":
 
-                    print "\n\n"
-                    print bcolors.BOLD + "Module Author:         " + bcolors.ENDC + author
-                    print bcolors.BOLD + "Module Description:    " + bcolors.ENDC + description
-                    print "-------------------------------------------------------------------------------------"
-                    print bcolors.BOLD + "INSTALL_TYPE:           " + bcolors.ENDC + install_type
-                    print bcolors.BOLD + "REPOSITORY_LOCATION:    " + bcolors.ENDC + repository_location
-                    print bcolors.BOLD + "INSTALL_LOCATION:       " + bcolors.ENDC + install_location
-                    print "-------------------------------------------------------------------------------------"
+                    print("\n\n")
+                    print(bcolors.BOLD + "Module Author:         " + bcolors.ENDC + author)
+                    print(bcolors.BOLD + "Module Description:    " + bcolors.ENDC + description)
+                    print("-------------------------------------------------------------------------------------")
+                    print(bcolors.BOLD + "INSTALL_TYPE:           " + bcolors.ENDC + install_type)
+                    print(bcolors.BOLD + "REPOSITORY_LOCATION:    " + bcolors.ENDC + repository_location)
+                    print(bcolors.BOLD + "INSTALL_LOCATION:       " + bcolors.ENDC + install_location)
+                    print("-------------------------------------------------------------------------------------")
 
                 # if we are setting the command now
                 if prompt.lower().startswith("set"):

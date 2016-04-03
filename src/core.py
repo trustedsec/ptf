@@ -66,29 +66,29 @@ def definepath():
 
 
 def print_status(message):
-    print (bcolors.GREEN) + (bcolors.BOLD) + \
-        ("[*] ") + (bcolors.ENDC) + (str(message))
+    print((bcolors.GREEN) + (bcolors.BOLD) + \
+        ("[*] ") + (bcolors.ENDC) + (str(message)))
 
 
 def print_info(message):
-    print (bcolors.BLUE) + (bcolors.BOLD) + \
-        ("[-] ") + (bcolors.ENDC) + (str(message))
+    print((bcolors.BLUE) + (bcolors.BOLD) + \
+        ("[-] ") + (bcolors.ENDC) + (str(message)))
 
 
 def print_info_spaces(message):
-    print (bcolors.BLUE) + (bcolors.BOLD) + \
-        ("  [-] ") + (bcolors.ENDC) + (str(message))
+    print((bcolors.BLUE) + (bcolors.BOLD) + \
+        ("  [-] ") + (bcolors.ENDC) + (str(message)))
 
 
 def print_warning(message):
-    print (bcolors.YELLOW) + (bcolors.BOLD) + \
-        ("[!] ") + (bcolors.ENDC) + (str(message))
+    print((bcolors.YELLOW) + (bcolors.BOLD) + \
+        ("[!] ") + (bcolors.ENDC) + (str(message)))
 
 
 def print_error(message):
-    print (bcolors.RED) + (bcolors.BOLD) + \
+    print((bcolors.RED) + (bcolors.BOLD) + \
         ("[!] ") + (bcolors.ENDC) + (bcolors.RED) + \
-        (str(message)) + (bcolors.ENDC)
+        (str(message)) + (bcolors.ENDC))
 
 # count all of the modules
 
@@ -237,14 +237,14 @@ def module_parser(filename, term):
 
 
 def show_help_menu():
-    print ("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" +
-           bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC)
-    print ("Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," +
-           bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC)
-    print ("Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC + "," + bcolors.BOLD + " help" + bcolors.ENDC + "," +
-           bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC)
-    print ("Update or Install: " + bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" +
-           bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC)
+    print(("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" +
+           bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC))
+    print(("Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," +
+           bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC))
+    print(("Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC + "," + bcolors.BOLD + " help" + bcolors.ENDC + "," +
+           bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC))
+    print(("Update or Install: " + bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" +
+           bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC))
 
 # exit message for PTF
 

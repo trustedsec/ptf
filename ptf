@@ -12,8 +12,6 @@ import os
 import socket
 
 # create launcher
-
-
 def create_launcher():
     cwd = os.getcwd()
     filewrite = file("/usr/local/bin/ptf", "w")
@@ -22,11 +20,9 @@ def create_launcher():
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
 
 # check for an Internet connection
-
-
 def check_internet():
     try:
-        print "[*] Checking for an Internet connection..."
+        print("[*] Checking for an Internet connection...")
         rhost = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         rhost.connect(('google.com', 0))
         rhost.settimeout(2)
@@ -37,8 +33,8 @@ def check_internet():
 
 
 if os.geteuid() != 0:
-    print "\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)"
-    print "\nThis needs to be run as root. Please sudo it up! Exiting..."
+    print("\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)")
+    print("\nThis needs to be run as root. Please sudo it up! Exiting...")
     exit()
 
 try:
@@ -55,7 +51,7 @@ try:
             sys.exit()
 
         # try to update ourself first
-        print "[*] Trying to update myself first.. Then starting framework."
+        print("[*] Trying to update myself first.. Then starting framework.")
         subprocess.Popen("git pull", shell=True).wait()
 
     # create automatic launcher
@@ -73,12 +69,12 @@ try:
         subprocess.Popen("sh src/updateall", shell=True).wait()
 
 except KeyboardInterrupt:
-    print "\n"
-    print "[*] Exiting PTF - the easy pentest platform creation framework."
+    print("\n")
+    print("[*] Exiting PTF - the easy pentest platform creation framework.")
     exit()
     sys.exit()
 
-except Exception, e:
-    print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
-    print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-    print ("[!] Printing that error. Get that error. You get it: " + str(e))
+#except Exception as e:
+#    print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+#    print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+#    print(("[!] Printing that error. Get that error. You get it: " + str(e)))
