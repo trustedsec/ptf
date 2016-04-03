@@ -7,6 +7,7 @@ version 1.6.3
 * added new function for detection in Kali
 * added smart detection for Kali to not install Metasploit on there - packages are different
 * added pep8 compliance to PTF
+* added compatibility to python3 (doesn't mean modules will support python3 - just that ptf is python 3 if you wish
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.2
