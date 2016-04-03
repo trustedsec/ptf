@@ -26,4 +26,4 @@ DEBIAN="gcc"
 FEDORA="gcc"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make,make install,cd ..,rm crunch-3.6.tgz"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make,make install,cd ..,rm crunch-3.6.tgz"
