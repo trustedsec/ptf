@@ -10,11 +10,16 @@ import glob
 import platform
 
 # tab completion
+
+
 def complete(text, state):
-    a =  (glob.glob(text+'*')+[None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
+    a = (glob.glob(text + '*') + [None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace(
+        "README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
     a = a.replace("modules//", "modules/")
-    if os.path.isfile(a[:-1] + ".py"): return a[:-1]
-    else: return a
+    if os.path.isfile(a[:-1] + ".py"):
+        return a[:-1]
+    else:
+        return a
 
 readline.set_completer_delims(' \t\n;')
 readline.parse_and_bind("tab: complete")
@@ -22,6 +27,8 @@ readline.set_completer(complete)
 # end tab completion
 
 # color scheme for core
+
+
 class bcolors:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -43,6 +50,8 @@ class bcolors:
     backWhite = '\033[47m'
 
 # get the main SET path
+
+
 def definepath():
     if os.path.isfile("ptf"):
         return os.getcwd()
@@ -54,22 +63,36 @@ def definepath():
             return os.getcwd()
 
 # main status calls for print functions
+
+
 def print_status(message):
-    print (bcolors.GREEN) + (bcolors.BOLD) + ("[*] ") + (bcolors.ENDC) + (str(message))
+    print (bcolors.GREEN) + (bcolors.BOLD) + \
+        ("[*] ") + (bcolors.ENDC) + (str(message))
+
 
 def print_info(message):
-    print (bcolors.BLUE) + (bcolors.BOLD) + ("[-] ") + (bcolors.ENDC) + (str(message))
+    print (bcolors.BLUE) + (bcolors.BOLD) + \
+        ("[-] ") + (bcolors.ENDC) + (str(message))
+
 
 def print_info_spaces(message):
-    print (bcolors.BLUE) + (bcolors.BOLD) + ("  [-] ") + (bcolors.ENDC) + (str(message))
+    print (bcolors.BLUE) + (bcolors.BOLD) + \
+        ("  [-] ") + (bcolors.ENDC) + (str(message))
+
 
 def print_warning(message):
-    print (bcolors.YELLOW) + (bcolors.BOLD) + ("[!] ") + (bcolors.ENDC) + (str(message))
+    print (bcolors.YELLOW) + (bcolors.BOLD) + \
+        ("[!] ") + (bcolors.ENDC) + (str(message))
+
 
 def print_error(message):
-    print (bcolors.RED) + (bcolors.BOLD) + ("[!] ") + (bcolors.ENDC) + (bcolors.RED) + (str(message)) + (bcolors.ENDC)
+    print (bcolors.RED) + (bcolors.BOLD) + \
+        ("[!] ") + (bcolors.ENDC) + (bcolors.RED) + \
+        (str(message)) + (bcolors.ENDC)
 
 # count all of the modules
+
+
 def count_modules():
     modules_path = definepath() + "/modules/"
     counter = 0
@@ -116,21 +139,28 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		""" + bcolors.backBlue + """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
+banner += """        		""" + bcolors.backBlue + \
+    """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + bcolors.BLUE + """Goat Runner""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + \
+    bcolors.BLUE + """Goat Runner""" + "\n"
 
-banner += """		       """ + bcolors.ENDC + bcolors.backRed + """Red Team Approved""" + bcolors.ENDC + "\n"
+banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
+    """Red Team Approved""" + bcolors.ENDC + "\n"
 
-banner += """        	     A project by """ + bcolors.GREEN + bcolors.BOLD + """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
+banner += """        	     A project by """ + bcolors.GREEN + bcolors.BOLD + \
+    """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 
-banner += """		 Written by: """ + bcolors.BOLD + """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
-banner += """		Twitter: """ + bcolors.BOLD + """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
+banner += """		 Written by: """ + bcolors.BOLD + \
+    """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
+banner += """		Twitter: """ + bcolors.BOLD + \
+    """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
 banner += """                  """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
-banner += "             Total module/tool count within PTF: " + bcolors.BOLD + str(count_modules()) + bcolors.ENDC + "\n"
+banner += "             Total module/tool count within PTF: " + \
+    bcolors.BOLD + str(count_modules()) + bcolors.ENDC + "\n"
 banner += """
 All tools are downloaded directly from the developers websites as-is.  PTF 
 doesn't perform any type of source code analysis or verification on the tools.
@@ -141,10 +171,13 @@ any other tool distribution platform, operating system, or anything you would
 download from the Internet.\n"""
 
 # check the config file and return value
+
+
 def check_config(param):
     fileopen = file("%s/config/ptf.config" % (definepath()), "r")
     for line in fileopen:
-        # if the line starts with the param we want then we are set, otherwise if it starts with a # then ignore
+        # if the line starts with the param we want then we are set, otherwise
+        # if it starts with a # then ignore
         if line.startswith(param) != "#":
             if line.startswith(param):
                 line = line.rstrip()
@@ -155,6 +188,8 @@ def check_config(param):
                 return line[1]
 
 # parser module for module and term
+
+
 def module_parser(filename, term):
 
     # if the file exists
@@ -182,12 +217,15 @@ def module_parser(filename, term):
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
             if term != "BYPASS_UPDATE":
-                if term !="LAUNCHER":
+                if term != "LAUNCHER":
                     if filename_short != "install_update_all":
-                        if term !="X64_LOCATION":
-                            print_error("Warning, module %s was found but contains no %s field." % (filename_short,term))
-                            print_error("Check the module again for errors and try again.")
-                            print_error("Module has been removed from the list.")
+                        if term != "X64_LOCATION":
+                            print_error("Warning, module %s was found but contains no %s field." % (
+                                filename_short, term))
+                            print_error(
+                                "Check the module again for errors and try again.")
+                            print_error(
+                                "Module has been removed from the list.")
 
             return ""
 
@@ -196,13 +234,21 @@ def module_parser(filename, term):
         return None
 
 # help menu for PTF
+
+
 def show_help_menu():
-    print ("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" + bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC)
-    print ("Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," + bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC)
-    print ("Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC+ "," + bcolors.BOLD + " help" + bcolors.ENDC + "," + bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC)
-    print ("Update or Install: "+ bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" + bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC)
+    print ("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" +
+           bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC)
+    print ("Inside modules:" + bcolors.BOLD + " show options" + bcolors.ENDC + "," +
+           bcolors.BOLD + " set <option>" + bcolors.ENDC + "," + bcolors.BOLD + "run" + bcolors.ENDC)
+    print ("Additional commands: " + bcolors.BOLD + "back" + bcolors.ENDC + "," + bcolors.BOLD + " help" + bcolors.ENDC + "," +
+           bcolors.BOLD + " ?" + bcolors.ENDC + "," + bcolors.BOLD + " exit" + bcolors.ENDC + "," + bcolors.BOLD + " quit" + bcolors.ENDC)
+    print ("Update or Install: " + bcolors.BOLD + "update" + bcolors.ENDC + "," + bcolors.BOLD + " upgrade" +
+           bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC)
 
 # exit message for PTF
+
+
 def exit_ptf():
     print_status("Exiting PTF - the easy pentest platform creation framework.")
 
@@ -241,37 +287,48 @@ def logging(log):
     filewrite.close()
 
 # this will install all the proper locations for
+
+
 def prep_install():
     if not os.path.isfile(os.getenv("HOME") + "/.ptf"):
         print_status("This appears to be your first time using PTF.")
-        print_status("Creating output directory to: " + os.getenv("HOME") + "/.ptf")
+        print_status("Creating output directory to: " +
+                     os.getenv("HOME") + "/.ptf")
         os.makedirs(os.getenv("HOME") + "/.ptf")
+
 
 def home_directory():
     return os.getenv("HOME") + "/.ptf"
 
 # this will run commands after an install or update on a module
-def after_commands(filename,install_location):
+
+
+def after_commands(filename, install_location):
     from src.commands import after_commands
     commands = module_parser(filename, "AFTER_COMMANDS")
     if commands != "":
         # here we check if install location needs to be added
         if "{INSTALL_LOCATION}" in commands:
             commands = commands.replace("{INSTALL_LOCATION}", install_location)
-        print_status("Running after commands for post installation requirements.")
+        print_status(
+            "Running after commands for post installation requirements.")
         after_commands(commands, install_location)
         print_status("Completed running after commands routine..")
 
 # launcher - create launcher under /usr/local/bin
+
+
 def launcher(filename, install_location):
     launcher = module_parser(filename, "LAUNCHER")
 
     # if its optional
-    if launcher == None: launcher = ""
+    if launcher == None:
+        launcher = ""
     if launcher != "":
         # create a launcher if it doesn't exist
         base_launcher = 0
-        if "," in launcher: launcher = launcher.split(",")
+        if "," in launcher:
+            launcher = launcher.split(",")
         for launchers in launcher:
 
             # means there was just one launcher
@@ -279,7 +336,8 @@ def launcher(filename, install_location):
                 launchers = launcher
                 base_launcher = 1
 
-            if os.path.isfile("/usr/local/bin/" + launchers): os.remove("/usr/local/bin/" + launchers)
+            if os.path.isfile("/usr/local/bin/" + launchers):
+                os.remove("/usr/local/bin/" + launchers)
             if not os.path.isfile("/usr/local/bin/" + launchers):
 
                 # base launcher filename
@@ -324,15 +382,21 @@ def launcher(filename, install_location):
                 # if we found filetype
                 if point != "":
                     filewrite = file("/usr/local/bin/" + launchers, "w")
-                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*' % (install_location,file_point,point))
+                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*' %
+                                    (install_location, file_point, point))
                     filewrite.close()
-                    subprocess.Popen("chmod +x /usr/local/bin/%s" % (launchers), shell=True).wait()
-                    print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
+                    subprocess.Popen("chmod +x /usr/local/bin/%s" %
+                                     (launchers), shell=True).wait()
+                    print_status(
+                        "Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
 
             # just need to do this once
-            if base_launcher == 1: break
+            if base_launcher == 1:
+                break
 
 # search functionality here
+
+
 def search(term):
     term = term.replace("search ", "")
     module_files = []
@@ -351,20 +415,23 @@ def search(term):
 
                         if not term in path:
                             data = file(path, "r").readlines()
-                            # normally just searched entire file, but we don't want to search # lines
+                            # normally just searched entire file, but we don't
+                            # want to search # lines
                             for line in data:
                                 line = line.rstrip()
                                 if term in line:
                                     if not line.startswith("#"):
                                         x = x.replace(".py", "")
-                                        module_files.append(os.path.join(dirpath, x))
+                                        module_files.append(
+                                            os.path.join(dirpath, x))
                                         break
     if module_files != []:
         print_status("Search results below:")
         for modules in module_files:
             print (modules)
 
-    else: print_warning("Search found no results.")
+    else:
+        print_warning("Search found no results.")
 
 
 # auto update packages
@@ -372,33 +439,46 @@ def auto_update():
     # if we want to do auto update
     check = check_config("AUTO_UPDATE=").lower()
     if check == "on":
-        print_status("Auto updating is turned to on, this will install normal package updates for you...")
-        print_status("If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
-	if profile_os() == "DEBIAN":
-            subprocess.Popen("sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
-        print_status("Finished with normal package updates, moving on to the tools section..")
+        print_status(
+            "Auto updating is turned to on, this will install normal package updates for you...")
+        print_status(
+            "If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
+        if profile_os() == "DEBIAN":
+            subprocess.Popen(
+                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
+        print_status(
+            "Finished with normal package updates, moving on to the tools section..")
     else:
-        print_status("Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
-        
+        print_status(
+            "Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
+
 # check if a blank directory exists
+
+
 def check_blank_dir(path):
 
     if os.path.isdir(path):
         if os.listdir(path) == []:
-            print_status("Detected an empty folder, purging and re-checking out...")
+            print_status(
+                "Detected an empty folder, purging and re-checking out...")
             subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
         # we put a second one in there in case the path was removed from above
         if os.path.isdir(path):
             if os.listdir(path) == ['.git', '.gitignore']:
-                print_status("Detected an empty folder, purging and re-checking out...")
+                print_status(
+                    "Detected an empty folder, purging and re-checking out...")
                 subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
 # do platform detection on 32 or 64 bit
+
+
 def arch():
     return str(platform.architecture()[0])
 
 # check to see if we are running kali linux
+
+
 def check_kali():
     if os.path.isfile("/etc/apt/sources.list"):
         kali = open("/etc/apt/sources.list", "r")
@@ -411,4 +491,3 @@ def check_kali():
     else:
         print("[!] Not running a Debian variant..")
         return "Non-Kali"
-

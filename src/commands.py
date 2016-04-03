@@ -8,6 +8,8 @@ import os
 from src.core import *
 
 # this will execute after everything is over
+
+
 def after_commands(command, install_location):
     # if there is more than one command iterate through
     if "," in command:
@@ -32,4 +34,3 @@ def after_commands(command, install_location):
 
     else:
         subprocess.Popen(command, shell=True).wait()
-
