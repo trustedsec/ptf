@@ -6,6 +6,7 @@ version 1.6.3
 * removed sslsplit, python2-dpkt, python-pypcap
 * added new function for detection in Kali
 * added smart detection for Kali to not install Metasploit on there - packages are different
+* added pep8 compliance to PTF
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.2
