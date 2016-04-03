@@ -19,6 +19,9 @@ REPOSITORY_LOCATION="https://downloads.sourceforge.net/project/crunch-wordlist/c
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="crunch"
 
+#not github program manual update of the link needed
+BYPASS_UPDATE="YES"
+
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="gcc"
 
