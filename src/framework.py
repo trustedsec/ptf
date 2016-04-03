@@ -23,7 +23,9 @@ arch_modules = ""
 fedora_modules = ""
 openbsd_modules = ""
 
-print_status("Operating system detected as: " + bcolors.BOLD + profile_os() + bcolors.ENDC)
+if check_kali() == "Kali": os_profile = "Kali"
+else: os_profile = profile_os()
+print_status("Operating system detected as: " + bcolors.BOLD + os_profile + bcolors.ENDC)
 
 # main intro here
 if profile_os() == "DEBIAN":
@@ -210,26 +212,28 @@ def use_module(module, all_trigger):
 			    if update_counter == 0:
 	                            after_commands(filename,install_location)
                             # special metasploit voodoo needed here
-                            if os.path.isfile(install_location + "/msfconsole"):
-                                cwd = os.getcwd()
-                                os.chdir("/usr/local/bin")
-                                print_status("Needing to perform special Metasploit voodoo to get launcher to work.. Wait for another bundle install...")
-                                subprocess.Popen("cd %s;rm Gemfile.lock;bundle install;rm -rf /usr/local/rvm/gems/ruby-2.*/bin/msf*" % (install_location), shell=True).wait()
-                                print_status("Sacrifice to the ruby Gods complete. MSF should now work outside of the msf directory structure..")
-                                os.chdir(cwd)
+			    if check_kali() != "Kali":
+	                            if os.path.isfile(install_location + "/msfconsole"):
+         	                        cwd = os.getcwd()
+                	                os.chdir("/usr/local/bin")
+                        	        print_status("Needing to perform special Metasploit voodoo to get launcher to work.. Wait for another bundle install...")
+                                	subprocess.Popen("cd %s;rm Gemfile.lock;bundle install;rm -rf /usr/local/rvm/gems/ruby-2.*/bin/msf*" % (install_location), shell=True).wait()
+                                	print_status("Sacrifice to the ruby Gods complete. MSF should now work outside of the msf directory structure..")
+                                	os.chdir(cwd)
 
                         # check launcher
                         launcher(filename, install_location)
 
                         # special for Metasploit
 			if profile_os() == "DEBIAN":
-                            if "metasploit" in filename:
-                               if prompt == "update":
-                                  print_status("Ensuring libgmp-dev is installed for ffi...")
-                                  subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
-                                  print_status("Updating gem packages for Metasploit....")
-                                  subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
-                                  print_status("Finished updating Metasploit.... Enjoy!")
+		 	    if check_kali() != "Kali":
+	                            if "metasploit" in filename:
+        	                       if prompt == "update":
+                	                  print_status("Ensuring libgmp-dev is installed for ffi...")
+                        	          subprocess.Popen("apt-get --force-yes -y install libgmp-dev", shell=True).wait()
+                                	  print_status("Updating gem packages for Metasploit....")
+                                  	  subprocess.Popen("cd %s;bundle update;bundle install" % (install_location), shell=True).wait()
+                                  	  print_status("Finished updating Metasploit.... Enjoy!")
 
                     if install_type.lower() == "svn":
                         print_status("Updating the tool, be patient while svn pull is initiated.")
@@ -280,8 +284,9 @@ def use_module(module, all_trigger):
 
                     # do some stuff to add metasploit
                     if "metasploit" in filename:
-                        print_status("Installing additional ruby2 libraries for MSF...")
-                        subprocess.Popen("echo y | apt-add-repository ppa:brightbox/ruby-ng;apt-get update;apt-get --force-yes -y install ruby2.2 ruby2.2-dev", shell=True).wait()
+			if check_kali() != "Kali":
+	                        print_status("Installing additional ruby2 libraries for MSF...")
+        	                subprocess.Popen("echo y | apt-add-repository ppa:brightbox/ruby-ng;apt-get update;apt-get --force-yes -y install ruby2.2 ruby2.2-dev", shell=True).wait()
 
                 # if OSTYPE is ARCHLINUX
                 if ostype == "ARCHLINUX":

@@ -4,6 +4,7 @@ version 1.6.3
 
 * fixed install location to properly work
 * removed sslsplit, python2-dpkt, python-pypcap
+* added new function for detection in Kali
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.2
