@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
 INSTALL_LOCATION="discover"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="whois, traceroute, whatweb, arp-scan, cutycapt"
+DEBIAN="whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric"
 
 # COMMANDS TO RUN AFTER 
 AFTER_COMMANDS=""
