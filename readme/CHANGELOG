@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.6.4
+~~~~~~~~~~~~~~~~~
+
+* fixed mana install location
+* added depend of python-pymssql to SET
+
+~~~~~~~~~~~~~~~~~
 version 1.6.3
 ~~~~~~~~~~~~~~~~~
 
