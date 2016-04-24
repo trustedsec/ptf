@@ -3,6 +3,7 @@ version 1.6.6
 ~~~~~~~~~~~~~~~~~
 
 * fixed tab completion double slashes appearing
+* fixed an issue that would cause ignore modules to not be accurate and still install
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.5
