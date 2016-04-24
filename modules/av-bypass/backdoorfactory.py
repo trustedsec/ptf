@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for pyobfuscate
+# Installation module for backdoo factory
 #####################################
 
 # AUTHOR OF MODULE NAME
