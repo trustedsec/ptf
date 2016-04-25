@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://bitbucket.org/al14s/rawr.git"
 INSTALL_LOCATION="rawr"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="libffi-dev"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},./install.sh y"
