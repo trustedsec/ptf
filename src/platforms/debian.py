@@ -27,5 +27,5 @@ def base_install_modules(module_name):
     		command = "apt-get -q --force-yes -y install " + module
     		subprocess.Popen("export DBEIAN_FRONTEND=noninteractive;%s" % command, shell=True).wait()
     else:
-	command = "apt-get -q --force-yes -y install " + module
+	command = "apt-get -q --force-yes -y install " + modules
 	subprocess.Popen("export DEBIAN_FRONTEND=noninteractive;%s" % command, shell=True).wait()
