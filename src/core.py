@@ -218,12 +218,10 @@ def module_parser(filename, term):
                 if term != "LAUNCHER":
                     if filename_short != "install_update_all":
                         if term != "X64_LOCATION":
-                            print_error("Warning, module %s was found but contains no %s field." % (
-                                filename_short, term))
-                            print_error(
-                                "Check the module again for errors and try again.")
-                            print_error(
-                                "Module has been removed from the list.")
+				if not "__init__" in filename_short:
+	                            print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
+                            	    print_error("Check the module again for errors and try again.")
+                            	    print_error("Module has been removed from the list.")
 
             return ""
 
