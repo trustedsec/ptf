@@ -342,12 +342,12 @@ def use_module(module, all_trigger):
                         "Pre-reqs for %s have been installed." % (module))
 
                     # do some stuff to add metasploit
-                    if "metasploit" in filename:
-                        if check_kali() != "Kali":
-                            print_status(
-                                "Installing additional ruby2 libraries for MSF...")
-                            subprocess.Popen(
-                                "echo y | apt-add-repository ppa:brightbox/ruby-ng;apt-get update;apt-get --force-yes -y install ruby2.2 ruby2.2-dev", shell=True).wait()
+                    #if "metasploit" in filename:
+                    #    if check_kali() != "Kali":
+                    #        print_status(
+                    #            "Installing additional ruby2 libraries for MSF...")
+                    #        subprocess.Popen(
+                    #            "echo y | apt-add-repository ppa:brightbox/ruby-ng;apt-get update;apt-get --force-yes -y install ruby2.2 ruby2.2-dev", shell=True).wait()
 
                 # if OSTYPE is ARCHLINUX
                 if ostype == "ARCHLINUX":
