@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 1.7
+~~~~~~~~~~~~~~~~~
+
+* added customized xml handler for zaproxy and added new zaproxy module
+* fixed metasploit 2.3 installation for pg install and updated ruby installer
+* fixed a few out of date ruby modules
+
+~~~~~~~~~~~~~~~~~
 version 1.6.6
 ~~~~~~~~~~~~~~~~~
 

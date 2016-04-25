@@ -120,6 +120,9 @@ def use_module(module, all_trigger):
             # grab repository location
             repository_location = module_parser(
                 filename, "REPOSITORY_LOCATION")
+	
+	    # custom work for zaproxy
+            if "zaproxy" in repository_location: repository_location = zaproxy()
 
             # here we check if we need to do x86 or x64
             if module_parser(filename, "X64_LOCATION") != "":
@@ -224,6 +227,7 @@ def use_module(module, all_trigger):
             if prompt.lower() == "update" or prompt.lower() == "upgrade":
 	      # if we are using ignore modules then don't process
 	      if not "__init__.py" in filename and not ignore_module(filename):
+
 
                 # move to the location
                 if os.path.isdir(install_location):
@@ -421,7 +425,7 @@ def use_module(module, all_trigger):
                 # if we are using wget
                 if install_type.lower() == "wget":
                     print_status(
-                        "WGET was the selected method for installation because it plays better than curl -l with Sourceforge.")
+                        "WGET was the selected method for installation because it plays better than curl -l with recursive URLs.")
                     proc = subprocess.Popen("cd %s && wget -q %s" % (install_location, repository_location),
                                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                     print_status(

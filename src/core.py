@@ -8,6 +8,7 @@ import select
 import readline
 import glob
 import platform
+import urllib2
 
 # tab completion
 def complete(text, state):
@@ -47,9 +48,16 @@ class bcolors:
     backCyan = '\033[46m'
     backWhite = '\033[47m'
 
+# custom parser for zaproxy
+def zaproxy():
+    file = urllib2.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
+    data = file.readlines()
+    file.close()
+    for url in data:
+        if "Linux.tar.gz" in url and "<url>" in url: return url.rstrip().replace("<url>", "").replace("</url>", "").strip()
+
+
 # get the main SET path
-
-
 def definepath():
     if os.path.isfile("ptf"):
         return os.getcwd()
