@@ -5,6 +5,8 @@ version 1.7
 * added customized xml handler for zaproxy and added new zaproxy module
 * fixed metasploit 2.3 installation for pg install and updated ruby installer
 * fixed a few out of date ruby modules
+* added silent installation for apt-get - shouldn't prompt anymore
+* added single module install for debian, this will ensure that if theres an out of date package it doesnt hold back the rest of the depends from building right
 
 ~~~~~~~~~~~~~~~~~
 version 1.6.6
