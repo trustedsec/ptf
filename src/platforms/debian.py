@@ -10,6 +10,7 @@ import subprocess
 
 def base_install_modules(module_name):
 
+    counter = 0 
     # will work for 1 or more space- or comma-separated modules
     modules = module_name
     if "," in modules:
