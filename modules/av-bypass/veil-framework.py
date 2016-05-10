@@ -26,7 +26,7 @@ DEBIAN="python-pycryptopp python-capstone"
 FEDORA="python-pycryptopp python-capstone"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, ./Install.sh -c, ln -s {INSTALL_LOCATION}Veil-Evasion/Veil-Evasion.py /usr/local/bin/Veil-Evasion.py, ln -s {INSTALL_LOCATION}Veil-Catapult/Veil-Catapult.py /usr/local/bin/Veil-Catapult.py, ln -s {INSTALL_LOCATION}veil-framework/Veil-Pillage/Veil-Pillage.py /usr/local/bin/Veil-Pillage.py.py, ln -s {INSTALL_LOCATION}veil-framework/Veil-Ordnance/Veil-Ordnance.py /usr/local/bin/Veil-Ordnance.py"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, ./Install.sh -c, ln -s {INSTALL_LOCATION}Veil-Evasion/Veil-Evasion.py /usr/local/bin/Veil-Evasion, ln -s {INSTALL_LOCATION}Veil-Catapult/Veil-Catapult.py /usr/local/bin/Veil-Catapult, ln -s {INSTALL_LOCATION}veil-framework/Veil-Pillage/Veil-Pillage.py /usr/local/bin/Veil-Pillage, ln -s {INSTALL_LOCATION}veil-framework/Veil-Ordnance/Veil-Ordnance.py /usr/local/bin/Veil-Ordnance"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER=""
