@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update dot11decrypt, a WEP/WPA2(AES and TK
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/mfontanini/dot11decrypt/"
+REPOSITORY_LOCATION="https://github.com/mfontanini/dot11decrypt/,http://libtins.github.io/"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dot11decrypt"

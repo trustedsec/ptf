@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/lanjelot/patator.git"
 INSTALL_LOCATION="patator"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""

@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/CoreSecurity/SAP-Dissection-plug-in-for-
 INSTALL_LOCATION="sap-dissector-wireshark"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python,wireshark,wireshark-dev,cmake, make"
+DEBIAN="git,python,wireshark,wireshark-dev,cmake, make"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,wireshark,wireshark-devel,cmake,make"

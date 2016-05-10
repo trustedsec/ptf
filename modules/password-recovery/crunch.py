@@ -23,10 +23,12 @@ INSTALL_LOCATION="crunch"
 BYPASS_UPDATE="YES"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="gcc"
+DEBIAN="wget gcc"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="gcc"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make,make install,cd ..,rm crunch-3.6.tgz"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make,make install,cd ..,rm crunch-3.6.tgz,cp crunch-3.6/crunch ./"
+
+LAUNCHER="crunch"

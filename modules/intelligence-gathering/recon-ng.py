@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
 INSTALL_LOCATION="recon-ng"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python python-xlsxwriter python-crypto python-mechanize python-pip"
+DEBIAN="git python python-xlsxwriter python-crypto python-mechanize python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,python,python-crypto,python-mechanize"

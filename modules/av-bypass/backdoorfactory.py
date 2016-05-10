@@ -20,10 +20,11 @@ REPOSITORY_LOCATION="https://github.com/secretsquirrel/the-backdoor-factory"
 INSTALL_LOCATION="backdoor-factory"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,glibc-devel.i686,gcc"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,./install.sh"
+LAUNCHER="backdoor.py"

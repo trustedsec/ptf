@@ -26,7 +26,7 @@ DEBIAN="git,python-lzma"
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION}"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION},cp bin/binwalk ./"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="binwalk"
