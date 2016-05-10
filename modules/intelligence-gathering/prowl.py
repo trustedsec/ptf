@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/Pickfordmatt/Prowl.git"
 INSTALL_LOCATION="prowl"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="python python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
@@ -29,4 +29,4 @@ FEDORA="git"
 AFTER_COMMANDS="pip install argparse BeautifulSoup urllib3 gitpython colorama, cd {INSTALL_LOCATION} && chmod +x prowl.py"
 
 # CREATE LAUNCHER
-LAUNCHER="prowl.py"
+LAUNCHER="prowl"
