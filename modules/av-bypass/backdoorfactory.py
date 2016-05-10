@@ -27,4 +27,4 @@ FEDORA="git,glibc-devel.i686,gcc"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,./install.sh"
-LAUNCHER="backdoor.py"
+LAUNCHER="backdoor"

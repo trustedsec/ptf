@@ -28,4 +28,4 @@ FEDORA="git"
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION}"
 
-LAUNCHER="shell-storm-api.py"
+LAUNCHER="shell-storm-api"

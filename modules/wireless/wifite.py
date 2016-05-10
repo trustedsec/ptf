@@ -28,4 +28,4 @@ FEDORA="git"
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
 
-LAUNCHER="wifite.py"
+LAUNCHER="wifite"

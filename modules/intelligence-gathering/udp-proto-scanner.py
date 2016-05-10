@@ -28,5 +28,5 @@ FEDORA="git"
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
 
-LAUNCHER="udp-proto-scanner.pl"
+LAUNCHER="udp-proto-scanner"
 
