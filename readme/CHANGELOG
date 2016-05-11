@@ -1,4 +1,17 @@
 ~~~~~~~~~~~~~~~~~
+version 1.7.2
+~~~~~~~~~~~~~~~~~
+
+* number of module fixes, deps, and more (git commit)
+* added sniper tool for intel gathering
+
+~~~~~~~~~~~~~~~~~
+version 1.7.1
+~~~~~~~~~~~~~~~~~
+
+* added new tools: veil, cmsmap, sparta, prowl, lfi_scanner, nosqlmap
+
+~~~~~~~~~~~~~~~~~
 version 1.7
 ~~~~~~~~~~~~~~~~~
 

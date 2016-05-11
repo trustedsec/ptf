@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/hashcat/princeprocessor.git"
 INSTALL_LOCATION="princeprocessor"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make,cp pp64.bin ../princeprocessor"
 
 
 # DONT RUN AFTER COMMANDS ON UPDATE

@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="http://git.code.sf.net/p/flawfinder/code"
 INSTALL_LOCATION="flawfinder"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="build-essential"
+DEBIAN="build-essential,git"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,make,automake,gcc,gcc-c++,kernel-devel"
@@ -28,4 +28,4 @@ FEDORA="git,make,automake,gcc,gcc-c++,kernel-devel"
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make install"
 
-LAUNCHER="cfr"
+LAUNCHER="flawfinder"

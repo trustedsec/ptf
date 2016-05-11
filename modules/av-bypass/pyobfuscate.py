@@ -20,10 +20,12 @@ REPOSITORY_LOCATION="https://github.com/astrand/pyobfuscate"
 INSTALL_LOCATION="pyobfuscate"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install"
+LAUNCHER="pyobfuscate"
+

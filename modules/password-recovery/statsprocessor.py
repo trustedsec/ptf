@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/hashcat/statsprocessor.git"
 INSTALL_LOCATION="statsprocessor"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make,cp sp64.bin ../statsprocessor"
 
 
 # DONT RUN AFTER COMMANDS ON UPDATE

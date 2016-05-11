@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/hashcat/hashcat-utils.git"
 INSTALL_LOCATION="hashcat-utils"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make linux"

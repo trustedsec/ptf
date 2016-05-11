@@ -1,34 +1,32 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for testSSL
+# Installation module for prowl
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Steven van der Baan (vdbaan)"
+AUTHOR="Nick Dyer"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update testssl.sh (Dirk Wetter)."
+DESCRIPTION="This module will install/update Prowl - LinkedInCrawler"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/drwetter/testssl.sh.git"
+REPOSITORY_LOCATION="https://github.com/Pickfordmatt/Prowl.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="testssl"
+INSTALL_LOCATION="prowl"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="python python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
-# DEPENDS FOR ARCHLINUX INSTALLS
-ARCHLINUX=""
-
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="pip install argparse BeautifulSoup urllib3 gitpython colorama, cd {INSTALL_LOCATION} && chmod +x prowl.py"
 
-LAUNCHER="testssl.sh"
+# CREATE LAUNCHER
+LAUNCHER="prowl"

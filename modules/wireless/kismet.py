@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://www.kismetwireless.net/kismet.git"
 INSTALL_LOCATION="kismet"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="git,libnl-3-dev,libnl-cli-3-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"

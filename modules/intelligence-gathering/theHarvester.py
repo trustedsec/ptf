@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/laramies/theHarvester.git"
 INSTALL_LOCATION="theharvester"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="git python"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"

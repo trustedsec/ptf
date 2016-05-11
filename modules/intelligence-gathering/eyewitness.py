@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/ChrisTruncer/EyeWitness"
 INSTALL_LOCATION="eyewitness"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-setuptools"
+DEBIAN="git,python-setuptools"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh"

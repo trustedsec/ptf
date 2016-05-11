@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/jordansissel/xdotool.git"
 INSTALL_LOCATION="xdotool"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="make,libx11-dev,libxtst-dev"
+DEBIAN="git,make,libx11-dev,libxtst-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="make,libx11-devel,libxtst-devel"
