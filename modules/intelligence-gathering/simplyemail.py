@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/killswitch-GUI/SimplyEmail"
 INSTALL_LOCATION="simplyemail"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},sh Setup.sh"

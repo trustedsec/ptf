@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/breenmachine/httpscreenshot"
 INSTALL_LOCATION="httpscreenshot"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="swig, swig2.0, libssl-dev, python-dev, python-pip"
+DEBIAN="git, swig, swig2.0, libssl-dev, python-dev, python-pip"
 
 # COMMANDS TO RUN AFTER 
 AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install-dependencies.sh,./install-dependencies.sh,echo '#!/bin/sh' > httpscreenshot,echo 'python {INSTALL_LOCATION}httpscreenshot.py $@' >> httpscreenshot, chmod +x httpscreenshot"

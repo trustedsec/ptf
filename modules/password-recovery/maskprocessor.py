@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/hashcat/maskprocessor.git"
 INSTALL_LOCATION="maskprocessor"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make,cp mp64.bin ../maskprocessor"
 
 
 # DONT RUN AFTER COMMANDS ON UPDATE

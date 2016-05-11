@@ -27,3 +27,5 @@ FEDORA="git,gcc,make"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make install"
+
+LAUNCHER="yapscan"

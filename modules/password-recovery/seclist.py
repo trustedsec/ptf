@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/danielmiessler/SecLists/"
 INSTALL_LOCATION="dictionary"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""

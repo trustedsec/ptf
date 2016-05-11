@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/fwaeytens/dnsenum"
 INSTALL_LOCATION="dnsenum"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="perl"
+DEBIAN="git,perl"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,perl,perl-CPAN"
 
 # COMMANDS TO RUN AFTER 
-AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',cpan -fi Net::IP Net::DNS Net::Netmask Net::Whois::IP HTML::Parser WWW::Mechanize XML::Writer String::Random"
+AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',yes | cpan -fi Net::IP Net::DNS Net::Netmask Net::Whois::IP HTML::Parser WWW::Mechanize XML::Writer String::Random"
 
 # create a launcher
 LAUNCHER="dnsenum"

@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/magnumripper/JohnTheRipper.git"
 INSTALL_LOCATION="johntheripper"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="libgmp3-dev:i386 libgmp3-dev git lzip gcc-multilib make m4 mingw-w64"
+DEBIAN="git libgmp3-dev git lzip gcc-multilib make m4 mingw-w64"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION}src,./configure,make"

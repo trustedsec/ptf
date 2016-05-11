@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/portcullislabs/enum4linux.git"
 INSTALL_LOCATION="enum4linux"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="perl"
+DEBIAN="git,perl"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,perl"

@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/Veil-Framework/Veil.git"
 INSTALL_LOCATION="veil-framework"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-pycryptopp python-capstone"
+DEBIAN="git python-pycryptopp python-capstone"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="python-pycryptopp python-capstone"
