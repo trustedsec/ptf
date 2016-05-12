@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="http://rough-auditing-tool-for-security.googlecode.com/svn/
 INSTALL_LOCATION="rats"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="build-essential,cmake"
+DEBIAN="build-essential,cmake,subversion"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="subversion,make,cmake,automake,gcc,gcc-c++,kernel-devel,expat-devel"

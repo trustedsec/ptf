@@ -30,3 +30,5 @@ ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
+
+LAUNCHER="smtp-user-enum.pl"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for SideStep
+# Installation module for shellter
 #####################################
 
 # AUTHOR OF MODULE NAME

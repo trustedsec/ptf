@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/darkoperator/dnsrecon"
 INSTALL_LOCATION="dnsrecon"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-dnspython,python-netaddr"
+DEBIAN="git,python-dnspython,python-netaddr"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,python-dns,python-netaddr"

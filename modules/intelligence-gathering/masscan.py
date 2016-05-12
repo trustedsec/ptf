@@ -26,4 +26,7 @@ DEBIAN="git,gcc,make,libpcap-dev"
 FEDORA="git,gcc,make,libpcap-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j,cp bin/masscan ."
+
+LAUNCHER="masscan"
+

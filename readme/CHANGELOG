@@ -1,4 +1,89 @@
 ~~~~~~~~~~~~~~~~~
+version 1.7.2
+~~~~~~~~~~~~~~~~~
+
+* number of module fixes, deps, and more (git commit)
+* added sniper tool for intel gathering
+
+~~~~~~~~~~~~~~~~~
+version 1.7.1
+~~~~~~~~~~~~~~~~~
+
+* added new tools: veil, cmsmap, sparta, prowl, lfi_scanner, nosqlmap
+
+~~~~~~~~~~~~~~~~~
+version 1.7
+~~~~~~~~~~~~~~~~~
+
+* added customized xml handler for zaproxy and added new zaproxy module
+* fixed metasploit 2.3 installation for pg install and updated ruby installer
+* fixed a few out of date ruby modules
+* added silent installation for apt-get - shouldn't prompt anymore
+* added single module install for debian, this will ensure that if theres an out of date package it doesnt hold back the rest of the depends from building right
+
+~~~~~~~~~~~~~~~~~
+version 1.6.6
+~~~~~~~~~~~~~~~~~
+
+* fixed tab completion double slashes appearing
+* fixed an issue that would cause ignore modules to not be accurate and still install
+
+~~~~~~~~~~~~~~~~~
+version 1.6.5
+~~~~~~~~~~~~~~~~~
+
+* added multiple new password recovery tools thanks to Martin Bos (@CantComputer)
+
+~~~~~~~~~~~~~~~~~
+version 1.6.4
+~~~~~~~~~~~~~~~~~
+
+* fixed mana install location
+* added depend of python-pymssql to SET
+
+~~~~~~~~~~~~~~~~~
+version 1.6.3
+~~~~~~~~~~~~~~~~~
+
+* fixed install location to properly work
+* removed sslsplit, python2-dpkt, python-pypcap
+* added new function for detection in Kali
+* added smart detection for Kali to not install Metasploit on there - packages are different
+* added pep8 compliance to PTF
+* added compatibility to python3 (doesn't mean modules will support python3 - just that ptf is python 3 if you wish
+
+~~~~~~~~~~~~~~~~~
+version 1.6.2
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue with hydra not installing ldap-utils
+* ssl certificate issue fixed with openvas (cert does not match)
+
+~~~~~~~~~~~~~~~~~
+version 1.6.1
+~~~~~~~~~~~~~~~~~
+
+* add a remove from Gemfile.lock in order to ensure proper git pulls
+
+~~~~~~~~~~~~~~~~~
+version 1.6
+~~~~~~~~~~~~~~~~~
+
+* move nmap-dev to nmap
+* fixed spraywmi depends for Ubuntu
+* moved ridenum from exploitation to intelligence-gathering
+* fixed an issue that would not import all of the arguments when using launchers
+* changed git to svn language to fix typo
+* added Python3 compatibility and support
+* added check for github, if new update occurs, run through after commands
+* added autocheck for svn if new updates occur, run through after commands
+* removed build-dep as a non-standard module in sslscan
+* added better handling for all updates - after commands will be now run anytime theres a module update either via SVN or GIT - this already happens for FILE. If something is already up-to-date it won't run after_commands
+* removed prompt for empire
+* added build gem bundles for smbexec but its still a mess - installer is broke, requires a million external depends - will need to work on this one later
+* just completely removed smbexec - hasn't been updated in over a year - no support and super broke
+
+~~~~~~~~~~~~~~~~~
 version 1.5.2
 ~~~~~~~~~~~~~~~~~
 

@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/dradis/dradisframework.git"
 INSTALL_LOCATION="dradisframework"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="ruby1.9.1,ruby-rails-3.2,git,libsqlite-dev"
+DEBIAN="ruby2.3,ruby-rails,git,libsqlite-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,ruby,rubygem-rails,git,libsqlite3x-devel"
