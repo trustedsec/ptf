@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.7.3
+~~~~~~~~~~~~~~~~~
+
+* added empyre - linux/osx post exploitation (harmj0y empire author)
+* removed old seclist under intelligence gathering
+
+~~~~~~~~~~~~~~~~~
 version 1.7.2
 ~~~~~~~~~~~~~~~~~
 
