@@ -7,7 +7,7 @@
 AUTHOR="Nick Dyer"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Patator - Custom Word List generator"
+DESCRIPTION="This module will install/update CeWL - Custom Word List generator"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
