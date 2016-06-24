@@ -23,4 +23,4 @@ INSTALL_LOCATION="eyewitness"
 DEBIAN="git,python-setuptools,libffi-dev,libssl-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}/setup,./setup.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}/setup,./setup.sh,wget -O /tmp/phantomjs.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-i686.tar.bz2,tar -xf /tmp/phantomjs.tar.bz2,cp /tmp/phantomjs-2.1.1-linux-i686/bin/phantomjs {INSTALL_LOCATION}/bin/phantomjs"
