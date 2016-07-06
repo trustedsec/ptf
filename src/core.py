@@ -9,6 +9,7 @@ import readline
 import glob
 import platform
 import urllib2
+import sys
 
 # tab completion
 def complete(text, state):
@@ -95,6 +96,9 @@ def print_error(message):
     print((bcolors.RED) + (bcolors.BOLD) + \
         ("[!] ") + (bcolors.ENDC) + (bcolors.RED) + \
         (str(message)) + (bcolors.ENDC))
+
+def set_title(title):
+	sys.stdout.write("\x1b]2;%s\x07" % title)
 
 # count all of the modules
 
@@ -255,6 +259,7 @@ def show_help_menu():
 
 def exit_ptf():
     print_status("Exiting PTF - the easy pentest platform creation framework.")
+    set_title("Happy hacking...")
 
 
 # this is the main handler to check what distribution we are using
