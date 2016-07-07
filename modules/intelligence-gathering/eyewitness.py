@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/ChrisTruncer/EyeWitness"
 INSTALL_LOCATION="eyewitness"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,python-setuptools"
+DEBIAN="git,python-setuptools,libffi-dev,libssl-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}/setup,./setup.sh,cd /tmp,wget -O phantomjs.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2,tar -xf phantomjs.tar.bz2,cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs {INSTALL_LOCATION}/bin/phantomjs"
