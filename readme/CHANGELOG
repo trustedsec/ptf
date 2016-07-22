@@ -9,6 +9,7 @@ version 1.8
 * changed install path from hardcoded to {INSTALL_LOCATION} in fimap
 * added title setting for terminal window (awesome PR thnx!)
 * switched to metasploit nightly installer vs. git direct pull (love you egyp7)
+* added full python3 compatibility and tested
 
 ~~~~~~~~~~~~~~~~~
 version 1.7.3
