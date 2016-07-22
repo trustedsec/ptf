@@ -14,7 +14,7 @@ import socket
 # create launcher
 def create_launcher():
     cwd = os.getcwd()
-    filewrite = file("/usr/local/bin/ptf", "w")
+    filewrite = open("/usr/local/bin/ptf", "w")
     filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf $*" % (cwd))
     filewrite.close()
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
