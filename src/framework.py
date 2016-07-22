@@ -450,7 +450,7 @@ while 1:
     base_counter = 0
 
     # set title
-    set_title("the pentesting framework - %s" % grab_version)
+    set_title("The PenTesters Framework (PTF) v%s" % grab_version)
 
     try:
         prompt = raw_input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")

@@ -3,7 +3,11 @@ version 1.8
 ~~~~~~~~~~~~~~~~~
 
 * added samba-client to ridenum as prereq
-
+* added poshc2 (PR)
+* added title for cmd shell (PR) 
+* added fimap (PR)
+* changed install path from hardcoded to {INSTALL_LOCATION} in fimap
+* added title setting for terminal window (awesome PR thnx!)
 ~~~~~~~~~~~~~~~~~
 version 1.7.3
 ~~~~~~~~~~~~~~~~~

@@ -259,7 +259,7 @@ def show_help_menu():
 
 def exit_ptf():
     print_status("Exiting PTF - the easy pentest platform creation framework.")
-    set_title("Happy hacking...")
+    set_title("Hack the Planet!")
 
 
 # this is the main handler to check what distribution we are using
