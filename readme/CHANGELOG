@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8
+~~~~~~~~~~~~~~~~~
+
+* added samba-client to ridenum as prereq
+
+~~~~~~~~~~~~~~~~~
 version 1.7.3
 ~~~~~~~~~~~~~~~~~
 
