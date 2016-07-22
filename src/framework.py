@@ -100,6 +100,9 @@ def use_module(module, all_trigger):
     # if we aren't using all
     if not "install_update_all" in module:
 
+	# set terminal title
+	set_title("ptf - %s" % module)
+
         # if we are using a normal module
         if int(all_trigger) == 0 or int(all_trigger) == 1:
             filename = definepath() + "/" + module + ".py"
@@ -445,6 +448,9 @@ while 1:
 
     # specify no commands, if counter increments then a command was found
     base_counter = 0
+
+    # set title
+    set_title("the pentesting framework - %s" % grab_version)
 
     try:
         prompt = raw_input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
