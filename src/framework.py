@@ -252,8 +252,7 @@ def use_module(module, all_trigger):
                 # move to the location
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
-                            print_status(
-                                "Updating the tool, be patient while git pull is initiated.")
+                            print_status("Updating the tool, be patient while git pull is initiated.")
                             proc = subprocess.Popen("cd %s;git pull" % (
                                 install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                             # here we check to see if we need anything we need to
@@ -374,13 +373,16 @@ def use_module(module, all_trigger):
 
                     # if we are using git
                     if install_type.lower() == "git":
-                        print_status(
-                            "GIT was the selected method for installation... Using GIT to install.")
-                        print_status("Installing now.. be patient...")
-                        proc = subprocess.Popen("git clone %s %s" % (
-                            repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
-                        print_status(
-                            "Finished Installing! Enjoy the tool located under: " + install_location)
+                        # if we are updating
+                        if os.path.isdir(install_location):
+                            print_status("Installation already exists, going to git pull then run after commands..")
+                            subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
+                            print_status("Finished updating the tool located in:" + install_location)
+                        else:
+                            print_status("GIT was the selected method for installation... Using GIT to install.")
+                            print_status("Installing now.. be patient...")
+                            proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
+                            print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         after_commands(filename, install_location)
                         launcher(filename, install_location)
 

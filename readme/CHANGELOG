@@ -10,6 +10,8 @@ version 1.8
 * added title setting for terminal window (awesome PR thnx!)
 * switched to metasploit nightly installer vs. git direct pull (love you egyp7)
 * added full python3 compatibility and tested
+* fixed the crackmapexec installer (thanks lawry)
+* added so if git was used with BYPASS_UPDATES - it would still do a git pull
 
 ~~~~~~~~~~~~~~~~~
 version 1.7.3
