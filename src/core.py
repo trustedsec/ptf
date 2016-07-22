@@ -8,7 +8,7 @@ import select
 import readline
 import glob
 import platform
-import urllib2
+import urllib
 import sys
 
 # tab completion
@@ -51,7 +51,7 @@ class bcolors:
 
 # custom parser for zaproxy
 def zaproxy():
-    file = urllib2.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
+    file = urllib.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
     data = file.readlines()
     file.close()
     for url in data:
@@ -165,7 +165,7 @@ banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                  """ + bcolors.BOLD + """https://www.trustedsec.com
+banner += """                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
@@ -184,7 +184,7 @@ download from the Internet.\n"""
 
 
 def check_config(param):
-    fileopen = file("%s/config/ptf.config" % (definepath()), "r")
+    fileopen = open("%s/config/ptf.config" % (definepath()), "r")
     for line in fileopen:
         # if the line starts with the param we want then we are set, otherwise
         # if it starts with a # then ignore
@@ -198,10 +198,7 @@ def check_config(param):
                 return line[1]
 
 # parser module for module and term
-
-
 def module_parser(filename, term):
-
     # if the file exists
     if os.path.isfile(filename) and not "install_update_all" in filename:
 
@@ -209,7 +206,7 @@ def module_parser(filename, term):
         counter = 0
 
         # open the file
-        fileopen = file(filename)
+        fileopen = open(filename, "r")
         # iterate through the file
         for line in fileopen:
             # strip any bogus stuff
@@ -285,11 +282,11 @@ def logging(log):
     logpath = check_config("LOG_PATH=")
     # if the file isn't there, create it
     if not os.path.isfile(logpath):
-        filewrite = file(logpath, "w")
+        filewrite = open(logpath, "w")
         filewrite.write("")
         filewrite.close()
     # open for append
-    filewrite = file(logpath, "a")
+    filewrite = open(logpath, "a")
     # write it out
     filewrite.write(log)
     # close the file
@@ -390,7 +387,7 @@ def launcher(filename, install_location):
 
                 # if we found filetype
                 if point != "":
-                    filewrite = file("/usr/local/bin/" + launchers, "w")
+                    filewrite = open("/usr/local/bin/" + launchers, "w")
                     filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*\n' %
                                     (install_location, file_point, point))
                     filewrite.close()
@@ -423,7 +420,7 @@ def search(term):
                             module_files.append(os.path.join(dirpath, x))
 
                         if not term in path:
-                            data = file(path, "r").readlines()
+                            data = open(path, "r").readlines()
                             # normally just searched entire file, but we don't
                             # want to search # lines
                             for line in data:
