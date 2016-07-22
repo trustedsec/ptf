@@ -149,16 +149,16 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		""" + bcolors.backBlue + \
+banner += """        		  """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + \
-    bcolors.BLUE + """Shiny Shine""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		      Codename: """ + \
+    bcolors.BLUE + """Tool Depot""" + "\n"
 
 banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
 
-banner += """        	     A project by """ + bcolors.GREEN + bcolors.BOLD + \
+banner += """        	    A project by """ + bcolors.GREEN + bcolors.BOLD + \
     """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 
 banner += """		 Written by: """ + bcolors.BOLD + \
