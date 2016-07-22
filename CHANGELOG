@@ -1,0 +1,430 @@
+~~~~~~~~~~~~~~~~~
+version 1.7
+~~~~~~~~~~~~~~~~~
+
+* added samba-client as prereq for ridenum
+
+~~~~~~~~~~~~~~~~~
+version 1.6.4
+~~~~~~~~~~~~~~~~~
+
+* added multiple new password recovery tools thanks to Martin Bos (@CantComputer)
+
+~~~~~~~~~~~~~~~~~
+version 1.6.3
+~~~~~~~~~~~~~~~~~
+
+* fixed install location to properly work
+* removed sslsplit, python2-dpkt, python-pypcap
+* added new function for detection in Kali
+* added smart detection for Kali to not install Metasploit on there - packages are different
+* added pep8 compliance to PTF
+* added compatibility to python3 (doesn't mean modules will support python3 - just that ptf is python 3 if you wish
+
+~~~~~~~~~~~~~~~~~
+version 1.6.2
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue with hydra not installing ldap-utils
+* ssl certificate issue fixed with openvas (cert does not match)
+
+~~~~~~~~~~~~~~~~~
+version 1.6.1
+~~~~~~~~~~~~~~~~~
+
+* add a remove from Gemfile.lock in order to ensure proper git pulls
+
+~~~~~~~~~~~~~~~~~
+version 1.6
+~~~~~~~~~~~~~~~~~
+
+* move nmap-dev to nmap
+* fixed spraywmi depends for Ubuntu
+* moved ridenum from exploitation to intelligence-gathering
+* fixed an issue that would not import all of the arguments when using launchers
+* changed git to svn language to fix typo
+* added Python3 compatibility and support
+* added check for github, if new update occurs, run through after commands
+* added autocheck for svn if new updates occur, run through after commands
+* removed build-dep as a non-standard module in sslscan
+* added better handling for all updates - after commands will be now run anytime theres a module update either via SVN or GIT - this already happens for FILE. If something is already up-to-date it won't run after_commands
+* removed prompt for empire
+* added build gem bundles for smbexec but its still a mess - installer is broke, requires a million external depends - will need to work on this one later
+* just completely removed smbexec - hasn't been updated in over a year - no support and super broke
+
+~~~~~~~~~~~~~~~~~
+version 1.5.2
+~~~~~~~~~~~~~~~~~
+
+* adds ignore module or entire categories - pull request from vdbaan (awesome work!)
+
+~~~~~~~~~~~~~~~~~
+version 1.5.1
+~~~~~~~~~~~~~~~~~
+
+* added newline after each module install
+* fixed automatic apt-get when not on debian
+* fixed an undefined message when module would not have a OStype
+
+~~~~~~~~~~~~~~~~~
+version 1.5
+~~~~~~~~~~~~~~~~~
+
+* added kismet wireless
+* added dnscat2 (thanks ryd)
+* fix for discover (thanks jayw0k)
+* fix dnsrecon (thanks jayw0k)
+* fix theharvester (thanks jayw0k)
+* pep8 compliance (thanks vdbaan)
+* fix for auto complete (thanks vdbaan)
+* udp proto added (thanks vdbaan)
+* what web added (thanks vdbaan)
+* added install_update_all to each individual module section (thanks vdbaan)
+* added simplyemail - recon/mail harvester
+* added pip - mainframe exploitation
+
+~~~~~~~~~~~~~~~~~
+version 1.4.2
+~~~~~~~~~~~~~~~~~
+
+* added new IGNORE_THESE_MODULES config option to ignore modules you dont want to install (awesome pull request from vdbaan)
+* added fierce module
+* added config option for ignore these modules
+* added updatedb to automatic update functionality
+* added onesixtyone (vdbaan)
+* added yapscan (vdbaan)
+* added arachni (vdbaan)
+* added ./ptf --update-all which will automatically update without going in the framework
+
+~~~~~~~~~~~~~~~~~
+version 1.4.1
+~~~~~~~~~~~~~~~~~
+
+* added hydra (thanks jayw0k)
+* added enum4linux (vdbaan)
+* added testssl (vdbaan)
+* fixed autoconf error on install with ftpmap
+
+~~~~~~~~~~~~~~~~~
+version 1.4
+~~~~~~~~~~~~~~~~~
+
+* updated metasploit installer to use ppa instead of rvm - fixes a number of issues on Ubuntu
+
+~~~~~~~~~~~~~~~~~
+version 1.3
+~~~~~~~~~~~~~~~~~
+
+* spent a lot of time fixing the Metasploit install - looks to be bullet proof now and installs properly
+* binwalk added and fix for control-d EOF (thanks Jens!)
+* added spraywmi to tools
+
+~~~~~~~~~~~~~~~~~
+version 1.2.3
+~~~~~~~~~~~~~~~~~
+
+* number of additions to modules to include fedora compatibility (awesome work fnoris!)
+
+~~~~~~~~~~~~~~~~~
+version 1.2.2
+~~~~~~~~~~~~~~~~~
+
+* fixed print statement when using x64 base
+* fixed invalid path error when using after commands
+* fixed hcon to install properly
+* fixed dradisframework by adding libsqlite-dev (thanks Kos)
+* fixed wine install by adding i386 packages (thanks Kos)
+* fixed prompt to not be used when using empire (thanks Kos)
+
+~~~~~~~~~~~~~~~~~
+version 1.2.1
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue where empty directory would throw an error
+* fixed the code-audit/splint module - was broke and not properly made
+
+~~~~~~~~~~~~~~~~~
+version 1.2
+~~~~~~~~~~~~~~~~~
+
+* added dnsenum to modules to intelligence gathering
+* added windows-exploit-suggester to modules intelligence gathering
+* added launcher for recon-ng
+* added jboss-autopwn (thanks firebitsbr)
+* added initial commit for openBSD - not fully implemented yet (thanks firebitsbr)
+* added full commit for OpenBSD - awesome work firebitsbr
+* added if it isn't a specific path - it'll use normal launchers
+
+~~~~~~~~~~~~~~~~~
+version 1.1
+~~~~~~~~~~~~~~~~~
+
+* added new module option called X64_LOCATION which will pull a x64 bit image if they are available on the tool, updated documentation to reflect changes
+* removed unused print on tool when creating launcher
+* added support for Arch thanks to pull request from Hypsurus
+
+~~~~~~~~~~~~~~~~~
+version 1.0.5
+~~~~~~~~~~~~~~~~~
+
+* fix for nmap (git pull)
+* add for medusa (git pull)
+
+~~~~~~~~~~~~~~~~~
+version 1.0.4
+~~~~~~~~~~~~~~~~~
+
+* updated launchers to handle command line arguments (./<tool> $*) - thanks to tdelagrange
+* added automatic overwrite of launchers in order to force updates to launchers when needed
+
+~~~~~~~~~~~~~~~~~
+version 1.0.3
+~~~~~~~~~~~~~~~~~
+
+* added ignore file for git (thanks KryptonSecurity)
+* new folder for code audit (thanks KryptonSecurity)
+* new module added java decompiler - CFR (Thanks KryptonSecurity)
+* new module added flawfinder - static code analysis for C/C++ (thanks KryptonSecurity)
+* new module added RATS - static code analysis for C/C++ (thanks KryptonSecurity)
+* fixed missing dependency for inception module (thanks KryptonSecurity)
+
+~~~~~~~~~~~~~~~~~
+version 1.0.2
+~~~~~~~~~~~~~~~~~
+
+* added credcrack to tools distribution
+* added burp suite free edition to tools distribution
+* added john the ripper to tools distribution
+
+~~~~~~~~~~~~~~~~~
+version 1.0.1
+~~~~~~~~~~~~~~~~~
+
+* removed ruby gemspec launchers per issue https://github.com/rapid7/metasploit-framework/issues/4602 - addressed by removing when updating Metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.0
+~~~~~~~~~~~~~~~~~
+
+* added automatic updates to gems when updating Metasploit
+* fixed ffi bundle install error when building gems for Metasploit - missing libgmp-dev
+* re-added launchers to /usr/local/bin/for metasploit
+* fixed multiple modules using commas (wasn't a problem, just for consistency)
+* added stub in src/framework.py for Metasploit to update gem installers on update
+* fixed malingo module to properly copy and remove old files
+* added automatic creation of ptf launcher - you can now run ptf from any directory
+* added a check for a stale directory - if the directory doesn't fully download or is empty, it will automatically purge the directory and re-install
+* removed after commands for smbexec, deletes directory afterwards
+
+~~~~~~~~~~~~~~~~~
+version 0.9.12
+~~~~~~~~~~~~~~~~~
+
+* added owasp zsc to post exploitation
+* added crackmapexec to vulnerability analysis
+* fixed malingo module to 2.4
+
+~~~~~~~~~~~~~~~~~
+version 0.9.11
+~~~~~~~~~~~~~~~~~
+
+* removed set.py and renamed to setoolkit.py
+* enhanced search functionality to not search for commented out # within files and also added a search "install" or "update" which will return the module for update_all
+* added auto update feature that will update debian/ubuntu/kali packages automatically for you if it is turned on. By default it is on, you can turn this off by editing config/ptf.config and turning AUTO_UPDATE to off.
+* changed wine to wine /c cmd start <program> instead of just wine
+* added a modules/install_update_all to help on tab completion
+* fixed when using tab complete modules would show modules//, now shows modules/ properly
+
+~~~~~~~~~~~~~~~~~
+version 0.9.10
+~~~~~~~~~~~~~~~~~
+
+* removed extra aircrackng under exploitation
+* added launchers for a number of other tools
+* fixed issue when BYPASS_UPDATE was in place, any command would trigger install and update
+* updated malingo module to v2.4
+* created automatic launcher for commix
+* improved tab completion added to automatically add forward slash to tab and remove ending tab upon successful module find
+
+~~~~~~~~~~~~~~~~~
+version 0.9.9
+~~~~~~~~~~~~~~~~~
+
+* added windows-tools section
+* added netripper for windows
+
+~~~~~~~~~~~~~~~~~
+version 0.9.8
+~~~~~~~~~~~~~~~~~
+
+* fixed when a launcher is not found, keep working
+
+~~~~~~~~~~~~~~~~~
+version 0.9.7
+~~~~~~~~~~~~~~~~~
+
+* re-added setup.sh, Lee fixed setup.sh (thanks man!)
+* more metasploit work getting paths to work properly
+
+~~~~~~~~~~~~~~~~~
+version 0.9.6
+~~~~~~~~~~~~~~~~~
+
+* fixed --no-network-connection when launching ptf
+* removed duplicate print statement for PTF check
+* added new module variable called launcher - this will allow you to create automatic launchers in /usr/local/bin when installation completes so you can launch a tool from anywhere - this is an optional flag
+* added launcher to SET
+* added launcher to Metasploit
+* added launcher to BeEF 
+* added launcher to Responder
+* added checks for launcher to see if filetype exists for .rb, .py, .sh, and .pl
+* added launcher to unicorn
+* added launcher to shellter
+* added ability to specify exe, if exe specified, will launch wine
+* fixed metasploit launcher installer
+* added randomized funny banner
+
+~~~~~~~~~~~~~~~~~
+version 0.9.5
+~~~~~~~~~~~~~~~~~
+
+* fixed metasploit install automation
+* removed setup.sh automation on discover since it automatically adds kali linux to distros - breaks other non-kali instances. Contacted Lee to see if we can get fixed.
+
+~~~~~~~~~~~~~~~~~
+version 0.9.4
+~~~~~~~~~~~~~~~~~
+
+* added shellter av evasion as module and created custom sh launcher for shellter
+* create a new optional config option called BYPASS_UPDATE which by default, when updating (not installing) PTF will not run after commands. When using BYPASS_UPDATE, this will mark the folder for new install and run after commands. This is useful for tools that need after commands each time they are updated.
+* added bypass update to malingo which is a FILE format. Also cleaned up old tar ball after install
+
+~~~~~~~~~~~~~~~~~
+version 0.9.3
+~~~~~~~~~~~~~~~~~
+
+* added powersploit to modules
+* removed old aircrack.py module, was a duplicate
+* added pykek to modules
+* added ikeforce to modules
+
+~~~~~~~~~~~~~~~~~
+version 0.9.2
+~~~~~~~~~~~~~~~~~
+
+* added update database to wpscan
+* added tab completion
+
+~~~~~~~~~~~~~~~~~
+version 0.9.1
+~~~~~~~~~~~~~~~~~
+
+* rewrote the metasploit installer
+* removed executing after commands once updating via git or svn
+* updated pyobfuscate to automatically install after installation (setup.py install)
+
+~~~~~~~~~~~~~~~~~
+version 0.9
+~~~~~~~~~~~~~~~~~
+
+* fixed inception downloading library to ptf directory
+* added search functionality into PTF
+* removed error messaging when successful git pull
+* added wait() delay on subprocess when pulling latest git repository
+* removed metasploit - installer not correct
+
+~~~~~~~~~~~~~~~~~
+version 0.8
+~~~~~~~~~~~~~~~~~
+
+* fixed multiple packages that did not install correctly
+* removed repetitive apt-get installs after bulk install was completed
+* added sidestep Metasploit av-evasion module
+* remove veil - ridiculous amounts of prompts and installation criteria - will work on silent install later
+* added total module count to when you first start PTF
+* added automation to smbexec
+
+~~~~~~~~~~~~~~~~~
+version 0.7
+~~~~~~~~~~~~~~~~~
+
+* added multiple modules from git requests
+* added SVN request fixes from Ben0xa pull request (thanks buddy)
+* added ability to install apt packages for all tools first, vs. single - working on fixing it so you will do all tool installs threaded..
+
+~~~~~~~~~~~~~~~~~
+version 0.6
+~~~~~~~~~~~~~~~~~
+
+* added module metasploit (git pull)
+* added rawr (git pull)
+* added dradis (git pull)
+* added golismero (git pull)
+* added nikto (git pull)
+* tested KingPhisher on module install - looks to be good on a fresh install - removing and re-install gets borked - will investigate further later
+* merged git pull request that adds multiple av-bypass modules (pyobfuscate and veil) from JDogHerman
+* merged git pull request that adds no network check to PTF 
+
+~~~~~~~~~~~~~~~~~
+version 0.5
+~~~~~~~~~~~~~~~~~
+
+* added subversion support as a method for checking out
+* added multiple new modules from contributions from github
+
+~~~~~~~~~~~~~~~~~
+version 0.4
+~~~~~~~~~~~~~~~~~
+
+* added Internet connection check when first launching
+* added check before import core and framework
+* fixed an issue that would happen when control-c out before src.core would be imported causing an exception
+* fixed beef installer to gem bundle install and bundler install
+* trimmed description on meterssh
+* rewrote after commands to incorporate waits, and now have to deal with exits
+* fixed discover script to remove exits
+* fixed eyewitness to remove exits
+* fixed installer for aircrackng
+* added a disable for update_all on kingphisher until module can be fixed for Kali - issue is GTK depends are out of date in Kali, modified installer a bit to get through majority of issues however GTK errors still prone - asked module maintainer for assistance
+
+~~~~~~~~~~~~~~~~~
+version 0.3.1
+~~~~~~~~~~~~~~~~~
+
+* fixed python launcher check
+* added root check when launching ptf
+* new module added king phisher (thanks spencer)
+
+~~~~~~~~~~~~~~~~~
+version 0.3
+~~~~~~~~~~~~~~~~~
+
+* added two modules aircrack-ng and wifite (thanks roobixx)
+* fixed a few typos and updated banner
+* added python setup tools as a depend to eyewitness
+* fixed an exit loop on eyewitness
+* fixed aircrack-ng package from devel to dev
+* added a check to automatically upgrade PTF when launching, then start the framework
+
+~~~~~~~~~~~~~~~~~
+version 0.2.1
+~~~~~~~~~~~~~~~~~
+
+* added module discover (thanks PureHate)
+* changed dictionary to sec-list and fixed git
+
+~~~~~~~~~~~~~~~~~
+version 0.2
+~~~~~~~~~~~~~~~~~
+
+* git commit to simplify debian package handling (pull request)
+* added module eyewitness (pull reuqest)
+* added module sqlmap (pull request)
+* added module commix (pull request)
+* added new module egressbuster 
+
+~~~~~~~~~~~~~~~~~
+version 0.1
+~~~~~~~~~~~~~~~~~
+
+* initial release of the pentesters framework
