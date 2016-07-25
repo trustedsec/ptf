@@ -373,8 +373,8 @@ def use_module(module, all_trigger):
 
                     # if we are using git
                     if install_type.lower() == "git":
-                        # if we are updating
-                        if os.path.isdir(install_location):
+                        # if there are files in the install_location, we'll update.
+                        if os.listdir(install_location):
                             print_status("Installation already exists, going to git pull then run after commands..")
                             subprocess.Popen("cd %s;git pull" % (install_location), stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished updating the tool located in:" + install_location)
