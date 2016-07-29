@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.1
+~~~~~~~~~~~~~~~~~
+
+* added pip install requirements for recon-ng
+* added pip urllib3[secure] for discovery install
+
+~~~~~~~~~~~~~~~~~
 version 1.8
 ~~~~~~~~~~~~~~~~~
 
