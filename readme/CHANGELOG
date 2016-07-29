@@ -4,6 +4,7 @@ version 1.8.1
 
 * added pip install requirements for recon-ng
 * added pip urllib3[secure] for discovery install
+* added path direction for /usr/local/bin if not there
 
 ~~~~~~~~~~~~~~~~~
 version 1.8
