@@ -114,7 +114,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.8.1"
+grab_version = "1.8.2"
 
 # banner
 banner = bcolors.RED + r"""
@@ -316,6 +316,9 @@ def after_commands(filename, install_location):
         # here we check if install location needs to be added
         if "{INSTALL_LOCATION}" in commands:
             commands = commands.replace("{INSTALL_LOCATION}", install_location)
+        # ptf location
+        if "{PTF_LOCATION}" in commands:
+            commands = commands.replace("{PTF_LOCATION}", os.getcwd())
         print_status(
             "Running after commands for post installation requirements.")
         after_commands(commands, install_location)

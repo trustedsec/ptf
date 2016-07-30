@@ -78,6 +78,8 @@ All of the fields are pretty easy, on the repository locations, you can use GIT,
 
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
 
+You can also specify {PTF_LOCATION} which will pull the base path for your PTF installation.
+
 You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
 
 Note that ArchLinux packages are also supported, it needs to be specified for both DEBIAN and ARCH in order for it to be properly installed on either platform in the module
