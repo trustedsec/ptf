@@ -1,8 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.3
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause single or double quotes inside after_commands (or anything in module) to not properly run due to improper stripping of single and double quotes
+* added a warning prompt that you cannot use within an addition module
+
+~~~~~~~~~~~~~~~~~
 version 1.8.2
 ~~~~~~~~~~~~~~~~~
 
-* added database support automationf or metasploit
+* added database support automation for metasploit
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.1

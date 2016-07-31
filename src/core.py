@@ -213,8 +213,11 @@ def module_parser(filename, term):
             line = line.rstrip()
             # if the line starts with the term
             if line.startswith(term):
+                line = line.replace(term + '="', "")
+                line = line.replace(term + "='", "")
                 line = line.replace(term + "=", "")
-                line = line.replace('"', "", 2)
+                if str(line).endswith('"'): line = line[:-1]
+                if str(line).endswith("'"): line = line[:-1]
                 # reflect we hit this and our search term was found
                 counter = 1
                 return line
