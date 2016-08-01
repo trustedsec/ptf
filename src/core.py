@@ -70,8 +70,6 @@ def definepath():
             return os.getcwd()
 
 # main status calls for print functions
-
-
 def print_status(message):
     print((bcolors.GREEN) + (bcolors.BOLD) + \
         ("[*] ") + (bcolors.ENDC) + (str(message)))
@@ -101,8 +99,6 @@ def set_title(title):
 	sys.stdout.write("\x1b]2;%s\x07" % title)
 
 # count all of the modules
-
-
 def count_modules():
     modules_path = definepath() + "/modules/"
     counter = 0
@@ -114,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.8.3"
+grab_version = "1.8.4"
 
 # banner
 banner = bcolors.RED + r"""
@@ -181,8 +177,6 @@ any other tool distribution platform, operating system, or anything you would
 download from the Internet.\n"""
 
 # check the config file and return value
-
-
 def check_config(param):
     fileopen = open("%s/config/ptf.config" % (definepath()), "r")
     for line in fileopen:
@@ -231,9 +225,10 @@ def module_parser(filename, term):
                     if filename_short != "install_update_all":
                         if term != "X64_LOCATION":
                               if not "__init__" in filename_short:
-                                    print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
-                                    print_error("Check the module again for errors and try again.")
-                                    print_error("Module has been removed from the list.")
+                                if not "msfdb.sh" in filename_short:
+                                        print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
+                                        print_error("Check the module again for errors and try again.")
+                                        print_error("Module has been removed from the list.")
 
             return ""
 
@@ -242,8 +237,6 @@ def module_parser(filename, term):
         return None
 
 # help menu for PTF
-
-
 def show_help_menu():
     print(("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" +
            bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC))
@@ -255,8 +248,6 @@ def show_help_menu():
            bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC))
 
 # exit message for PTF
-
-
 def exit_ptf():
     print_status("Exiting PTF - the easy pentest platform creation framework.")
     set_title("Hack the Planet!")
@@ -296,8 +287,6 @@ def logging(log):
     filewrite.close()
 
 # this will install all the proper locations for
-
-
 def prep_install():
     if not os.path.isfile(os.getenv("HOME") + "/.ptf"):
         print_status("This appears to be your first time using PTF.")
@@ -310,8 +299,6 @@ def home_directory():
     return os.getenv("HOME") + "/.ptf"
 
 # this will run commands after an install or update on a module
-
-
 def after_commands(filename, install_location):
     from src.commands import after_commands
     commands = module_parser(filename, "AFTER_COMMANDS")
@@ -328,8 +315,6 @@ def after_commands(filename, install_location):
         print_status("Completed running after commands routine..")
 
 # launcher - create launcher under /usr/local/bin
-
-
 def launcher(filename, install_location):
     launcher = module_parser(filename, "LAUNCHER")
 

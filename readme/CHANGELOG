@@ -1,4 +1,14 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.4
+~~~~~~~~~~~~~~~~~
+
+* fixed recon-ng module
+* fixed an issue with medusa
+* fixed msfdb.sh showing up on modules-install-all
+* fixed an issue where certain packages were not available on 16.04
+* added hashcat legacy for virtual machine support
+
+~~~~~~~~~~~~~~~~~
 version 1.8.3
 ~~~~~~~~~~~~~~~~~
 
