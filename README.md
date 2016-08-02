@@ -100,11 +100,11 @@ For AFTER_COMMANDS that do self install (don't need user interaction).
 
 The flag LAUNCHER= in modules is optional. If you add LAUNCHER="setoolkit" for example, PTF will automatically create a launcher for the tool under /usr/local/bin/. In the setoolkit example, when run - PTF will automatically create a file under /usr/local/bin/setoolkit so you can launch SET from anywhere by simply typing setoolkit. All files will still be installed under the appropriate categories, for example /pentest/exploitation/setoolkit however an automatic launcher will be created.
 
-You can have multiple launchers for an application - for example Metasploit you may want msfconsole, msfvenom, etc. etc. In order to add multiple ones, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
+You can have multiple launchers for an application. For example, for Metasploit you may want msfconsole, msfvenom, etc. In order to add multiple launchers, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
 
 ### Automatic Command Line
 
-You can also just run ./ptf --update-all and it will automatically update everything for you without having to do into the framework
+You can also just run ./ptf --update-all and it will automatically update everything for you without having to go into the framework.
 
 ### IGNORE Modules or Categories
 
