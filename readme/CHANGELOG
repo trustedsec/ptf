@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.5
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause git pull not to work
+* added better handling around non .py/.pyc files
+* added automatic after_commands upon an actual update occurring to keep tools up to date
+
+~~~~~~~~~~~~~~~~~
 version 1.8.4
 ~~~~~~~~~~~~~~~~~
 

@@ -51,8 +51,9 @@ ignore_these = []
 if check_config("IGNORE_THESE_MODULES") is not None:
     ignore_these = check_config("IGNORE_THESE_MODULES").split(",")
     if ignore_these[0] != "":
-        print_info("Ignoring the following modules: " +
-                   (", ").join(ignore_these))
+        if ignore_these[0] != '"':
+            print_info("Ignoring the following modules: " +
+                       (", ").join(ignore_these))
 
 # ignore modules if they are specified in the ptf.config
 
@@ -95,6 +96,7 @@ def show_module():
                 # shorten it up a little bit
                 filename_short = filename.replace(os.getcwd() + "/", "")
                 filename_short = filename_short.replace(".py", "")
+                filename_short = str(filename_short)
                 description = module_parser(filename, "DESCRIPTION")
                 # print the module name
                 if description != None:
@@ -108,7 +110,7 @@ def show_module():
 def use_module(module, all_trigger):
 
     # if we aren't using all
-    if not "install_update_all" in module:
+    if not "install_update_all" in module and not "__init__" in module:
 
         # set terminal title
         set_title("ptf - %s" % module)
@@ -175,6 +177,11 @@ def use_module(module, all_trigger):
                 if prompt == "show modules":
                     print_warning(
                         "In order to show modules, you must type 'back' first")
+
+                if "use " in prompt:
+                    print_warning("You need to first type 'back' in order to use a module within a module.")
+                    # python2to3
+                    nada = input("Press {return} to continue.")
 
                 # if we are searching for something
                 if "search " in prompt:
@@ -248,25 +255,23 @@ def use_module(module, all_trigger):
             if prompt.lower() == "update" or prompt.lower() == "upgrade":
                 # if we are using ignore modules then don't process
                 if not "__init__.py" in filename and not ignore_module(filename):
-
-                # move to the location
+                    # move to the location
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
-                            proc = subprocess.Popen("cd %s;git pull" % (
-                                install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            proc = subprocess.Popen("cd %s;git pull" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                             # here we check to see if we need anything we need to
                             # run after things are updated
                             update_counter = 0
-                            if not "Already up-to-date." in proc.communicate()[0]:
+                            if not "Already up-to-date." in proc.communicate():
                                 after_commands(filename, install_location)
                                 update_counter = 1
-                            print_status(
-                                "Finished Installing! Enjoy the tool installed under: " + (install_location))
+                            else: print_status("Tool already up-to-date!")
+                            print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
                             # run after commands
-                            if prompt != "update":
-                                if update_counter == 0:
+                            #if prompt != "update":
+                            if update_counter == 0:
                                     after_commands(filename, install_location)
 
                             # check launcher
@@ -498,23 +503,24 @@ while 1:
                     "We are going to first install all prereqs using apt before installing..")
                 print_status(
                     "Cycling through modules and grabbing requirements...")
+                
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
                             # join the structure
                         filename = os.path.join(path, name)
                         # strip un-needed files
-                        if not "__init__.py" in filename and not ignore_module(filename):
-                                # shorten it up a little bit
+                        if not "__init__.py" in filename and not ignore_module(filename) and ".py" in filename and not ".pyc" in filename:
+                            # shorten it up a little bit
                             filename_short = filename.replace(
                                 os.getcwd() + "/", "")
                             # update depend modules
+                            filename_short = str(filename_short)
                             ostype = profile_os()
                             if ostype == "DEBIAN":
                                 if not "install_update_all" in filename_short:
                                     from src.platforms.debian import base_install_modules
                                     # grab all the modules we need
-                                    deb_modules = deb_modules + "," + \
-                                        module_parser(filename_short, "DEBIAN")
+                                    deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
 
                             # archlinux
                             if ostype == "ARCHLINUX":
@@ -570,22 +576,21 @@ while 1:
                     for name in files:
                         # join the structure
                         filename = os.path.join(path, name)
-                        # strip un-needed files
-
-                        # if not "__init__.py" in filename and not ignore_module(filename):
-                        # shorten it up a little bit
-                        filename_short = filename.replace(
-                            os.getcwd() + "/", "")
-                        filename_short = filename_short.replace(".py", "")
-                        # check if empty directory - if so purge it before
-                        # anything else
-                        check_blank_dir(path)
-                        print_status(
-                            "Installing and/or updating: " + filename_short)
-                        # run the module for install
-                        use_module(filename_short, "1")
-                        # sleep a sec
-                        time.sleep(0.2)
+                        if not "__init__.py" in filename and not ignore_module(filename) and ".py" in filename and not ".pyc" in filename and not "install_update_all" in filename and not "__init__" in filename:
+                            # strip un-needed files
+                            # if not "__init__.py" in filename and not ignore_module(filename):
+                            # shorten it up a little bit
+                            filename_short = filename.replace(
+                                os.getcwd() + "/", "")
+                            filename_short = filename_short.replace(".py", "")
+                            # check if empty directory - if so purge it before
+                            # anything else
+                            check_blank_dir(path)
+                            print_status("Installing and/or updating: " + filename_short)
+                            # run the module for install
+                            use_module(filename_short, "1")
+                            # sleep a sec
+                            time.sleep(0.2)
 
                 # clear the screen
                 os.system("clear")

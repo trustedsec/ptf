@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.8.4"
+grab_version = "1.8.5"
 
 # banner
 banner = bcolors.RED + r"""
@@ -194,7 +194,7 @@ def check_config(param):
 # parser module for module and term
 def module_parser(filename, term):
     # if the file exists
-    if os.path.isfile(filename) and not "install_update_all" in filename:
+    if os.path.isfile(filename) and not "install_update_all" in filename and ".py" in filename and not ".pyc" in filename:
 
         # set a base counter
         counter = 0
@@ -450,8 +450,6 @@ def auto_update():
             "Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
 
 # check if a blank directory exists
-
-
 def check_blank_dir(path):
 
     if os.path.isdir(path):
