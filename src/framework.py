@@ -17,6 +17,7 @@ except NameError: pass
 # print the main welcome banner
 print (banner)
 
+print ("jared test build..")
 # funny random banner
 import random
 funny = random.sample(["Aliens", "Clowns", "Mr. Robot",
@@ -614,7 +615,7 @@ while 1:
             else:
                 print_status(
                     "Alright boss. Not installing right now. Tell me when. I want that shiny. I want it now.")
-                    
+
         if "update_all" in prompt[1]:
             for dir in os.listdir(base_install): # ptes dir
                 for subdir in os.listdir(os.path.join(base_install, dir)): # module
