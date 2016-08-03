@@ -623,7 +623,7 @@ while 1:
             for dir in os.listdir(base_install): # ptes dir
                 for subdir in os.listdir(os.path.join(base_install, dir)): # module
                     module = dir+"/"+subdir
-                    print (Updating %s), module
+                    print ("Updating %s"), module
                     use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
