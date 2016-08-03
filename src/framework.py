@@ -226,6 +226,9 @@ def use_module(module, all_trigger):
 
             if int(all_trigger) == 1:
                 prompt = "run"
+            
+            if int(all_trigger) == 2:
+                prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
             # an upgrade
@@ -611,6 +614,13 @@ while 1:
             else:
                 print_status(
                     "Alright boss. Not installing right now. Tell me when. I want that shiny. I want it now.")
+                    
+        if "update_all" in prompt[1]:
+            for dir in os.listdir(base_install): # ptes dir
+                for subdir in os.listdir(os.path.join(base_install, dir)): # module
+                    module = dir+"/"+subdir
+                    print module
+                    use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
             counter = 1
