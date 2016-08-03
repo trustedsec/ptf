@@ -619,14 +619,16 @@ while 1:
         if "update_all" in prompt[1]:
             print ("JAH_REMOVE: entering update all method")
             counter = 1
+            base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
                 for subdir in os.listdir(os.path.join(base_install, dir)): # module
                     module = dir+"/"+subdir
-                    print module
+                    print (Updating %s), module
                     use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
             counter = 1
+
         if counter == 1:
             use_module(prompt[1], "0")
 
