@@ -620,7 +620,7 @@ while 1:
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
                 for subdir in os.listdir(os.path.join(base_install, dir)): # module
-                    module = "modules/" + dir+"/"+subdir
+                    module = "modules/%s/%s"%(dir,subdir)
                     print ("Updating %s") % module
                     use_module(module, 2)
 
