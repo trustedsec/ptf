@@ -17,7 +17,6 @@ except NameError: pass
 # print the main welcome banner
 print (banner)
 
-print ("JAH_REMOVE: jared test build..")
 # funny random banner
 import random
 funny = random.sample(["Aliens", "Clowns", "Mr. Robot",
@@ -111,14 +110,13 @@ def show_module():
 def use_module(module, all_trigger):
 
     # if we aren't using all
-    if not "install_update_all" in module and not "__init__" in module:
+    if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module:
 
         # set terminal title
         set_title("ptf - %s" % module)
 
         # if we are using a normal module
         if int(all_trigger) == 0 or int(all_trigger) == 1 or int(all_trigger) == 2:
-            print ("JAH_REMOVE: Entering line 121")
             filename = definepath() + "/" + module + ".py"
 
             # grab the author
@@ -437,7 +435,6 @@ def use_module(module, all_trigger):
 
             # if we update all we need to break out until finished
             if int(all_trigger) == 1 or int(all_trigger) == 2:
-                print("JAH_REMOVE line 440")
                 break
 
 # start the main loop
@@ -618,8 +615,7 @@ while 1:
                 print_status(
                     "Alright boss. Not installing right now. Tell me when. I want that shiny. I want it now.")
 
-        if "update_all" in prompt[1]:
-            print ("JAH_REMOVE: entering update all method")
+        if "update_installed" in prompt[1]:
             counter = 3
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
