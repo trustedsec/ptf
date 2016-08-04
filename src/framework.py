@@ -117,7 +117,8 @@ def use_module(module, all_trigger):
         set_title("ptf - %s" % module)
 
         # if we are using a normal module
-        if int(all_trigger) == 0 or int(all_trigger) == 1:
+        if int(all_trigger) == 0 or int(all_trigger) == 1 or int(all_trigger) == 2:
+            print ("JAH_REMOVE: Entering line 121")
             filename = definepath() + "/" + module + ".py"
 
             # grab the author
@@ -435,7 +436,8 @@ def use_module(module, all_trigger):
                     subprocess.Popen("updatedb", shell=True).wait()
 
             # if we update all we need to break out until finished
-            if int(all_trigger) == 1:
+            if int(all_trigger) == 1 or int(all_trigger) == 2:
+                print("JAH_REMOVE line 440")
                 break
 
 # start the main loop
@@ -618,12 +620,12 @@ while 1:
 
         if "update_all" in prompt[1]:
             print ("JAH_REMOVE: entering update all method")
-            counter = 1
+            counter = 3
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
                 for subdir in os.listdir(os.path.join(base_install, dir)): # module
-                    module = dir+"/"+subdir
-                    print ("Updating %s"), module
+                    module = "modules/" + dir+"/"+subdir
+                    print ("Updating %s") % module
                     use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
