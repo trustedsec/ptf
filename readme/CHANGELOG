@@ -4,6 +4,7 @@ version 1.8.6
 
 * add modules/update_installed - this will only update tools that you have installed (thanks for the PR @jaredhaight)
 * put a patch in for whatsweb - the ruby modules are messed up so I included a patched version inside of PTF and patch it post install
+* fixed wafw00f module which was missing pluginbase requirement
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.5
