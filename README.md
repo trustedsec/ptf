@@ -35,6 +35,15 @@ yes
 
 This will install all of the tools inside of PTF. If they are already installed, this will iterate through and update everything for you automatically.
 
+You can also individually install each module, then use the  use modules/update_installed which will only update what you've previously installed.
+
+For example:
+
+./ptf
+use modules/update_installed
+
+This will only update previous ones you've installed.
+
 You can also show options to change information about the modules.
 
 If you only want to install only for example exploitation tools, you can run:
