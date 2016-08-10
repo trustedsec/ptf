@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/sandrogauci/wafw00f.git"
 INSTALL_LOCATION="waffit"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="git python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
