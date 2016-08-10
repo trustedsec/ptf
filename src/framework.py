@@ -110,13 +110,13 @@ def show_module():
 def use_module(module, all_trigger):
 
     # if we aren't using all
-    if not "install_update_all" in module and not "__init__" in module:
+    if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module:
 
         # set terminal title
         set_title("ptf - %s" % module)
 
         # if we are using a normal module
-        if int(all_trigger) == 0 or int(all_trigger) == 1:
+        if int(all_trigger) == 0 or int(all_trigger) == 1 or int(all_trigger) == 2:
             filename = definepath() + "/" + module + ".py"
 
             # grab the author
@@ -226,6 +226,9 @@ def use_module(module, all_trigger):
 
             if int(all_trigger) == 1:
                 prompt = "run"
+            
+            if int(all_trigger) == 2:
+                prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
             # an upgrade
@@ -431,7 +434,7 @@ def use_module(module, all_trigger):
                     subprocess.Popen("updatedb", shell=True).wait()
 
             # if we update all we need to break out until finished
-            if int(all_trigger) == 1:
+            if int(all_trigger) == 1 or int(all_trigger) == 2:
                 break
 
 # start the main loop
@@ -612,8 +615,18 @@ while 1:
                 print_status(
                     "Alright boss. Not installing right now. Tell me when. I want that shiny. I want it now.")
 
+        if "update_installed" in prompt[1]:
+            counter = 3
+            base_install = check_config("BASE_INSTALL_PATH=")
+            for dir in os.listdir(base_install): # ptes dir
+                for subdir in os.listdir(os.path.join(base_install, dir)): # module
+                    module = "modules/%s/%s"%(dir,subdir)
+                    print ("Updating %s") % module
+                    use_module(module, 2)
+
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
             counter = 1
+
         if counter == 1:
             use_module(prompt[1], "0")
 
