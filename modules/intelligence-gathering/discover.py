@@ -23,7 +23,7 @@ INSTALL_LOCATION="discover"
 DEBIAN="git, whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric"
 
 # COMMANDS TO RUN AFTER 
-AFTER_COMMANDS=""
+AFTER_COMMANDS="pip install urllib3[secure] --upgrade"
 
 # CREATE LAUNCHER
 LAUNCHER="discover"

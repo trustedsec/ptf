@@ -1,4 +1,66 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.6
+~~~~~~~~~~~~~~~~~
+
+* add modules/update_installed - this will only update tools that you have installed (thanks for the PR @jaredhaight)
+* put a patch in for whatsweb - the ruby modules are messed up so I included a patched version inside of PTF and patch it post install
+* fixed wafw00f module which was missing pluginbase requirement
+
+~~~~~~~~~~~~~~~~~
+version 1.8.5
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause git pull not to work
+* added better handling around non .py/.pyc files
+* added automatic after_commands upon an actual update occurring to keep tools up to date
+
+~~~~~~~~~~~~~~~~~
+version 1.8.4
+~~~~~~~~~~~~~~~~~
+
+* fixed recon-ng module
+* fixed an issue with medusa
+* fixed msfdb.sh showing up on modules-install-all
+* fixed an issue where certain packages were not available on 16.04
+* added hashcat legacy for virtual machine support
+
+~~~~~~~~~~~~~~~~~
+version 1.8.3
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause single or double quotes inside after_commands (or anything in module) to not properly run due to improper stripping of single and double quotes
+* added a warning prompt that you cannot use within an addition module
+
+~~~~~~~~~~~~~~~~~
+version 1.8.2
+~~~~~~~~~~~~~~~~~
+
+* added database support automation for metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.8.1
+~~~~~~~~~~~~~~~~~
+
+* added pip install requirements for recon-ng
+* added pip urllib3[secure] for discovery install
+* added path direction for /usr/local/bin if not there
+
+~~~~~~~~~~~~~~~~~
+version 1.8
+~~~~~~~~~~~~~~~~~
+
+* added samba-client to ridenum as prereq
+* added poshc2 (PR)
+* added title for cmd shell (PR) 
+* added fimap (PR)
+* changed install path from hardcoded to {INSTALL_LOCATION} in fimap
+* added title setting for terminal window (awesome PR thnx!)
+* switched to metasploit nightly installer vs. git direct pull (love you egyp7)
+* added full python3 compatibility and tested
+* fixed the crackmapexec installer (thanks lawry)
+* added so if git was used with BYPASS_UPDATES - it would still do a git pull
+
+~~~~~~~~~~~~~~~~~
 version 1.7.3
 ~~~~~~~~~~~~~~~~~
 
