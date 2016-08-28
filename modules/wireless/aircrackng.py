@@ -23,7 +23,7 @@ INSTALL_LOCATION="aircrack-ng"
 DEBIAN="libsqlite3-dev,libnl-3-dev,libnl-cli-3-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,libsqlite3x-devel,libnl3-devel"
+FEDORA="git,libsqlite3x-devel,libnl3-devel,libnl-genl-3-dev"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make strip,make install,airodump-ng-oui-update"
