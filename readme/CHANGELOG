@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+verison 1.8.7
+~~~~~~~~~~~~~~~~~
+
+* added armitage
+* added build-essentials as main depend when launching
+* added depend for aircrack-ng to work properly
+* fixed issue on ignore modules (PR)
+
+~~~~~~~~~~~~~~~~~
 version 1.8.6
 ~~~~~~~~~~~~~~~~~
 
