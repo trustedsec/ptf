@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.8.8
+~~~~~~~~~~~~~~~~~
+
+* create .msf4 directory if not already created for database support
+* re-added urlcrazy and switched it to file in order to have depends for discover
+
+~~~~~~~~~~~~~~~~~
 verison 1.8.7
 ~~~~~~~~~~~~~~~~~
 
