@@ -117,4 +117,4 @@ You can also just run ./ptf --update-all and it will automatically update everyt
 
 ### IGNORE Modules or Categories
 
-The "IGNORE_THESE_MODULES=" config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: modules/exploitation/metasploit,modules/exploitation/set or entire module categories, like modules/code-audit/*,/modules/reporting/*
+The "IGNORE_THESE_MODULES=" config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: modules/exploitation/metasploit,modules/exploitation/set or entire module categories, like /modules/code-audit/*,/modules/reporting/*

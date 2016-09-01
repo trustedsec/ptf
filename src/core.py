@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.8.6"
+grab_version = "1.8.8"
 
 # banner
 banner = bcolors.RED + r"""
@@ -442,7 +442,7 @@ def auto_update():
             "If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
         if profile_os() == "DEBIAN":
             subprocess.Popen(
-                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
+                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && apt-get -q --force-yes -y install build-essential && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
         print_status(
             "Finished with normal package updates, moving on to the tools section..")
     else:
