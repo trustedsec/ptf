@@ -13,6 +13,7 @@ version 1.9
 * added excel payload
 * added nps (not powershell)
 * added new webshells directory and added blackarch webshells
+* added weevely webshell
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
