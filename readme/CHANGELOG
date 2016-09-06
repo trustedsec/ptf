@@ -12,6 +12,7 @@ version 1.9
 * added generate-macro
 * added excel payload
 * added nps (not powershell)
+* added new webshells directory and added blackarch webshells
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
