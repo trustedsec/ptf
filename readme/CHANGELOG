@@ -10,6 +10,7 @@ version 1.9
 * added nishang powershell exploitation
 * added powersscm
 * added generate-macro
+* added excel payload
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
