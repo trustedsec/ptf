@@ -11,6 +11,7 @@ version 1.9
 * added powersscm
 * added generate-macro
 * added excel payload
+* added nps (not powershell)
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
