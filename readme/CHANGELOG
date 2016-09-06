@@ -7,6 +7,9 @@ version 1.9
 * added empire (moved location)
 * added bloodhount (moved location)
 * added powersploit
+* added nishang powershell exploitation
+* added powersscm
+* added generate-macro
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
