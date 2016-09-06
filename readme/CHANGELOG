@@ -4,6 +4,7 @@ version 1.8.9
 
 * added cowpatty (thanks matrixfox)
 * added pyrit
+* added ruler (post exploitation for exchange through mapi)
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.8
