@@ -1,9 +1,31 @@
 ~~~~~~~~~~~~~~~~~
+version 1.9
+~~~~~~~~~~~~~~~~~
+
+* new category powershell created
+* added babadook (powershell)
+* added empire (moved location)
+* added bloodhount (moved location)
+* added powersploit
+* added nishang powershell exploitation
+* added powersscm
+* added generate-macro
+* added excel payload
+* added nps (not powershell)
+* added new webshells directory and added blackarch webshells
+* added weevely webshell
+* added b374k webshell
+* added scancannon
+* removed annoying cwd error message, not needed and also removed old print statement
+* add a metasploit-reinstall if package broken
+
+~~~~~~~~~~~~~~~~~
 version 1.8.9
 ~~~~~~~~~~~~~~~~~
 
 * added cowpatty (thanks matrixfox)
 * added pyrit
+* added ruler (post exploitation for exchange through mapi)
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.8
