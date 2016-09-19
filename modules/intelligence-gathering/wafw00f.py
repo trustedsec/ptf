@@ -29,4 +29,4 @@ FEDORA="git"
 ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install,pip install pluginbase -upgrade"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install,pip install pluginbase --upgrade"

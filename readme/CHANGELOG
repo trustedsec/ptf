@@ -18,6 +18,7 @@ version 1.9
 * added scancannon
 * removed annoying cwd error message, not needed and also removed old print statement
 * add a metasploit-reinstall if package broken
+* add badkeys
 
 ~~~~~~~~~~~~~~~~~
 version 1.8.9
