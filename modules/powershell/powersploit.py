@@ -1,35 +1,33 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for lfiscanner
+# Installation module for PowerSploit
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Nick Dyer"
+AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update lfiscanner."
+DESCRIPTION="This module will install/update PowerSploit - the exploitation framework for PowerShell"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/gandaro/lfiscanner.git"
+REPOSITORY_LOCATION="https://github.com/PowerShellMafia/PowerSploit"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="lfiscanner"
+INSTALL_LOCATION="powersploit"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="git"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="python"
-
-# DEPENDS FOR ARCHLINUX INSTALLS
-ARCHLINUX=""
+FEDORA="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER="lfi_scanner"
+LAUNCHER=""
+

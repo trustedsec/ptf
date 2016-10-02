@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/1N3/Sn1per"
 INSTALL_LOCATION="sniper"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="git xprobe2 whois curl nmap cutycapt host php php-curl"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,./install.sh,chmod +x sniper"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,echo -e "y\n" | ./install.sh,chmod +x sniper"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="sniper"

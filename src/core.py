@@ -8,7 +8,8 @@ import select
 import readline
 import glob
 import platform
-import urllib2
+import urllib
+import sys
 
 # tab completion
 def complete(text, state):
@@ -50,7 +51,7 @@ class bcolors:
 
 # custom parser for zaproxy
 def zaproxy():
-    file = urllib2.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
+    file = urllib.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
     data = file.readlines()
     file.close()
     for url in data:
@@ -69,8 +70,6 @@ def definepath():
             return os.getcwd()
 
 # main status calls for print functions
-
-
 def print_status(message):
     print((bcolors.GREEN) + (bcolors.BOLD) + \
         ("[*] ") + (bcolors.ENDC) + (str(message)))
@@ -96,9 +95,10 @@ def print_error(message):
         ("[!] ") + (bcolors.ENDC) + (bcolors.RED) + \
         (str(message)) + (bcolors.ENDC))
 
+def set_title(title):
+	sys.stdout.write("\x1b]2;%s\x07" % title)
+
 # count all of the modules
-
-
 def count_modules():
     modules_path = definepath() + "/modules/"
     counter = 0
@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.7.2"
+grab_version = "1.9"
 
 # banner
 banner = bcolors.RED + r"""
@@ -145,23 +145,23 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		""" + bcolors.backBlue + \
+banner += """        		  """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		     Codename: """ + \
-    bcolors.BLUE + """Shiny Shine""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		      Codename: """ + \
+    bcolors.BLUE + """Tool Depot""" + "\n"
 
 banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
 
-banner += """        	     A project by """ + bcolors.GREEN + bcolors.BOLD + \
+banner += """        	    A project by """ + bcolors.GREEN + bcolors.BOLD + \
     """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 
 banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                  """ + bcolors.BOLD + """https://www.trustedsec.com
+banner += """                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
@@ -177,10 +177,8 @@ any other tool distribution platform, operating system, or anything you would
 download from the Internet.\n"""
 
 # check the config file and return value
-
-
 def check_config(param):
-    fileopen = file("%s/config/ptf.config" % (definepath()), "r")
+    fileopen = open("%s/config/ptf.config" % (definepath()), "r")
     for line in fileopen:
         # if the line starts with the param we want then we are set, otherwise
         # if it starts with a # then ignore
@@ -194,26 +192,26 @@ def check_config(param):
                 return line[1]
 
 # parser module for module and term
-
-
 def module_parser(filename, term):
-
     # if the file exists
-    if os.path.isfile(filename) and not "install_update_all" in filename:
+    if os.path.isfile(filename) and not "install_update_all" in filename and ".py" in filename and not ".pyc" in filename:
 
         # set a base counter
         counter = 0
 
         # open the file
-        fileopen = file(filename)
+        fileopen = open(filename, "r")
         # iterate through the file
         for line in fileopen:
             # strip any bogus stuff
             line = line.rstrip()
             # if the line starts with the term
             if line.startswith(term):
+                line = line.replace(term + '="', "")
+                line = line.replace(term + "='", "")
                 line = line.replace(term + "=", "")
-                line = line.replace('"', "", 2)
+                if str(line).endswith('"'): line = line[:-1]
+                if str(line).endswith("'"): line = line[:-1]
                 # reflect we hit this and our search term was found
                 counter = 1
                 return line
@@ -227,9 +225,10 @@ def module_parser(filename, term):
                     if filename_short != "install_update_all":
                         if term != "X64_LOCATION":
                               if not "__init__" in filename_short:
-                                    print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
-                                    print_error("Check the module again for errors and try again.")
-                                    print_error("Module has been removed from the list.")
+                                if not "msfdb.sh" in filename_short:
+                                        print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
+                                        print_error("Check the module again for errors and try again.")
+                                        print_error("Module has been removed from the list.")
 
             return ""
 
@@ -238,8 +237,6 @@ def module_parser(filename, term):
         return None
 
 # help menu for PTF
-
-
 def show_help_menu():
     print(("Available from main prompt: " + bcolors.BOLD + "show modules" + bcolors.ENDC + "," + bcolors.BOLD + " show <module>" +
            bcolors.ENDC + "," + bcolors.BOLD + " search <name>" + bcolors.ENDC + "," + bcolors.BOLD + " use <module>" + bcolors.ENDC))
@@ -251,10 +248,9 @@ def show_help_menu():
            bcolors.ENDC + "," + bcolors.BOLD + " install" + bcolors.ENDC + "," + bcolors.BOLD + " run" + bcolors.ENDC))
 
 # exit message for PTF
-
-
 def exit_ptf():
     print_status("Exiting PTF - the easy pentest platform creation framework.")
+    set_title("Hack the Planet!")
 
 
 # this is the main handler to check what distribution we are using
@@ -280,19 +276,17 @@ def logging(log):
     logpath = check_config("LOG_PATH=")
     # if the file isn't there, create it
     if not os.path.isfile(logpath):
-        filewrite = file(logpath, "w")
+        filewrite = open(logpath, "w")
         filewrite.write("")
         filewrite.close()
     # open for append
-    filewrite = file(logpath, "a")
+    filewrite = open(logpath, "a")
     # write it out
     filewrite.write(log)
     # close the file
     filewrite.close()
 
 # this will install all the proper locations for
-
-
 def prep_install():
     if not os.path.isfile(os.getenv("HOME") + "/.ptf"):
         print_status("This appears to be your first time using PTF.")
@@ -305,8 +299,6 @@ def home_directory():
     return os.getenv("HOME") + "/.ptf"
 
 # this will run commands after an install or update on a module
-
-
 def after_commands(filename, install_location):
     from src.commands import after_commands
     commands = module_parser(filename, "AFTER_COMMANDS")
@@ -314,14 +306,15 @@ def after_commands(filename, install_location):
         # here we check if install location needs to be added
         if "{INSTALL_LOCATION}" in commands:
             commands = commands.replace("{INSTALL_LOCATION}", install_location)
+        # ptf location
+        if "{PTF_LOCATION}" in commands:
+            commands = commands.replace("{PTF_LOCATION}", os.getcwd())
         print_status(
             "Running after commands for post installation requirements.")
         after_commands(commands, install_location)
         print_status("Completed running after commands routine..")
 
 # launcher - create launcher under /usr/local/bin
-
-
 def launcher(filename, install_location):
     launcher = module_parser(filename, "LAUNCHER")
 
@@ -385,8 +378,8 @@ def launcher(filename, install_location):
 
                 # if we found filetype
                 if point != "":
-                    filewrite = file("/usr/local/bin/" + launchers, "w")
-                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*' %
+                    filewrite = open("/usr/local/bin/" + launchers, "w")
+                    filewrite.write('#!/bin/sh\ncd %s\nchmod +x %s\n%s $*\n' %
                                     (install_location, file_point, point))
                     filewrite.close()
                     subprocess.Popen("chmod +x /usr/local/bin/%s" %
@@ -418,7 +411,7 @@ def search(term):
                             module_files.append(os.path.join(dirpath, x))
 
                         if not term in path:
-                            data = file(path, "r").readlines()
+                            data = open(path, "r").readlines()
                             # normally just searched entire file, but we don't
                             # want to search # lines
                             for line in data:
@@ -449,7 +442,7 @@ def auto_update():
             "If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
         if profile_os() == "DEBIAN":
             subprocess.Popen(
-                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
+                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && apt-get -q --force-yes -y install build-essential && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
         print_status(
             "Finished with normal package updates, moving on to the tools section..")
     else:
@@ -457,8 +450,6 @@ def auto_update():
             "Auto updating for packages is turned off, to enable go to PTF and config directory and turn AUTO_UPDATE to ON.")
 
 # check if a blank directory exists
-
-
 def check_blank_dir(path):
 
     if os.path.isdir(path):

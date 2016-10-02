@@ -22,10 +22,11 @@ def after_commands(command, install_location):
             print_status("Sending after command: " + commands)
             # change directory if CD in command
             if "cd " in commands:
+                cwd = os.getcwd()
                 commands = commands.replace("cd ", "")
                 if os.path.isdir(commands):
                     os.chdir(commands)
-            else:
+            else:                
                 subprocess.Popen(commands, shell=True).wait()
 
         # restore original directory

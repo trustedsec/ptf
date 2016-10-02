@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Martin Bos (purehate)"
+AUTHOR="Martin Bos (purehate) & Jason Ashton (jayw0k)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update discover - an OSINT tool"
@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
 INSTALL_LOCATION="discover"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric"
+DEBIAN="git, whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric, xml-twig-tools"
 
-# COMMANDS TO RUN AFTER 
-AFTER_COMMANDS=""
+# COMMANDS TO RUN AFTER
+AFTER_COMMANDS="pip install urllib3[secure] --upgrade"
 
 # CREATE LAUNCHER
 LAUNCHER="discover"

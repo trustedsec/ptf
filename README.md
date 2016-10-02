@@ -35,6 +35,15 @@ yes
 
 This will install all of the tools inside of PTF. If they are already installed, this will iterate through and update everything for you automatically.
 
+You can also individually install each module, then use the  use modules/update_installed which will only update what you've previously installed.
+
+For example:
+
+./ptf
+use modules/update_installed
+
+This will only update previous ones you've installed.
+
 You can also show options to change information about the modules.
 
 If you only want to install only for example exploitation tools, you can run:
@@ -78,6 +87,8 @@ All of the fields are pretty easy, on the repository locations, you can use GIT,
 
 Note in modules, you can specify after commands {INSTALL_LOCATION}. This will append where you want the install location to go when using after commands.
 
+You can also specify {PTF_LOCATION} which will pull the base path for your PTF installation.
+
 You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
 
 Note that ArchLinux packages are also supported, it needs to be specified for both DEBIAN and ARCH in order for it to be properly installed on either platform in the module
@@ -98,12 +109,12 @@ For AFTER_COMMANDS that do self install (don't need user interaction).
 
 The flag LAUNCHER= in modules is optional. If you add LAUNCHER="setoolkit" for example, PTF will automatically create a launcher for the tool under /usr/local/bin/. In the setoolkit example, when run - PTF will automatically create a file under /usr/local/bin/setoolkit so you can launch SET from anywhere by simply typing setoolkit. All files will still be installed under the appropriate categories, for example /pentest/exploitation/setoolkit however an automatic launcher will be created.
 
-You can have multiple launchers for an application - for example Metasploit you may want msfconsole, msfvenom, etc. etc. In order to add multiple ones, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
+You can have multiple launchers for an application. For example, for Metasploit you may want msfconsole, msfvenom, etc. In order to add multiple launchers, simply put a "," between them. For example LAUNCHER="msfconsole,msfvenom". This would create launchers for both.
 
 ### Automatic Command Line
 
-You can also just run ./ptf --update-all and it will automatically update everything for you without having to do into the framework
+You can also just run ./ptf --update-all and it will automatically update everything for you without having to go into the framework.
 
 ### IGNORE Modules or Categories
 
-The "IGNORE_THESE_MODULES=" config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: modules/exploitation/metasploit,modules/exploitation/set or entire module categories, like modules/code-audit/*,/modules/reporting/*
+The "IGNORE_THESE_MODULES=" config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: modules/exploitation/metasploit,modules/exploitation/set or entire module categories, like /modules/code-audit/*,/modules/reporting/*

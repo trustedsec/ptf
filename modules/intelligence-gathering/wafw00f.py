@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/sandrogauci/wafw00f.git"
 INSTALL_LOCATION="waffit"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="git python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
@@ -29,4 +29,4 @@ FEDORA="git"
 ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install,pip install pluginbase --upgrade"

@@ -1,4 +1,119 @@
 ~~~~~~~~~~~~~~~~~
+version 1.9
+~~~~~~~~~~~~~~~~~
+
+* new category powershell created
+* added babadook (powershell)
+* added empire (moved location)
+* added bloodhount (moved location)
+* added powersploit
+* added nishang powershell exploitation
+* added powersscm
+* added generate-macro
+* added excel payload
+* added nps (not powershell)
+* added new webshells directory and added blackarch webshells
+* added weevely webshell
+* added b374k webshell
+* added scancannon
+* removed annoying cwd error message, not needed and also removed old print statement
+* add a metasploit-reinstall if package broken
+* add badkeys
+
+~~~~~~~~~~~~~~~~~
+version 1.8.9
+~~~~~~~~~~~~~~~~~
+
+* added cowpatty (thanks matrixfox)
+* added pyrit
+* added ruler (post exploitation for exchange through mapi)
+
+~~~~~~~~~~~~~~~~~
+version 1.8.8
+~~~~~~~~~~~~~~~~~
+
+* create .msf4 directory if not already created for database support
+* re-added urlcrazy and switched it to file in order to have depends for discover
+
+~~~~~~~~~~~~~~~~~
+verison 1.8.7
+~~~~~~~~~~~~~~~~~
+
+* added armitage
+* added build-essentials as main depend when launching
+* added depend for aircrack-ng to work properly
+* fixed issue on ignore modules (PR)
+
+~~~~~~~~~~~~~~~~~
+version 1.8.6
+~~~~~~~~~~~~~~~~~
+
+* add modules/update_installed - this will only update tools that you have installed (thanks for the PR @jaredhaight)
+* put a patch in for whatsweb - the ruby modules are messed up so I included a patched version inside of PTF and patch it post install
+* fixed wafw00f module which was missing pluginbase requirement
+
+~~~~~~~~~~~~~~~~~
+version 1.8.5
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause git pull not to work
+* added better handling around non .py/.pyc files
+* added automatic after_commands upon an actual update occurring to keep tools up to date
+
+~~~~~~~~~~~~~~~~~
+version 1.8.4
+~~~~~~~~~~~~~~~~~
+
+* fixed recon-ng module
+* fixed an issue with medusa
+* fixed msfdb.sh showing up on modules-install-all
+* fixed an issue where certain packages were not available on 16.04
+* added hashcat legacy for virtual machine support
+
+~~~~~~~~~~~~~~~~~
+version 1.8.3
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause single or double quotes inside after_commands (or anything in module) to not properly run due to improper stripping of single and double quotes
+* added a warning prompt that you cannot use within an addition module
+
+~~~~~~~~~~~~~~~~~
+version 1.8.2
+~~~~~~~~~~~~~~~~~
+
+* added database support automation for metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.8.1
+~~~~~~~~~~~~~~~~~
+
+* added pip install requirements for recon-ng
+* added pip urllib3[secure] for discovery install
+* added path direction for /usr/local/bin if not there
+
+~~~~~~~~~~~~~~~~~
+version 1.8
+~~~~~~~~~~~~~~~~~
+
+* added samba-client to ridenum as prereq
+* added poshc2 (PR)
+* added title for cmd shell (PR) 
+* added fimap (PR)
+* changed install path from hardcoded to {INSTALL_LOCATION} in fimap
+* added title setting for terminal window (awesome PR thnx!)
+* switched to metasploit nightly installer vs. git direct pull (love you egyp7)
+* added full python3 compatibility and tested
+* fixed the crackmapexec installer (thanks lawry)
+* added so if git was used with BYPASS_UPDATES - it would still do a git pull
+
+~~~~~~~~~~~~~~~~~
+version 1.7.3
+~~~~~~~~~~~~~~~~~
+
+* added empyre - linux/osx post exploitation (harmj0y empire author)
+* removed old seclist under intelligence gathering
+
+~~~~~~~~~~~~~~~~~
 version 1.7.2
 ~~~~~~~~~~~~~~~~~
 
