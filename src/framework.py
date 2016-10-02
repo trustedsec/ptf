@@ -437,6 +437,22 @@ def use_module(module, all_trigger):
             if int(all_trigger) == 1 or int(all_trigger) == 2:
                 break
 
+# searches in the directory to find a file that references the location
+def find_containing_file(directory, location):
+    try:
+        print("Finding %s in %s"%(location, directory))
+        for file in [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]:
+            with open(os.path.join(directory,file)) as handle:
+                for line in handle:
+                    if ('INSTALL_LOCATION="%s"'%location) in line:
+                        return os.path.splitext(file)[0]
+    except OSError:
+        print_warning("%s is not managed by PTF"%(location))
+        # Didn't find anything, returning None
+        return None
+        
+                    
+
 # start the main loop
 while 1:
 
@@ -619,10 +635,20 @@ while 1:
             counter = 3
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
-                for subdir in os.listdir(os.path.join(base_install, dir)): # module
-                    module = "modules/%s/%s"%(dir,subdir)
-                    print ("Updating %s") % module
-                    use_module(module, 2)
+            # ignore PTF directory
+                if not 'ptf' == dir:
+                    for subdir in os.listdir(os.path.join(base_install, dir)): # module
+                        # Ignore normal files
+                        if not os.path.isfile(subdir):                             
+                            module = "modules/%s/%s"%(dir,subdir)
+                            # If the install file and install directory differ, search the correct file
+                            if(not os.path.isfile(module + '.py')):
+                                install_file = find_containing_file("modules/%s"%dir,subdir)
+                                module = "modules/%s/%s"%(dir,install_file)
+                            # Only update if we have an install file
+                            if not 'None' in module:
+                                print ("Updating %s") % module
+                                use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
             counter = 1
