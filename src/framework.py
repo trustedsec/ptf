@@ -105,6 +105,23 @@ def show_module():
                         "   " + filename_short + " " * temp_number + description)
     print("\n")
 
+def show_new_modules():
+    modules_path = os.getcwd() + "/modules/"
+    for path, subdirs, files in os.walk(modules_path):
+        for name in files:
+            filename = os.path.join(path, name)
+            if not "__init__.py" in filename or not "install_update_all":
+                filename_short = filename.replace(os.getcwd() +"/","")
+                filename_short = filename_short.replace(".py","")
+                filename_short = str(filename_short)
+                description = module_parser(filename, "DESCRIPTION")
+                location = module_parser(filename,"INSTALL_LOCATION")
+                if not ((location is None) or (os.path.exists(os.path.join(path.replace("ptf/modules/",""), location)))):
+                    if description != None:
+                        temp_number = 53 - len(filename_short)
+                        print(
+                            "   " + filename_short + " " * temp_number + description)
+    print("\n")
 
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
@@ -484,6 +501,11 @@ while 1:
         base_counter = 1
         show_module()
 
+    # list new modules
+    if prompt == "show new modules":
+        base_counter = 1
+        show_new_modules()
+        
     # inside joke
     if prompt == "install sleeves":
         print_error("Scott White? Sleeves? F Sleeves. Scott Rules.")
