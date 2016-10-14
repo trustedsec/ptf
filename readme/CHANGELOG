@@ -8,6 +8,7 @@ version 1.9.1
 * added Invoke-Obfsucation
 * Added snarf, bettercap, wordsmith (git pull)
 * resolve os.getcwd() error messages when running after commands when directory wasn't available
+* added automatic download of the latest gpg keys for metasploit in case its expired
 
 ~~~~~~~~~~~~~~~~~
 version 1.9
