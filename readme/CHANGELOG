@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.9.1
+~~~~~~~~~~~~~~~~~
+
+* fixed crackmapexec
+* vdbaan fix git #225 -> resolved -> PTF searches for modules based on the directory name (from INSTALL_LOCATION). This can differ from the filename given to the installer. (thanks!)
+* backHack Mobile App Analysis Android added (git pull)
+* added Invoke-Obfsucation
+* Added snarf, bettercap, wordsmith (git pull)
+* resolve os.getcwd() error messages when running after commands when directory wasn't available
+
+~~~~~~~~~~~~~~~~~
 version 1.9
 ~~~~~~~~~~~~~~~~~
 
