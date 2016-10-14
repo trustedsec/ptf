@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Empire - A Powershell based post-ex
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/powershellempire/empire"
+REPOSITORY_LOCATION="https://github.com/adaptivethreat/Empire"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="empire"
