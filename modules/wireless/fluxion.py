@@ -26,6 +26,6 @@ DEBIAN="bully"
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},bash install.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},bash Installer.sh"
 
 LAUNCHER="fluxion"
