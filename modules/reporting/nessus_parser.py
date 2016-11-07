@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for DNSEnum
+# Installation module for Nessus Parser
 #####################################
 
 # AUTHOR OF MODULE NAME
