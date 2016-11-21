@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.9.2"
+grab_version = "1.10"
 
 # banner
 banner = bcolors.RED + r"""
@@ -148,8 +148,8 @@ banner += bcolors.ENDC + """Framework\n\n"""
 banner += """        		  """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		      Codename: """ + \
-    bcolors.BLUE + """Tool Depot""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		       Codename: """ + \
+    bcolors.BLUE + """Tool Time""" + "\n"
 
 banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"

@@ -186,19 +186,20 @@ def use_module(module, all_trigger):
 
                 # exit if we need to
                 if prompt == "back" or prompt == "quit" or prompt == "exit":
-                    break
+                    return "None"
+
                 # show the help menu
                 if prompt == "?" or prompt == "help":
                     show_help_menu()
 
+                # show modules
                 if prompt == "show modules":
                     print_warning(
                         "In order to show modules, you must type 'back' first")
 
+                # if we are using a module within a module we return our prompt 
                 if "use " in prompt:
-                    print_warning("You need to first type 'back' in order to use a module within a module.")
-                    # python2to3
-                    nada = input("Press {return} to continue.")
+                    return prompt
 
                 # if we are searching for something
                 if "search " in prompt:
@@ -676,7 +677,11 @@ while 1:
             counter = 1
 
         if counter == 1:
-            use_module(prompt[1], "0")
+            while 1:
+                module = use_module(prompt[1], "0")
+                if "use " in module: 
+                    prompt = module.split(" ")
+                else: break
 
         if counter == 0:
             print_error("Module name was not found, try retyping it again.")

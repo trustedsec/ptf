@@ -1,4 +1,15 @@
 ~~~~~~~~~~~~~~~~~
+version 1.10
+~~~~~~~~~~~~~~~~~
+
+* allow use modules within other modules - no longer need to use back
+* add pipal (spoonman)
+* fix credcrack (bustedsec)
+* add spoopy-ng (bustedsec)
+* add nessus-parser (spoonman)
+* added fluxion (bustedsec)
+
+~~~~~~~~~~~~~~~~~
 version 1.9.2
 ~~~~~~~~~~~~~~~~~
 
