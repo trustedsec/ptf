@@ -7,7 +7,7 @@
 AUTHOR="BustedSec (Frank_Trezza)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will force an ubuntu or debian machine to use the old naming convention for network interfaces such as eth0 or wlan0 instead of the new convention introduced into udev in recent kernal versions (tested on ubuntu 15.10, 16.04, and debian 8.6.0")
+DESCRIPTION="This module will force an ubuntu or debian machine to use the old naming convention for network interfaces such as eth0 or wlan0 instead of the new convention introduced into udev in recent kernal versions (tested on ubuntu 15.10, 16.04, and debian 8.6.0"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -26,7 +26,7 @@ DEBIAN=""
 FEDORA=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="perl src/confset.pl GRUB_CMDLINE_LINUX=\""net.ifnames=0 biosdevname=0\"" /etc/default/grub"
+AFTER_COMMANDS="perl src/confset.pl GRUB_CMDLINE_LINUX=\""net.ifnames=0 biosdevname=0\"" /etc/default/grub, update-grub"
 
 
 
