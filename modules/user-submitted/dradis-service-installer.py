@@ -16,7 +16,7 @@ INSTALL_TYPE="git"
 REPOSITORY_LOCATION="https://github.com/BustedSec/dradis-service-installer"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION=""
+INSTALL_LOCATION="dradis.service"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN=""
