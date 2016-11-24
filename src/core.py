@@ -151,10 +151,10 @@ banner += """        		  """ + bcolors.backBlue + \
 banner += bcolors.YELLOW + bcolors.BOLD + """		        Codename: """ + \
     bcolors.BLUE + """Tool Time""" + "\n"
 
-banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
+banner += """		         """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
 
-banner += """        	    A project by """ + bcolors.GREEN + bcolors.BOLD + \
+banner += """        	      A project by """ + bcolors.GREEN + bcolors.BOLD + \
     """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 
 banner += """		 Written by: """ + bcolors.BOLD + \
