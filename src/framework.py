@@ -678,10 +678,12 @@ while 1:
 
         if counter == 1:
             while 1:
-                module = use_module(prompt[1], "0")
-                if "use " in module: 
-                    prompt = module.split(" ")
-                else: break
+                try:
+                    module = use_module(prompt[1], "0")
+                    if "use " in module: 
+                        prompt = module.split(" ")
+                    else: break
+                except Exception: break
 
         if counter == 0:
             print_error("Module name was not found, try retyping it again.")
