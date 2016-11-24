@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.10.1
+~~~~~~~~~~~~~~~~~
+
+* fixed gladius module missing debian var
+* fixed nonetype error when using update/install all
+
+~~~~~~~~~~~~~~~~~
 version 1.10
 ~~~~~~~~~~~~~~~~~
 
