@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
 INSTALL_LOCATION="discover"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric, xml-twig-tools"
+DEBIAN="git, whois, traceroute, whatweb, arp-scan, cutycapt, gnumeric, libxml2-utils, xml-twig-tools"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="pip install urllib3[secure] --upgrade"
