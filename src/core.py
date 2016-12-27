@@ -161,7 +161,8 @@ banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                    """ + bcolors.BOLD + """https://www.trustedsec.com
+banner += """                          """ + """Freenode: """ + bcolors.BOLD + """##PTF""" + bcolors.ENDC
+banner += """\n                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
