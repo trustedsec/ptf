@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.10.2"
+grab_version = "1.11"
 
 # banner
 banner = bcolors.RED + r"""
@@ -145,7 +145,7 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		  """ + bcolors.backBlue + \
+banner += """        		   """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		        Codename: """ + \
