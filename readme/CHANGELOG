@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+version 1.11
+~~~~~~~~~~~~~~~~~
+
+* add inspy (git pr)
+* add gobuster (git pr)
+* add wso webshell (git pr)
+* depend fixes (git pr)
+
+~~~~~~~~~~~~~~~~~
 version 1.10.2
 ~~~~~~~~~~~~~~~~~
 
