@@ -6,6 +6,7 @@ version 1.11
 * add gobuster (git pr)
 * add wso webshell (git pr)
 * depend fixes (git pr)
+* added aptitude as a check for debian as well as apt
 
 ~~~~~~~~~~~~~~~~~
 version 1.10.2

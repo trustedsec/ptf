@@ -259,6 +259,9 @@ def profile_os():
     # if we are running a debian variant
     if os.path.isfile("/usr/bin/apt-get"):
         return "DEBIAN"
+    if os.path.isfile("/usr/bin/aptitude"):
+        return "DEBIAN"
+
     if os.path.isfile("/etc/arch-release"):
         return "ARCHLINUX"
     if os.path.isfile("/etc/fedora-release"):
