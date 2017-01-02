@@ -646,7 +646,7 @@ def handle_prompt(prompt):
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
             # ignore PTF directory
-                if not 'ptf' == dir:
+                if not 'ptf' == dir  and not os.path.isfile(dir):
                     for subdir in os.listdir(os.path.join(base_install, dir)): # module
                         # Ignore normal files
                         if not os.path.isfile(subdir):                             
