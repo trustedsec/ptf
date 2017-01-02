@@ -1,32 +1,35 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for testSSL
+# Installation module for InSpy
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Steven van der Baan (vdbaan)"
+AUTHOR="Jason Ashton (jayw0k)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update SSLScan (rbsec - Ian Ventura-Whiting)."
+DESCRIPTION="This module will install/update InSpy - A LinkedIn enumeration tool"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/rbsec/sslscan.git"
+REPOSITORY_LOCATION="https://github.com/gojhonny/InSpy"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="sslscan"
+INSTALL_LOCATION="InSpy"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,gcc,make,build-essential,openssl,zlib1g-dev"
+DEBIAN="git python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,gcc,make"
+FEDORA="git"
 
 # DEPENDS FOR ARCHLINUX INSTALLS
 ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make static"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, pip install -r requirements.txt"
+
+# create a launcher
+LAUNCHER="InSpy"

@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.9.2"
+grab_version = "1.11"
 
 # banner
 banner = bcolors.RED + r"""
@@ -145,23 +145,24 @@ banner += bcolors.ENDC + """
 banner += bcolors.BOLD + """ PenTesters """
 banner += bcolors.ENDC + """Framework\n\n"""
 
-banner += """        		  """ + bcolors.backBlue + \
+banner += """        		   """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		      Codename: """ + \
-    bcolors.BLUE + """Tool Depot""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		        Codename: """ + \
+    bcolors.BLUE + """Tool Time""" + "\n"
 
-banner += """		       """ + bcolors.ENDC + bcolors.backRed + \
+banner += """		         """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
 
-banner += """        	    A project by """ + bcolors.GREEN + bcolors.BOLD + \
+banner += """        	      A project by """ + bcolors.GREEN + bcolors.BOLD + \
     """Trusted""" + bcolors.ENDC + bcolors.BOLD + """Sec""" + bcolors.ENDC + "\n"
 
 banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                    """ + bcolors.BOLD + """https://www.trustedsec.com
+banner += """                          """ + """Freenode: """ + bcolors.BOLD + """##PTF""" + bcolors.ENDC
+banner += """\n                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
 """ + bcolors.ENDC + "\n"
@@ -259,6 +260,9 @@ def profile_os():
     # if we are running a debian variant
     if os.path.isfile("/usr/bin/apt-get"):
         return "DEBIAN"
+    if os.path.isfile("/usr/bin/aptitude"):
+        return "DEBIAN"
+
     if os.path.isfile("/etc/arch-release"):
         return "ARCHLINUX"
     if os.path.isfile("/etc/fedora-release"):

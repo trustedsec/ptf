@@ -1,4 +1,38 @@
 ~~~~~~~~~~~~~~~~~
+version 1.11
+~~~~~~~~~~~~~~~~~
+
+* add inspy (git pr)
+* add gobuster (git pr)
+* add wso webshell (git pr)
+* depend fixes (git pr)
+* added aptitude as a check for debian as well as apt
+
+~~~~~~~~~~~~~~~~~
+version 1.10.2
+~~~~~~~~~~~~~~~~~
+
+* add jexboss JBOSS exploitation toolkit
+
+~~~~~~~~~~~~~~~~~
+version 1.10.1
+~~~~~~~~~~~~~~~~~
+
+* fixed gladius module missing debian var
+* fixed nonetype error when using update/install all
+
+~~~~~~~~~~~~~~~~~
+version 1.10
+~~~~~~~~~~~~~~~~~
+
+* allow use modules within other modules - no longer need to use back
+* add pipal (spoonman)
+* fix credcrack (bustedsec)
+* add spoopy-ng (bustedsec)
+* add nessus-parser (spoonman)
+* added fluxion (bustedsec)
+
+~~~~~~~~~~~~~~~~~
 version 1.9.2
 ~~~~~~~~~~~~~~~~~
 
