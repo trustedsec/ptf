@@ -87,12 +87,14 @@ def show_module():
 
     print (
         "   modules/install_update_all                           This will install or update all tools with modules within PTF")
+    print (
+        "   modules/update_installed                             This will update all installed tools within PTF")
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             # join the structure
             filename = os.path.join(path, name)
             # strip un-needed files
-            if not "__init__.py" in filename or not "install_update_all":
+            if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 # shorten it up a little bit
                 filename_short = filename.replace(os.getcwd() + "/", "")
                 filename_short = filename_short.replace(".py", "")
@@ -110,7 +112,7 @@ def show_new_modules():
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             filename = os.path.join(path, name)
-            if not "__init__.py" in filename or not "install_update_all":
+            if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 filename_short = filename.replace(os.getcwd() +"/","")
                 filename_short = filename_short.replace(".py","")
                 filename_short = str(filename_short)
@@ -470,22 +472,7 @@ def find_containing_file(directory, location):
         return None
         
                     
-
-# start the main loop
-while 1:
-
-    # specify no commands, if counter increments then a command was found
-    base_counter = 0
-
-    # set title
-    set_title("The PenTesters Framework (PTF) v%s" % grab_version)
-
-    try:
-        prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
-    except EOFError:
-        prompt = "quit"
-        print("")
-
+def handle_prompt(prompt):
     # main help menu
     if prompt == "?" or prompt == "help":
         show_help_menu()
@@ -659,7 +646,7 @@ while 1:
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
             # ignore PTF directory
-                if not 'ptf' == dir:
+                if not 'ptf' == dir  and not os.path.isfile(dir):
                     for subdir in os.listdir(os.path.join(base_install, dir)): # module
                         # Ignore normal files
                         if not os.path.isfile(subdir):                             
@@ -695,3 +682,20 @@ while 1:
     if base_counter == 0:
         print_warning(
             "Command was not found, try help or ? for more information.")
+
+# start the main loop
+def mainloop():
+
+    while 1:
+        # specify no commands, if counter increments then a command was found
+        base_counter = 0
+
+        # set title
+        set_title("The PenTesters Framework (PTF) v%s" % grab_version)
+
+        try:
+            prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
+        except EOFError:
+            prompt = "quit"
+            print("")
+        handle_prompt(prompt)
