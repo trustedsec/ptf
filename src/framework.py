@@ -473,6 +473,9 @@ def find_containing_file(directory, location):
         
                     
 def handle_prompt(prompt):
+    # specify no commands, if counter increments then a command was found
+    base_counter = 0
+    
     # main help menu
     if prompt == "?" or prompt == "help":
         show_help_menu()
@@ -687,9 +690,6 @@ def handle_prompt(prompt):
 def mainloop():
 
     while 1:
-        # specify no commands, if counter increments then a command was found
-        base_counter = 0
-
         # set title
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
 
