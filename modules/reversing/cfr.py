@@ -26,6 +26,6 @@ DEBIAN="default-jdk"
 FEDORA="java-1.8.0-openjdk"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},printf '#!/bin/sh\njava -jar %s%s\n' '{INSTALL_LOCATION}' 'cfr_0_119.jar'>cfr,chmod o+x cfr"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},printf '#!/bin/sh\njava -jar %s%s $@\n' '{INSTALL_LOCATION}' 'cfr_0_119.jar'>cfr,chmod o+x cfr"
 
 LAUNCHER="cfr"
