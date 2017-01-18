@@ -530,6 +530,8 @@ def handle_prompt(prompt):
                 modules_path = definepath() + "/" + (prompt[1])[:-18]
                 # base holder for all debian packages
                 deb_modules = ""
+                # base holder for all arch packages
+                arch_modules = ""
                 # first we install all depends for all applications
                 print_status(
                     "We are going to first install all prereqs using apt before installing..")
