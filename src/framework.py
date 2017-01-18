@@ -283,6 +283,9 @@ def use_module(module, all_trigger):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
                             proc = subprocess.Popen("cd %s;git pull" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            # check launcher
+                            launcher(filename, install_location)
+
                             # here we check to see if we need anything we need to
                             # run after things are updated
                             update_counter = 0
@@ -296,9 +299,6 @@ def use_module(module, all_trigger):
                             #if prompt != "update":
                             if update_counter == 0:
                                     after_commands(filename, install_location)
-
-                            # check launcher
-                            launcher(filename, install_location)
 
                         if install_type.lower() == "svn":
                             print_status(
@@ -326,12 +326,12 @@ def use_module(module, all_trigger):
                                 pass
                             print_status(
                                 "Finished Installing! Enjoy the tool installed under: " + (install_location))
+                            # check launcher
+                            launcher(filename, install_location)
+
                             # run after commands
                             if prompt != "update":
                                 after_commands(filename, install_location)
-
-                            # check launcher
-                            launcher(filename, install_location)
 
                         print_status("Running updatedb to tidy everything up.")
                         subprocess.Popen("updatedb", shell=True).wait()
@@ -411,8 +411,8 @@ def use_module(module, all_trigger):
                             print_status("Installing now.. be patient...")
                             proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using svn
                     if install_type.lower() == "svn":
@@ -422,8 +422,8 @@ def use_module(module, all_trigger):
                             repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using file
                     if install_type.lower() == "file":
@@ -434,8 +434,8 @@ def use_module(module, all_trigger):
                             install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using wget
                     if install_type.lower() == "wget":
@@ -447,8 +447,8 @@ def use_module(module, all_trigger):
                                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     print_status("Running updatedb to tidy everything up.")
                     subprocess.Popen("updatedb", shell=True).wait()
@@ -559,6 +559,7 @@ def handle_prompt(prompt):
                                 if not "install_update_all" in filename_short:
                                     from src.platforms.archlinux import base_install_modules
                                     # grab all the modules we need
+                                    arch_modules = ""
                                     arch_modules = arch_modules + "," + \
                                         module_parser(
                                             filename_short, "ARCHLINUX")
