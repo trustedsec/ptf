@@ -23,7 +23,7 @@ INSTALL_LOCATION="cowpatty"
 DEBIAN="libssl-dev libpcap-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},tar zxfv cowpatty-4.6.tgz,rm -rf *.tgz,cd cowpatty-4.6,make,sudo cp cowpatty /usr/bin"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},tar zxfv cowpatty-4.6.tgz,rm -rf *.tgz,cd cowpatty-4.6,make -j4,sudo cp cowpatty /usr/bin"
 
 # LAUNCHER
 LAUNCHER="cowpatty"

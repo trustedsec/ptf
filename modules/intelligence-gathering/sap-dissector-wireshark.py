@@ -26,7 +26,7 @@ DEBIAN="git,python,wireshark,wireshark-dev,cmake, make"
 FEDORA="git,wireshark,wireshark-devel,cmake,make"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir build,cd build,cmake ..,make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir build,cd build,cmake ..,make -j4,make install"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="sap-dissector-wireshark"

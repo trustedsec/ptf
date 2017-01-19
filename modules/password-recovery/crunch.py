@@ -29,6 +29,6 @@ DEBIAN="wget gcc"
 FEDORA="gcc"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make,make install,cd ..,rm crunch-3.6.tgz,cp crunch-3.6/crunch ./"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},tar -xf crunch-3.6.tgz,cd crunch-3.6,make -j4,make install,cd ..,rm crunch-3.6.tgz,cp crunch-3.6/crunch ./"
 
 LAUNCHER="crunch"

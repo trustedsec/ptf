@@ -23,9 +23,9 @@ INSTALL_LOCATION="rats"
 DEBIAN="build-essential,cmake,subversion"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="subversion,make,cmake,automake,gcc,gcc-c++,kernel-devel,expat-devel"
+FEDORA="subversion,make -j4,cmake,automake,gcc,gcc-c++,kernel-devel,expat-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make -j4,make install"
 
 LAUNCHER="rats"
