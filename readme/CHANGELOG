@@ -1,11 +1,16 @@
 ~~~~~~~~~~~~~~~~~
+version 1.13
+~~~~~~~~~~~~~~~~~
+
+* added new field for modules called TOOL_DEPEND which allows you to specify other tools that are needed in order to install prereqs. Check README.md for more information.
+* added fido
+* fixed sparta ln usage
+
+~~~~~~~~~~~~~~~~~
 version 1.12
 ~~~~~~~~~~~~~~~~~
 
 * add stickykeyslayer
-* added fido
-* fixed sparta ln usage
-* added new field for modules called TOOL_DEPEND which will allow you to specify other tools that are needed in order to install. Check README.md for mor information
 
 ~~~~~~~~~~~~~~~~~
 version 1.11
