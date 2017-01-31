@@ -81,6 +81,8 @@ AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby install-beef"
 
 LAUNCHER="beef"
 
+TOOL_DEPEND="modules/exploitation/metasploit"
+
 ###Module Development:
 
 All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to /pentest/PTES_PHASE/TOOL_FOLDER
@@ -114,6 +116,14 @@ You can have multiple launchers for an application. For example, for Metasploit 
 ### Automatic Command Line
 
 You can also just run ./ptf --update-all and it will automatically update everything for you without having to go into the framework.
+
+###TOOL DEPENDS
+
+Some tools such as Veil, SET, etc. require tools such as the Metasploit Framework. You can add in the module TOOL_DEPEND="modules/exploitation/metasploit,module/exploitation/set" and multiple other tools if there is a tool required to be installed prior to installing the tool. This will force PTF to install the required tool first, then install the module that requires it. Example:
+
+TOOL_DEPEND="modules/exploitation/metasploit"
+
+This will install Metasploit first or ensured its installed first prior to installing the application.
 
 ### IGNORE Modules or Categories
 

@@ -151,6 +151,9 @@ def use_module(module, all_trigger):
             # grab install type
             install_type = module_parser(filename, "INSTALL_TYPE")
 
+            # if were are tool depends for other modules prior to install
+            tool_depend = module_parser(filename, "TOOL_DEPEND")
+
             # grab repository location
             repository_location = module_parser(
                 filename, "REPOSITORY_LOCATION")
@@ -243,6 +246,20 @@ def use_module(module, all_trigger):
                         repository_location = set_breakout[2]
                     if set_breakout[1].upper() == "INSTALL_LOCATION":
                         install_location = set_breakout[2]
+
+            # tool depend is if there is a tool for example like veil that has a depend of Metasploit - can put TOOL_DEPEND = the tool or tools here
+            if len(tool_depend) > 1:
+                try:
+                    if " " in tool_depend: 
+                        tool_depend = tool_depend.split(" ")
+                        for tool in tool_depend: use_module(tool, "1")
+
+                    elif "," in tool_depend: 
+                        tool_depend = tool_depend.split(",")
+                        for tool in tool_depend: use_module(tool, "1")
+
+                    else: use_module(tool_depend, "1")
+                except: pass
 
             if int(all_trigger) == 1:
                 prompt = "run"
@@ -346,7 +363,6 @@ def use_module(module, all_trigger):
                 if not "__init__.py" in filename and not ignore_module(filename):
 
                     # grab the OS type, DEBIAN, FEDORA, CUSTOM, BSD!!!! WOW!!,
-                    # ETC
                     ostype = profile_os()
 
                     # if OSTYPE is DEBIAN
