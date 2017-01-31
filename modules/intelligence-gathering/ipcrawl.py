@@ -26,7 +26,7 @@ DEBIAN="git,gcc"
 FEDORA="git,gcc"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},gcc ipcrawl.c -o ipcrawl,chmod -x ipcrawl"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},gcc ipcrawl.c -o ipcrawl,chmod +x ipcrawl"
 
 # CREATE LAUNCHER
 LAUNCHER="ipcrawl"

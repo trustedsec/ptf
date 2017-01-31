@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/jordansissel/xdotool.git"
 INSTALL_LOCATION="xdotool"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,make,libx11-dev,libxtst-dev"
+DEBIAN="git,make -j4,libx11-dev,libxtst-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="make,libx11-devel,libxtst-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j4,make install"
 
 # CREATE LAUNCHER
 LAUNCHER="xdotool"

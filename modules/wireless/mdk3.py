@@ -26,4 +26,4 @@ DEBIAN="git,libpcap-dev"
 FEDORA="git,libpcap-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make strip,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j4,make strip,make install"
