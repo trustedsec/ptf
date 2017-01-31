@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/Veil-Framework/Veil.git"
 INSTALL_LOCATION="veil-framework"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python-pycryptopp python-capstone"
+DEBIAN="git python-pycryptopp python-capstone wine"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="python-pycryptopp python-capstone"
@@ -30,3 +30,6 @@ AFTER_COMMANDS="cd {INSTALL_LOCATION}, ./Install.sh -c, ln -s {INSTALL_LOCATION}
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER=""
+
+# PREREQ INSTALL MODULES NEEDED FOR THIS TOOL TO WORK PROPERLY
+TOOL_DEPEND="modules/exploitation/framework/metasploit"
