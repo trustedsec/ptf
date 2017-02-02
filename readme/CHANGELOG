@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.13.1
+~~~~~~~~~~~~~~~~~
+
+* fixed fedora as supported platform throwing fedora_modules error
+* changed github locations for the empyre and ps-empire changes
+
+~~~~~~~~~~~~~~~~~
 version 1.13
 ~~~~~~~~~~~~~~~~~
 

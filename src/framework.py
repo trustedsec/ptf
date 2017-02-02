@@ -32,6 +32,8 @@ if check_kali() == "Kali":
     os_profile = "Kali"
 else:
     os_profile = profile_os()
+
+
 print_status("Operating system detected as: " +
              bcolors.BOLD + os_profile + bcolors.ENDC)
 
@@ -364,7 +366,6 @@ def use_module(module, all_trigger):
 
                     # grab the OS type, DEBIAN, FEDORA, CUSTOM, BSD!!!! WOW!!,
                     ostype = profile_os()
-
                     # if OSTYPE is DEBIAN
                     if ostype == "DEBIAN":
                         print_status(
@@ -548,6 +549,11 @@ def handle_prompt(prompt):
                 deb_modules = ""
                 # base holder for all arch packages
                 arch_modules = ""
+                # base holder for all fedora packages
+                fedora_modules = ""
+                # base holder for all openbsd packages
+                openbsd_modules = ""
+
                 # first we install all depends for all applications
                 print_status(
                     "We are going to first install all prereqs using apt before installing..")
@@ -566,6 +572,7 @@ def handle_prompt(prompt):
                             # update depend modules
                             filename_short = str(filename_short)
                             ostype = profile_os()
+
                             if ostype == "DEBIAN":
                                 if not "install_update_all" in filename_short:
                                     from src.platforms.debian import base_install_modules
@@ -599,6 +606,7 @@ def handle_prompt(prompt):
 
                 # install all of the packages at once
                 ostype = profile_os()
+
                 if ostype == "DEBIAN":
                     deb_modules = deb_modules.replace(",", " ")
                     if deb_modules != "":

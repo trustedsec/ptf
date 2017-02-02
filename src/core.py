@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.13"
+grab_version = "1.13.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -221,7 +221,7 @@ def module_parser(filename, term):
         if counter == 0:
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
-            if term not in "BYPASS_UPDATE|LAUNCHER|TOOL_DEPEND|X64_LOCATION|install_update_all":
+            if term not in "BYPASS_UPDATE|LAUNCHER|TOOL_DEPEND|X64_LOCATION|install_update_all|FEDORA|OPENBSD|ARCHLINUX":
                               if filename_short not in "__init__|msfdb.sh":
                                         print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
                                         print_error("Check the module again for errors and try again.")
@@ -256,19 +256,20 @@ def profile_os():
     # if we are running a debian variant
     if os.path.isfile("/usr/bin/apt-get"):
         return "DEBIAN"
+
     if os.path.isfile("/usr/bin/aptitude"):
         return "DEBIAN"
 
     if os.path.isfile("/etc/arch-release"):
         return "ARCHLINUX"
+
     if os.path.isfile("/etc/fedora-release"):
         return "FEDORA"
-    # will add support for more operating systems later
 
+    # will add support for more operating systems later
     # else use custom
     else:
         return "CUSTOM"
-
 
 # standard log write out
 def logging(log):
