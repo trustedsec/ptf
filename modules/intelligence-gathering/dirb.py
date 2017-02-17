@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for DNSEnum
+# Installation module for DIRB
 #####################################
 
 # AUTHOR OF MODULE NAME
