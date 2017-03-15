@@ -1,32 +1,33 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for sparta
+# Installation module for Invoke-Obfuscation
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Nick Dyer"
+AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Sparta (Network Infrastructure Penetration Testing Tool)"
+DESCRIPTION="This module will install/update Invoke-Obfuscation - powershell obfuscation"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/SECFORCE/sparta.git"
+REPOSITORY_LOCATION="https://github.com/danielbohannon/Invoke-Obfuscation"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="sparta"
+INSTALL_LOCATION="invoke-obfuscation"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-elixir python-qt4 xsltproc nmap hydra cutycapt ldap-utils rwho rsh-client x11-apps finger"
+DEBIAN="git"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="python-elixir python-qt4 libxslt nmap hydra CutyCapt openldap rwho rsh xorg-x11-apps finger"
+FEDORA="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER="sparta"
+LAUNCHER=""
+

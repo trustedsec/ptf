@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update cfr, a tool for decompiling java cl
 INSTALL_TYPE="FILE"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="http://www.benf.org/other/cfr/cfr_0_110.jar" 
+REPOSITORY_LOCATION="http://www.benf.org/other/cfr/cfr_0_119.jar" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="cfr"
@@ -26,6 +26,6 @@ DEBIAN="default-jdk"
 FEDORA="java-1.8.0-openjdk"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},printf '#!/bin/sh\njava -jar %s%s\n' '{INSTALL_LOCATION}' 'cfr_0_110.jar'>cfr,chmod o+x cfr"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},printf '#!/bin/sh\njava -jar %s%s $@\n' '{INSTALL_LOCATION}' 'cfr_0_119.jar'>cfr,chmod o+x cfr"
 
 LAUNCHER="cfr"

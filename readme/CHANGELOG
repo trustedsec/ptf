@@ -1,4 +1,48 @@
 ~~~~~~~~~~~~~~~~~
+version 1.13.1
+~~~~~~~~~~~~~~~~~
+
+* fixed fedora as supported platform throwing fedora_modules error
+* changed github locations for the empyre and ps-empire changes
+
+~~~~~~~~~~~~~~~~~
+version 1.13
+~~~~~~~~~~~~~~~~~
+
+* added new field for modules called TOOL_DEPEND which allows you to specify other tools that are needed in order to install prereqs. Check README.md for more information.
+* added fido
+* fixed sparta ln usage
+
+~~~~~~~~~~~~~~~~~
+version 1.12
+~~~~~~~~~~~~~~~~~
+
+* add stickykeyslayer
+
+~~~~~~~~~~~~~~~~~
+version 1.11
+~~~~~~~~~~~~~~~~~
+
+* add inspy (git pr)
+* add gobuster (git pr)
+* add wso webshell (git pr)
+* depend fixes (git pr)
+* added aptitude as a check for debian as well as apt
+
+~~~~~~~~~~~~~~~~~
+version 1.10.2
+~~~~~~~~~~~~~~~~~
+
+* add jexboss JBOSS exploitation toolkit
+
+~~~~~~~~~~~~~~~~~
+version 1.10.1
+~~~~~~~~~~~~~~~~~
+
+* fixed gladius module missing debian var
+* fixed nonetype error when using update/install all
+
+~~~~~~~~~~~~~~~~~
 version 1.10
 ~~~~~~~~~~~~~~~~~
 

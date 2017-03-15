@@ -14,10 +14,10 @@ DESCRIPTION="This module will install/update Empire - A Powershell based post-ex
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/adaptivethreat/Empire"
+REPOSITORY_LOCATION="https://github.com/EmpireProject/Empire"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="empire"
+INSTALL_LOCATION="empire-ps"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="git, python-m2crypto, python-crypto"

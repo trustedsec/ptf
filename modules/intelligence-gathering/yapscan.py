@@ -26,6 +26,6 @@ DEBIAN="git,gcc,make"
 FEDORA="git,gcc,make"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j4,make install"
 
 LAUNCHER="yapscan"

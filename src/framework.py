@@ -32,6 +32,8 @@ if check_kali() == "Kali":
     os_profile = "Kali"
 else:
     os_profile = profile_os()
+
+
 print_status("Operating system detected as: " +
              bcolors.BOLD + os_profile + bcolors.ENDC)
 
@@ -87,12 +89,14 @@ def show_module():
 
     print (
         "   modules/install_update_all                           This will install or update all tools with modules within PTF")
+    print (
+        "   modules/update_installed                             This will update all installed tools within PTF")
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             # join the structure
             filename = os.path.join(path, name)
             # strip un-needed files
-            if not "__init__.py" in filename or not "install_update_all":
+            if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 # shorten it up a little bit
                 filename_short = filename.replace(os.getcwd() + "/", "")
                 filename_short = filename_short.replace(".py", "")
@@ -110,7 +114,7 @@ def show_new_modules():
     for path, subdirs, files in os.walk(modules_path):
         for name in files:
             filename = os.path.join(path, name)
-            if not "__init__.py" in filename or not "install_update_all":
+            if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 filename_short = filename.replace(os.getcwd() +"/","")
                 filename_short = filename_short.replace(".py","")
                 filename_short = str(filename_short)
@@ -148,6 +152,9 @@ def use_module(module, all_trigger):
 
             # grab install type
             install_type = module_parser(filename, "INSTALL_TYPE")
+
+            # if were are tool depends for other modules prior to install
+            tool_depend = module_parser(filename, "TOOL_DEPEND")
 
             # grab repository location
             repository_location = module_parser(
@@ -242,6 +249,20 @@ def use_module(module, all_trigger):
                     if set_breakout[1].upper() == "INSTALL_LOCATION":
                         install_location = set_breakout[2]
 
+            # tool depend is if there is a tool for example like veil that has a depend of Metasploit - can put TOOL_DEPEND = the tool or tools here
+            if len(tool_depend) > 1:
+                try:
+                    if " " in tool_depend: 
+                        tool_depend = tool_depend.split(" ")
+                        for tool in tool_depend: use_module(tool, "1")
+
+                    elif "," in tool_depend: 
+                        tool_depend = tool_depend.split(",")
+                        for tool in tool_depend: use_module(tool, "1")
+
+                    else: use_module(tool_depend, "1")
+                except: pass
+
             if int(all_trigger) == 1:
                 prompt = "run"
             
@@ -281,6 +302,9 @@ def use_module(module, all_trigger):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
                             proc = subprocess.Popen("cd %s;git pull" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            # check launcher
+                            launcher(filename, install_location)
+
                             # here we check to see if we need anything we need to
                             # run after things are updated
                             update_counter = 0
@@ -294,9 +318,6 @@ def use_module(module, all_trigger):
                             #if prompt != "update":
                             if update_counter == 0:
                                     after_commands(filename, install_location)
-
-                            # check launcher
-                            launcher(filename, install_location)
 
                         if install_type.lower() == "svn":
                             print_status(
@@ -324,12 +345,12 @@ def use_module(module, all_trigger):
                                 pass
                             print_status(
                                 "Finished Installing! Enjoy the tool installed under: " + (install_location))
+                            # check launcher
+                            launcher(filename, install_location)
+
                             # run after commands
                             if prompt != "update":
                                 after_commands(filename, install_location)
-
-                            # check launcher
-                            launcher(filename, install_location)
 
                         print_status("Running updatedb to tidy everything up.")
                         subprocess.Popen("updatedb", shell=True).wait()
@@ -344,9 +365,7 @@ def use_module(module, all_trigger):
                 if not "__init__.py" in filename and not ignore_module(filename):
 
                     # grab the OS type, DEBIAN, FEDORA, CUSTOM, BSD!!!! WOW!!,
-                    # ETC
                     ostype = profile_os()
-
                     # if OSTYPE is DEBIAN
                     if ostype == "DEBIAN":
                         print_status(
@@ -409,8 +428,8 @@ def use_module(module, all_trigger):
                             print_status("Installing now.. be patient...")
                             proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using svn
                     if install_type.lower() == "svn":
@@ -420,8 +439,8 @@ def use_module(module, all_trigger):
                             repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using file
                     if install_type.lower() == "file":
@@ -432,8 +451,8 @@ def use_module(module, all_trigger):
                             install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     # if we are using wget
                     if install_type.lower() == "wget":
@@ -445,8 +464,8 @@ def use_module(module, all_trigger):
                                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
-                        after_commands(filename, install_location)
                         launcher(filename, install_location)
+                        after_commands(filename, install_location)
 
                     print_status("Running updatedb to tidy everything up.")
                     subprocess.Popen("updatedb", shell=True).wait()
@@ -470,22 +489,10 @@ def find_containing_file(directory, location):
         return None
         
                     
-
-# start the main loop
-while 1:
-
+def handle_prompt(prompt):
     # specify no commands, if counter increments then a command was found
     base_counter = 0
-
-    # set title
-    set_title("The PenTesters Framework (PTF) v%s" % grab_version)
-
-    try:
-        prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
-    except EOFError:
-        prompt = "quit"
-        print("")
-
+    
     # main help menu
     if prompt == "?" or prompt == "help":
         show_help_menu()
@@ -540,6 +547,13 @@ while 1:
                 modules_path = definepath() + "/" + (prompt[1])[:-18]
                 # base holder for all debian packages
                 deb_modules = ""
+                # base holder for all arch packages
+                arch_modules = ""
+                # base holder for all fedora packages
+                fedora_modules = ""
+                # base holder for all openbsd packages
+                openbsd_modules = ""
+
                 # first we install all depends for all applications
                 print_status(
                     "We are going to first install all prereqs using apt before installing..")
@@ -558,6 +572,7 @@ while 1:
                             # update depend modules
                             filename_short = str(filename_short)
                             ostype = profile_os()
+
                             if ostype == "DEBIAN":
                                 if not "install_update_all" in filename_short:
                                     from src.platforms.debian import base_install_modules
@@ -569,6 +584,7 @@ while 1:
                                 if not "install_update_all" in filename_short:
                                     from src.platforms.archlinux import base_install_modules
                                     # grab all the modules we need
+                                    arch_modules = ""
                                     arch_modules = arch_modules + "," + \
                                         module_parser(
                                             filename_short, "ARCHLINUX")
@@ -590,6 +606,7 @@ while 1:
 
                 # install all of the packages at once
                 ostype = profile_os()
+
                 if ostype == "DEBIAN":
                     deb_modules = deb_modules.replace(",", " ")
                     if deb_modules != "":
@@ -659,7 +676,7 @@ while 1:
             base_install = check_config("BASE_INSTALL_PATH=")
             for dir in os.listdir(base_install): # ptes dir
             # ignore PTF directory
-                if not 'ptf' == dir:
+                if not 'ptf' == dir  and not os.path.isfile(dir):
                     for subdir in os.listdir(os.path.join(base_install, dir)): # module
                         # Ignore normal files
                         if not os.path.isfile(subdir):                             
@@ -678,10 +695,12 @@ while 1:
 
         if counter == 1:
             while 1:
-                module = use_module(prompt[1], "0")
-                if "use " in module: 
-                    prompt = module.split(" ")
-                else: break
+                try:
+                    module = use_module(prompt[1], "0")
+                    if "use " in module: 
+                        prompt = module.split(" ")
+                    else: break
+                except Exception: break
 
         if counter == 0:
             print_error("Module name was not found, try retyping it again.")
@@ -693,3 +712,17 @@ while 1:
     if base_counter == 0:
         print_warning(
             "Command was not found, try help or ? for more information.")
+
+# start the main loop
+def mainloop():
+
+    while 1:
+        # set title
+        set_title("The PenTesters Framework (PTF) v%s" % grab_version)
+
+        try:
+            prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
+        except EOFError:
+            prompt = "quit"
+            print("")
+        handle_prompt(prompt)
