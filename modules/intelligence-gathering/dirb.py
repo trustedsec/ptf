@@ -29,6 +29,6 @@ FEDORA="git"
 LAUNCHER="dirb"
 
 # COMMANDS TO RUN AFTER 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make,mkdir /usr/share/dirb, mkdir /usr/share/dirb/wordlists, cp -r wordlists /usr/share/dirb/"
 
 
