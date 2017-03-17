@@ -23,7 +23,7 @@ INSTALL_LOCATION="johntheripper"
 DEBIAN="git libgmp3-dev git lzip gcc-multilib make m4 mingw-w64"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}src,./configure,make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},cd src,./configure && make -j `nproc` && make install,cd {INSTALL_LOCATION},cp -a run/* {INSTALL_LOCATION},rm -rf run/"
 
 
 # DONT RUN AFTER COMMANDS ON UPDATE
