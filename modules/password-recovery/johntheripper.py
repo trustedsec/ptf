@@ -7,7 +7,7 @@
 AUTHOR="Martin Bos (@purehate_)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update John the Ripper. The "bleeding-jumbo" branch - An CPU-based password recovery tool.This is not "official" John the Ripper code"
+DESCRIPTION="This module will install/update John the Ripper. The 'bleeding-jumbo' branch - An CPU-based password recovery tool.This is not 'official' John the Ripper code"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
