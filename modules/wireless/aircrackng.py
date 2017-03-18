@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/aircrack-ng/aircrack-ng"
 INSTALL_LOCATION="aircrack-ng"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="libsqlite3-dev,libnl-3-dev,libnl-cli-3-dev"
+DEBIAN="libsqlite3-dev,libnl-3-dev,libnl-cli-3-dev,pkg-config"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,libsqlite3x-devel,libnl3-devel,libnl-genl-3-dev"
