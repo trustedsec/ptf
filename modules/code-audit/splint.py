@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="http://www.splint.org/downloads/splint-3.1.2.src.tgz"
 INSTALL_LOCATION="splint"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="gcc,make -j4,gzip,tar,automake,flex"
+DEBIAN="gcc,make,gzip,tar,automake,flex"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="gcc,make -j4,gzip,tar,automake,flex-devel"
+FEDORA="gcc,make,gzip,tar,automake,flex-devel"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},tar xzf splint-3.1.2.src.tgz -C {INSTALL_LOCATION},mv -f splint-3.1.2/* ./,rm *.tgz,rm -rf splint-3.1.2,cd {INSTALL_LOCATION},./configure,make -j4,make install"
