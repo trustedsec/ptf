@@ -177,8 +177,8 @@ def use_module(module, all_trigger):
             install_base_location = module_parser(filename, "INSTALL_LOCATION")
             module_split = module.split("/")
             module_split = module_split[1]
-            install_location = base_install + "/" + \
-                module_split + "/" + install_base_location + "/"
+            install_location = os.path.expanduser(base_install + "/" + \
+                module_split + "/" + install_base_location + "/")
 
         while 1:
 
