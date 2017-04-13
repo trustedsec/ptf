@@ -19,7 +19,7 @@ print (banner)
 
 # funny random banner
 import random
-funny = random.sample(["Aliens", "Clowns", "Mr. Robot",
+funny = random.sample(["Aliens", "Clowns", "Mr. Robot", "Cats"
                        "Zero Cool", "Goats", "Hackers", "Unicorns"], 1)[0]
 
 # blank variables used later
