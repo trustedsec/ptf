@@ -20,13 +20,14 @@ REPOSITORY_LOCATION="https://github.com/seifreed/dirb.git"
 INSTALL_LOCATION="dirb"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="git, libcurl4-gnutls-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
-# COMMANDS TO RUN AFTER 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make"
-
 # create a launcher
 LAUNCHER="dirb"
+
+# COMMANDS TO RUN AFTER 
+AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make,mkdir /usr/share/dirb, mkdir /usr/share/dirb/wordlists, cp -r wordlists /usr/share/dirb/"
+

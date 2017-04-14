@@ -428,8 +428,9 @@ def use_module(module, all_trigger):
                             print_status("Installing now.. be patient...")
                             proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-                        launcher(filename, install_location)
-                        after_commands(filename, install_location)
+			after_commands(filename, install_location)                        
+			launcher(filename, install_location)
+                        
 
                     # if we are using svn
                     if install_type.lower() == "svn":
