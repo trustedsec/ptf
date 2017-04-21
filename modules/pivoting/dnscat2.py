@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/iagox86/dnscat2.git"
 INSTALL_LOCATION="dnscat2"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git ruby ruby-dev git-core build-essential make"
+DEBIAN="git ruby ruby-dev git-core build-essential make bundler"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,make,gcc,gcc-c++,ruby-irb,rubygems,rubygem-bundler,ruby-devel,git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}/server,bundle install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}client,sudo make,cd {INSTALL_LOCATION}server/, bundle install, ln -s {INSTALL_LOCATION}client/dnscat {INSTALL_LOCATION}dnscat"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER=""
+LAUNCHER="dnscat"
