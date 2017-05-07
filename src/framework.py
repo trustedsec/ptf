@@ -204,7 +204,7 @@ def use_module(module, all_trigger):
                     print_warning(
                         "In order to show modules, you must type 'back' first")
 
-                # if we are using a module within a module we return our prompt 
+                # if we are using a module within a module we return our prompt
                 if "use " in prompt:
                     return prompt
 
@@ -252,11 +252,11 @@ def use_module(module, all_trigger):
             # tool depend is if there is a tool for example like veil that has a depend of Metasploit - can put TOOL_DEPEND = the tool or tools here
             if len(tool_depend) > 1:
                 try:
-                    if " " in tool_depend: 
+                    if " " in tool_depend:
                         tool_depend = tool_depend.split(" ")
                         for tool in tool_depend: use_module(tool, "1")
 
-                    elif "," in tool_depend: 
+                    elif "," in tool_depend:
                         tool_depend = tool_depend.split(",")
                         for tool in tool_depend: use_module(tool, "1")
 
@@ -265,7 +265,7 @@ def use_module(module, all_trigger):
 
             if int(all_trigger) == 1:
                 prompt = "run"
-            
+
             if int(all_trigger) == 2:
                 prompt = "update"
 
@@ -428,9 +428,9 @@ def use_module(module, all_trigger):
                             print_status("Installing now.. be patient...")
                             proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
-			after_commands(filename, install_location)                        
-			launcher(filename, install_location)
-                        
+                        after_commands(filename, install_location)
+                        launcher(filename, install_location)
+
 
                     # if we are using svn
                     if install_type.lower() == "svn":
@@ -488,12 +488,12 @@ def find_containing_file(directory, location):
         print_warning("%s is not managed by PTF"%(location))
         # Didn't find anything, returning None
         return None
-        
-                    
+
+
 def handle_prompt(prompt):
     # specify no commands, if counter increments then a command was found
     base_counter = 0
-    
+
     # main help menu
     if prompt == "?" or prompt == "help":
         show_help_menu()
@@ -514,7 +514,7 @@ def handle_prompt(prompt):
     if prompt == "show new modules":
         base_counter = 1
         show_new_modules()
-        
+
     # inside joke
     if prompt == "install sleeves":
         print_error("Scott White? Sleeves? F Sleeves. Scott Rules.")
@@ -560,7 +560,7 @@ def handle_prompt(prompt):
                     "We are going to first install all prereqs using apt before installing..")
                 print_status(
                     "Cycling through modules and grabbing requirements...")
-                
+
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
                             # join the structure
@@ -680,7 +680,7 @@ def handle_prompt(prompt):
                 if not 'ptf' == dir  and not os.path.isfile(dir):
                     for subdir in os.listdir(os.path.join(base_install, dir)): # module
                         # Ignore normal files
-                        if not os.path.isfile(subdir):                             
+                        if not os.path.isfile(subdir):
                             module = "modules/%s/%s"%(dir,subdir)
                             # If the install file and install directory differ, search the correct file
                             if(not os.path.isfile(module + '.py')):
@@ -698,7 +698,7 @@ def handle_prompt(prompt):
             while 1:
                 try:
                     module = use_module(prompt[1], "0")
-                    if "use " in module: 
+                    if "use " in module:
                         prompt = module.split(" ")
                     else: break
                 except Exception: break
