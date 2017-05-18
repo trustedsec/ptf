@@ -490,7 +490,7 @@ def find_containing_file(directory, location):
         return None
 
 
-def handle_prompt(prompt):
+def handle_prompt(prompt, force=False):
     # specify no commands, if counter increments then a command was found
     base_counter = 0
 
@@ -535,8 +535,12 @@ def handle_prompt(prompt):
         if "install_update_all" in prompt[1]:
             counter = 3
             try:
-                install_query = input(
-                    "[*] You are about to install/update everything. Proceed? [yes/no]:")
+                if not force:
+                    install_query = input(
+                        "[*] You are about to install/update everything. Proceed? [yes/no]:")
+                else:
+                    print "[*] You are about to install/update everything. Proceed? [yes/no]:yes"
+                    install_query = "yes"
             except EOFError:
                 install_query = "no"
                 print("")
