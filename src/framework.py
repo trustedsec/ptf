@@ -539,7 +539,7 @@ def handle_prompt(prompt, force=False):
                     install_query = input(
                         "[*] You are about to install/update everything. Proceed? [yes/no]:")
                 else:
-                    print "[*] You are about to install/update everything. Proceed? [yes/no]:yes"
+                    print("[*] You are about to install/update everything. Proceed? [yes/no]:yes")
                     install_query = "yes"
             except EOFError:
                 install_query = "no"
