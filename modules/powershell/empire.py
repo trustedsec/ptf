@@ -7,7 +7,7 @@
 AUTHOR="Jared Haight (@jaredhaight)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Empire - A Powershell based post-explotation framework"
+DESCRIPTION="This module will install/update Empire and Deathstar - A Powershell based post-explotation framework"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/EmpireProject/Empire"
 INSTALL_LOCATION="empire-ps"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, python-m2crypto, python-crypto"
+DEBIAN="git, python-m2crypto, python-crypto, python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,m2crypto,python-crypto"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},cd setup,echo -e "\n" | ./install.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},cd setup,echo -e "\n" | ./install.sh,git clone https://github.com/byt3bl33d3r/DeathStar,cd DeathStar,git pull,pip3 install -r requirements.txt"
 
 # DONT RUN AFTER COMMANDS ON UPDATE
 BYPASS_UPDATE=YES
