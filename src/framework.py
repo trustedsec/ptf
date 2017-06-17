@@ -58,8 +58,6 @@ if check_config("IGNORE_THESE_MODULES") is not None:
                        (", ").join(ignore_these))
 
 # ignore modules if they are specified in the ptf.config
-
-
 def ignore_module(module):
     result = False
     for check in ignore_these:
@@ -87,8 +85,6 @@ if check_config("INCLUDE_ONLY_THESE_MODULES") is not None:
         include_these = []
 
 # include only particular modules if they are specified in the ptf.config
-
-
 def include_module(module):
     if not include_these:
         return True

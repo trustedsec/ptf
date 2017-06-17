@@ -134,3 +134,9 @@ This will install Metasploit first or ensured its installed first prior to insta
 ### IGNORE Modules or Categories
 
 The `IGNORE_THESE_MODULES=` config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: `modules/exploitation/metasploit,modules/exploitation/set` or entire module categories, like `/modules/code-audit/*,/modules/reporting/*`
+
+### INCLUDE_ONLY_THESE_MODULES
+
+The `INCLUDE_ONLY_THESE_MODULES` in the config option under config/ptf.config will only install and include specific modules that is specified here. This is good for baselining your tools that you want and only install them.
+
+
