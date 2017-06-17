@@ -74,6 +74,38 @@ def ignore_module(module):
 
     return result
 
+include_these = []
+if check_config("INCLUDE_ONLY_THESE_MODULES") is not None:
+    include_these = check_config("INCLUDE_ONLY_THESE_MODULES").split(",")
+    if include_these[0] != "":
+        if include_these[0] != '"':
+            print_info("Including only the following modules: " +
+                       (", ").join(include_these))
+        else:
+            include_these = []
+    else:
+        include_these = []
+
+# include only particular modules if they are specified in the ptf.config
+
+
+def include_module(module):
+    if not include_these:
+        return True
+
+    result = False
+    for check in include_these:
+        if "/*" in check:
+            if check[:-1] in module:
+                result = True
+        else:
+            if (os.getcwd() + "/" + check + ".py") == module:
+                result = True
+    if result:
+        print_status("Including module: " + module)
+
+    return result
+
 # check the folder structure
 
 
@@ -490,7 +522,7 @@ def find_containing_file(directory, location):
         return None
 
 
-def handle_prompt(prompt):
+def handle_prompt(prompt, force=False):
     # specify no commands, if counter increments then a command was found
     base_counter = 0
 
@@ -535,8 +567,12 @@ def handle_prompt(prompt):
         if "install_update_all" in prompt[1]:
             counter = 3
             try:
-                install_query = input(
-                    "[*] You are about to install/update everything. Proceed? [yes/no]:")
+                if not force:
+                    install_query = input(
+                        "[*] You are about to install/update everything. Proceed? [yes/no]:")
+                else:
+                    print("[*] You are about to install/update everything. Proceed? [yes/no]:yes")
+                    install_query = "yes"
             except EOFError:
                 install_query = "no"
                 print("")
@@ -566,7 +602,8 @@ def handle_prompt(prompt):
                             # join the structure
                         filename = os.path.join(path, name)
                         # strip un-needed files
-                        if not "__init__.py" in filename and not ignore_module(filename) and ".py" in filename and not ".pyc" in filename:
+                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename:
+                            print("!!!***!!!installing deps for module: " + filename)
                             # shorten it up a little bit
                             filename_short = filename.replace(
                                 os.getcwd() + "/", "")
@@ -636,7 +673,7 @@ def handle_prompt(prompt):
                     for name in files:
                         # join the structure
                         filename = os.path.join(path, name)
-                        if not "__init__.py" in filename and not ignore_module(filename) and ".py" in filename and not ".pyc" in filename and not "install_update_all" in filename and not "__init__" in filename:
+                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename and not "install_update_all" in filename and not "__init__" in filename:
                             # strip un-needed files
                             # if not "__init__.py" in filename and not ignore_module(filename):
                             # shorten it up a little bit

@@ -68,7 +68,10 @@ try:
 
     # if we want to skip going into module
     if  "--update-all" in sys.argv[1:]:
-        src.framework.handle_prompt("use modules/install_update_all")
+        if "-y" in sys.argv[1:]:
+            src.framework.handle_prompt("use modules/install_update_all", True)
+        else:
+            src.framework.handle_prompt("use modules/install_update_all")
     elif "--update-installed" in sys.argv[1:]:
         src.framework.handle_prompt("use modules/update_installed")
     else:
