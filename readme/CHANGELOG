@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.14
+~~~~~~~~~~~~~~~~~
+
+* added new flag INCLUDE_ONLY_THESE_MODULES (thanks cobbr)
+* remove prompt for install update all for automatic install
+
+~~~~~~~~~~~~~~~~~
 version 1.13.1
 ~~~~~~~~~~~~~~~~~
 
