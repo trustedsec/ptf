@@ -26,7 +26,7 @@ DEBIAN="git,perl"
 FEDORA="git,perl,perl-CPAN"
 
 # COMMANDS TO RUN AFTER 
-AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',yes | cpan -fi Net::IP Net::DNS Net::Netmask Net::Whois::IP HTML::Parser WWW::Mechanize XML::Writer String::Random"
+AFTER_COMMANDS="export PERL_MM_USE_DEFAULT=1,export PERL_EXTUTILS_AUTOINSTALL='--defaultdeps',yes | cpan -fi Net::IP Net::DNS Net::Netmask Net::Whois::IP HTML::Parser WWW::Mechanize XML::Writer String::Random,chmod 755 {INSTALL_LOCATION}dnsenum.pl"
 
 # create a launcher
 LAUNCHER="dnsenum"
