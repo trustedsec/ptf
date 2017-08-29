@@ -4,6 +4,8 @@ version 1.15
 
 * add nps_payload 
 * added cupp (PR)
+* remove dirb - no longer supported
+* fix ettercap module
 
 ~~~~~~~~~~~~~~~~~
 version 1.14
