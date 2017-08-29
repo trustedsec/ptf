@@ -6,6 +6,7 @@ version 1.15
 * added cupp (PR)
 * remove dirb - no longer supported
 * fix ettercap module
+* remove snoopy-ng to add new peanuts
 
 ~~~~~~~~~~~~~~~~~
 version 1.14
