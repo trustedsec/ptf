@@ -3,6 +3,7 @@ version 1.16
 ~~~~~~~~~~~~~~~~~
 
 * specify -k on curl for bad certs
+* remove nipe due to tor beaconing by default
 
 ~~~~~~~~~~~~~~~~~
 version 1.15
