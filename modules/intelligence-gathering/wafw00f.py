@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for testSSL
+# Installation module for wafw00f
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Steven van der Baan (vdbaan)"
+AUTHOR="Gareth Darby (gazcbm) based on the original module by Steven van der Baan (vdbaan) "
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update wafw00f (Sandro Gauci && Wendel G. Henrique)."
@@ -17,16 +17,19 @@ INSTALL_TYPE="GIT"
 REPOSITORY_LOCATION="https://github.com/sandrogauci/wafw00f.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="waffit"
+INSTALL_LOCATION="wafw00f"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python-pip"
+DEBIAN="git, python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git"
+FEDORA="git, python-pip"
 
 # DEPENDS FOR ARCHLINUX INSTALLS
 ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install,pip install pluginbase --upgrade"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install, mv {INSTALL_LOCATION}/wafw00f/main.py {INSTALL_LOCATION}/wafw00f.py"
+
+# CREATE LAUNCHER
+LAUNCHER="wafw00f"
