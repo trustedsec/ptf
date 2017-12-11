@@ -7,7 +7,7 @@
 AUTHOR="Martin Bos (@purehate_)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update maskprocessor - High-Performance word generator with a per-position configureable charset"
+DESCRIPTION="This module will install/update maskprocessor - High-Performance word generator with a per-position configurable charset"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -26,8 +26,8 @@ DEBIAN="git"
 AFTER_COMMANDS="cd {INSTALL_LOCATION}src/, make,cp mp64.bin ../maskprocessor"
 
 
-# DONT RUN AFTER COMMANDS ON UPDATE
-BYPASS_UPDATE=NO
+# DON'T RUN AFTER COMMANDS ON UPDATE
+BYPASS_UPDATE="NO"
 
 # LAUNCHER
 LAUNCHER="maskprocessor"
