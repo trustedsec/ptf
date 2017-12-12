@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for backdoo factory
+# Installation module for backdoor factory
 #####################################
 
 # AUTHOR OF MODULE NAME

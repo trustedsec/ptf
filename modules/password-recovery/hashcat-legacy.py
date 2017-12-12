@@ -25,8 +25,8 @@ DEBIAN="ocl-icd-opencl-dev libgmp3-dev git lzip gcc-multilib make m4 mingw-w64 l
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make linux"
 
-# DONT RUN AFTER COMMANDS ON UPDATE
-BYPASS_UPDATE=NO
+# DON'T RUN AFTER COMMANDS ON UPDATE
+BYPASS_UPDATE="NO"
 
 # LAUNCHER
 LAUNCHER="hashcat"

@@ -7,7 +7,7 @@
 AUTHOR="Frank Trezza (bustedsec)"
 
 # DESCRIPTION OF THE MODUL
-DESCRIPTION="This module will install/update fluxion - a fake access point designed to trick users into divulgining wifi passwords"
+DESCRIPTION="This module will install/update fluxion - a fake access point designed to trick users into divulging wifi passwords"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

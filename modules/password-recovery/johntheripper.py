@@ -26,8 +26,8 @@ DEBIAN="git libgmp3-dev git lzip gcc-multilib make m4 mingw-w64"
 AFTER_COMMANDS="cd {INSTALL_LOCATION},cd src,./configure && make -j `nproc` && make install,cd {INSTALL_LOCATION},cp -a run/* {INSTALL_LOCATION},rm -rf run/"
 
 
-# DONT RUN AFTER COMMANDS ON UPDATE
-BYPASS_UPDATE=NO
+# DON'T RUN AFTER COMMANDS ON UPDATE
+BYPASS_UPDATE="NO"
 
 # LAUNCHER
 LAUNCHER="john"
