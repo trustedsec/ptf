@@ -26,6 +26,6 @@ DEBIAN=""
 FEDORA=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, tar -xzvf urlcrazy-0.5.tar.gz, mv urlcrazy-0.5/* ., rm -rf urlcrazy-0.5/, rm urlcrazy-0.5.tar.gz, if [ ! -f tld.rb.bak ]; then cp tld.rb tld.rb.bak; grep -E '"bd"=>|"bn"=>|"br"=>' -v tld.rb > tld_tmp.rb; mv tld_tmp.rb tld.rb; fi"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, tar -xzvf urlcrazy-0.5.tar.gz, mv urlcrazy-0.5/* ., rm -rf urlcrazy-0.5/, rm urlcrazy-0.5.tar.gz, if [ ! -f tld.rb.bak ]; then cp tld.rb tld.rb.bak; grep -E '\"bd\"=>|\"bn\"=>|\"br\"=>' -v tld.rb > tld_tmp.rb; mv tld_tmp.rb tld.rb; fi"
 
 LAUNCHER="urlcrazy"

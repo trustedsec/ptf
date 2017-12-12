@@ -7,7 +7,7 @@
 AUTHOR="BustedSec (Frank Trezza)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update hans. Hans allows you to tunnel IPv4 through ICMP echo packets, so you could call it a ping tunnel. This can be useful when you find yourself in the situation that your Internet access is firewalled, but pings are allowed.
+DESCRIPTION="This module will install/update hans. Hans allows you to tunnel IPv4 through ICMP echo packets, so you could call it a ping tunnel. This can be useful when you find yourself in the situation that your Internet access is firewalled, but pings are allowed."
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -30,5 +30,3 @@ LAUNCHER="hans"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make"
-
-
