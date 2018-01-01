@@ -7,7 +7,7 @@
 AUTHOR="BustedSec (Frank Trezza)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update iodine - a tool for tunneling  IPv4 data through a DNS server. This can be usable in different situations where internet access is firewalled, but DNS queries are allowed. Reading http://dev.kryo.se/iodine/wiki/HowtoSetup is sugguested"
+DESCRIPTION="This module will install/update iodine - a tool for tunneling  IPv4 data through a DNS server. This can be usable in different situations where internet access is firewalled, but DNS queries are allowed. Reading http://dev.kryo.se/iodine/wiki/HowtoSetup is suggested"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

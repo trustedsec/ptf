@@ -85,6 +85,6 @@ except KeyboardInterrupt:
     sys.exit()
 
 except Exception as e:
-    print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
+    print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occurred.")
     print_error("[!] It's not possible its due to my coding skillz, it must be you? :-)")
     print_error(("[!] Printing that error. Get that error. You get it: " + str(e)))

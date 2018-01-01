@@ -1,30 +1,32 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for backdoor factory
+# Installation module for Nullinux
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="David Kennedy (ReL1K)"
+AUTHOR="Nick Dyer"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update BackDoor Factor (BDF) - AV bypass"
+DESCRIPTION="This module will install/update Nullinux, a tool for enumerating SMB null sessions"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/secretsquirrel/the-backdoor-factory"
+REPOSITORY_LOCATION="https://github.com/m8r0wn/nullinux.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="backdoor-factory"
+INSTALL_LOCATION="nullinux"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git"
+DEBIAN="python,smbclient"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,glibc-devel.i686,gcc"
+FEDORA="python,smbclient"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,./install.sh"
-LAUNCHER="backdoor"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},sh ./setup.sh"
+
+# CREATE LAUNCHER
+LAUNCHER="nullinux"
