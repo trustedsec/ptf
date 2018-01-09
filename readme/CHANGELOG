@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+version 1.17
+~~~~~~~~~~~~~~~~~
+
+* multiple fixes for aftercommands and escaping (PR)
+* add Joomslav (PR)
+* update masscan (PR)
+* add Robot-Detect (PR)
+
+~~~~~~~~~~~~~~~~~
 version 1.16
 ~~~~~~~~~~~~~~~~~
 
