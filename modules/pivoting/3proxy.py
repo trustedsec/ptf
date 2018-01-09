@@ -23,7 +23,7 @@ INSTALL_LOCATION="3proxy"
 DEBIAN="git,make"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,make""
+FEDORA="git,make"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make -f Makefile.Linux,cd src, install 3proxy {INSTALL_LOCATION}, touch 3proxy.cfg "

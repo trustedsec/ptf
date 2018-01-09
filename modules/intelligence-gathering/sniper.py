@@ -26,7 +26,7 @@ DEBIAN="git xprobe2 whois curl nmap cutycapt host php php-curl"
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},chmod +x install.sh,echo -e "y\n" | ./install.sh,chmod +x sniper"
+AFTER_COMMANDS='cd {INSTALL_LOCATION},chmod +x install.sh,echo -e "y\n" | ./install.sh,chmod +x sniper'
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="sniper"
