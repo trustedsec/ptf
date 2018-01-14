@@ -12,16 +12,22 @@ import subprocess
 import os
 import socket
 
-# create launcher
+
 def create_launcher():
+    """
+    Create a launcher to execute PTF from the commandline.
+    """
     cwd = os.getcwd()
     filewrite = open("/usr/local/bin/ptf", "w")
     filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf $*" % (cwd))
     filewrite.close()
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
 
-# check for an Internet connection
+
 def check_internet():
+    """
+    Check for internet access.
+    """
     try:
         print_status("You can always type ./ptf --no-network-connection to skip the Internet check..")
         print_status("Checking for an Internet connection...")
