@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     try:
         # Bypass network check with argument
-        if not "--no-network-connection" in sys.argv[1:]:
+        if "--no-network-connection" not in sys.argv[1:]:
             # check internet connection
             if check_internet() == 0:
                 print_warning("Unable to detect Internet connection. Needed for PTF.")
