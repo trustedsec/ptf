@@ -6,7 +6,6 @@ Twitter: @TrustedSec, @HackingDave
 Website: https://www.trustedsec.com
 """
 
-from src.core import *
 import sys
 import subprocess
 import os
@@ -41,6 +40,9 @@ def check_internet():
 
 
 if __name__ == "__main__":
+    # only imports we actually need
+    from src.core import print_warning, print_status, print_error
+
     # some OS doesn't have /usr/local/bin create them if not
     if not os.path.isdir("/usr/local/bin/"):
         os.makedirs("/usr/local/bin/")
@@ -66,9 +68,6 @@ if __name__ == "__main__":
 
             # create automatic launcher
             create_launcher()
-
-            # pull in the core library
-            from src.core import *
 
             # pull in the framework
             import src.framework
