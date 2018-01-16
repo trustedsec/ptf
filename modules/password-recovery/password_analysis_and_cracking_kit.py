@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="http://thesprawl.org/media/projects/PACK-0.0.4.tar.gz"
 INSTALL_LOCATION="pack"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="libenchant1c2a"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA=""
