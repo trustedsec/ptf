@@ -2,7 +2,7 @@
 The PenTesters Framework (PTF)
 ===
 
-#### A TrustedSec Project - Copyright 2017
+#### A TrustedSec Project - Copyright 2018
 
 ### Written by: David Kennedy (@HackingDave)
 
