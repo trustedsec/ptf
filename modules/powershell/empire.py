@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/EmpireProject/Empire"
 INSTALL_LOCATION="empire-ps"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, python-m2crypto, python-crypto, python3-pip"
+DEBIAN="git, python-m2crypto, python-crypto, python3-pip, python-dev, libxml2-dev, libssl1.0-dev libz-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,m2crypto,python-crypto"
