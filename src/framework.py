@@ -49,6 +49,25 @@ print ("""
 For a list of available commands type ? or help
 """)
 
+"""
+This will ignore specific modules upon install_update_all - noisy installation ones. Can still be installed manually and updated that way.
+"""
+
+ignore_update_these = []
+if check_config("IGNORE_UPDATE_ALL_MODULES") is not None:
+    ignore_update_these = check_config("IGNORE_UPDATE_ALL_MODULES").split(",")
+
+def ignore_update_all_module(module):
+    result = False
+    for check in ignore_update_these:
+        if "/*" in check:
+            if check[:-1] in module:
+                result = True
+        else:
+            if (os.getcwd() + "/" + check + ".py") == module:
+                result = True
+    return result
+
 ignore_these = []
 if check_config("IGNORE_THESE_MODULES") is not None:
     ignore_these = check_config("IGNORE_THESE_MODULES").split(",")
@@ -598,7 +617,7 @@ def handle_prompt(prompt, force=False):
                             # join the structure
                         filename = os.path.join(path, name)
                         # strip un-needed files
-                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename:
+                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename and not ignore_update_all_module(filename):
                             print("!!!***!!!installing deps for module: " + filename)
                             # shorten it up a little bit
                             filename_short = filename.replace(

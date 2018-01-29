@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 1.18
+~~~~~~~~~~~~~~~~~
+
+* added a new config option IGNORE_UPDATE_ALL_MODULES in the ptf.config. This is used for applications that may require user interaction, require substantial amounts of load time, or install items that may open services or ports on the system (such as TOR).
+* removed modules/exploitation/eternalblue-doublepulsar-metasploit as exploit is in Metasploit
+
+~~~~~~~~~~~~~~~~~
 version 1.17
 ~~~~~~~~~~~~~~~~~
 
