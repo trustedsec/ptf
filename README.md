@@ -135,6 +135,10 @@ This will install Metasploit first or ensured its installed first prior to insta
 
 The `IGNORE_THESE_MODULES=` config option can be found under config/ptf.config in the PTF root directory. This will ignore modules and not install them - everything is comma separated and based on name - example: `modules/exploitation/metasploit,modules/exploitation/set` or entire module categories, like `/modules/code-audit/*,/modules/reporting/*`
 
+### IGNORE Modules from Update/Install All
+
+The `IGNORE_UPDATE_ALL_MODULES=` config option can be found under config/ptf.config in the PTF root directory. This will ignore modules only when doing install_update_all which are used when you want to install all tools. This could be for large applications that take substantial time, ones that require user interaction, or open up a number of ports and protocols on the system. This works very similar in the IGNORE_THESE_MODULES, except that they can be manually installed and updated through the modules/update_installed. These are comma deliminated, so for example modules/exploitation/tool1,modules/exploitation/tool2, when running install_update_all, this would not install the tools unless you went to use modules/exploitation/tool1 and installed via that method. 
+
 ### INCLUDE_ONLY_THESE_MODULES
 
 The `INCLUDE_ONLY_THESE_MODULES` in the config option under config/ptf.config will only install and include specific modules that is specified here. This is good for baselining your tools that you want and only install them.
