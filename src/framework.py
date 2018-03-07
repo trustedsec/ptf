@@ -139,7 +139,7 @@ def show_module():
     print (
         "   modules/update_installed                             This will update all installed tools within PTF")
     for path, subdirs, files in os.walk(modules_path):
-        for name in files:
+        for name in sorted(files):
             # join the structure
             filename = os.path.join(path, name)
             # strip un-needed files
@@ -159,7 +159,7 @@ def show_module():
 def show_new_modules():
     modules_path = os.getcwd() + "/modules/"
     for path, subdirs, files in os.walk(modules_path):
-        for name in files:
+        for name in sorted(files):
             filename = os.path.join(path, name)
             if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 filename_short = filename.replace(os.getcwd() +"/","")
