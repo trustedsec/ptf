@@ -23,7 +23,7 @@ INSTALL_LOCATION="veil-framework"
 DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}/setup, ./setup.sh -c, ln -s {INSTALL_LOCATION}/Veil.py /usr/local/bin/veil "
+AFTER_COMMANDS="cd {INSTALL_LOCATION}/config, ./setup.sh -c, ln -s {INSTALL_LOCATION}/Veil.py /usr/local/bin/veil "
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="Veil.py"
