@@ -148,8 +148,8 @@ banner += bcolors.ENDC + """Framework\n\n"""
 banner += """        		   """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		        Codename: """ + \
-    bcolors.BLUE + """Tool Time""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		    Codename: """ + \
+    bcolors.BLUE + """Tool Warehouse Depot""" + "\n"
 
 banner += """		         """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"

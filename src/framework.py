@@ -34,13 +34,11 @@ else:
     os_profile = profile_os()
 
 
-print_status("Operating system detected as: " +
-             bcolors.BOLD + os_profile + bcolors.ENDC)
+print_status("Operating system detected as: " + bcolors.BOLD + os_profile + bcolors.ENDC)
 
 # main intro here
 if profile_os() == "DEBIAN":
-    subprocess.Popen("sudo dpkg --add-architecture i386",
-                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
 print_status("Welcome to PTF - where everything just works...Because.." +
              bcolors.BOLD + funny + bcolors.ENDC)
@@ -176,7 +174,6 @@ def show_new_modules():
 
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
-
     # if we aren't using all
     if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module:
 
@@ -202,10 +199,13 @@ def use_module(module, all_trigger):
 
             # if were are tool depends for other modules prior to install
             tool_depend = module_parser(filename, "TOOL_DEPEND")
+            # if the module path is wrong, throw a warning
+            if not os.path.isfile(tool_depend + ".py"):
+                print_warning("Tool depend: " + tool_depend + " not found. Ensure the module is pointing to a module location.")
+                tool_depend = ""
 
             # grab repository location
-            repository_location = module_parser(
-                filename, "REPOSITORY_LOCATION")
+            repository_location = module_parser(filename, "REPOSITORY_LOCATION")
 
             # custom work for zaproxy
             if "zaproxy" in repository_location:
@@ -226,6 +226,7 @@ def use_module(module, all_trigger):
             module_split = module_split[1]
             install_location = os.path.expanduser(base_install + "/" + \
                 module_split + "/" + install_base_location + "/")
+
 
         while 1:
 
@@ -307,7 +308,8 @@ def use_module(module, all_trigger):
                         tool_depend = tool_depend.split(",")
                         for tool in tool_depend: use_module(tool, "1")
 
-                    else: use_module(tool_depend, "1")
+                    else:
+                        use_module(tool_depend, "1")
                 except: pass
 
             if int(all_trigger) == 1:
