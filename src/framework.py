@@ -201,8 +201,8 @@ def use_module(module, all_trigger):
             tool_depend = module_parser(filename, "TOOL_DEPEND")
             # if the module path is wrong, throw a warning
             if not os.path.isfile(tool_depend + ".py"):
-                print_warning("Tool depend: " + tool_depend + " not found. Ensure the module is pointing to a module location.")
-                tool_depend = ""
+                if len(tool_depend) > 1:
+                    print_warning("Tool depend: " + tool_depend + " not found. Ensure the module is pointing to a module location.")
 
             # grab repository location
             repository_location = module_parser(filename, "REPOSITORY_LOCATION")

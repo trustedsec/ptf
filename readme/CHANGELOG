@@ -13,6 +13,7 @@ version 2.0
 * fixed metasploit path in autosploit
 * fixed metasploit path in setolkit
 * fixed metasploit path in unicorn
+* fixed tool depend prompt when using modules with no tool_depend
 
 ~~~~~~~~~~~~~~~~~
 version 1.18
