@@ -8,6 +8,11 @@ version 2.0
 * added api grab to https for Metasploit
 * added error handling if tool_depend module not found
 * fixed veil installation
+* added veil silent installation
+* changed tool depend location metasploit
+* fixed metasploit path in autosploit
+* fixed metasploit path in setolkit
+* fixed metasploit path in unicorn
 
 ~~~~~~~~~~~~~~~~~
 version 1.18
