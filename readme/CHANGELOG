@@ -3,6 +3,7 @@ version 2.0
 ~~~~~~~~~~~~~~~~~
 
 * fix launchers with $@ instead of $*
+* fixed autosploit to have new install.sh and requirements met
 
 ~~~~~~~~~~~~~~~~~
 version 1.18
