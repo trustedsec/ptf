@@ -18,7 +18,7 @@ def create_launcher():
     """
     cwd = os.getcwd()
     filewrite = open("/usr/local/bin/ptf", "w")
-    filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf $*" % (cwd))
+    filewrite.write('#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf "$@"' % (cwd))
     filewrite.close()
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
 
