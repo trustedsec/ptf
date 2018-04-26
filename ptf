@@ -12,6 +12,10 @@ import os
 import socket
 
 
+# force https for git
+def git_https_force():
+    subprocess.Popen('git config --global url."https://github.com/".insteadOf git@github.com:;git config --global url."https://".insteadOf git://', shell=True).wait()
+
 def create_launcher():
     """
     Create a launcher to execute PTF from the commandline.
@@ -61,6 +65,9 @@ if __name__ == "__main__":
                 print_warning("We will now exit PTF. Launch again when you got a connection.")
                 print_warning("You can also run ptf with the --no-network-connection argument to bypass the network check.")
                 sys.exit()
+
+            # force https
+            git_https_force()
 
             # try to update ourself first
             print_status("Trying to update myself first.. Then starting framework.")
