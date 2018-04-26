@@ -14,6 +14,7 @@ version 2.0
 * fixed metasploit path in setolkit
 * fixed metasploit path in unicorn
 * fixed tool depend prompt when using modules with no tool_depend
+* fixed gobuster go home path
 
 ~~~~~~~~~~~~~~~~~
 version 1.18

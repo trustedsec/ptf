@@ -26,7 +26,7 @@ DEBIAN="git,golang"
 FEDORA="git,golang"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="go get github.com/oj/gobuster,go get -u github.com/oj/gobuster"
+AFTER_COMMANDS="export GOPATH=$HOME/go && go get github.com/oj/gobuster && go get -u github.com/oj/gobuster"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER=""
