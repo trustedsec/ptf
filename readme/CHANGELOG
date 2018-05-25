@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 2.1
+~~~~~~~~~~~~~~~~~
+
+* fix nmap (pr)
+* fix aircrack-ng libtool
+
+~~~~~~~~~~~~~~~~~
 version 2.0
 ~~~~~~~~~~~~~~~~~
 
