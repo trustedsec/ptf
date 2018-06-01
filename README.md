@@ -123,6 +123,19 @@ You can have multiple launchers for an application. For example, for Metasploit 
 
 You can also just run `./ptf --update-all` and it will automatically update everything for you without having to go into the framework.
 
+### Running Unattended
+
+If you're running `ptf` in an automatic build, you can use a [heredoc](http://tldp.org/LDP/abs/html/here-docs.html) so you don't have to interactively type the modules you wish to install. Example:
+
+```
+./ptf <<EOF
+use modules/exploitation/metasploit
+run
+use modules/password-recovery/johntheripper
+run
+EOF
+```
+
 ### TOOL DEPENDS
 
 Some tools such as Veil, SET, etc. require tools such as the Metasploit Framework. You can add in the module `TOOL_DEPEND="modules/exploitation/metasploit,module/exploitation/set"` and multiple other tools if there is a tool required to be installed prior to installing the tool. This will force PTF to install the required tool first, then install the module that requires it. Example:
