@@ -26,7 +26,7 @@ DEBIAN="git python python-xlsxwriter python-crypto python-mechanize python-pip"
 FEDORA="git,python,python-crypto,python-mechanize"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="python -m pip install --upgrade pip,python -m pip install dicttoxml PyPDF2,cd {INSTALL_LOCATION},pip install -r REQUIREMENTS"
+AFTER_COMMANDS="python -m pip install dicttoxml PyPDF2,cd {INSTALL_LOCATION},pip install -r REQUIREMENTS"
 
 # CREATE LAUNCHER
 LAUNCHER="recon-ng"
