@@ -12,4 +12,4 @@ DEBIAN=""
 
 AFTER_COMMANDS="cd /root/go/bin/,go get github.com/Ice3man543/SubOver, mv SubOver /usr/bin/subover"
 
-LAUNCHER="subover
+LAUNCHER="subover"
