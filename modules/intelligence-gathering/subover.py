@@ -8,7 +8,7 @@ REPOSITORY_LOCATION="https://github.com/Ice3man543/SubOver"
 
 INSTALL_LOCATION="subover"
 
-DEBIAN="" 
+DEBIAN="golang" 
 
 AFTER_COMMANDS="cd /root/go/bin/,go get github.com/Ice3man543/SubOver, mv SubOver /usr/bin/subover"
 
