@@ -10,6 +10,4 @@ INSTALL_LOCATION="subover"
 
 DEBIAN="golang" 
 
-AFTER_COMMANDS="cd /root/go/bin/,go get github.com/Ice3man543/SubOver, mv SubOver /usr/bin/subover"
-
-LAUNCHER="subover"
+AFTER_COMMANDS="cd ~/go/bin/,go get github.com/Ice3man543/SubOver, mv SubOver /usr/local/bin/subover"

@@ -10,6 +10,6 @@ INSTALL_LOCATION="massdns"
 
 DEBIAN="" 
 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make,cp bin/massdns /usr/bin/"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make,cp bin/massdns /usr/local/bin/"
 
 LAUNCHER="massdns" 

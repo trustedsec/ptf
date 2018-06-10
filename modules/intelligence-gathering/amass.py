@@ -8,7 +8,7 @@ REPOSITORY_LOCATION="https://github.com/caffix/amass"
 
 INSTALL_LOCATION="amass"
 
-DEBIAN="snapd" 
+DEBIAN="golang" 
 
-AFTER_COMMANDS="cd /root/go/bin,go get -u github.com/caffix/amass,mv amass /usr/bin/"
+AFTER_COMMANDS="cd ~/go/bin,go get -u github.com/caffix/amass,mv amass /usr/local/bin/"
 

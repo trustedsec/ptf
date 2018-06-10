@@ -10,5 +10,5 @@ INSTALL_LOCATION="subfinder"
 
 DEBIAN="" 
 
-AFTER_COMMANDS="cd /root/go/bin, go get -u github.com/Ice3man543/subfinder, mv subfinder /usr/bin/"
+AFTER_COMMANDS="cd ~/go/bin, go get -u github.com/Ice3man543/subfinder, mv subfinder /usr/local/bin/"
 
