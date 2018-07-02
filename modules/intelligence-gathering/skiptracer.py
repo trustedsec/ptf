@@ -17,7 +17,7 @@ INSTALL_TYPE="GIT"
 REPOSITORY_LOCATION="https://github.com/xillwillx/skiptracer"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="skiptrecer"
+INSTALL_LOCATION="skiptracer"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="git,python-pip"
