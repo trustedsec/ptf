@@ -312,11 +312,14 @@ def use_module(module, all_trigger):
                         use_module(tool_depend, "1")
                 except: pass
 
-            if int(all_trigger) == 1:
-                prompt = "run"
 
-            if int(all_trigger) == 2:
-                prompt = "update"
+            #moomoo
+            if prompt != "":
+               if int(all_trigger) == 1:
+                    prompt = "run"
+
+               if int(all_trigger) == 2:
+                    prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
             # an upgrade
@@ -364,7 +367,6 @@ def use_module(module, all_trigger):
                             print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
 
                             # run after commands
-                            #if prompt != "update":
                             if update_counter == 0:
                                     after_commands(filename, install_location)
 

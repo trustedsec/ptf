@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 2.1.1
+~~~~~~~~~~~~~~~~~
+
+* fix prompt when TOOL_DEPEND specified would automatically start install
+
+~~~~~~~~~~~~~~~~~
 version 2.1
 ~~~~~~~~~~~~~~~~~
 
