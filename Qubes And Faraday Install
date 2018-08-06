@@ -27,3 +27,10 @@ sudo chown -R couchdb:couchdb /var/lib/couchdb
 sudo chown -R couchdb:couchdb /var/run/couchdb
 
 fuente: https://medium.com/@robertfock/como-crear-un-ptf-en-qubes-os-f82fc3f63c60
+
+7-upgrade to version 3.0
+./ptf
+ptf>search faraday
+modules/vulnerability-analisis/faradaysec
+ptf> use modules/vulnerability-analisis/faradaysec
+ptf:(modules/vulnerability-analisis/faradaysec)>update
