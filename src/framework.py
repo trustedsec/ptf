@@ -19,8 +19,7 @@ print (banner)
 
 # funny random banner
 import random
-funny = random.sample(["Aliens", "Clowns", "Mr. Robot",
-                       "Zero Cool", "Goats", "Hackers", "Unicorns"], 1)[0]
+funny = random.sample(["Aliens", "Clowns", "Mr. Robot","Zero Cool", "Goats", "Hackers", "Unicorns"], 1)[0]
 
 # blank variables used later
 deb_modules = ""
@@ -28,10 +27,8 @@ arch_modules = ""
 fedora_modules = ""
 openbsd_modules = ""
 
-if check_kali() == "Kali":
-    os_profile = "Kali"
-else:
-    os_profile = profile_os()
+if check_kali() == "Kali": os_profile = "Kali"
+else: os_profile = profile_os()
 
 
 print_status("Operating system detected as: " + bcolors.BOLD + os_profile + bcolors.ENDC)
@@ -174,6 +171,7 @@ def show_new_modules():
 
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
+    prompt = ("")
     # if we aren't using all
     if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module:
 
@@ -201,8 +199,7 @@ def use_module(module, all_trigger):
             tool_depend = module_parser(filename, "TOOL_DEPEND")
             # if the module path is wrong, throw a warning
             if not os.path.isfile(tool_depend + ".py"):
-                if len(tool_depend) > 1:
-                    print_warning("Tool depend: " + tool_depend + " not found. Ensure the module is pointing to a module location.")
+                if len(tool_depend) > 1: print_warning("Tool depend: " + tool_depend + " not found. Ensure the module is pointing to a module location.")
 
             # grab repository location
             repository_location = module_parser(filename, "REPOSITORY_LOCATION")
@@ -312,14 +309,13 @@ def use_module(module, all_trigger):
                         use_module(tool_depend, "1")
                 except: pass
 
+            if len(tool_depend) < 1:
+                    if int(all_trigger) == 1:
+                        prompt = "run"
 
-            #moomoo
-            if prompt != "":
-               if int(all_trigger) == 1:
-                    prompt = "run"
-
-               if int(all_trigger) == 2:
-                    prompt = "update"
+                    if int(all_trigger) == 2:
+                        print "IM HERE"
+                        prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
             # an upgrade
@@ -371,16 +367,13 @@ def use_module(module, all_trigger):
                                     after_commands(filename, install_location)
 
                         if install_type.lower() == "svn":
-                            print_status(
-                                "Updating the tool, be patient while svn pull is initiated.")
-                            proc = subprocess.Popen("cd %s;svn update" % (
-                                install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            print_status("Updating the tool, be patient while svn pull is initiated.")
+                            proc = subprocess.Popen("cd %s;svn update" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                             # here we do some funky stuff to store old
                             # revisions
                             try:
                                 if not os.path.isfile(install_location + "/.goatsvn_storage"):
-                                    filewrite = open(
-                                        install_location + "/.goatsvn_storage", "w")
+                                    filewrite = open(install_location + "/.goatsvn_storage", "w")
                                     filewrite.write(proc.communicate()[0])
                                     filewrite.close()
 
@@ -394,21 +387,18 @@ def use_module(module, all_trigger):
                                         prompt = "goat"
                             except:
                                 pass
-                            print_status(
-                                "Finished Installing! Enjoy the tool installed under: " + (install_location))
+                            print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                             # check launcher
                             launcher(filename, install_location)
 
                             # run after commands
-                            if prompt != "update":
-                                after_commands(filename, install_location)
+                            if prompt != "update": after_commands(filename, install_location)
 
                         print_status("Running updatedb to tidy everything up.")
                         subprocess.Popen("updatedb", shell=True).wait()
 
                     if not os.path.isdir(install_location):
-                        print_error(
-                            "The tool was not found in the install location. Try running install first!")
+                        print_error("The tool was not found in the install location. Try running install first!")
 
             # if we want to install it
             if prompt.lower() == "install":
