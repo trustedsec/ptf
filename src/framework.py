@@ -218,11 +218,22 @@ def use_module(module, all_trigger):
 
             # grab install path
             base_install = check_config("BASE_INSTALL_PATH=")
+            strorganize_dirs = check_config("USE_DIRECTORY_ORGANIZATION=")
             install_base_location = module_parser(filename, "INSTALL_LOCATION")
             module_split = module.split("/")
             module_split = module_split[1]
-            install_location = os.path.expanduser(base_install + "/" + \
-                module_split + "/" + install_base_location + "/")
+
+            if strorganize_dirs == "False":
+                organize_dirs = False
+            else:
+                # Default to True
+                organize_dirs = True
+
+            if bool(organize_dirs) == True:
+                install_location = os.path.expanduser(base_install + "/" + \
+                    module_split + "/" + install_base_location + "/")
+            else:
+                install_location = base_install + "/" + install_base_location + "/"
 
 
         while 1:
