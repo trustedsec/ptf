@@ -26,4 +26,4 @@ DEBIAN="libsqlite3-dev,libnl-3-dev,libnl-cli-3-dev,pkg-config,libtool"
 FEDORA="git,libsqlite3x-devel,libnl3-devel,libnl-genl-3-dev,libtool"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j4,make strip,sed -i 's|http://standards-oui.ieee.org/oui.txt|http://linuxnet.ca/ieee/oui.txt|g' scripts/airodump-ng-oui-update,make install,airodump-ng-oui-update"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},./autogen.sh,make -j4,make strip,sed -i 's|http://standards-oui.ieee.org/oui.txt|http://linuxnet.ca/ieee/oui.txt|g' scripts/airodump-ng-oui-update,make install,airodump-ng-oui-update"
