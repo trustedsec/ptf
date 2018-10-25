@@ -10,6 +10,6 @@ INSTALL_LOCATION="gobuster"
 
 DEBIAN="golang" 
 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},go get github.com/OJ/gobuster,mv ~/go/bin/gobuster /usr/local/bin"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},go get github.com/OJ/gobuster,go build,mv ~/go/bin/gobuster /usr/local/bin"
 
 LAUNCHER=""
