@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/darkoperator/dnsrecon"
 INSTALL_LOCATION="dnsrecon"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,python-dnspython,python-netaddr"
+DEBIAN="git,python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,python-dns,python-netaddr"
+FEDORA="git,python-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="cd {INSTALL_LOCATION},pip install -r requirements.txt"
 
 # CREATE LAUNCHER
 LAUNCHER="dnsrecon"
