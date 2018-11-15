@@ -1,23 +1,23 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for DNSRecon
+# Installation module for SkipTracer
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Greg Hetrick (gchetrick)"
+AUTHOR="David Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update dnsrecon - a dns enum tool by Carlos Parez"
+DESCRIPTION="This module will install/update skiptracer - a tool from xillwillx that is an OSINT python webscaping framework"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/darkoperator/dnsrecon"
+REPOSITORY_LOCATION="https://github.com/xillwillx/skiptracer"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="dnsrecon"
+INSTALL_LOCATION="skiptracer"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="git,python-pip"
@@ -26,8 +26,10 @@ DEBIAN="git,python-pip"
 FEDORA="git,python-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},pip install -r requirements.txt"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, pip install -r requirements.txt "
 
 # CREATE LAUNCHER
-LAUNCHER="dnsrecon"
+LAUNCHER="skiptracer"
+
+
 
