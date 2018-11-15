@@ -10,5 +10,5 @@ INSTALL_LOCATION="amass"
 
 DEBIAN="golang" 
 
-AFTER_COMMANDS="cd ~/go/bin,go get -u github.com/caffix/amass,mv amass /usr/local/bin/"
+AFTER_COMMANDS="cd ~/go/bin,go get -u github.com/caffix/amass,cp amass /usr/local/bin/"
 
