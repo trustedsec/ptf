@@ -1,14 +1,13 @@
-AUTHOR="Zawadi Done" 
+AUTHOR="Zawadi Done"
 
-DESCRIPTION="This module wil install/update amass" 
+DESCRIPTION="This module wil install/update amass"
 
 INSTALL_TYPE="GIT"
 
-REPOSITORY_LOCATION="https://github.com/caffix/amass" 
+REPOSITORY_LOCATION="https://github.com/OWASP/Amass"
 
 INSTALL_LOCATION="amass"
 
-DEBIAN="golang" 
+DEBIAN="snapd"
 
-AFTER_COMMANDS="cd ~/go/bin,go get -u github.com/caffix/amass,cp amass /usr/local/bin/"
-
+AFTER_COMMANDS="systemctl start snapd,export PATH=$PATH:/snap/bin,snap refresh,snap install amass"
