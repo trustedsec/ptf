@@ -10,6 +10,8 @@ apt-get install -y python git sudo locate vim #libgmp3-dev:i386
 cd /root
 git clone https://github.com/spinfoo/ptf.git
 cd ptf
+git checkout docker
+git pull origin docker
 echo -en "use modules/install_update_all\nyes\n" | python ptf
 echo
 echo
