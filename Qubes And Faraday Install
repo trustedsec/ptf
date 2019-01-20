@@ -1,0 +1,36 @@
+1-Clone vm debian
+qvm-clone debian 9 ptf
+
+2-Edit /etc/apt/sources.list
+https://docs.kali.org/general-use/kali-linux-sources-list-repositories
+
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+
+deb http://old.kali.org/kali sana main non-free contrib
+
+3-write in terminal:
+gpg --keyserver pgpkeys.mit.edu --recv-key ED444FF07D8D0BF6
+gpg -a --export ED444FF07D8D0BF6 | sudo apt-key add -
+
+apt-get update y apt-get upgrade
+
+git clone https://github.com/trustedsec/ptf
+
+4-./ptf
+5-Install faraday
+
+6-
+sudo chown -R couchdb:couchdb /var/log/couchdb
+
+sudo chown -R couchdb:couchdb /var/lib/couchdb
+
+sudo chown -R couchdb:couchdb /var/run/couchdb
+
+fuente: https://medium.com/@robertfock/como-crear-un-ptf-en-qubes-os-f82fc3f63c60
+
+7-upgrade to version 3.0
+./ptf
+ptf>search faraday
+modules/vulnerability-analisis/faradaysec
+ptf> use modules/vulnerability-analisis/faradaysec
+ptf:(modules/vulnerability-analisis/faradaysec)>update

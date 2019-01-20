@@ -1,4 +1,22 @@
 ~~~~~~~~~~~~~~~~~
+version 2.1.3
+~~~~~~~~~~~~~~~~~
+
+* fix bug that caused update only installed to fail with prompt not defined
+
+~~~~~~~~~~~~~~~~~
+version 2.1.2
+~~~~~~~~~~~~~~~~~
+
+* add mitm6 tool (thanks @CantComputer <3)
+
+~~~~~~~~~~~~~~~~~
+version 2.1.1
+~~~~~~~~~~~~~~~~~
+
+* fix prompt when TOOL_DEPEND specified would automatically start install
+
+~~~~~~~~~~~~~~~~~
 version 2.1
 ~~~~~~~~~~~~~~~~~
 
