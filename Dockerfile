@@ -1,6 +1,7 @@
-LABEL version="1.0"
+FROM debian:sid
+LABEL version="1.1"
 LABEL description="Dockerized version of Trustsec PTF - Penetration Testing Framework"
 LABEL author="Jacobo Avariento Gimeno"
-FROM debian:sid
-COPY bootstrap.sh /bootstrap.sh
-RUN /bootstrap.sh
+
+COPY bootstrap.sh /root/bootstrap.sh
+RUN bash -c /root/bootstrap.sh
