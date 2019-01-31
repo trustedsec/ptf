@@ -26,7 +26,7 @@ DEBIAN="git,python-dnspython"
 FEDORA="git,python-dnspython"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, echo -e "Opening vim in 10 seconds- Please enter your Virus Total API key", sleep 10s, vim knockpy/config.json, python setup.py install, ln -s knockpy/knockpy.py knockpy.py"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, python setup.py install, ln -s knockpy/knockpy.py knockpy.py"
 
 # CREATE LAUNCHER
 LAUNCHER="knockpy"
