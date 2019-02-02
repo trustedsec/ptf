@@ -10,4 +10,4 @@ INSTALL_LOCATION="amass"
 
 DEBIAN="snapd"
 
-AFTER_COMMANDS="systemctl start snapd,export PATH=$PATH:/snap/bin,snap refresh,snap install amass"
+AFTER_COMMANDS="systemctl start snapd,snap install amass, echo 'You need to reboot before using Amass', sleep 5"
