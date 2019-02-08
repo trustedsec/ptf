@@ -22,7 +22,7 @@ INSTALL_LOCATION="gobuster"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
+AFTER_COMMANDS="export GOPATH=$HOME/go,go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER=""
