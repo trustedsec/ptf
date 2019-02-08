@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/laramies/theHarvester.git"
 INSTALL_LOCATION="theharvester"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python python-requests"
+DEBIAN="git,python3,python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="cd {INSTALL_LOCATION},pip3 install -r requirements.txt"
 
 # CREATE LAUNCHER
 LAUNCHER="theHarvester"
