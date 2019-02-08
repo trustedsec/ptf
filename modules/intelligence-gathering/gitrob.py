@@ -22,4 +22,4 @@ INSTALL_LOCATION="gitrob"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="go get github.com/michenriksen/gitrob,cp ~/go/bin/gitrob /usr/local/bin"
+AFTER_COMMANDS="export GOPATH=$HOME/go,go get github.com/michenriksen/gitrob,cp ~/go/bin/gitrob /usr/local/bin"
