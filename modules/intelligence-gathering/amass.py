@@ -10,4 +10,4 @@ INSTALL_LOCATION="amass"
 
 DEBIAN="snapd"
 
-AFTER_COMMANDS="systemctl start snapd,snap install amass, echo 'You need to reboot before using Amass', sleep 5"
+AFTER_COMMANDS="export GOPATH=$HOME/go,systemctl start snapd,snap install amass, echo 'You need to reboot before using Amass', sleep 5"
