@@ -76,20 +76,20 @@ if __name__ == "__main__":
             # create automatic launcher
             create_launcher()
 
-            # pull in the framework
-            import src.framework
+        # pull in the framework
+        import src.framework
 
-            # if we want to skip going into module
-            if  "--update-all" in sys.argv[1:]:
-                if "-y" in sys.argv[1:]:
-                    src.framework.handle_prompt("use modules/install_update_all", True)
-                else:
-                    src.framework.handle_prompt("use modules/install_update_all")
-            elif "--update-installed" in sys.argv[1:]:
-                src.framework.handle_prompt("use modules/update_installed")
+        # if we want to skip going into module
+        if  "--update-all" in sys.argv[1:]:
+            if "-y" in sys.argv[1:]:
+                src.framework.handle_prompt("use modules/install_update_all", True)
             else:
-                # or just ask what you want
-                src.framework.mainloop()
+                src.framework.handle_prompt("use modules/install_update_all")
+        elif "--update-installed" in sys.argv[1:]:
+            src.framework.handle_prompt("use modules/update_installed")
+        else:
+            # or just ask what you want
+            src.framework.mainloop()
 
     except KeyboardInterrupt:
         print("\n")
