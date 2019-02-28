@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/portcullislabs/enum4linux.git"
 INSTALL_LOCATION="enum4linux"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,perl"
+DEBIAN="git,perl,smbclient"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,perl"
+FEDORA="git,perl,samba-client"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION}, wget https://labs.portcullis.co.uk/download/polenum-0.2.tar.bz2, tar -xjvf polenum-0.2.tar.bz2; rm polenum-0.2.tar.bz2, mv polenum-0.2/polenum.py /usr/bin/, rm -rf polenum-0.2"

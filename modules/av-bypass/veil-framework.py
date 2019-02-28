@@ -7,7 +7,7 @@
 AUTHOR="Nick Dyer"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Veil-Framework"
+DESCRIPTION="This module will install/update Veil 3"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -20,16 +20,13 @@ REPOSITORY_LOCATION="https://github.com/Veil-Framework/Veil.git"
 INSTALL_LOCATION="veil-framework"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python-pycryptopp python-capstone wine"
-
-# DEPENDS FOR FEDORA INSTALLS
-FEDORA="python-pycryptopp python-capstone"
+DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, ./Install.sh -c, ln -s {INSTALL_LOCATION}Veil-Evasion/Veil-Evasion.py /usr/local/bin/Veil-Evasion, ln -s {INSTALL_LOCATION}Veil-Catapult/Veil-Catapult.py /usr/local/bin/Veil-Catapult, ln -s {INSTALL_LOCATION}veil-framework/Veil-Pillage/Veil-Pillage.py /usr/local/bin/Veil-Pillage, ln -s {INSTALL_LOCATION}veil-framework/Veil-Ordnance/Veil-Ordnance.py /usr/local/bin/Veil-Ordnance"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}config,./setup.sh -s, ln -s {INSTALL_LOCATION}Veil.py /usr/local/bin/veil "
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER=""
+LAUNCHER="Veil.py"
 
 # PREREQ INSTALL MODULES NEEDED FOR THIS TOOL TO WORK PROPERLY
-TOOL_DEPEND="modules/exploitation/framework/metasploit"
+TOOL_DEPEND="modules/exploitation/metasploit"

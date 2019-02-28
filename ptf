@@ -1,29 +1,39 @@
 #!/usr/bin/env python
-####################################################################################
-# The PenTesters Framework (PTF) - Automatic Penetration Testing Platform Creation
-# Written by: David Kennedy (ReL1K)
-# Twitter: @TrustedSec, @HackingDave
-# Website: https://www.trustedsec.com
-####################################################################################
+"""
+The PenTesters Framework (PTF) - Automatic Penetration Testing Platform Creation
+Written by: David Kennedy (ReL1K)
+Twitter: @TrustedSec, @HackingDave
+Website: https://www.trustedsec.com
+"""
 
 import sys
 import subprocess
 import os
 import socket
 
-# create launcher
+
+# force https for git
+def git_https_force():
+    subprocess.Popen('git config --global url."https://github.com/".insteadOf git@github.com:;git config --global url."https://".insteadOf git://', shell=True).wait()
+
 def create_launcher():
+    """
+    Create a launcher to execute PTF from the commandline.
+    """
     cwd = os.getcwd()
     filewrite = open("/usr/local/bin/ptf", "w")
-    filewrite.write("#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf $*" % (cwd))
+    filewrite.write('#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf "$@"' % (cwd))
     filewrite.close()
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
 
-# check for an Internet connection
+
 def check_internet():
+    """
+    Check for internet access.
+    """
     try:
-        print("[*] You can always type ./ptf --no-network-connection to skip the Internet check..")
-        print("[*] Checking for an Internet connection...")
+        print_status("You can always type ./ptf --no-network-connection to skip the Internet check..")
+        print_status("Checking for an Internet connection...")
         rhost = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         rhost.connect(('google.com', 0))
         rhost.settimeout(2)
@@ -33,57 +43,61 @@ def check_internet():
         return 0
 
 
-# some OS doesn't have /usr/local/bin create them if not
-if not os.path.isdir("/usr/local/bin/"): os.makedirs("/usr/local/bin/")
+if __name__ == "__main__":
+    # only imports we actually need
+    from src.core import print_warning, print_status, print_error
 
-if os.geteuid() != 0:
-    print("\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)")
-    print("\nThis needs to be run as root. Please sudo it up! Exiting...")
-    exit()
+    # some OS doesn't have /usr/local/bin create them if not
+    if not os.path.isdir("/usr/local/bin/"):
+        os.makedirs("/usr/local/bin/")
 
-try:
+    if os.geteuid() != 0:
+        print("\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)")
+        print("\nThis needs to be run as root. Please sudo it up! Exiting...")
+        exit()
 
-    # Bypass network check with argument
-    if not "--no-network-connection" in sys.argv[1:]:
-        # check internet connection
-        if check_internet() == 0:
-            print ("[!] Unable to detect Internet connection. Needed for PTF.")
-            print (
-                "[!] We will now exit PTF. Launch again when you got a connection.")
-            print (
-                "[!] You can also run ptf with the --no-network-connection argument to bypass the network check.")
-            sys.exit()
+    try:
+        # Bypass network check with argument
+        if "--no-network-connection" not in sys.argv[1:]:
+            # check internet connection
+            if check_internet() == 0:
+                print_warning("Unable to detect Internet connection. Needed for PTF.")
+                print_warning("We will now exit PTF. Launch again when you got a connection.")
+                print_warning("You can also run ptf with the --no-network-connection argument to bypass the network check.")
+                sys.exit()
 
-        # try to update ourself first
-        print("[*] Trying to update myself first.. Then starting framework.")
-        subprocess.Popen("git pull", shell=True).wait()
+            # force https
+            git_https_force()
 
-    # create automatic launcher
-    create_launcher()
+            # try to update ourself first
+            print_status("Trying to update myself first.. Then starting framework.")
+            subprocess.Popen("git pull", shell=True).wait()
 
-    # pull in the core library
-    from src.core import *
+            # create automatic launcher
+            create_launcher()
 
-    # pull in the framework
-    import src.framework
+            # pull in the framework
+            import src.framework
 
-    # if we want to skip going into module
-    if  "--update-all" in sys.argv[1:]:
-        src.framework.handle_prompt("use modules/install_update_all")
-    elif "--update-installed" in sys.argv[1:]:
-        src.framework.handle_prompt("use modules/update_installed")
-    else:
-        # or just ask what you want
-        src.framework.mainloop()
+            # if we want to skip going into module
+            if  "--update-all" in sys.argv[1:]:
+                if "-y" in sys.argv[1:]:
+                    src.framework.handle_prompt("use modules/install_update_all", True)
+                else:
+                    src.framework.handle_prompt("use modules/install_update_all")
+            elif "--update-installed" in sys.argv[1:]:
+                src.framework.handle_prompt("use modules/update_installed")
+            else:
+                # or just ask what you want
+                src.framework.mainloop()
 
-except KeyboardInterrupt:
-    print("\n")
-    print("[*] Exiting PTF - the easy pentest platform creation framework.")
-    exit()
-    sys.exit()
+    except KeyboardInterrupt:
+        print("\n")
+        print_status("Exiting PTF - the easy pentest platform creation framework.")
+        exit()
+        sys.exit()
 
-except Exception as e:
-    print ("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occured.")
-    print ("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-    print(("[!] Printing that error. Get that error. You get it: " + str(e)))
-
+    except Exception as e:
+        print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occurred.")
+        print_error("[!] It's not possible its due to my coding skillz, it must be you? :-)")
+        print_error(("[!] Printing that error. Get that error. You get it: " + str(e)))

@@ -4,31 +4,25 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Liam Somerville (leesoh)"
+AUTHOR="Zawadi Done" 
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update OJ's Gobuster - a URL and DNS brute forcer"
+DESCRIPTION="This module wil install/update GoBuster" 
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
-# OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/OJ/gobuster"
+REPOSITORY_LOCATION="https://github.com/OJ/gobuster" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="gobuster"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,golang"
-
-# DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,golang"
+DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="go get github.com/oj/gobuster,go get -u github.com/oj/gobuster"
+AFTER_COMMANDS="export GOPATH=$HOME/go,go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER=""
-
-BYPASS_UPDATES="YES"

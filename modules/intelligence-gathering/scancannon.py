@@ -7,7 +7,7 @@
 AUTHOR="Dave Kennedy (ReL1K)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update ScanScannon - features of masscan and nmap combined (need to install masscan module first)"
+DESCRIPTION="This module will install/update ScanCannon - features of masscan and nmap combined (need to install masscan module first)"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE

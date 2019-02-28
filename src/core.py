@@ -110,7 +110,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "1.13.1"
+grab_version = "2.2"
 
 # banner
 banner = bcolors.RED + r"""
@@ -148,8 +148,8 @@ banner += bcolors.ENDC + """Framework\n\n"""
 banner += """        		   """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
-banner += bcolors.YELLOW + bcolors.BOLD + """		        Codename: """ + \
-    bcolors.BLUE + """Tool Time""" + "\n"
+banner += bcolors.YELLOW + bcolors.BOLD + """		    Codename: """ + \
+    bcolors.BLUE + """Tool Haven""" + "\n"
 
 banner += """		         """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
@@ -161,7 +161,6 @@ banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                          """ + """Freenode: """ + bcolors.BOLD + """##PTF""" + bcolors.ENDC
 banner += """\n                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
@@ -380,13 +379,12 @@ def launcher(filename, install_location):
                 # if we found filetype
                 if point != "":
                     filewrite = open("/usr/local/bin/" + launchers, "w")
-                    filewrite.write('#!/bin/sh\ncd %s\nfind %s -executable || chmod +x %s\n%s $*\n' %
-                                    (install_location, file_point, file_point, point))
+                    filewrite.write('#!/bin/sh\n[ -x %s%s ] || chmod +x %s%s\n%s%s "$@"\n' %
+                                    (install_location, file_point, install_location, file_point, install_location, file_point))
                     filewrite.close()
                     subprocess.Popen("chmod +x /usr/local/bin/%s" %
                                      (launchers), shell=True).wait()
-                    print_status(
-                        "Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
+                    print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
 
             # just need to do this once
             if base_launcher == 1:

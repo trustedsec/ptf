@@ -7,7 +7,7 @@
 AUTHOR="Martin Bos (@purehate_)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update John the Ripper. The "bleeding-jumbo" branch - An CPU-based password recovery tool.This is not "official" John the Ripper code"
+DESCRIPTION="This module will install/update John the Ripper. The 'bleeding-jumbo' branch - An CPU-based password recovery tool.This is not 'official' John the Ripper code"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -23,11 +23,11 @@ INSTALL_LOCATION="johntheripper"
 DEBIAN="git libgmp3-dev git lzip gcc-multilib make m4 mingw-w64"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}src,./configure,make"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},cd src,./configure && make -j `nproc` && make install,cd {INSTALL_LOCATION},cp -a run/* {INSTALL_LOCATION},rm -rf run/"
 
 
-# DONT RUN AFTER COMMANDS ON UPDATE
-BYPASS_UPDATE=NO
+# DON'T RUN AFTER COMMANDS ON UPDATE
+BYPASS_UPDATE="NO"
 
 # LAUNCHER
 LAUNCHER="john"

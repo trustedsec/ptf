@@ -1,4 +1,94 @@
 ~~~~~~~~~~~~~~~~~
+version 2.2
+~~~~~~~~~~~~~~~~~
+
+* added docker support for PTF (thanks spinfoo)
+* multiple fixes for tools and new additions (thanks Zawadidone)
+
+~~~~~~~~~~~~~~~~~
+version 2.1.3
+~~~~~~~~~~~~~~~~~
+
+* fix bug that caused update only installed to fail with prompt not defined
+
+~~~~~~~~~~~~~~~~~
+version 2.1.2
+~~~~~~~~~~~~~~~~~
+
+* add mitm6 tool (thanks @CantComputer <3)
+
+~~~~~~~~~~~~~~~~~
+version 2.1.1
+~~~~~~~~~~~~~~~~~
+
+* fix prompt when TOOL_DEPEND specified would automatically start install
+
+~~~~~~~~~~~~~~~~~
+version 2.1
+~~~~~~~~~~~~~~~~~
+
+* fix nmap (pr)
+* fix aircrack-ng libtool
+
+~~~~~~~~~~~~~~~~~
+version 2.0
+~~~~~~~~~~~~~~~~~
+
+* fix launchers with $@ instead of $*
+* fixed autosploit to have new install.sh and requirements met
+* force github to use https
+* added api grab to https for Metasploit
+* added error handling if tool_depend module not found
+* fixed veil installation
+* added veil silent installation
+* changed tool depend location metasploit
+* fixed metasploit path in autosploit
+* fixed metasploit path in setolkit
+* fixed metasploit path in unicorn
+* fixed tool depend prompt when using modules with no tool_depend
+* fixed gobuster go home path
+
+~~~~~~~~~~~~~~~~~
+version 1.18
+~~~~~~~~~~~~~~~~~
+
+* added a new config option IGNORE_UPDATE_ALL_MODULES in the ptf.config. This is used for applications that may require user interaction, require substantial amounts of load time, or install items that may open services or ports on the system (such as TOR).
+* removed modules/exploitation/eternalblue-doublepulsar-metasploit as exploit is in Metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.17
+~~~~~~~~~~~~~~~~~
+
+* multiple fixes for aftercommands and escaping (PR)
+* add Joomslav (PR)
+* update masscan (PR)
+* add Robot-Detect (PR)
+
+~~~~~~~~~~~~~~~~~
+version 1.16
+~~~~~~~~~~~~~~~~~
+
+* specify -k on curl for bad certs
+* remove nipe due to tor beaconing by default
+
+~~~~~~~~~~~~~~~~~
+version 1.15
+~~~~~~~~~~~~~~~~~
+
+* add nps_payload 
+* added cupp (PR)
+* remove dirb - no longer supported
+* fix ettercap module
+* remove snoopy-ng to add new peanuts
+
+~~~~~~~~~~~~~~~~~
+version 1.14
+~~~~~~~~~~~~~~~~~
+
+* added new flag INCLUDE_ONLY_THESE_MODULES (thanks cobbr)
+* remove prompt for install update all for automatic install
+
+~~~~~~~~~~~~~~~~~
 version 1.13.1
 ~~~~~~~~~~~~~~~~~
 
