@@ -8,7 +8,7 @@ REPOSITORY_LOCATION="https://github.com/blechschmidt/massdns"
 
 INSTALL_LOCATION="massdns" 
 
-DEBIAN="" 
+DEBIAN="libldns-dev,build-essential,gcc" 
 
 AFTER_COMMANDS="cd {INSTALL_LOCATION},make,cp bin/massdns /usr/local/bin/"
 

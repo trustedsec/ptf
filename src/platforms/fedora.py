@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #########################################
-# Core installation for Debian Packages
+# Core installation for Fedora Packages
 #########################################
 from src.core import logging
 import subprocess

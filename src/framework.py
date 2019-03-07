@@ -325,7 +325,7 @@ def use_module(module, all_trigger):
                         prompt = "run"
 
                     if int(all_trigger) == 2:
-                        print "IM HERE"
+                        print("IM HERE")
                         prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
