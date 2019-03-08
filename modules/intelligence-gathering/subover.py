@@ -22,4 +22,4 @@ INSTALL_LOCATION="subover"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="export GOPATH=$HOME/go,go get github.com/Ice3man543/SubOver,cp ~/go/bin/SubOver /usr/local/bin/subover"
+AFTER_COMMANDS="echo 'export GOPATH=$HOME/go' > ~/.profile, . ~/.profile,go get github.com/Ice3man543/SubOver,cp ~/go/bin/SubOver /usr/local/bin/subover"
