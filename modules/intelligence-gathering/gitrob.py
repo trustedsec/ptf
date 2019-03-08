@@ -22,4 +22,4 @@ INSTALL_LOCATION="gitrob"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="echo "export GOPATH=$HOME/go" > ~/.profile,source ~/.profile,go get github.com/michenriksen/gitrob,cp ~/go/bin/gitrob /usr/local/bin"
+AFTER_COMMANDS="echo 'export GOPATH=$HOME/go' > ~/.profile,. ~/.profile,go get github.com/michenriksen/gitrob,echo 'GITROB has installation issues',cp ~/go/bin/gitrob /usr/local/bin"
