@@ -22,4 +22,4 @@ INSTALL_LOCATION="subfinder"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="go get -u github.com/Ice3man543/subfinder,cp ~/go/bin/subfinder /usr/local/bin/"
+AFTER_COMMANDS="echo 'export GOPATH=$HOME/go' > ~/.profile, . ~/.profile,go get -u github.com/Ice3man543/subfinder,cp ~/go/bin/subfinder /usr/local/bin/"
