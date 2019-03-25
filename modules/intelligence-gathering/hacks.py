@@ -8,7 +8,7 @@ REPOSITORY_LOCATION="https://github.com/EdOverflow/hacks"
 
 INSTALL_LOCATION="hacks"
 
-DEBIAN="" 
+DEBIAN="git" 
 
-AFTER_COMMANDS="cd {INSTALL_LOCATION},cd .., cp -R hacks/. /usr/local/bin/"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, rm LICENSE README LICENSE, cp -r * /usr/local/bin/"
 

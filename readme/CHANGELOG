@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 2.2
+~~~~~~~~~~~~~~~~~
+
+* added docker support for PTF (thanks spinfoo)
+* multiple fixes for tools and new additions (thanks Zawadidone)
+
+~~~~~~~~~~~~~~~~~
 version 2.1.3
 ~~~~~~~~~~~~~~~~~
 

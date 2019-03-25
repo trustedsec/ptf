@@ -51,11 +51,18 @@ class bcolors:
 
 # custom parser for zaproxy
 def zaproxy():
-    file = urllib.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
-    data = file.readlines()
-    file.close()
-    for url in data:
-        if "Linux.tar.gz" in url and "<url>" in url: return url.rstrip().replace("<url>", "").replace("</url>", "").strip()
+    if sys.version_info > (3,0):
+        file = urllib.request.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
+        data = file.readlines()
+        file.close()
+        for url in data:
+            if b'Linux.tar.gz' in url and b'<url>' in url: return url.decode('utf-8').replace("<url>", "").replace("</url>", "").strip()
+    else:
+        file = urllib.urlopen('https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml')
+        data = file.readlines()
+        file.close()
+        for url in data:
+            if "Linux.tar.gz" in url and "<url>" in url: return url.rstrip().replace("<url>", "").replace("</url>", "").strip()
 
 
 # get the main SET path
@@ -110,7 +117,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "2.1.3"
+grab_version = "2.2"
 
 # banner
 banner = bcolors.RED + r"""
@@ -149,7 +156,7 @@ banner += """        		   """ + bcolors.backBlue + \
     """Version: %s""" % (grab_version) + bcolors.ENDC + "\n"
 
 banner += bcolors.YELLOW + bcolors.BOLD + """		    Codename: """ + \
-    bcolors.BLUE + """Tool Warehouse Depot""" + "\n"
+    bcolors.BLUE + """Tool Haven""" + "\n"
 
 banner += """		         """ + bcolors.ENDC + bcolors.backRed + \
     """Red Team Approved""" + bcolors.ENDC + "\n"
@@ -161,7 +168,6 @@ banner += """		 Written by: """ + bcolors.BOLD + \
     """Dave Kennedy (ReL1K)""" + bcolors.ENDC + "\n"
 banner += """		Twitter: """ + bcolors.BOLD + \
     """@HackingDave, @TrustedSec""" + bcolors.ENDC + "\n"
-banner += """                          """ + """Freenode: """ + bcolors.BOLD + """##PTF""" + bcolors.ENDC
 banner += """\n                    """ + bcolors.BOLD + """https://www.trustedsec.com
         """ + bcolors.ENDC
 banner += bcolors.BOLD + """\n              The easy way to get the new and shiny.
