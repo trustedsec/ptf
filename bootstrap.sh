@@ -2,16 +2,18 @@
 #
 # Commands run by Docker when building the docker container with PTF framework
 #
+# Author: Jacobo Avariento Gimeno
 #
+
 echo "docker-ptf" > /etc/hostname
 apt-get update
 apt-get upgrade -y
 apt-get install -y python git sudo locate vim #libgmp3-dev:i386
 cd /root
-git clone https://github.com/spinfoo/ptf.git
+git clone https://github.com/trustedsec/ptf.git
 cd ptf
-git checkout docker
-git pull origin docker
+#git checkout docker
+#git pull origin docker
 echo -en "use modules/install_update_all\nyes\n" | python ptf
 echo
 echo
