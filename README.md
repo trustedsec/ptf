@@ -57,6 +57,20 @@ use modules/exploitation/install_update_all
 
 This will only install the exploitation modules. You can do this for any module category.
 
+### Customize your own installed tools
+
+You can only install the tools you want to by going to the modules/custom_list/list.py section. Modify the list.py file and add the tools you only want to install or update.
+
+Then when in PTF:
+
+```
+./ptf
+use modules/custom_list/list
+yes
+```
+
+This allows you to carry your module configuration over and only install the tools that you want and keep them updated.
+
 ### Modules:
 
 First, head over to the modules/ directory, inside of there are sub directories based on the Penetration Testing Execution Standard (PTES) phases. Go into those phases and look at the different modules. As soon as you add a new one, for example testing.py, it will automatically be imported next time you launch PTF. There are a few key components when looking at a module that must be completed.
@@ -100,6 +114,10 @@ You can also specify `{PTF_LOCATION}` which will pull the base path for your PTF
 You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
 
 Note that ArchLinux packages are also supported, it needs to be specified for both DEBIAN and ARCH in order for it to be properly installed on either platform in the module
+
+### GITLAB Support
+
+You can create your own modules and also supports gitlab access. Instead of specify git, wget, etc., simply specify gitlab and point to your own internal gitlab tools for modules.
 
 ### BYPASS UPDATES:
 

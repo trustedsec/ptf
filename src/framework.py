@@ -183,7 +183,7 @@ def get_password_gitlab():
 def use_module(module, all_trigger):
     prompt = ("")
     # if we aren't using all
-    if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module and not "listes" in module:
+    if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module and not "custom_list" in module:
 
         # set terminal title
         set_title("ptf - %s" % module)
@@ -635,7 +635,7 @@ def handle_prompt(prompt, force=False):
         prompt = prompt.split(" ")
 
         # do a quick sanity check to see if the module is there first
-        if "install_update_all" in prompt[1] or "listes" in prompt[1]:
+        if "install_update_all" in prompt[1] or "custom_list" in prompt[1]:
             counter = 3
             try:
                 if not force:
@@ -652,7 +652,7 @@ def handle_prompt(prompt, force=False):
                 # do auto update check first
                 auto_update()
 
-                if not "listes" in prompt[1]:
+                if not "custom_list" in prompt[1]:
                     modules_path = definepath() + "/" + (prompt[1])[:-18]
                 else:
                     modules_path = definepath() + "/modules/"
@@ -673,7 +673,7 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "listes" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
@@ -688,14 +688,14 @@ def handle_prompt(prompt, force=False):
                             ostype = profile_os()
 
                             if ostype == "DEBIAN":
-                                if not "install_update_all" in filename_short and not "listes" in filename:
+                                if not "install_update_all" in filename_short and not "custom_list" in filename:
                                     from src.platforms.debian import base_install_modules
                                     # grab all the modules we need
                                     deb_modules = deb_modules + "," + module_parser(filename_short, "DEBIAN")
 
                             # archlinux
                             if ostype == "ARCHLINUX":
-                                if not "install_update_all" in filename_short and not "listes" in filename:
+                                if not "install_update_all" in filename_short and not "custom_list" in filename:
                                     from src.platforms.archlinux import base_install_modules
                                     # grab all the modules we need
                                     arch_modules = ""
@@ -704,14 +704,14 @@ def handle_prompt(prompt, force=False):
                                             filename_short, "ARCHLINUX")
                             # fedora
                             if ostype == "FEDORA":
-                                if not "install_update_all" in filename_short and not "listes" in filename:
+                                if not "install_update_all" in filename_short and not "custom_list" in filename:
                                     from src.platforms.fedora import base_install_modules
                                     # grab all the modules we need
                                     fedora_modules = fedora_modules + "," + \
                                         module_parser(filename_short, "FEDORA")
                             # openbsd
                             if ostype == "OPENSBD":
-                                if not "install_update_all" in filename_short and not "listes" in filename:
+                                if not "install_update_all" in filename_short and not "custom_list" in filename:
                                     from src.platforms.openbsd import base_install_modules
                                     # grab all the modules we need
                                     openbsd_modules = openbsd_modules + "," + \
@@ -747,11 +747,11 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "listes" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
-                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename and not "install_update_all" in filename and not "__init__" in filename and not "listes" in filename:
+                        if not "__init__.py" in filename and not ignore_module(filename) and include_module(filename) and ".py" in filename and not ".pyc" in filename and not "install_update_all" in filename and not "__init__" in filename and not "custom_list" in filename:
                             # strip un-needed files
                             # if not "__init__.py" in filename and not ignore_module(filename):
                             # shorten it up a little bit

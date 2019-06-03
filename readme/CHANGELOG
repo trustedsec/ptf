@@ -1,4 +1,21 @@
 ~~~~~~~~~~~~~~~~~
+version 2.3
+~~~~~~~~~~~~~~~~~
+
+* added support for gitlab (pr)
+* added support for custom tool installations based on modules (pr)
+* added rdp scanner (pr)
+* nosqlmap depend fix
+* nmap depend fix
+* added new tool unicorscan
+* added new tool oracle assessment framework
+* added SSH-Audit launcher
+* added new tool Dirb
+* added new tool soapui
+* added new tool postman
+ 
+
+~~~~~~~~~~~~~~~~~
 version 2.2
 ~~~~~~~~~~~~~~~~~
 
