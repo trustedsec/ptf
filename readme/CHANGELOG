@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 2.3.1
+~~~~~~~~~~~~~~~~~
+
+* added a check for pexpect
+* added requirements.txt for pexpect
+
+~~~~~~~~~~~~~~~~~
 version 2.3
 ~~~~~~~~~~~~~~~~~
 

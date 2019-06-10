@@ -10,7 +10,14 @@ import readline
 import os
 import time
 import getpass
-import pexpect
+
+try: 
+    import pexpect
+    pexpect_check = 1
+except: 
+    print("[!] python-pexpect not installed, gitlab will not work")
+    print("[!] Run pip install python-pexpect to install pexpect for gitlab support.")
+    pexpect_check = 0
 
 # python 2 compatibility
 try: input = raw_input
@@ -389,6 +396,9 @@ def use_module(module, all_trigger):
                                     after_commands(filename, install_location)
 
                         if install_type.lower() == "gitlab":
+                           if pexpect_check == 0:
+                                print("[!] You can't use gitlab features unless you install pexpect. Please install pexpect in order to use these features. Install option: pip install python-pexpect.")
+                           else:
                             print_status("Updating the tool, be patient while git pull is initiated.")
                             get_password_gitlab()
                             proc = pexpect.spawn('git -C %s pull' % (install_location))
