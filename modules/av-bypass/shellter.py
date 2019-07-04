@@ -29,7 +29,7 @@ FEDORA="wine,curl"
 BYPASS_UPDATE="YES"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},unzip -j -o shellter.zip,rm shellter.zip,echo '#/bin/sh' > shellter,echo 'wine shellter.exe' >> shellter,chmod +x shellter"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},unzip -j -o shellter.zip,rm shellter.zip,echo '#/bin/sh' > shellter,echo pushd {INSTALL_LOCATION} >> shellter,echo 'wine shellter.exe' >> shellter,echo popd >>shellter,chmod +x shellter"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="shellter"
