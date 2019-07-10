@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://www.shellterproject.com/Downloads/Shellter/Latest/s
 INSTALL_LOCATION="shellter"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="wine,curl"
+DEBIAN="wine-development,curl"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="wine,curl"
@@ -29,7 +29,7 @@ FEDORA="wine,curl"
 BYPASS_UPDATE="YES"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},unzip -j -o shellter.zip,rm shellter.zip,echo '#/bin/sh' > shellter.sh,echo 'wine shellter.exe' >> shellter.sh,chmod +x shellter.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},unzip -j -o shellter.zip,rm shellter.zip,echo '#/bin/sh' > shellter,echo pushd {INSTALL_LOCATION} >> shellter,echo 'wine shellter.exe' >> shellter,echo popd >>shellter,chmod +x shellter"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="shellter"
