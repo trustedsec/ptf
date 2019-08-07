@@ -27,8 +27,6 @@ readline.set_completer(complete)
 # end tab completion
 
 # color scheme for core
-
-
 class bcolors:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -117,7 +115,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "2.3"
+grab_version = "2.3.2"
 
 # banner
 banner = bcolors.RED + r"""
@@ -228,7 +226,7 @@ def module_parser(filename, term):
             filename_short = filename.replace(definepath() + "/", "")
             filename_short = filename_short.replace(".py", "")
             if term not in "BYPASS_UPDATE|LAUNCHER|TOOL_DEPEND|X64_LOCATION|install_update_all|FEDORA|OPENBSD|ARCHLINUX":
-                              if filename_short not in "__init__|msfdb.sh":
+                              if filename_short not in "__init__|msfdb.sh|modules/custom_list/list":
                                         print_error("Warning, module %s was found but contains no %s field." % (filename_short, term))
                                         print_error("Check the module again for errors and try again.")
                                         print_error("Module has been removed from the list.")
