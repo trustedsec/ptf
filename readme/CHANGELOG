@@ -3,6 +3,7 @@ version 2.3.2
 ~~~~~~~~~~~~~~~~~
 
 * fix error on show modules for modules/custom_list/list
+* fix error when using show options inside module it would install depends by typing show options
 
 ~~~~~~~~~~~~~~~~~
 version 2.3.1

@@ -258,8 +258,7 @@ def use_module(module, all_trigger):
             # if we aren't doing update/install all
             if int(all_trigger) == 0:
                 try:
-                    prompt = input(bcolors.BOLD + "ptf:" + bcolors.ENDC +
-                                       "(" + bcolors.RED + "%s" % module + bcolors.ENDC + ")>")
+                    prompt = input(bcolors.BOLD + "ptf:" + bcolors.ENDC + "(" + bcolors.RED + "%s" % module + bcolors.ENDC + ")>")
                 except EOFError:
                     prompt = "back"
                     print("")
@@ -273,9 +272,7 @@ def use_module(module, all_trigger):
                     show_help_menu()
 
                 # show modules
-                if prompt == "show modules":
-                    print_warning(
-                        "In order to show modules, you must type 'back' first")
+                if prompt == "show modules": print_warning("In order to show modules, you must type 'back' first")
 
                 # if we are using a module within a module we return our prompt
                 if "use " in prompt:
@@ -286,8 +283,7 @@ def use_module(module, all_trigger):
                     search(prompt)
 
                 # options menu - was a choice here to load upon initial load of dynamically pull each time
-                # if changes are made, it makes sense to keep it loading each
-                # time
+                # if changes are made, it makes sense to keep it loading each time
                 if prompt.lower() == "show options":
                     print("Module options (%s):" % module)
 
@@ -295,20 +291,13 @@ def use_module(module, all_trigger):
                 if module != "modules/install_update_all":
 
                     print("\n\n")
-                    print(
-                        bcolors.BOLD + "Module Author:         " + bcolors.ENDC + author)
-                    print(
-                        bcolors.BOLD + "Module Description:    " + bcolors.ENDC + description)
-                    print(
-                        "-------------------------------------------------------------------------------------")
-                    print(
-                        bcolors.BOLD + "INSTALL_TYPE:           " + bcolors.ENDC + install_type)
-                    print(bcolors.BOLD + "REPOSITORY_LOCATION:    " +
-                          bcolors.ENDC + repository_location)
-                    print(
-                        bcolors.BOLD + "INSTALL_LOCATION:       " + bcolors.ENDC + install_location)
-                    print(
-                        "-------------------------------------------------------------------------------------")
+                    print(bcolors.BOLD + "Module Author:         " + bcolors.ENDC + author)
+                    print(bcolors.BOLD + "Module Description:    " + bcolors.ENDC + description)
+                    print("-------------------------------------------------------------------------------------")
+                    print(bcolors.BOLD + "INSTALL_TYPE:           " + bcolors.ENDC + install_type)
+                    print(bcolors.BOLD + "REPOSITORY_LOCATION:    " + bcolors.ENDC + repository_location)
+                    print(bcolors.BOLD + "INSTALL_LOCATION:       " + bcolors.ENDC + install_location)
+                    print("-------------------------------------------------------------------------------------")
 
                 # if we are setting the command now
                 if prompt.lower().startswith("set"):
@@ -323,27 +312,27 @@ def use_module(module, all_trigger):
                         install_location = set_breakout[2]
 
             # tool depend is if there is a tool for example like veil that has a depend of Metasploit - can put TOOL_DEPEND = the tool or tools here
-            if len(tool_depend) > 1:
-                try:
-                    if " " in tool_depend:
-                        tool_depend = tool_depend.split(" ")
-                        for tool in tool_depend: use_module(tool, "1")
+            if not "show options" in prompt.lower():
+                if len(tool_depend) > 1:
+                    try:
+                        if " " in tool_depend:
+                            tool_depend = tool_depend.split(" ")
+                            for tool in tool_depend: use_module(tool, "1")
 
-                    elif "," in tool_depend:
-                        tool_depend = tool_depend.split(",")
-                        for tool in tool_depend: use_module(tool, "1")
+                        elif "," in tool_depend:
+                            tool_depend = tool_depend.split(",")
+                            for tool in tool_depend: use_module(tool, "1")
 
-                    else:
-                        use_module(tool_depend, "1")
-                except: pass
+                        else:
+                            use_module(tool_depend, "1")
+                    except: pass
 
-            if len(tool_depend) < 1:
-                    if int(all_trigger) == 1:
-                        prompt = "run"
+                if len(tool_depend) < 1:
+                        if int(all_trigger) == 1:
+                            prompt = "run"
 
-                    if int(all_trigger) == 2:
-                        print("IM HERE")
-                        prompt = "update"
+                        if int(all_trigger) == 2:
+                            prompt = "update"
 
             # if we are using run, check first to see if its there, if so, do
             # an upgrade
