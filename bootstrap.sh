@@ -8,7 +8,8 @@
 echo "docker-ptf" > /etc/hostname
 apt-get update
 apt-get upgrade -y
-apt-get install -y python git sudo locate vim python-pip wget tcpdump net-tools #libgmp3-dev:i386
+apt-get install -y python python3 git sudo locate vim python-pip python3-pip flex wget tcpdump net-tools #libgmp3-dev:i386
+apt --fix-broken install -y
 cd /tmp
 wget http://http.kali.org/pool/main/u/unicornscan/unicornscan_0.4.7-1kali2_amd64.deb
 dpkg -i ./unicornscan_0.4.7-1kali2_amd64.deb
