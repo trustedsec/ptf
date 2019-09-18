@@ -59,7 +59,7 @@ This will only install the exploitation modules. You can do this for any module 
 
 ### Customize your own installed tools
 
-You can only install the tools you want to by going to the modules/custom_list/list.py section. Modify the list.py file and add the tools you only want to install or update.
+You can install only the tools you want to by going to the modules/custom_list/list.py section. Modify the list.py file and add the tools you only want to install or update.
 
 Then when in PTF:
 
@@ -117,7 +117,7 @@ Note that ArchLinux packages are also supported, it needs to be specified for bo
 
 ### GITLAB Support
 
-You can create your own modules and also supports gitlab access. Instead of specify git, wget, etc., simply specify gitlab and point to your own internal gitlab tools for modules.
+You can create your own modules and PTF also supports gitlab access. Instead of specifying git, wget, etc., simply specify gitlab and point to your own internal gitlab tools for modules.
 
 ### BYPASS UPDATES:
 
@@ -172,6 +172,6 @@ The `IGNORE_UPDATE_ALL_MODULES=` config option can be found under config/ptf.con
 
 ### INCLUDE_ONLY_THESE_MODULES
 
-The `INCLUDE_ONLY_THESE_MODULES` in the config option under config/ptf.config will only install and include specific modules that is specified here. This is good for baselining your tools that you want and only install them.
+The `INCLUDE_ONLY_THESE_MODULES` in the config option under config/ptf.config will only install and include specific modules that are specified here. This is good for baselining the tools that you want and install only them.
 
 
