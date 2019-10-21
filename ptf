@@ -11,6 +11,8 @@ import subprocess
 import os
 import socket
 
+# temp fix for python3 conversion - will remove as everyone moves over to python3
+subprocess.Popen("find . -iname *.pyc -delete", shell=True).wait()
 
 # force https for git
 def git_https_force():
