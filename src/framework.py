@@ -802,7 +802,7 @@ def handle_prompt(prompt, force=False):
                                 module = "modules/%s/%s"%(dir,install_file)
                             # Only update if we have an install file
                             if not 'None' in module:
-                                print ("Updating %s") % module
+                                print(("Updating %s") % module)
                                 use_module(module, 2)
 
         if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
