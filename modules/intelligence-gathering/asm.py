@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+#######################################
+# Installation module for AttackSurfaceMapper
+#######################################
+
 DESCRIPTION="This module will install/update Attack Surface Mapper (ASM) by Andreas Georgiou - A tool that aim to automate the recon process"
 
 INSTALL_TYPE="GIT"
