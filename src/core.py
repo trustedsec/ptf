@@ -444,7 +444,7 @@ def auto_update():
             "If you want to turn this off, go to the PTF directory and go to config and change AUTO_UPDATE")
         if profile_os() == "DEBIAN":
             subprocess.Popen(
-                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && apt-get -q --force-yes -y install build-essential && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
+                "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y && apt-get -q --allow-downgrades --allow-remove-essential --allow-change-held-packages -y install build-essential && sudo apt-get autoremove -y && apt-get autoclean -y && updatedb", shell=True).wait()
         print_status(
             "Finished with normal package updates, moving on to the tools section..")
     else:
