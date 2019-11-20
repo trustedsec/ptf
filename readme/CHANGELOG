@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+2.3.5
+~~~~~~~~~~~~~~~~~
+
+* added unlock - applocker evasion tool (pr theguly)
+* fix for ptf --update-installed (thanks spoonman!! lawry)
+* remove --force-yes to allow-downgrades --allow-remove-essential (thanks skapunker)
+* add install_update_all to each category so you can install directly from each module section vsd everything
+
+~~~~~~~~~~~~~~~~~
 2.3.4
 ~~~~~~~~~~~~~~~~~
 
