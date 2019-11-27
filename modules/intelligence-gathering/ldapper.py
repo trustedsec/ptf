@@ -3,9 +3,6 @@
 # Installation module for LDAPPER
 #####################################
 
-# AUTHOR OF MODULE NAME
-AUTHOR="Andrew Schwartz"
-
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update ldapper a command line tool to query AD via LDAP"
 
