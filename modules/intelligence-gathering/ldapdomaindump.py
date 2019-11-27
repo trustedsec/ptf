@@ -3,9 +3,6 @@
 # Installation module for LDAPDomainDump
 #########################################
 
-# AUTHOR OF MODULE NAME
-AUTHOR="Andrew Schwartz"
-
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update LDAPDomainDump a Active Directory information dumper via LDAP"
 
