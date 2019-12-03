@@ -5,6 +5,8 @@
 
 DESCRIPTION="This module will install/update Attack Surface Mapper (ASM) by Andreas Georgiou - A tool that aim to automate the recon process"
 
+AUTHOR="Andrew Schwartz"
+
 INSTALL_TYPE="GIT"
 
 REPOSITORY_LOCATION="https://github.com/superhedgy/AttackSurfaceMapper.git"
