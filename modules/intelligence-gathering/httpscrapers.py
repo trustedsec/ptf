@@ -6,6 +6,9 @@
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update HTTPScrapers by NetSPI"
 
+AUTHOR="Andrew Schwartz"
+
+
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"

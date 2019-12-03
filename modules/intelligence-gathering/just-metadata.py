@@ -9,6 +9,8 @@ DESCRIPTION="This module will install/update Just-Metadata by Chris Truncer - A 
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
+AUTHOR="Andrew Schwartz"
+
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
 REPOSITORY_LOCATION="https://github.com/FortyNorthSecurity/Just-Metadata"
 

@@ -6,6 +6,8 @@
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update ldapper a command line tool to query AD via LDAP"
 
+AUTHOR="Andrew Schwartz"
+
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"

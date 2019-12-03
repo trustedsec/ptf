@@ -6,6 +6,8 @@
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update Peasant by Justin Angel (@arch4ngel) - A LinkedIn reconnaissance utility written in Python3 that functions much like LinkedInt by @vysecurity."
 
+AUTHOR="Andrew Schwartz"
+
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
