@@ -473,9 +473,13 @@ def use_module(module, all_trigger):
                         from src.platforms.archlinux import base_install_modules
                         # grab all the modules we need
                         arch_modules = module_parser(filename, "ARCHLINUX")
-                        base_install_modules(arch_modules)
-                        print_status(
-                            "Pre-reqs for %s have been installed." % (module))
+                        installed = base_install_modules(arch_modules)
+                        if installed:
+                            print_status(
+                                "Pre-reqs for %s have been installed." % (module))
+                        else:
+                            print_status(
+                                "No missing pre-reqs for %s." % (module))
 
                     # if OSTYPE is FEDORA
                     if ostype == "FEDORA":
