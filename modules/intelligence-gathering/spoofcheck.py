@@ -3,11 +3,10 @@
 # Installation module for SpoofCheck
 #####################################
 
-# AUTHOR OF MODULE NAME
-AUTHOR="Andrew Schwartz"
-
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update spoofcheck a script that checks a domain for email protections"
+
+AUTHOR="Andrew Schwartz"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
