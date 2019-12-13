@@ -8,7 +8,7 @@ import select
 import readline
 import glob
 import platform
-import urllib
+import urllib.request
 import sys
 
 # tab completion
