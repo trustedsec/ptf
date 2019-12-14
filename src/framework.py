@@ -415,7 +415,7 @@ def use_module(module, all_trigger):
 
                         if install_type.lower() == "svn":
                             print_status("Updating the tool, be patient while svn pull is initiated.")
-                            subprocess.Popen("cd %s;svn update" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                            proc = subprocess.Popen("cd %s;svn update" % (install_location), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                             # here we do some funky stuff to store old
                             # revisions
                             try:
@@ -434,6 +434,8 @@ def use_module(module, all_trigger):
                                         prompt = "goat"
                             except:
                                 pass
+                            finally:
+                                proc.wait()
                             print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                             # check launcher
                             launcher(filename, install_location)
