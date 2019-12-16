@@ -44,7 +44,7 @@ print_status("Operating system detected as: " + bcolors.BOLD + os_profile + bcol
 
 # main intro here
 if profile_os() == "DEBIAN":
-    subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
 
 print_status("Welcome to PTF - where everything just works...Because.." +
              bcolors.BOLD + funny + bcolors.ENDC)
@@ -366,7 +366,7 @@ def use_module(module, all_trigger):
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
-                            proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
 
                             # check launcher
                             launcher(filename, install_location)
@@ -434,6 +434,8 @@ def use_module(module, all_trigger):
                                         prompt = "goat"
                             except:
                                 pass
+                            finally:
+                                proc.wait()
                             print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
                             # check launcher
                             launcher(filename, install_location)
@@ -515,8 +517,9 @@ def use_module(module, all_trigger):
                                 proc.expect('passphrase')
                                 proc.sendline('%s' % password_gitlab)
                                 proc.expect(pexpect.EOF)
+                                proc.wait()
                             else:
-                                proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                                subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
                             print_status("Finished updating the tool located in:" + install_location)
                         else:
                             print_status("%s was the selected method for installation... Using %s to install." % (install_type.upper(), install_type.upper()))
@@ -528,7 +531,7 @@ def use_module(module, all_trigger):
                                 proc.sendline('%s' % password_gitlab)
                                 proc.expect(pexpect.EOF)
                             else:
-                                proc = subprocess.Popen("git clone %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                                subprocess.Popen("git clone %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
 
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         after_commands(filename, install_location)
@@ -538,7 +541,7 @@ def use_module(module, all_trigger):
                     if install_type.lower() == "svn":
                         print_status(
                             "SVN was the selected method for installation... Using SVN to install.")
-                        proc = subprocess.Popen("svn co %s %s" % (
+                        subprocess.Popen("svn co %s %s" % (
                             repository_location, install_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
@@ -550,7 +553,7 @@ def use_module(module, all_trigger):
                         print_status(
                             "FILE was the selected method for installation... Using curl -o to install.")
                         repository_file = repository_location.split("/")[-1]
-                        proc = subprocess.Popen('curl -k -L -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (
+                        subprocess.Popen('curl -k -L -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o %s%s %s' % (
                             install_location, repository_file, repository_location), stderr=subprocess.PIPE, shell=True).wait()
                         print_status(
                             "Finished Installing! Enjoy the tool located under: " + install_location)
@@ -561,7 +564,7 @@ def use_module(module, all_trigger):
                     if install_type.lower() == "wget":
                         print_status(
                             "WGET was the selected method for installation because it plays better than curl -l with recursive URLs.")
-                        proc = subprocess.Popen(
+                        subprocess.Popen(
                             "cd %s && wget -q %s" % (
                                 install_location, repository_location),
                                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
