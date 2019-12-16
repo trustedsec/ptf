@@ -4,6 +4,7 @@ jobs:
   Python_tests:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         python-version: [2.7, 3.6, 3.7, 3.8] # 3.5,
@@ -16,9 +17,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install black flake8 pytest -r requirements.txt
+          pip install flake8 pytest -r requirements.txt
       #- name: Check formatting with black
-      #  run: black --check .
+      #  if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.8'
+      #  run: |
+      #     pip install black
+      #     black --check .
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
