@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+#####################################
+# Installation module for WinShock-Test
+#####################################
+
+# AUTHOR OF MODULE NAME
+AUTHOR="Andrew Schwartz"
+
+# DESCRIPTION OF THE MODULE
+DESCRIPTION="This module will install/update WinShock-Test by the Emergency Response Team at ANEXIA - A bash script that tests if a system is vulnerable to WinShock (MS14-066)."
+
+# INSTALL TYPE GIT, SVN, FILE DOWNLOAD
+# OPTIONS = GIT, SVN, FILE
+INSTALL_TYPE="GIT"
+
+# LOCATION OF THE FILE OR GIT/SVN REPOSITORY
+REPOSITORY_LOCATION="https://github.com/anexia-it/winshock-test"
+
+# WHERE DO YOU WANT TO INSTALL IT
+INSTALL_LOCATION="winshock-test"
+
+# DEPENDS FOR DEBIAN INSTALLS
+DEBIAN="git"
+
+# DEPENDS FOR FEDORA INSTALLS
+FEDORA="git"
+
+# COMMANDS TO RUN AFTER
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, a+x winshock_test.sh"
+
+# THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
+LAUNCHER="winshock-test"

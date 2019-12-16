@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/dradis/dradis-ce.git"
 INSTALL_LOCATION="dradisframework"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,ruby2.3,ruby-dev,ruby-rails,git,libmysqlclient-dev,libsqlite3-dev"
+DEBIAN="git,ruby,ruby-dev,ruby-rails,git,libmysqlclient-dev,libsqlite3-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,ruby,rubygem-rails,git,libsqlite3x-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir dradis-server,mv * dradis-server,cd dradis-server,cd bin,gem install bundler,gem install ruby-nmap,./setup,./bundle install,./setup"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},ruby bin/setup,bundle exec rails server"
