@@ -3,6 +3,8 @@
 # Installation module for HTTPScrapers
 #########################################
 
+# flake8: noqa
+
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update HTTPScrapers by NetSPI"
 
