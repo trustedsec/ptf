@@ -207,7 +207,6 @@ def discover_module_filename(module):
 def filename_to_module(filename):
     module = filename.replace(os.getcwd() +"/","").replace(".py","")
     return str(module)
-    
 
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
@@ -700,7 +699,7 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-4] not in open(definepath() + "/" + prompt[1] + ".txt").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
@@ -774,7 +773,7 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-4] not in open(definepath() + "/" + prompt[1] + ".txt").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
