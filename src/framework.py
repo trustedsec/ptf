@@ -166,16 +166,14 @@ def show_new_modules():
         for name in sorted(files):
             filename = os.path.join(path, name)
             if not name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
-                filename_short = filename.replace(os.getcwd() +"/","")
-                filename_short = filename_short.replace(".py","")
-                filename_short = str(filename_short)
+                module = filename_to_module(filename)
                 description = module_parser(filename, "DESCRIPTION")
                 location = module_parser(filename,"INSTALL_LOCATION")
                 if not ((location is None) or (os.path.exists(os.path.join(path.replace("ptf/modules/",""), location)))):
                     if description != None:
-                        temp_number = 53 - len(filename_short)
+                        temp_number = 53 - len(module)
                         print(
-                            "   " + filename_short + " " * temp_number + description)
+                            "   " + module + " " * temp_number + description)
     print("\n")
 
 # this is here if you need to access to a gitlab with a password for your keyphrase
@@ -186,8 +184,33 @@ def get_password_gitlab():
     if password_gitlab == "":
         password_gitlab = getpass.getpass('Enter passphrase for Gitlab modules key (let blank if no passphrase) : ')
 
+def discover_module_filename(module):
+    SPECIAL_MODULE_NAMES = ("install_update_all", "update_installed", "custom_list", "__init__",)
+    module_suffix = ".txt" if "custom_list" in module else ".py"
+
+    # is module already a path?
+    if '/' in module or any(map(module.__contains__, SPECIAL_MODULE_NAMES)):
+        return definepath() + "/" + module + module_suffix
+
+    # find module
+    modules_path = os.getcwd() + "/modules/"
+    for path, subdirs, files in os.walk(modules_path):
+        for name in sorted(files):
+            if name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
+                continue
+            name_short = name.replace(".py","")
+            if name_short == module:
+               return os.path.join(path, name)
+
+    raise Exception("module not found")
+
+def filename_to_module(filename):
+    module = filename.replace(os.getcwd() +"/","").replace(".py","")
+    return str(module)
+
 # this is when a use <module> command is initiated
 def use_module(module, all_trigger):
+
     prompt = ("")
     # if we aren't using all
     if not "install_update_all" in module and not "update_installed" in module and not "__init__" in module and not "custom_list" in module:
@@ -197,7 +220,8 @@ def use_module(module, all_trigger):
 
         # if we are using a normal module
         if int(all_trigger) == 0 or int(all_trigger) == 1 or int(all_trigger) == 2:
-            filename = definepath() + "/" + module + ".py"
+            filename = discover_module_filename(module)
+            module = filename_to_module(filename)
 
             # grab the author
             try:
@@ -366,7 +390,7 @@ def use_module(module, all_trigger):
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
-                            subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                            proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
                             # check launcher
                             launcher(filename, install_location)
@@ -675,7 +699,7 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-4] not in open(definepath() + "/" + prompt[1] + ".txt").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
@@ -749,7 +773,7 @@ def handle_prompt(prompt, force=False):
 
                 for path, subdirs, files in os.walk(modules_path):
                     for name in files:
-                        if "custom_list" in prompt[1] and name[:-3] not in open(definepath() + "/" + prompt[1] + ".py").read():
+                        if "custom_list" in prompt[1] and name[:-4] not in open(definepath() + "/" + prompt[1] + ".txt").read():
                             break
                         # join the structure
                         filename = os.path.join(path, name)
@@ -808,7 +832,7 @@ def handle_prompt(prompt, force=False):
                                 print(("Updating %s") % module)
                                 use_module(module, 2)
 
-        if os.path.isfile(definepath() + "/" + prompt[1] + ".py"):
+        if os.path.isfile(discover_module_filename(prompt[1])):
             counter = 1
 
         if counter == 1:
