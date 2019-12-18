@@ -390,7 +390,7 @@ def use_module(module, all_trigger):
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
                             print_status("Updating the tool, be patient while git pull is initiated.")
-                            subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                            proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
                             # check launcher
                             launcher(filename, install_location)
