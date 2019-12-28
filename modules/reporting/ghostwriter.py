@@ -29,3 +29,6 @@ AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir .envs && cp -r .envs_template/.*.env
 
 # create a launcher
 LAUNCHER="ghostwriter"
+
+# PREREQ INSTALL MODULES NEEDED FOR THIS TOOL TO WORK PROPERLY
+TOOL_DEPEND=""
