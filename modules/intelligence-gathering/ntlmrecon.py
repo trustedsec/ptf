@@ -25,3 +25,6 @@ DEBIAN="git,pip,python"
 AFTER_COMMANDS="cd {INSTALL_LOCATION},pip install virtualenv,virtualenv venv,source venv/bin/activate,python setup.py install"
 
 LAUNCHER="ntlmrecon"
+
+# PREREQ INSTALL MODULES NEEDED FOR THIS TOOL TO WORK PROPERLY
+TOOL_DEPEND=""
