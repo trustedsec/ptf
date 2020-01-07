@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update autoProc by Justn Bollinger (@bandr
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="hhttps://gist.github.com/3dd47c93cd430606865ec84d281913dc.git"
+REPOSITORY_LOCATION="https://gist.github.com/3dd47c93cd430606865ec84d281913dc.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="check_hashes"
