@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/smicallef/spiderfoot.git"
 INSTALL_LOCATION="spiderfoot"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python-pip"
+DEBIAN="git python3-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="pip install lxml netaddr M2Crypto cherrypy mako"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},pip3 install -r requirements.txt"
 
 # create a launcher
 LAUNCHER="spiderfoot"
