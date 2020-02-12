@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Recon-NG - a recon tool"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
+REPOSITORY_LOCATION="https://github.com/lanmaster53/recon-ng"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="recon-ng"
