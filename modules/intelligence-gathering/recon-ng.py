@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://bitbucket.org/LaNMaSteR53/recon-ng/"
 INSTALL_LOCATION="recon-ng"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python python-xlsxwriter python-crypto python-mechanize python-pip"
+DEBIAN="git python3 python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,python,python-crypto,python-mechanize"
+FEDORA="git,python3,python3-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="python -m pip install dicttoxml PyPDF2,cd {INSTALL_LOCATION},pip install -r REQUIREMENTS"
+AFTER_COMMANDS="pip3 install PyPDF3 pyaes bs4,cd {INSTALL_LOCATION},pip3 install -r REQUIREMENTS"
 
 # CREATE LAUNCHER
 LAUNCHER="recon-ng"
