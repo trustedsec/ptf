@@ -22,7 +22,7 @@ INSTALL_LOCATION="turbolist3r"
 DEBIAN="python,python-pip,python-requests" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, pip install -r requirements.txt, chmod+x turbolist3r.py"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, pip install -r requirements.txt, chmod +x turbolist3r.py"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="turbolist3r"
