@@ -6,8 +6,6 @@ from src.core import logging
 import subprocess
 
 # this will do updates and installations
-
-
 def base_install_modules(module_name):
 
     counter = 0
