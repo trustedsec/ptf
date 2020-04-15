@@ -23,6 +23,6 @@ INSTALL_LOCATION="eyewitness"
 DEBIAN="git,python-setuptools,libffi-dev,libssl-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}/setup,./setup.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}Python/setup,./setup.sh"
 
 LAUNCHER="eyewitness"
