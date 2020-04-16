@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update msolspray - enum tool for O365/Azur
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/dafthack/MSOLSpray/blob/master/MSOLSpray.ps1"
+REPOSITORY_LOCATION="https://github.com/dafthack/MSOLSpray/"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="msolspray"
