@@ -1,4 +1,14 @@
 ~~~~~~~~~~~~~~~~~
+version 2.4
+~~~~~~~~~~~~~~~~~
+
+* add default-http-hunter
+* add wifite2
+* remove wifilite1
+* fix custom lists from not working
+
+
+~~~~~~~~~~~~~~~~~
 version 2.3.9
 ~~~~~~~~~~~~~~~~~
 
