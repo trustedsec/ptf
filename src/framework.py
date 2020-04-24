@@ -550,12 +550,12 @@ def use_module(module, all_trigger):
                             print_status("Installing now.. be patient...")
                             if install_type.lower() == "gitlab":
                                 get_password_gitlab()
-                                proc = pexpect.spawn('git clone %s %s' % (repository_location, install_location))
+                                proc = pexpect.spawn('git clone --depth=1 %s %s' % (repository_location, install_location))
                                 proc.expect('passphrase')
                                 proc.sendline('%s' % password_gitlab)
                                 proc.expect(pexpect.EOF)
                             else:
-                                subprocess.Popen("git clone %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                                subprocess.Popen("git clone --depth=1 %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
 
                             print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         after_commands(filename, install_location)
