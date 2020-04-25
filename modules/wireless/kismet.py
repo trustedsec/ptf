@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update kismet, a tool for wireless auditin
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://www.kismetwireless.net/kismet.git" 
+REPOSITORY_LOCATION="https://github.com/kismetwireless/kismet" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="kismet"
