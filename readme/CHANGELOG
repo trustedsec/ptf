@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+version 2.5
+~~~~~~~~~~~~~~~~~
+
+* reduce size in github requests by using depth of 1 (PR)
+* always show lowercase search results regardless of case (PR)
+* fix dotnet11 after commands for install
+* fix Kismet to the right github repository
+
+~~~~~~~~~~~~~~~~~
 version 2.4
 ~~~~~~~~~~~~~~~~~
 
