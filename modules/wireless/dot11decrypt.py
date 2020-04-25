@@ -26,4 +26,4 @@ DEBIAN=""
 FEDORA=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make -j4,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir build,cd build,cmake ..,make"
