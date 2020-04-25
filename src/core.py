@@ -397,7 +397,7 @@ def launcher(filename, install_location):
 
 # search functionality here
 def search(term):
-    term = term.replace("search ", "")
+    term = term.replace("search ", "").lower() # Make the text in search lower for case sensitive
     module_files = []
     if "update" in term or "install" in term:
         module_files.append("modules/install_update_all")
