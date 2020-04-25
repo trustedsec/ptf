@@ -1,4 +1,0 @@
-burp
-metasploit
-zaproxy
-nmap

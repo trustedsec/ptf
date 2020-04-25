@@ -13,11 +13,9 @@ import sys
 
 # tab completion
 def complete(text, state):
-    a = (glob.glob(text + '*') + [None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace(
-        "README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "") + "/"
+    a = (glob.glob(text + '*') + [None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "").replace(".txt","") + "/"
     a = a.replace("//", "/")
-    if os.path.isfile(a[:-1] + ".py"):
-        return a[:-1]
+    if os.path.isfile(a[:-1] + ".py") or os.path.isfile(a[:-1] + ".txt"): return a[:-1]
     else:
         return a
 
