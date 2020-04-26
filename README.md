@@ -59,7 +59,12 @@ This will only install the exploitation modules. You can do this for any module 
 
 ### Customize your own installed tools
 
-You can install only the tools you want to by going to the modules/custom_list/list.py section. Modify the list.py file and add the tools you only want to install or update.
+You can install only the tools you want to by going to the modules/custom_list/list.txt section. Modify the list.txt file and add the tools you only want to install or update.
+
+Example list.txt file:
+
+modules/exploitation/metasploit
+modules/post-exploitation/unicorn
 
 Then when in PTF:
 
