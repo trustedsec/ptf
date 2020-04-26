@@ -451,11 +451,9 @@ def auto_update():
 
 # check if a blank directory exists
 def check_blank_dir(path):
-
     if os.path.isdir(path):
         if os.listdir(path) == []:
-            print_status(
-                "Detected an empty folder, purging and re-checking out...")
+            print_status("Detected an empty folder, purging and re-checking out...")
             subprocess.Popen("rm -rf %s" % (path), shell=True).wait()
 
         # we put a second one in there in case the path was removed from above
