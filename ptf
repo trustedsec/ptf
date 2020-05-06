@@ -45,6 +45,15 @@ def check_internet():
         return 0
 
 
+def update_the_master():
+    x = subprocess.Popen("git pull >/dev/null", shell=True).wait() # added /dev/null so we don't have to see gits auto message
+    if x == 0:
+        print_status("We are already updated and ready to go")
+    elif x != 0:
+        print_status("Some updates have take place")
+    else:
+        print_status("Already updated")
+
 if __name__ == "__main__":
     # only imports we actually need
     from src.core import print_warning, print_status, print_error
@@ -59,6 +68,7 @@ if __name__ == "__main__":
         exit()
 
     try:
+        os.system("clear")
         # Bypass network check with argument
         if "--no-network-connection" not in sys.argv[1:]:
             # check internet connection
@@ -73,7 +83,7 @@ if __name__ == "__main__":
 
             # try to update ourself first
             print_status("Trying to update myself first.. Then starting framework.")
-            subprocess.Popen("git pull", shell=True).wait()
+            update_the_master()
 
             # create automatic launcher
             create_launcher()
@@ -102,4 +112,4 @@ if __name__ == "__main__":
     except Exception as e:
         print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occurred.")
         print_error("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-        print_error(("[!] Printing that error. Get that error. You get it: " + str(e)))
+        print_error(("[!] Printing that error. Get that error. You get it: [" + str(e) + "]"))

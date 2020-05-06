@@ -23,8 +23,12 @@ except:
 try: input = raw_input
 except NameError: pass
 
-# print the main welcome banner
-print (banner)
+# If user does not want the awesome banner, do not print it out
+if '-nb' in sys.argv or '--no-banner' in sys.argv:
+    print(description)
+else:
+    # print the main welcome banner
+    print (banner)
 
 # funny random banner
 import random
@@ -195,10 +199,12 @@ def discover_module_filename(module):
     modules_path = os.getcwd() + "/modules/"
     for path, subdirs, files in os.walk(modules_path):
         for name in sorted(files):
-            if name in ('__init__.py', 'install_update_all.py', 'update_installed.py'): continue
+            if name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
+                continue
             name_short = name.replace(".py","")
-            name_short = name.replace(".txt", "")
-            if name_short == module: return os.path.join(path, name)
+            #name_short = name.replace(".txt", "")
+            if name_short == module:
+                return os.path.join(path, name)
 
     raise Exception("module not found")
 
@@ -765,7 +771,8 @@ def handle_prompt(prompt, force=False):
         print_warning("Command was not found, try help or ? for more information.")
 # start the main loop
 def mainloop():
-    while 1:
+    funny_string = "H4x0rz 4r3 1337"
+    while funny_string == "H4x0rz 4r3 1337":
         # set title
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
         try:

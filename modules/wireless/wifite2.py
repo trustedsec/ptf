@@ -7,7 +7,7 @@
 AUTHOR="Dave Kennedy (@HackingDave)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update wifite2 - a tool for wireless auditing"
+DESCRIPTION="This module will install/update wifite2 - a tool for wireless auditing (better than the original wifite)"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
