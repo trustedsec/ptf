@@ -170,9 +170,7 @@ banner += bcolors.BOLD + """\n              The easy way to get the new and shin
 """ + bcolors.ENDC + "\n"
 banner += "             Total module/tool count within PTF: " + \
     bcolors.BOLD + str(count_modules()) + bcolors.ENDC + "\n"
-
-# Print the description when not printing the full banner
-description = """
+banner += """
 All tools are downloaded directly from the developers websites as-is.  PTF 
 doesn't perform any type of source code analysis or verification on the tools.
 You should run these after performing your own analysis of the tools and ensure 
@@ -180,9 +178,6 @@ you trust the parties. PTF only adds tools that are well-known typically in the
 security industry but that does not negate the risk. This is no different than 
 any other tool distribution platform, operating system, or anything you would 
 download from the Internet.\n"""
-
-# This will print the description above when -nb or --no-banner is NOT used
-banner += description
 
 # check the config file and return value
 def check_config(param):

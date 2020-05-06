@@ -25,7 +25,7 @@ except NameError: pass
 
 # If user does not want the awesome banner, do not print it out
 if '-nb' in sys.argv or '--no-banner' in sys.argv:
-    print(description)
+    pass
 else:
     # print the main welcome banner
     print (banner)
@@ -202,7 +202,6 @@ def discover_module_filename(module):
             if name in ('__init__.py', 'install_update_all.py', 'update_installed.py'):
                 continue
             name_short = name.replace(".py","")
-            #name_short = name.replace(".txt", "")
             if name_short == module:
                 return os.path.join(path, name)
 
@@ -771,8 +770,7 @@ def handle_prompt(prompt, force=False):
         print_warning("Command was not found, try help or ? for more information.")
 # start the main loop
 def mainloop():
-    funny_string = "H4x0rz 4r3 1337"
-    while funny_string == "H4x0rz 4r3 1337":
+    while 1:
         # set title
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
         try:
