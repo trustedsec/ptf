@@ -394,7 +394,7 @@ def search(term):
                             module_files.append(os.path.join(dirpath, x))
 
                         if not term in path:
-                            data = open(path, "r").readlines()
+                            data = open(path, "r", encoding="utf-8").readlines()
                             # normally just searched entire file, but we don't
                             # want to search # lines
                             for line in data:
