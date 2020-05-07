@@ -1,4 +1,11 @@
 ~~~~~~~~~~~~~~~~~
+version 2.4.4
+~~~~~~~~~~~~~~~~~
+
+* revert new banner due to compatibility issues
+* fix search functionality in DEBIAN (thanks Mubix)
+
+~~~~~~~~~~~~~~~~~
 2.4.3
 ~~~~~~~~~~~~~~~~~
 
