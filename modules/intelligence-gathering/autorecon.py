@@ -30,7 +30,7 @@ FEDORA="git"
 AFTER_COMMANDS="cd {INSTALL_LOCATION}, pip3 install -r requirements.txt"
 
 # AUTOMATIC LAUNCH
-LAUNCHER="autorecon.py"
+LAUNCHER="autorecon"
 
 # needed for install
 #BYPASS_UPDATE="YES"

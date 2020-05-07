@@ -102,4 +102,4 @@ if __name__ == "__main__":
     except Exception as e:
         print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occurred.")
         print_error("[!] It's not possible its due to my coding skillz, it must be you? :-)")
-        print_error(("[!] Printing that error. Get that error. You get it: " + str(e)))
+        print_error(("[!] Printing that error. Get that error. You get it: [" + str(e) + "]"))
