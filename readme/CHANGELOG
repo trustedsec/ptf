@@ -1,4 +1,16 @@
 ~~~~~~~~~~~~~~~~~
+2.4.3
+~~~~~~~~~~~~~~~~~
+
+* add evil-winrm
+* add donut
+* new ascii art from realagentwhite (PR)
+* fix output log file to ptf.log (realagentwhite PR)
+* fix autorecon launcher (realagentwhite PR)
+* add a no banner option by specifying -nb or --no-banner (realagentwhite PR)
+* fix use without category name (realagentwhite PR) 
+
+~~~~~~~~~~~~~~~~~
 2.4.2
 ~~~~~~~~~~~~~~~~~
 

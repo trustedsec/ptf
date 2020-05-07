@@ -76,6 +76,14 @@ yes
 
 This allows you to carry your module configuration over and only install the tools that you want and keep them updated.
 
+You can also simply specify a module without using the category:
+
+```
+./ptf
+use trevorc2
+yes
+```
+
 ### Modules:
 
 First, head over to the modules/ directory, inside of there are sub directories based on the Penetration Testing Execution Standard (PTES) phases. Go into those phases and look at the different modules. As soon as you add a new one, for example testing.py, it will automatically be imported next time you launch PTF. There are a few key components when looking at a module that must be completed.
@@ -180,3 +188,14 @@ The `IGNORE_UPDATE_ALL_MODULES=` config option can be found under config/ptf.con
 The `INCLUDE_ONLY_THESE_MODULES` in the config option under config/ptf.config will only install and include specific modules that are specified here. This is good for baselining the tools that you want and install only them.
 
 
+### LAUNCH PTF WITH NO BANNER
+
+You can launch PTF with no banner message if you want. Simply specify:
+
+```
+./ptf --no-banner
+
+or 
+
+./ptf -nb
+```
