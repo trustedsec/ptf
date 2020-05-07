@@ -16,6 +16,17 @@ PTF attempts to install all of your penetration testing tools (latest and greate
 
 The ultimate goal is for community support on this project. We want new tools added to the github repository. Submit your modules. It's super simple to configure and add them and only takes a few minute.
 
+### Installation
+
+PTF requires python-pexpect in order to work appropriately. 
+
+Run the following command below:
+
+```
+pip install -r requirements.txt
+./ptf
+```
+
 ### Instructions:
 
 First check out the config/ptf.config file which contains the base location of where to install everything. By default this will install in the /pentest directory. Once you have that configured, move to running PTF by typing `./ptf` (or python ptf).
