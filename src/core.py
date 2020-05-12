@@ -116,13 +116,6 @@ def count_modules():
 grab_version = "2.4.3"
 
 # banner
-# banner
-import requests
-resp = requests.get("https://pastebin.com/raw/YYb5Jc2H")
-
-banner = bcolors.RED + resp.text +bcolors.ENDC
-# https://pastebin.com/raw/YYb5Jc2H
-'''
 banner = bcolors.RED + r"""
 
 
@@ -149,7 +142,6 @@ banner = bcolors.RED + r"""
 
 
 """
-'''
 
 banner += bcolors.ENDC + """
 		     The"""
