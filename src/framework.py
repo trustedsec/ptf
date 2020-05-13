@@ -16,7 +16,7 @@ try:
     pexpect_check = 1
 except: 
     print("[!] python-pexpect not installed, gitlab will not work")
-    print("[!] Run pip install python-pexpect to install pexpect for gitlab support.")
+    print("[!] Run pip install pexpect to install pexpect for gitlab support.")
     pexpect_check = 0
 
 # python 2 compatibility
