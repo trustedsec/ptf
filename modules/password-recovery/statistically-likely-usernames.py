@@ -15,4 +15,4 @@ INSTALL_LOCATION="statistically-likely-usernames"
 DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, cd ..,if [ -d '/usr/share/wordlists/' ]; then ln -s `pwd`/statistically-likely-usernames/ /usr/share/wordlists/statistically-likely-usernames/; fi;"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, cd ..,if [ -d '/usr/share/wordlists/' ]; then ln -s `pwd`/statistically-likely-usernames/ /usr/share/wordlists/statistically-likely-usernames; fi;"
