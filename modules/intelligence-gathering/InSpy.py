@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Jason Ashton (jayw0k)"
+AUTHOR="Jason Ashton (ninewires)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update InSpy - A LinkedIn enumeration tool"
@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/gojhonny/InSpy"
 INSTALL_LOCATION="InSpy"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python-pip"
+DEBIAN="git,python-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"

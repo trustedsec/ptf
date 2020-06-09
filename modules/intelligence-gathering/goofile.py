@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Jason Ashton (@jayw0k)"
+AUTHOR="Jason Ashton (ninewires)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update goofile - a Google Advanced Searches tool"
