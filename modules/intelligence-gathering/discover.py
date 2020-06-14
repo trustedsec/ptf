@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Martin Bos (purehate) & Jason Ashton (jayw0k)"
+AUTHOR="Martin Bos (purehate) & Jason Ashton (ninewires)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update discover - an OSINT tool"
