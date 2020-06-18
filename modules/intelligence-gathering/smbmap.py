@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/ShawnDEvans/smbmap"
 INSTALL_LOCATION="smbmap"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,python-pip"
+DEBIAN="git,python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,python-pip"
+FEDORA="git,python3-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},pip install -r requirements.txt"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python3 -m pip install -r requirements.txt"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="smbmap"
