@@ -243,8 +243,10 @@ def use_module(module, all_trigger):
                 print_warning("Unicorn requires metasploit.")
                 install_unicorn = input("Do you want to install/update metasploit? (y/n) ").lower()
                 if install_unicorn == 'y':
+                    print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
                     pass
                 elif install_unicorn == 'n':
+                    print_info("Skipping metasploit installation/update")
                     tool_depend = ""
                 else:
                     print_error("Option incorrect. I will continue as normal")
