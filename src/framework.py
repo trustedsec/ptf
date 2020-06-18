@@ -239,7 +239,7 @@ def use_module(module, all_trigger):
             # by default PTF will install or update metasploit.
             # Here it will ask what the user wants to do for if they already have msf installed
             # If they do, it will skip, else it will install
-            if 'metasploit' in tool_depend:
+            if 'metasploit' in tool_depend and 'unicorn' in module:
                 print_warning("Unicorn requires metasploit.")
                 install_unicorn = input("Do you want to install/update metasploit? (y/n) ").lower()
                 if install_unicorn == 'y':
