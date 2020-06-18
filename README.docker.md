@@ -12,7 +12,7 @@ docker build --rm -t spinfoo/ptf:1.1 .
 
 After, you can run PTF anytime with:
 ```
-docker run -it spinfoo/ptf:1.1 /bin/bash
+docker run --rm -it spinfoo/ptf:1.1 /bin/bash -c 'cd /root/ptf && ./ptf'
 ```
 
 
