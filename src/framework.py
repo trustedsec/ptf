@@ -235,6 +235,22 @@ def use_module(module, all_trigger):
             install_type = module_parser(filename, "INSTALL_TYPE")
             # if were are tool depends for other modules prior to install
             tool_depend = module_parser(filename, "TOOL_DEPEND")
+            # Since unicorn requires metasploit to be installed in order to generate the payloads,
+            # by default PTF will install or update metasploit.
+            # Here it will ask what the user wants to do for if they already have msf installed
+            # If they do, it will skip, else it will install
+            if 'metasploit' in tool_depend:
+                print_warning("Unicorn requires metasploit.")
+                install_unicorn = input("Do you want to install/update metasploit? (y/n) ").lower()
+                if install_unicorn == 'y':
+                    pass
+                elif install_unicorn == 'n':
+                    tool_depend = ""
+                else:
+                    print_error("Option incorrect. I will continue as normal")
+                    pass
+            else:
+                 pass
             # if the module path is wrong, throw a warning
             try:
                 if not os.path.isfile(tool_depend + ".py"):
