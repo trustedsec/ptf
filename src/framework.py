@@ -240,16 +240,27 @@ def use_module(module, all_trigger):
             # Here it will ask what the user wants to do for if they already have msf installed
             # If they do, it will skip, else it will install
             if 'metasploit' in tool_depend and 'unicorn' in module:
-                print_warning("Unicorn requires metasploit.")
-                install_unicorn = input("Do you want to install/update metasploit? (y/n) ").lower()
-                if install_unicorn == 'y':
-                    print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
-                    pass
-                elif install_unicorn == 'n':
-                    print_info("Skipping metasploit installation/update")
-                    tool_depend = ""
+                print_warning("Unicorn requires Metasploit Framework to be installed.")
+                # Check if metasploit is installed
+                if os.path.isdir("/opt/metasploit-framework/"):
+                    print_info("Seems like you have Metasploit Framework already installed")
+                    install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
+                    # Do we want to update metasploit now or later
+                    # If yes, then this will run as this part never existed
+                    if install_unicorn == 'y':
+                        print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
+                        pass
+                    # If we do not want to update, then it will skip metasploit update
+                    elif install_unicorn == 'n':
+                        print_info("Skipping metasploit installation/update")
+                        tool_depend = ""
+                    else:
+						# If we enter anything but 'y' or 'n', it will continue like normal
+                        print_info("No input detected. I will continue as normal and update metasploit")
+                        pass
                 else:
-                    print_error("Option incorrect. I will continue as normal")
+					# If metasploit is not installed, then we will run as this part never existed
+                    print_warning("Metasploit Framework is NOT installed. Therefore, I will install it for you")
                     pass
             else:
                  pass
