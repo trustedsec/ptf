@@ -90,6 +90,11 @@ if __name__ == "__main__":
                 src.framework.handle_prompt("use modules/install_update_all")
         elif "--update-installed" in sys.argv[1:]:
             src.framework.handle_prompt("use modules/update_installed")
+        # Show the available options and then run the prompt
+        elif "--help" in sys.argv:
+            src.core.show_help_menu()
+            print("\n")
+            src.framework.mainloop()
         else:
             # or just ask what you want
             src.framework.mainloop()

@@ -235,35 +235,6 @@ def use_module(module, all_trigger):
             install_type = module_parser(filename, "INSTALL_TYPE")
             # if were are tool depends for other modules prior to install
             tool_depend = module_parser(filename, "TOOL_DEPEND")
-            # Since unicorn requires metasploit to be installed in order to generate the payloads,
-            # by default PTF will install or update metasploit.
-            # Here it will ask what the user wants to do for if they already have msf installed
-            # If they do, it will skip, else it will install
-            if 'metasploit' in tool_depend and 'unicorn' in module:
-                print_warning("Unicorn requires Metasploit Framework to be installed.")
-                # Check if metasploit is installed
-                if os.path.isdir("/opt/metasploit-framework/"):
-                    print_info("Seems like you have Metasploit Framework already installed")
-                    install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
-                    # Do we want to update metasploit now or later
-                    # If yes, then this will run as this part never existed
-                    if install_unicorn == 'y':
-                        print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
-                        pass
-                    # If we do not want to update, then it will skip metasploit update
-                    elif install_unicorn == 'n':
-                        print_info("Skipping metasploit installation/update")
-                        tool_depend = ""
-                    else:
-						# If we enter anything but 'y' or 'n', it will continue like normal
-                        print_info("No input detected. I will continue as normal and update metasploit")
-                        pass
-                else:
-					# If metasploit is not installed, then we will run as this part never existed
-                    print_warning("Metasploit Framework is NOT installed. Therefore, I will install it for you")
-                    pass
-            else:
-                 pass
             # if the module path is wrong, throw a warning
             try:
                 if not os.path.isfile(tool_depend + ".py"):
@@ -328,9 +299,6 @@ def use_module(module, all_trigger):
 
                 # if we are searching for something
                 if "search " in prompt:
-                    search(prompt)
-                if "show " in prompt:
-                    prompt = split("/","")[1]
                     search(prompt)
 
                 # options menu - was a choice here to load upon initial load of dynamically pull each time
@@ -598,6 +566,40 @@ def find_containing_file(directory, location):
         print_warning("%s is not managed by PTF"%(location))
         # Didn't find anything, returning None
         return None
+
+def use_unicorn():
+    if os.path.isfile(discover_module_filename('metasploit')):
+        print_info("Metasploit is installed")
+        print_info("Checking if unicorn is installed...")
+        if os.path.isfile(discover_module_filename("unicorn")):
+            print_info("Unicorn has already been installed...")
+            print_info("Going to update now...")
+            prompt = "update"
+            unicorn_update()
+    else:
+        print_warning("Unicorn or Metasploit have not been installed...")
+        print_info("Installing unicorn now...")
+        prompt = "install"
+        use_module("unicorn","")
+
+def unicorn_update():
+    print_status("Updating the tool, be patient while git pull is initiated.")
+    proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    # check launcher
+    launcher(filename, install_location)
+    # here we check to see if we need anything we need to
+    # run after things are updated
+    update_counter = 0
+    if not "Already up-to-date." in proc.communicate():
+        after_commands(filename, install_location)
+        update_counter = 1
+    else:
+        print_status("Tool already up-to-date!")
+        print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
+
+
+
+
 def handle_prompt(prompt, force=False):
     # specify no commands, if counter increments then a command was found
     base_counter = 0
@@ -626,11 +628,16 @@ def handle_prompt(prompt, force=False):
     if prompt.startswith("search"):
         base_counter = 1
         search(prompt)
+    # special function for when wanting to use unicorn
+    if "unicorn" in prompt:
+        use_unicorn()
+
     # if we want to use a module
     if prompt.startswith("use"):
         base_counter = 1
         counter = 0
         prompt = prompt.split(" ")
+        print_info(prompt)
         # do a quick sanity check to see if the module is there first
         if "install_update_all" in prompt[1] or "custom_list" in prompt[1]:
             counter = 3
