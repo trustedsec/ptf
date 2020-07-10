@@ -13,7 +13,7 @@ AUTHOR="Andrew Schwartz"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/arch4ngel/peasant.git"
+REPOSITORY_LOCATION="https://github.com/Sp3nge/peasant.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="peasant"
