@@ -20,9 +20,9 @@ REPOSITORY_LOCATION="https://github.com/wifiphisher/wifiphisher"
 INSTALL_LOCATION="wifiphisher"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python2.7"
+DEBIAN="git python3 dnsmasq"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python2.7 setup.py install,ln -s {INSTALL_LOCATION}bin/wifiphisher /usr/bin/wifiphisher"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python3 setup.py install,ln -s {INSTALL_LOCATION}bin/wifiphisher /usr/bin/wifiphisher"
 
 LAUNCHER=""
