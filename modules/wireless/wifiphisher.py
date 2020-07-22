@@ -23,6 +23,6 @@ INSTALL_LOCATION="wifiphisher"
 DEBIAN="git python2.7"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python2.7 setup.py install,ln -s {INSTALL_LOCATION}bin /usr/bin/wifiphisher"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python2.7 setup.py install,ln -s {INSTALL_LOCATION}bin/wifiphisher /usr/bin/wifiphisher"
 
 LAUNCHER=""
