@@ -12,6 +12,9 @@ import subprocess
 import os
 import socket
 
+# Import PTF internal logging module
+from src.ptflogger import info, error, debug, log
+
 # temp fix for python3 conversion - will remove as everyone moves over to python3
 subprocess.Popen("find . -iname *.pyc -delete", shell=True).wait()
 
@@ -23,12 +26,13 @@ def create_launcher():
     """
     Create a launcher to execute PTF from the commandline.
     """
+    info("Creating automatic launcher")
     cwd = os.getcwd()
     filewrite = open("/usr/local/bin/ptf", "w")
     filewrite.write('#!/bin/sh\ncd %s\nchmod +x ptf\n./ptf "$@"' % (cwd))
     filewrite.close()
     subprocess.Popen("chmod +x /usr/local/bin/ptf", shell=True).wait()
-
+    info("Automatic launcher created")
 
 def check_internet():
     """
@@ -55,6 +59,7 @@ if __name__ == "__main__":
         os.makedirs("/usr/local/bin/")
 
     if os.geteuid() != 0:
+        error("PTF was not run with higher privileges (root)")
         print("\nThe Pentesters Framework (PTF) - by David Kennedy (ReL1K)")
         print("\nThis needs to be run as root. Please sudo it up! Exiting...")
         exit()
@@ -64,6 +69,7 @@ if __name__ == "__main__":
         if "--no-network-connection" not in sys.argv[1:]:
             # check internet connection
             if check_internet() == 0:
+                error("No internet detected...exiting PTF")
                 print_warning("Unable to detect Internet connection. Needed for PTF.")
                 print_warning("We will now exit PTF. Launch again when you got a connection.")
                 print_warning("You can also run ptf with the --no-network-connection argument to bypass the network check.")
@@ -73,6 +79,7 @@ if __name__ == "__main__":
             git_https_force()
 
             # try to update ourself first
+            info("Grabbing latest updates from github repository trustedsec/ptf")
             print_status("Trying to update myself first.. Then starting framework.")
             subprocess.Popen("git pull", shell=True).wait()
 
@@ -82,6 +89,8 @@ if __name__ == "__main__":
         # pull in the framework
         import src.framework
 
+        info("User commands passed through arguments:")
+        info(sys.argv)
         # if we want to skip going into module
         if  "--update-all" in sys.argv[1:]:
             if "-y" in sys.argv[1:]:
@@ -101,11 +110,14 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print("\n")
+        info("User aborted operation ctrl+c")
         print_status("Exiting PTF - the easy pentest platform creation framework.")
         exit()
         sys.exit()
 
     except Exception as e:
+        error("Jumped to exception in 'ptf' script")
+        error(e)
         print_error("[!] DANGER WILL ROBINSON. DANGER WILL ROBINSON. Error has occurred.")
         print_error("[!] It's not possible its due to my coding skillz, it must be you? :-)")
         print_error(("[!] Printing that error. Get that error. You get it: [" + str(e) + "]"))

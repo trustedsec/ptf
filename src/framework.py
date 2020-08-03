@@ -11,7 +11,7 @@ import readline
 import os
 import time
 import getpass
-
+from src.ptflogger import info, error
 try: 
     import pexpect
     pexpect_check = 1
@@ -307,7 +307,10 @@ def use_module(module, all_trigger):
             if int(all_trigger) == 0:
                 try:
                     prompt = input(bcolors.BOLD + "ptf:" + bcolors.ENDC + "(" + bcolors.RED + "%s" % module + bcolors.ENDC + ")>")
-                except EOFError:
+                    info("Options after module has been chosen")
+                    info(prompt)
+                except EOFError as eof:
+                    error(eof)
                     prompt = "back"
                     print("")
 
@@ -402,6 +405,19 @@ def use_module(module, all_trigger):
                         "Tool not installed yet, will run through install routine")
                     prompt = "install"
 
+            def log_output():
+                # Log proc output into the log file
+                def check_io():
+                    while True:
+                        output = proc.stdout.readline().decode()
+                        output = output.replace("\n","")
+                        if output:
+                            info(output)
+                        else:
+                            break
+                while proc.poll() is None:
+                    check_io()
+
             # check to see if we need to bypass after commands for certain
             # files - this is needed when using FILE and others where after
             # commands need to be run
@@ -415,8 +431,14 @@ def use_module(module, all_trigger):
                     # move to the location
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
-                            print_status("Updating the tool, be patient while git pull is initiated.")
+                            msg = "Updating %s , be patient while git pull is initiated" % module
+                            print_status(msg)
+                            info(msg)
+                            #with open("ptf-output.log","a") as ee:
+                            #    ee.write(msg+"\n")
+                            #log(msg)
                             proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            log_output()
                             # check launcher
                             launcher(filename, install_location)
                             # here we check to see if we need anything we need to
@@ -425,8 +447,13 @@ def use_module(module, all_trigger):
                             if not "Already up-to-date." in proc.communicate():
                                 after_commands(filename, install_location)
                                 update_counter = 1
-                            else: print_status("Tool already up-to-date!")
-                            print_status("Finished Installing! Enjoy the tool installed under: " + (install_location))
+                            else: 
+                                print_status("Tool already up-to-date!")
+                                log("Tool already up-to-date")
+                            
+                            msg = "Finished Installing! Enjoy the tool installed under: " + install_location
+                            print_status(msg)
+                            log(msg)
                             # run after commands
                             if update_counter == 0:
                                     after_commands(filename, install_location)
@@ -492,45 +519,61 @@ def use_module(module, all_trigger):
                 if not "__init__.py" in filename and not ignore_module(filename):
                     # grab the OS type, DEBIAN, FEDORA, CUSTOM, BSD!!!! WOW!!,
                     ostype = profile_os()
+                    # Global msg for below preparing dependencies for module
+                    msg_prep_dpns = "Preparing dependencies for module: " + module
+                    msg_prep_reqs = "Pre-reqs for %s have been installed." % module
                     # if OSTYPE is DEBIAN
                     if ostype == "DEBIAN":
-                        print_status("Preparing dependencies for module: " + module)
+                        print_status(msg_prep_dpns)
+                        info(msg_prep_dpns)
                         from src.platforms.debian import base_install_modules
                         # grab all the modules we need
                         deb_modules = module_parser(filename, "DEBIAN")
                         base_install_modules(deb_modules)
-                        print_status("Pre-reqs for %s have been installed." % (module))
+                        print_status(msg_prep_reqs)
+                        info(msg_prep_reqs)
                     # if OSTYPE is ARCHLINUX
                     if ostype == "ARCHLINUX":
-                        print_status("Preparing dependencies for module: " + module)
+                        print_status(msg_prep_dpns)
+                        info(msg_prep_dpns)
                         from src.platforms.archlinux import base_install_modules
                         # grab all the modules we need
                         arch_modules = module_parser(filename, "ARCHLINUX")
                         base_install_modules(arch_modules)
-                        print_status("Pre-reqs for %s have been installed." % (module))
+                        print_status(msg_prep_reqs)
+                        info(msg_prep_reqs)
                     # if OSTYPE is FEDORA
                     if ostype == "FEDORA":
-                        print_status("Preparing dependencies for module: " + module)
+                        print_status(msg_prep_dpns)
+                        info(msg_prep_dpns)
                         from src.platforms.fedora import base_install_modules
                         # grab all the modules we need
                         fedora_modules = module_parser(filename, "FEDORA")
                         base_install_modules(fedora_modules)
-                        print_status("Pre-reqs for %s have been installed." % (module))
+                        print_status(msg_prep_reqs)
+                        info(msg_prep_reqs)
                     # if OSTYPE is OPENBSD
                     if ostype == "OPENBSD":
-                        print_status("Preparing dependencies for module: " + module)
+                        print_status(msg_prep_dpns)
+                        info(msg_prep_dpns)
                         from src.platforms.openbsd import base_install_modules
                         # grab all the modules we need
                         openbsd_modules = module_parser(filename, "OPENBSD")
                         base_install_modules(openbsd_modules)
-                        print_status("Pre-reqs for %s have been installed." % (module))
-                    print_status("Making the appropriate directory structure first")
+                        print_status(msg_prep_reqs)
+                        info(msg_prep_reqs)
+
+                    msg = "Making the appropriate directory structure first"
+                    print_status(msg)
+                    info(msg)
                     subprocess.Popen("mkdir -p %s" % install_location, shell=True).wait()
                     # if we are using git
                     if install_type.lower() in ["git","gitlab"]:
                         # if there are files in the install_location, we'll update.
                         if os.listdir(install_location):
-                            print_status("Installation already exists, going to git pull then run after commands..")
+                            msg = "Installation already exists, going to git pull then run after commands.."
+                            info(msg)
+                            print_status(msg)
                             if install_type.lower() == "gitlab":
                                 get_password_gitlab()
                                 proc = pexpect.spawn('git -C %s pull' % (install_location))
@@ -540,19 +583,29 @@ def use_module(module, all_trigger):
                                 proc.wait()
                             else:
                                 subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
-                            print_status("Finished updating the tool located in:" + install_location)
+
+                            msg = "Finished updating the tool located in:" + install_location
+                            print_status(msg)
+                            info(msg)
                         else:
-                            print_status("%s was the selected method for installation... Using %s to install." % (install_type.upper(), install_type.upper()))
+                            msg = "%s was the selected method for installation... Using %s to install." % (install_type.upper(), install_type.upper())
+                            print_status(msg)
+                            info(msg)
                             print_status("Installing now.. be patient...")
+                            info("Installing now.. be patient...")
                             if install_type.lower() == "gitlab":
                                 get_password_gitlab()
                                 proc = pexpect.spawn('git clone --depth=1 %s %s' % (repository_location, install_location))
+                                log_output()
                                 proc.expect('passphrase')
                                 proc.sendline('%s' % password_gitlab)
                                 proc.expect(pexpect.EOF)
                             else:
-                                subprocess.Popen("git clone --depth=1 %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
-                            print_status("Finished Installing! Enjoy the tool located under: " + install_location)
+                                proc = subprocess.Popen("git clone --depth=1 %s %s" % (repository_location, install_location), stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                                log_output()
+                            msg = "Finished Installing! Enjoy the tool located under: " + install_location
+                            info(msg)
+                            print_status(msg)
                         after_commands(filename, install_location)
                         launcher(filename, install_location)
                     # if we are using svn
@@ -808,7 +861,9 @@ def mainloop():
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
         try:
             prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
-        except EOFError:
+            info(prompt)
+        except EOFError as eof:
+            error(eof)
             prompt = "quit"
             print("")
         handle_prompt(prompt)

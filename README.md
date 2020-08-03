@@ -210,3 +210,8 @@ or
 
 ./ptf -nb
 ```
+
+### LOGGING ALMOST EVERYTHING WHILE RUNNING THE TOOL
+
+The code is still under development but so far is working perfect.
+There are parts of the code that you will see there is a variable with a msg. This variable is to have it global (for each part of the code) and to be able to reuse it instead of having to re-type the sentence everytime.
