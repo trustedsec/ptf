@@ -12,6 +12,9 @@ import platform
 import urllib.request
 import sys
 
+# Import PTF internal logging module
+#from src.ptflogger import info, error, debug, log
+
 # tab completion
 def complete(text, state):
     a = (glob.glob(text + '*') + [None])[state].replace("__init__.py", "").replace(".py", "").replace("LICENSE", "").replace("README.md", "").replace("config", "").replace("ptf", "").replace("readme", "").replace("src", "").replace("         ", "").replace(".txt","") + "/"
@@ -385,8 +388,10 @@ def launcher(filename, install_location):
                     filewrite.close()
                     subprocess.Popen("chmod +x /usr/local/bin/%s" %
                                      (launchers), shell=True).wait()
-                    print_status("Created automatic launcher, you can run the tool from anywhere by typing: " + launchers)
-
+                    msg = "Created automatic launcher, you can run the tool from anywhere by typing: " + launchers
+                    print_status(msg)
+                    with open("ptf-output.log","a") as ee:
+                        ee.write(msg+"\n")
             # just need to do this once
             if base_launcher == 1:
                 break
