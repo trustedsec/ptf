@@ -397,17 +397,16 @@ def use_module(module, all_trigger):
                 check_blank_dir(install_location)
 
                 if os.path.isdir(install_location):
-                    print_status(
-                        "Detected installation already. Going to upgrade for you.")
+                    print_status("Detected installation already. Going to upgrade for you.")
                     prompt = "update"
                 else:
-                    print_status(
-                        "Tool not installed yet, will run through install routine")
+                    print_status("Tool not installed yet, will run through install routine")
                     prompt = "install"
 
             def log_output():
                 # Log proc output into the log file
                 def check_io():
+                    output = ""
                     while True:
                         output = proc.stdout.readline().decode()
                         output = output.replace("\n","")
@@ -415,8 +414,9 @@ def use_module(module, all_trigger):
                             info(output)
                         else:
                             break
-                while proc.poll() is None:
-                    check_io()
+                    if output != "":
+                        while proc.poll() is None:
+                            check_io()
 
             # check to see if we need to bypass after commands for certain
             # files - this is needed when using FILE and others where after
@@ -434,9 +434,6 @@ def use_module(module, all_trigger):
                             msg = "Updating %s , be patient while git pull is initiated" % module
                             print_status(msg)
                             info(msg)
-                            #with open("ptf-output.log","a") as ee:
-                            #    ee.write(msg+"\n")
-                            #log(msg)
                             proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                             log_output()
                             # check launcher
