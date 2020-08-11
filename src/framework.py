@@ -11,7 +11,7 @@ import readline
 import os
 import time
 import getpass
-from src.ptflogger import info, error
+from src.ptflogger import info, error, log
 try: 
     import pexpect
     pexpect_check = 1
