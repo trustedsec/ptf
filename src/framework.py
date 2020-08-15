@@ -856,9 +856,13 @@ def handle_prompt(prompt, force=False):
         print_warning("Command was not found, try help or ? for more information.")
 # start the main loop
 def mainloop():
+    has_run = 0
     while 1:
+        has_run += 1
         # set title
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
+        if not has_run >= 2:
+            print_info("[!] Logs are now outputed into the directory of cloned ptf under name 'ptf-output.log'")
         try:
             prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
             info(prompt)
