@@ -242,7 +242,7 @@ def use_module(module, all_trigger):
             if 'metasploit' in tool_depend and 'unicorn' in module:
                 print_warning("Unicorn requires Metasploit Framework to be installed.")
                 # Check if metasploit is installed
-                if os.path.isdir("/opt/metasploit-framework/"):
+                if os.path.isdir("/opt/metasploit-framework/") or os.path.isdir("/usr/share/metasploit-framework/"):
                     print_info("Seems like you have Metasploit Framework already installed")
                     install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
                     # Do we want to update metasploit now or later
