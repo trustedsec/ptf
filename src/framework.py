@@ -242,7 +242,7 @@ def use_module(module, all_trigger):
             if 'metasploit' in tool_depend and 'unicorn' in module:
                 print_warning("Unicorn requires Metasploit Framework to be installed.")
                 # Check if metasploit is installed
-                if os.path.isdir("/opt/metasploit-framework/"):
+                if os.path.isdir("/opt/metasploit-framework/") or os.path.isdir("/usr/share/metasploit-framework/"):
                     print_info("Seems like you have Metasploit Framework already installed")
                     install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
                     # Do we want to update metasploit now or later
@@ -853,9 +853,13 @@ def handle_prompt(prompt, force=False):
         print_warning("Command was not found, try help or ? for more information.")
 # start the main loop
 def mainloop():
+    has_run = 0
     while 1:
+        has_run += 1
         # set title
         set_title("The PenTesters Framework (PTF) v%s" % grab_version)
+        if not has_run >= 2:
+            print_info("[!] Logs are now outputed into the directory of cloned ptf under name 'ptf-output.log'")
         try:
             prompt = input(bcolors.BOLD + "ptf" + bcolors.ENDC + "> ")
             info(prompt)

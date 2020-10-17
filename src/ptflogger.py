@@ -31,11 +31,12 @@ try:
 	''' *************************************************** '''
 
 	# First check if the file exists, if it does emtpy the file with /dev/null
+	save_to = "ptf-output.log"
+	#save_to = os.environ['HOME']+"/ptf-output.log"
+	if os.path.isfile(save_to):
+		os.system("cat /dev/null > "+save_to)
 
-	if os.path.isfile("ptf-output.log"):
-		os.system("cat /dev/null > ptf-output.log")
-
-	log = logging.basicConfig(filename="ptf-output.log", level=logging.INFO)
+	log = logging.basicConfig(filename=save_to, level=logging.INFO)
 	#log = logging.getLogger("PTF Basic Logger")
 	log = logging.info
 
