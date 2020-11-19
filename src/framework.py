@@ -331,9 +331,7 @@ def use_module(module, all_trigger):
 
                 # if we are searching for something
                 if "search " in prompt:
-                    #search(prompt)
                     if search(prompt):
-                        #prompt('back')
                         prompt("")
                 if "show " in prompt:
                     prompt = split("/","")[1]
