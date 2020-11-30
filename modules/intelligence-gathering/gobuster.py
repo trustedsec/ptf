@@ -22,4 +22,4 @@ INSTALL_LOCATION="gobuster"
 DEBIAN="golang" 
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="echo 'export GOPATH=$HOME/go' > ~/.profile, . ~/.profile,go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
+AFTER_COMMANDS="echo '\\nexport GOPATH=$HOME/go' >> ~/.profile, . ~/.profile,go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
