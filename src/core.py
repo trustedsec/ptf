@@ -432,6 +432,8 @@ def search(term):
 
     else:
         print_warning("Search found no results.")
+    
+    return True
 
 
 # auto update packages

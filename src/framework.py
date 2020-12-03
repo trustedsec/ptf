@@ -331,10 +331,16 @@ def use_module(module, all_trigger):
 
                 # if we are searching for something
                 if "search " in prompt:
-                    search(prompt)
+                    if search(prompt):
+                        prompt("")
                 if "show " in prompt:
                     prompt = split("/","")[1]
                     search(prompt)
+
+                if prompt == "" or len(prompt) < 1:
+                    print_error("No prompt given. Returning to base")
+                    prompt(back)
+
 
                 # options menu - was a choice here to load upon initial load of dynamically pull each time
                 # if changes are made, it makes sense to keep it loading each time
