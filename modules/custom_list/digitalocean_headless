@@ -14,7 +14,6 @@ modules/exploitation/httphunter
 modules/exploitation/impacket
 modules/exploitation/kingphisher.py
 modules/exploitation/metasploit
-modules/exploitation/msfdb
 modules/exploitation/pwntools
 modules/intelligence-gathering/autorecon
 modules/intelligence-gathering/dirsearch
