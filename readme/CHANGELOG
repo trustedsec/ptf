@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 2.4.6
+~~~~~~~~~~~~~~~~~
+
+* fix an issue with PTF prompts when using a module and typing show options
+
+~~~~~~~~~~~~~~~~~
 version 2.4.5
 ~~~~~~~~~~~~~~~~~
 

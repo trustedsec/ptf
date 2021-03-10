@@ -329,26 +329,27 @@ def use_module(module, all_trigger):
                 if "use " in prompt:
                     return prompt
 
+                # options menu - was a choice here to load upon initial load of dynamically pull each time
+                # if changes are made, it makes sense to keep it loading each time
+                #if prompt.lower() == "show options":
+                #    print("Module options (%s):" % module)
+
                 # if we are searching for something
                 if "search " in prompt:
                     if search(prompt):
                         prompt("")
-                if "show " in prompt:
-                    prompt = split("/","")[1]
-                    search(prompt)
+
+                #if "show " in prompt:
+                #    prompt = split("/","")[1]
+                #    search(prompt)
 
                 if prompt == "" or len(prompt) < 1:
-                    print_error("No prompt given. Returning to base")
-                    prompt(back)
-
-
-                # options menu - was a choice here to load upon initial load of dynamically pull each time
-                # if changes are made, it makes sense to keep it loading each time
-                if prompt.lower() == "show options":
-                    print("Module options (%s):" % module)
+                    print("[*] No prompt given, type help, back, show options, or run to proceed.")
+                    #prompt(back)
 
                 # if we are using a normal module
                 if module != "modules/install_update_all":
+                  if "show options" in prompt:
 
                     print("\n\n")
                     print(bcolors.BOLD + "Module Author:         " + bcolors.ENDC + author)
