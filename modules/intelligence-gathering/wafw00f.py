@@ -20,16 +20,16 @@ REPOSITORY_LOCATION="https://github.com/sandrogauci/wafw00f.git"
 INSTALL_LOCATION="wafw00f"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, python-pip"
+DEBIAN="git, python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git, python-pip"
+FEDORA="git, python3-pip"
 
 # DEPENDS FOR ARCHLINUX INSTALLS
 ARCHLINUX=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install, mv {INSTALL_LOCATION}/wafw00f/main.py {INSTALL_LOCATION}/wafw00f.py"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python3 setup.py install,mv {INSTALL_LOCATION}/wafw00f/main.py {INSTALL_LOCATION}/wafw00f.py"
 
 # CREATE LAUNCHER
-LAUNCHER="wafw00f"
+LAUNCHER=""
