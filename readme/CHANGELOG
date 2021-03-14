@@ -1,4 +1,10 @@
 ~~~~~~~~~~~~~~~~~
+version 2.4.7
+~~~~~~~~~~~~~~~~~
+
+* add new flag option to "show installed" to show all installed applications through PTF
+
+~~~~~~~~~~~~~~~~~
 version 2.4.6
 ~~~~~~~~~~~~~~~~~
 

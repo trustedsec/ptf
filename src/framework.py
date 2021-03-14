@@ -853,11 +853,24 @@ def handle_prompt(prompt, force=False):
                 except Exception: break
         if counter == 0:
             print_error("Module name was not found, try retyping it again.")
+
+    # show installed modules
+    if "show installed"  in prompt:
+        print_status("Printing out all of the installed programs through The PenTesters Framework")
+        for root, dirs, files in os.walk(check_config("BASE_INSTALL_PATH="), topdown=False):
+            for name in dirs:
+                if root.count(os.sep) >= 3: del dirs[:]
+                else: print(os.path.join(root, name))
+        base_counter = 1
+
+
     # if blanks are used
     if prompt == "":
         base_counter = 1
+
     if base_counter == 0:
         print_warning("Command was not found, try help or ? for more information.")
+
 # start the main loop
 def mainloop():
     has_run = 0

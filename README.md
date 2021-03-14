@@ -210,3 +210,11 @@ or
 
 ./ptf -nb
 ```
+
+### CHECK FOR INSTALLED PROGRAMS THROUGH PTF
+
+You can check to see what applications you've already installed through PTF by typing the following:
+
+```
+ptf>show installed
+```
