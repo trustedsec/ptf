@@ -860,6 +860,7 @@ def handle_prompt(prompt, force=False):
         for root, dirs, files in os.walk(check_config("BASE_INSTALL_PATH="), topdown=False):
             for name in dirs:
                 if root.count(os.sep) >= 3: del dirs[:]
+                elif root.count(os.sep) == 1: del dirs[:]
                 else: print(os.path.join(root, name))
         base_counter = 1
 
