@@ -4,6 +4,7 @@ version 2.4.8
 
 * simplify the nmap install script to native OS installation
 * fix root directories listing in show installed
+* fix ruler module
 
 ~~~~~~~~~~~~~~~~~
 version 2.4.7
