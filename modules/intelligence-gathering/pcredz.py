@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/lgandx/PCredz"
 INSTALL_LOCATION="pcredz"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git,python-libpcap"
+DEBIAN="git,python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
-FEDORA="git,python-libpcap"
+FEDORA="git,python3-pip"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="sudo -H pip3 install Cython && sudo -H pip3 install python-libpcap"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="pcredz"
