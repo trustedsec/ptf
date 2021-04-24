@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update binwalk - a Firmware Analysis Tool"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/devttys0/binwalk"
+REPOSITORY_LOCATION="https://github.com/ReFirmLabs/binwalk"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="binwalk"
