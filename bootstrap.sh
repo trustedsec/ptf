@@ -8,7 +8,7 @@
 export DEBIAN_FRONTEND=noninteractive
 echo "docker-ptf" > /etc/hostname
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+apt-get install -y --no-install-recommends apt-utils
 apt-get upgrade -y
 echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid main" >/etc/apt/sources.list.d/metasploit-framework.list
 apt -y install gnupg gnupg2 gnupg1 --fix-missing 
