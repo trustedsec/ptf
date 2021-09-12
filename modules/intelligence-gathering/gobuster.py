@@ -4,7 +4,7 @@
 ####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Zawadi Done"
+AUTHOR="Zawadi Done, Suksit Sripitchayaphan"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update GoBuster"
@@ -19,7 +19,10 @@ REPOSITORY_LOCATION="https://github.com/OJ/gobuster"
 INSTALL_LOCATION="gobuster"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="golang"
+DEBIAN="git,golang"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="echo '\nexport GOPATH=$HOME/go' >> ~/.profile, . ~/.profile,go get github.com/OJ/gobuster,cp ~/go/bin/gobuster /usr/local/bin"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},go get,go build"
+
+# THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
+LAUNCHER="gobuster"
