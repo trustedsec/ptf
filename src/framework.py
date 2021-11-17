@@ -243,24 +243,26 @@ def use_module(module, all_trigger):
                 print_warning("Unicorn requires Metasploit Framework to be installed.")
                 # Check if metasploit is installed
                 if os.path.isdir("/opt/metasploit-framework/") or os.path.isdir("/usr/share/metasploit-framework/"):
-                    print_info("Seems like you have Metasploit Framework already installed")
-                    install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
+                    print_info("Seems like you have Metasploit Framework already installed. Will skip installation.")
+                    tool_depend = ""
+                    pass
+                    #install_unicorn = input("Do you want to update metasploit? (y/n) (default is yes) ").lower()
                     # Do we want to update metasploit now or later
                     # If yes, then this will run as this part never existed
-                    if install_unicorn == 'y':
-                        print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
-                        pass
+                    #if install_unicorn == 'y':
+                    #    print_info("Once you enter run, update, install or upgrade I will install metasploit for you")
+                    #    pass
                     # If we do not want to update, then it will skip metasploit update
-                    elif install_unicorn == 'n':
-                        print_info("Skipping metasploit installation/update")
-                        tool_depend = ""
-                    else:
-						# If we enter anything but 'y' or 'n', it will continue like normal
-                        print_info("No input detected. I will continue as normal and update metasploit")
-                        pass
+                    #elif install_unicorn == 'n':
+                    #    print_info("Skipping metasploit installation/update")
+                    #    tool_depend = ""
+                    #else:
+			            # If we enter anything but 'y' or 'n', it will continue like normal
+                        #print_info("No input detected. I will continue as normal and update metasploit")
+                        #pass
                 else:
-					# If metasploit is not installed, then we will run as this part never existed
-                    print_warning("Metasploit Framework is NOT installed. Therefore, I will install it for you")
+		            # If metasploit is not installed, then we will run as this part never existed
+                    print_warning("Metasploit Framework is NOT installed. Installing it for you..")
                     pass
             else:
                  pass
@@ -438,11 +440,13 @@ def use_module(module, all_trigger):
                     # move to the location
                     if os.path.isdir(install_location):
                         if install_type.lower() == "git":
-                            msg = "Updating %s , be patient while git pull is initiated" % module
+                            msg = "Updating %s, be patient while git pull is initiated" % module
                             print_status(msg)
                             info(msg)
                             proc = subprocess.Popen("cd %s;git pull" % (install_location), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            output = (proc.communicate()[0]).decode('utf-8').rstrip()
                             log_output()
+                            print(output)
                             # check launcher
                             launcher(filename, install_location)
                             # here we check to see if we need anything we need to
@@ -513,8 +517,8 @@ def use_module(module, all_trigger):
                             launcher(filename, install_location)
                             # run after commands
                             if prompt != "update": after_commands(filename, install_location)
-                        print_status("Running updatedb to tidy everything up.")
-                        subprocess.Popen("updatedb", shell=True).wait()
+                        #print_status("Running updatedb to tidy everything up.")
+                        #subprocess.Popen("updatedb", shell=True).wait()
                     if not os.path.isdir(install_location):
                         print_error("The tool was not found in the install location. Try running install first!")
             # if we want to install it
@@ -637,8 +641,8 @@ def use_module(module, all_trigger):
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         launcher(filename, install_location)
                         after_commands(filename, install_location)
-                    print_status("Running updatedb to tidy everything up.")
-                    subprocess.Popen("updatedb", shell=True).wait()
+                    #print_status("Running updatedb to tidy everything up.")
+                    #subprocess.Popen("updatedb", shell=True).wait()
             # if we update all we need to break out until finished
             if int(all_trigger) == 1 or int(all_trigger) == 2:
                 break
@@ -665,6 +669,8 @@ def handle_prompt(prompt, force=False):
     # if we want to exit out
     if prompt == "quit" or prompt == "exit" or prompt == "back":
         base_counter = 1
+        print_status("Running updatedb to tidy everything up.")
+        subprocess.Popen("updatedb", shell=True).wait()
         exit_ptf()
         sys.exit()
     # if we want to see the modules

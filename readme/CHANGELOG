@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 2.5
+~~~~~~~~~~~~~~~~~
+
+* fixed tool_depend prompt when already installed
+* sped up installation times greatly by forcing updatedb only upon exiting
+* minor bug fixes and misc items
+
+~~~~~~~~~~~~~~~~~
 version 2.4.8
 ~~~~~~~~~~~~~~~~~
 
