@@ -1,4 +1,12 @@
 ~~~~~~~~~~~~~~~~~
+version 2.6
+~~~~~~~~~~~~~~~~~
+
+* added new tool SeeYouCM-Thief - an exploitation framework for CUCM Cisco phone systems. 
+* added new tool spoonman - a wrapper for NMAP and MassScan
+* removed updatedb from exit - would cause hanging at times
+
+~~~~~~~~~~~~~~~~~
 version 2.5
 ~~~~~~~~~~~~~~~~~
 

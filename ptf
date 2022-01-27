@@ -111,8 +111,8 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n")
         info("User aborted operation ctrl+c")
-        print_status("Running updatedb to tidy everything up.")
-        subprocess.Popen("updatedb", shell=True).wait()
+        #print_status("Running updatedb to tidy everything up.")
+        #subprocess.Popen("updatedb", shell=True).wait()
         print_status("Exiting PTF - the easy pentest platform creation framework.")
         exit()
         sys.exit()
