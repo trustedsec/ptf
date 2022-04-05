@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/P0cL4bs/wifipumpkin3"
 INSTALL_LOCATION="wifipumpkin3"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git python3.7-dev libssl-dev libffi-dev build-essential python3.7"
+DEBIAN="git python3.7-dev libssl-dev libffi-dev build-essential python3"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git python3.7"
