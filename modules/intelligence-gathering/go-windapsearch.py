@@ -1,39 +1,37 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for EvilWinRM
+# Installation module for go-windapsearch
 #####################################
 
-# AUTHOR OF MODULE NAME
-AUTHOR="David Kennedy (ReL1K)"
-
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update Evil-WinRM a post exploitation tool for abusing WinRM"
+DESCRIPTION="This module will install/update go-windapsearch a tool to assist in Active Directory Domain enumeration through LDAP queries."
+
+AUTHOR="Ronnie Flathers - ropnop"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Hackplayers/evil-winrm"
+REPOSITORY_LOCATION="https://github.com/ropnop/go-windapsearch.git"
 
 # WHERE DO YOU WANT TO INSTALL IT
-INSTALL_LOCATION="evil-winrm"
+INSTALL_LOCATION="go-windapsearch"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="git, ruby, ruby-dev"
+DEBIAN="git"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # DEPENDS FOR ARCHLINUX INSTALLS
-ARCHLINUX="git, ruby"
+ARCHLINUX="git,go"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},gem install evil-winrm winrm winrm-fs stringio"
+AFTER_COMMANDS="go get -u github.com/magefile/mage && cd {INSTALL_LOCATION} && mage build"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER="evil-winrm"
+LAUNCHER="windapsearch"
 
 # PREREQ INSTALL MODULES NEEDED FOR THIS TOOL TO WORK PROPERLY
 TOOL_DEPEND=""
-
