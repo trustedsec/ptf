@@ -1,4 +1,13 @@
 ~~~~~~~~~~~~~~~~~
+version 2.7.1
+~~~~~~~~~~~~~~~~~
+
+* added new ability to specify TAGS option in modules. This will allow you to use the tags method in github to automatically pull back the latest version of a tool/application and keep them updated. PTF will now detect the latest version and download them. Take a look at the modules/intelligence-gathering/teamfiltration file for the appropriate format. 
+* Updated README.md with the latest ability to use TAGS method.
+* Fixed an issue that would not allow you to exit PTF properly.
+
+
+~~~~~~~~~~~~~~~~~
 version 2.7
 ~~~~~~~~~~~~~~~~~
 

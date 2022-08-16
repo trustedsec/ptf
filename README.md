@@ -129,7 +129,7 @@ TOOL_DEPEND="modules/exploitation/metasploit"
 
 ### Module Development:
 
-All of the fields are pretty easy, on the repository locations, you can use GIT, SVN or FILE. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to `/pentest/PTES_PHASE/TOOL_FOLDER`
+All of the fields are pretty easy, on the repository locations, you can use GIT, SVN FILE, OR TAGS. Fill in the depends, and where you want the install location to be. PTF will take where the python file is located (for example exploitation) and move it to what you specify in the PTF config (located under config). By default it installs all your tools to `/pentest/PTES_PHASE/TOOL_FOLDER`
 
 Note in modules, you can specify after commands `{INSTALL_LOCATION}`. This will append where you want the install location to go when using after commands.
 
@@ -138,6 +138,8 @@ You can also specify `{PTF_LOCATION}` which will pull the base path for your PTF
 You also have the ability for repository locations to specify both a 32 bit and 64 bit location. Repository location should always be the x86 download path. To add a 64 bit path for a tool, specify X64_LOCATION and give it a URL. When PTF launches it will automatically detect the architecture and attempt to use the x64 link instead of the x86.
 
 Note that ArchLinux packages are also supported, it needs to be specified for both DEBIAN and ARCH in order for it to be properly installed on either platform in the module
+
+When using the TAGS mode, this will allow you to use a github project that utilizes tags to pull the latest version (usually compiled applications) and automatically download. In order to use the TAGS method, take a look at the structure under modules/intelligence-gathering/teamfiltration.py. In this example, there is no need for a repository_location, but you will need to know the project owner, project name/repo, and the filename to download. In the example of TeamFiltration, it is located at: https://github.com/Flangvik/TeamFiltration. The owner would be Flangvik, the project/tool would be TeamFiltration. If you navigate to releases: https://github.com/Flangvik/TeamFiltration/releases/, we can see here that the name of the file we want to download is "TeamFiltration_Linux". These are under the OWNER, REPOHOME, and FILENAME. Specifying these, PTF will automatically detect the latest release of the tool and install them.
 
 ### GITLAB Support
 

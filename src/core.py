@@ -117,7 +117,7 @@ def count_modules():
     return counter
 
 # version information
-grab_version = "2.7"
+grab_version = "2.7.1"
 
 # banner
 banner = bcolors.RED + r"""
@@ -485,3 +485,16 @@ def check_kali():
     else:
         print("[!] Not running a Debian variant..")
         return "Non-Kali"
+
+# this will pull back the latest tag for releases if they are using git tags for releases
+# owner is the github repo owner for example in this github repo:
+# https://github.com/Flangvik/TeamFiltration
+# owner equals Flangvik
+# repo equals TeamFiltration
+# Filename is the actual filename after version, in this case it would be TeamFiltration_Linux which is the name of the binary name for the application. This is essentially the filename to download.
+def get_latest_tag(owner, repo, filename):
+        import requests
+        url = ("https://api.github.com/repos/" + owner + "/" + repo + "/releases/latest")
+        response = requests.get(url)
+        tag = (response.json()["name"]).replace("V", "v")
+        return("https://github.com/" + owner + "/" + repo + "/releases/download/" + tag + "/" + filename)

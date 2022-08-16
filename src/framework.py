@@ -331,19 +331,10 @@ def use_module(module, all_trigger):
                 if "use " in prompt:
                     return prompt
 
-                # options menu - was a choice here to load upon initial load of dynamically pull each time
-                # if changes are made, it makes sense to keep it loading each time
-                #if prompt.lower() == "show options":
-                #    print("Module options (%s):" % module)
-
                 # if we are searching for something
                 if "search " in prompt:
                     if search(prompt):
                         prompt("")
-
-                #if "show " in prompt:
-                #    prompt = split("/","")[1]
-                #    search(prompt)
 
                 if prompt == "" or len(prompt) < 1:
                     print("[*] No prompt given, type help, back, show options, or run to proceed.")
@@ -517,8 +508,7 @@ def use_module(module, all_trigger):
                             launcher(filename, install_location)
                             # run after commands
                             if prompt != "update": after_commands(filename, install_location)
-                        #print_status("Running updatedb to tidy everything up.")
-                        #subprocess.Popen("updatedb", shell=True).wait()
+
                     if not os.path.isdir(install_location):
                         print_error("The tool was not found in the install location. Try running install first!")
             # if we want to install it
@@ -641,8 +631,18 @@ def use_module(module, all_trigger):
                         print_status("Finished Installing! Enjoy the tool located under: " + install_location)
                         launcher(filename, install_location)
                         after_commands(filename, install_location)
-                    #print_status("Running updatedb to tidy everything up.")
-                    #subprocess.Popen("updatedb", shell=True).wait()
+                    # if we are using tags
+                    if install_type.lower() == "tags":
+                        print_status("GitHub TAGS method used, will pull the latest version of the tool/project and download each time.")
+                        owner = module_parser(filename, "OWNER")
+                        repo = module_parser(filename,  "REPOHOME")
+                        repo_filename = module_parser(filename, "FILENAME")
+                        download_url = get_latest_tag(owner, repo, repo_filename)
+                        print("Latest version found: " + download_url)
+                        print("Pulling latest version from GitHub tags...")
+                        subprocess.Popen("cd %s && wget -q %s" % (install_location, download_url), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
+                        print_status("Finished installation! Enjoy the tool located under: " + install_location)
+
             # if we update all we need to break out until finished
             if int(all_trigger) == 1 or int(all_trigger) == 2:
                 break
@@ -669,8 +669,8 @@ def handle_prompt(prompt, force=False):
     # if we want to exit out
     if prompt == "quit" or prompt == "exit" or prompt == "back":
         base_counter = 1
-        print_status("Running updatedb to tidy everything up.")
-        subprocess.Popen("updatedb", shell=True).wait()
+        #print_status("Running updatedb to tidy everything up.")
+        #subprocess.Popen("updatedb", shell=True).wait()
         exit_ptf()
         sys.exit()
     # if we want to see the modules
