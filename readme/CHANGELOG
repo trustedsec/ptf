@@ -1,4 +1,490 @@
 ~~~~~~~~~~~~~~~~~
+version 2.7.1
+~~~~~~~~~~~~~~~~~
+
+* added new ability to specify TAGS option in modules. This will allow you to use the tags method in github to automatically pull back the latest version of a tool/application and keep them updated. PTF will now detect the latest version and download them. Take a look at the modules/intelligence-gathering/teamfiltration file for the appropriate format. 
+* Updated README.md with the latest ability to use TAGS method.
+* Fixed an issue that would not allow you to exit PTF properly.
+
+
+~~~~~~~~~~~~~~~~~
+version 2.7
+~~~~~~~~~~~~~~~~~
+
+* remove sparta (not updated)
+* add legion
+* add teamfiltration
+
+~~~~~~~~~~~~~~~~~
+version 2.6
+~~~~~~~~~~~~~~~~~
+
+* added new tool SeeYouCM-Thief - an exploitation framework for CUCM Cisco phone systems. 
+* added new tool spoonman - a wrapper for NMAP and MassScan
+* removed updatedb from exit - would cause hanging at times
+
+~~~~~~~~~~~~~~~~~
+version 2.5
+~~~~~~~~~~~~~~~~~
+
+* fixed tool_depend prompt when already installed
+* sped up installation times greatly by forcing updatedb only upon exiting
+* minor bug fixes and misc items
+
+~~~~~~~~~~~~~~~~~
+version 2.4.8
+~~~~~~~~~~~~~~~~~
+
+* simplify the nmap install script to native OS installation
+* fix root directories listing in show installed
+* fix ruler module
+* update pcredz module depends
+
+~~~~~~~~~~~~~~~~~
+version 2.4.7
+~~~~~~~~~~~~~~~~~
+
+* add new flag option to "show installed" to show all installed applications through PTF
+
+~~~~~~~~~~~~~~~~~
+version 2.4.6
+~~~~~~~~~~~~~~~~~
+
+* fix an issue with PTF prompts when using a module and typing show options
+
+~~~~~~~~~~~~~~~~~
+version 2.4.5
+~~~~~~~~~~~~~~~~~
+
+* added empire3
+
+~~~~~~~~~~~~~~~~~
+version 2.4.4
+~~~~~~~~~~~~~~~~~
+
+* revert new banner due to compatibility issues
+* fix search functionality in DEBIAN (thanks Mubix)
+
+~~~~~~~~~~~~~~~~~
+2.4.3
+~~~~~~~~~~~~~~~~~
+
+* add evil-winrm
+* add donut
+* new ascii art from realagentwhite (PR)
+* fix output log file to ptf.log (realagentwhite PR)
+* fix autorecon launcher (realagentwhite PR)
+* add a no banner option by specifying -nb or --no-banner (realagentwhite PR)
+* fix use without category name (realagentwhite PR) 
+
+~~~~~~~~~~~~~~~~~
+2.4.2
+~~~~~~~~~~~~~~~~~
+
+* major bug fix in custom lists, now works properly
+* fix burp launcher
+
+~~~~~~~~~~~~~~~~~
+version 2.4.1
+~~~~~~~~~~~~~~~~~
+
+* reduce size in github requests by using depth of 1 (PR)
+* always show lowercase search results regardless of case (PR)
+* fix dotnet11 after commands for install
+* fix Kismet to the right github repository
+
+~~~~~~~~~~~~~~~~~
+version 2.4
+~~~~~~~~~~~~~~~~~
+
+* add default-http-hunter
+* add wifite2
+* remove wifilite1
+* fix custom lists from not working
+* add wifipumpkin3
+* update crackmapexec to python3
+
+~~~~~~~~~~~~~~~~~
+version 2.3.9
+~~~~~~~~~~~~~~~~~
+
+* fix EyeWitness install
+* add amass
+* add msolspray
+
+~~~~~~~~~~~~~~~~~
+version 2.3.8
+~~~~~~~~~~~~~~~~~
+
+* update spiderfoot installation for python3
+
+~~~~~~~~~~~~~~~~~
+2.3.7
+~~~~~~~~~~~~~~~~~
+
+* commit PR changes for new tools and fixes
+* fixed kerbrute installer and moved location to exploitation
+
+~~~~~~~~~~~~~~~~~
+2.3.6
+~~~~~~~~~~~~~~~~~
+
+* add 15 new tools
+
+~~~~~~~~~~~~~~~~~
+2.3.5
+~~~~~~~~~~~~~~~~~
+
+* added unlock - applocker evasion tool (pr theguly)
+* fix for ptf --update-installed (thanks spoonman!! lawry)
+* remove --force-yes to allow-downgrades --allow-remove-essential (thanks skapunker)
+* add install_update_all to each category so you can install directly from each module section vsd everything
+
+~~~~~~~~~~~~~~~~~
+2.3.4
+~~~~~~~~~~~~~~~~~
+
+* move trevorc2 to python3
+* move ptf loader to python3
+
+~~~~~~~~~~~~~~~~~
+2.3.3
+~~~~~~~~~~~~~~~~~
+
+* commit the tools, oops
+
+~~~~~~~~~~~~~~~~~
+version 2.3.2
+~~~~~~~~~~~~~~~~~
+
+* fix error on show modules for modules/custom_list/list
+* fix error when using show options inside module it would install depends by typing show options
+* add spoofcheck
+* add bloodhound-python
+* add ldapdpomaindump
+* add ldapper
+* add kerberoast
+* add pcredz
+* add awsbucketdump
+* add pacu 
+
+~~~~~~~~~~~~~~~~~
+version 2.3.1
+~~~~~~~~~~~~~~~~~
+
+* added a check for pexpect
+* added requirements.txt for pexpect
+
+~~~~~~~~~~~~~~~~~
+version 2.3
+~~~~~~~~~~~~~~~~~
+
+* added support for gitlab (pr)
+* added support for custom tool installations based on modules (pr)
+* added rdp scanner (pr)
+* nosqlmap depend fix
+* nmap depend fix
+* added new tool unicorscan
+* added new tool oracle assessment framework
+* added SSH-Audit launcher
+* added new tool Dirb
+* added new tool soapui
+* added new tool postman
+ 
+
+~~~~~~~~~~~~~~~~~
+version 2.2
+~~~~~~~~~~~~~~~~~
+
+* added docker support for PTF (thanks spinfoo)
+* multiple fixes for tools and new additions (thanks Zawadidone)
+
+~~~~~~~~~~~~~~~~~
+version 2.1.3
+~~~~~~~~~~~~~~~~~
+
+* fix bug that caused update only installed to fail with prompt not defined
+
+~~~~~~~~~~~~~~~~~
+version 2.1.2
+~~~~~~~~~~~~~~~~~
+
+* add mitm6 tool (thanks @CantComputer <3)
+
+~~~~~~~~~~~~~~~~~
+version 2.1.1
+~~~~~~~~~~~~~~~~~
+
+* fix prompt when TOOL_DEPEND specified would automatically start install
+
+~~~~~~~~~~~~~~~~~
+version 2.1
+~~~~~~~~~~~~~~~~~
+
+* fix nmap (pr)
+* fix aircrack-ng libtool
+
+~~~~~~~~~~~~~~~~~
+version 2.0
+~~~~~~~~~~~~~~~~~
+
+* fix launchers with $@ instead of $*
+* fixed autosploit to have new install.sh and requirements met
+* force github to use https
+* added api grab to https for Metasploit
+* added error handling if tool_depend module not found
+* fixed veil installation
+* added veil silent installation
+* changed tool depend location metasploit
+* fixed metasploit path in autosploit
+* fixed metasploit path in setolkit
+* fixed metasploit path in unicorn
+* fixed tool depend prompt when using modules with no tool_depend
+* fixed gobuster go home path
+
+~~~~~~~~~~~~~~~~~
+version 1.18
+~~~~~~~~~~~~~~~~~
+
+* added a new config option IGNORE_UPDATE_ALL_MODULES in the ptf.config. This is used for applications that may require user interaction, require substantial amounts of load time, or install items that may open services or ports on the system (such as TOR).
+* removed modules/exploitation/eternalblue-doublepulsar-metasploit as exploit is in Metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.17
+~~~~~~~~~~~~~~~~~
+
+* multiple fixes for aftercommands and escaping (PR)
+* add Joomslav (PR)
+* update masscan (PR)
+* add Robot-Detect (PR)
+
+~~~~~~~~~~~~~~~~~
+version 1.16
+~~~~~~~~~~~~~~~~~
+
+* specify -k on curl for bad certs
+* remove nipe due to tor beaconing by default
+
+~~~~~~~~~~~~~~~~~
+version 1.15
+~~~~~~~~~~~~~~~~~
+
+* add nps_payload 
+* added cupp (PR)
+* remove dirb - no longer supported
+* fix ettercap module
+* remove snoopy-ng to add new peanuts
+
+~~~~~~~~~~~~~~~~~
+version 1.14
+~~~~~~~~~~~~~~~~~
+
+* added new flag INCLUDE_ONLY_THESE_MODULES (thanks cobbr)
+* remove prompt for install update all for automatic install
+
+~~~~~~~~~~~~~~~~~
+version 1.13.1
+~~~~~~~~~~~~~~~~~
+
+* fixed fedora as supported platform throwing fedora_modules error
+* changed github locations for the empyre and ps-empire changes
+
+~~~~~~~~~~~~~~~~~
+version 1.13
+~~~~~~~~~~~~~~~~~
+
+* added new field for modules called TOOL_DEPEND which allows you to specify other tools that are needed in order to install prereqs. Check README.md for more information.
+* added fido
+* fixed sparta ln usage
+
+~~~~~~~~~~~~~~~~~
+version 1.12
+~~~~~~~~~~~~~~~~~
+
+* add stickykeyslayer
+
+~~~~~~~~~~~~~~~~~
+version 1.11
+~~~~~~~~~~~~~~~~~
+
+* add inspy (git pr)
+* add gobuster (git pr)
+* add wso webshell (git pr)
+* depend fixes (git pr)
+* added aptitude as a check for debian as well as apt
+
+~~~~~~~~~~~~~~~~~
+version 1.10.2
+~~~~~~~~~~~~~~~~~
+
+* add jexboss JBOSS exploitation toolkit
+
+~~~~~~~~~~~~~~~~~
+version 1.10.1
+~~~~~~~~~~~~~~~~~
+
+* fixed gladius module missing debian var
+* fixed nonetype error when using update/install all
+
+~~~~~~~~~~~~~~~~~
+version 1.10
+~~~~~~~~~~~~~~~~~
+
+* allow use modules within other modules - no longer need to use back
+* add pipal (spoonman)
+* fix credcrack (bustedsec)
+* add spoopy-ng (bustedsec)
+* add nessus-parser (spoonman)
+* added fluxion (bustedsec)
+
+~~~~~~~~~~~~~~~~~
+version 1.9.2
+~~~~~~~~~~~~~~~~~
+
+* added phishery
+* added snoopy-ng
+
+~~~~~~~~~~~~~~~~~
+version 1.9.1
+~~~~~~~~~~~~~~~~~
+
+* fixed crackmapexec
+* vdbaan fix git #225 -> resolved -> PTF searches for modules based on the directory name (from INSTALL_LOCATION). This can differ from the filename given to the installer. (thanks!)
+* backHack Mobile App Analysis Android added (git pull)
+* added Invoke-Obfsucation
+* Added snarf, bettercap, wordsmith (git pull)
+* resolve os.getcwd() error messages when running after commands when directory wasn't available
+* added automatic download of the latest gpg keys for metasploit in case its expired
+
+~~~~~~~~~~~~~~~~~
+version 1.9
+~~~~~~~~~~~~~~~~~
+
+* new category powershell created
+* added babadook (powershell)
+* added empire (moved location)
+* added bloodhount (moved location)
+* added powersploit
+* added nishang powershell exploitation
+* added powersscm
+* added generate-macro
+* added excel payload
+* added nps (not powershell)
+* added new webshells directory and added blackarch webshells
+* added weevely webshell
+* added b374k webshell
+* added scancannon
+* removed annoying cwd error message, not needed and also removed old print statement
+* add a metasploit-reinstall if package broken
+* add badkeys
+
+~~~~~~~~~~~~~~~~~
+version 1.8.9
+~~~~~~~~~~~~~~~~~
+
+* added cowpatty (thanks matrixfox)
+* added pyrit
+* added ruler (post exploitation for exchange through mapi)
+
+~~~~~~~~~~~~~~~~~
+version 1.8.8
+~~~~~~~~~~~~~~~~~
+
+* create .msf4 directory if not already created for database support
+* re-added urlcrazy and switched it to file in order to have depends for discover
+
+~~~~~~~~~~~~~~~~~
+verison 1.8.7
+~~~~~~~~~~~~~~~~~
+
+* added armitage
+* added build-essentials as main depend when launching
+* added depend for aircrack-ng to work properly
+* fixed issue on ignore modules (PR)
+
+~~~~~~~~~~~~~~~~~
+version 1.8.6
+~~~~~~~~~~~~~~~~~
+
+* add modules/update_installed - this will only update tools that you have installed (thanks for the PR @jaredhaight)
+* put a patch in for whatsweb - the ruby modules are messed up so I included a patched version inside of PTF and patch it post install
+* fixed wafw00f module which was missing pluginbase requirement
+
+~~~~~~~~~~~~~~~~~
+version 1.8.5
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause git pull not to work
+* added better handling around non .py/.pyc files
+* added automatic after_commands upon an actual update occurring to keep tools up to date
+
+~~~~~~~~~~~~~~~~~
+version 1.8.4
+~~~~~~~~~~~~~~~~~
+
+* fixed recon-ng module
+* fixed an issue with medusa
+* fixed msfdb.sh showing up on modules-install-all
+* fixed an issue where certain packages were not available on 16.04
+* added hashcat legacy for virtual machine support
+
+~~~~~~~~~~~~~~~~~
+version 1.8.3
+~~~~~~~~~~~~~~~~~
+
+* fixed an issue that would cause single or double quotes inside after_commands (or anything in module) to not properly run due to improper stripping of single and double quotes
+* added a warning prompt that you cannot use within an addition module
+
+~~~~~~~~~~~~~~~~~
+version 1.8.2
+~~~~~~~~~~~~~~~~~
+
+* added database support automation for metasploit
+
+~~~~~~~~~~~~~~~~~
+version 1.8.1
+~~~~~~~~~~~~~~~~~
+
+* added pip install requirements for recon-ng
+* added pip urllib3[secure] for discovery install
+* added path direction for /usr/local/bin if not there
+
+~~~~~~~~~~~~~~~~~
+version 1.8
+~~~~~~~~~~~~~~~~~
+
+* added samba-client to ridenum as prereq
+* added poshc2 (PR)
+* added title for cmd shell (PR) 
+* added fimap (PR)
+* changed install path from hardcoded to {INSTALL_LOCATION} in fimap
+* added title setting for terminal window (awesome PR thnx!)
+* switched to metasploit nightly installer vs. git direct pull (love you egyp7)
+* added full python3 compatibility and tested
+* fixed the crackmapexec installer (thanks lawry)
+* added so if git was used with BYPASS_UPDATES - it would still do a git pull
+
+~~~~~~~~~~~~~~~~~
+version 1.7.3
+~~~~~~~~~~~~~~~~~
+
+* added empyre - linux/osx post exploitation (harmj0y empire author)
+* removed old seclist under intelligence gathering
+
+~~~~~~~~~~~~~~~~~
+version 1.7.2
+~~~~~~~~~~~~~~~~~
+
+* number of module fixes, deps, and more (git commit)
+* added sniper tool for intel gathering
+
+~~~~~~~~~~~~~~~~~
+version 1.7.1
+~~~~~~~~~~~~~~~~~
+
+* added new tools: veil, cmsmap, sparta, prowl, lfi_scanner, nosqlmap
+
+~~~~~~~~~~~~~~~~~
 version 1.7
 ~~~~~~~~~~~~~~~~~
 

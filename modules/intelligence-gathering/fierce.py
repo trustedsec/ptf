@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Jason Ashton (@jayw0k)"
+AUTHOR="Jason Ashton (ninewires)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update fierce - domain scanner"
@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/davidpepper/fierce-domain-scanner.git"
 INSTALL_LOCATION="fierce"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="perl"
+DEBIAN="git,perl"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,perl,perl-CPAN"

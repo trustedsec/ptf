@@ -20,10 +20,10 @@ REPOSITORY_LOCATION="https://github.com/mfontanini/dot11decrypt/"
 INSTALL_LOCATION="dot11decrypt"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="libtins1,libtins-dev"
+DEBIAN=""
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA=""
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},./configure,make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},mkdir build,cd build,cmake ..,make"

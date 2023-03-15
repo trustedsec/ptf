@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update binwalk - a Firmware Analysis Tool"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/devttys0/binwalk"
+REPOSITORY_LOCATION="https://github.com/ReFirmLabs/binwalk"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="binwalk"
@@ -26,8 +26,4 @@ DEBIAN="git,python-lzma"
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},python setup.py install --prefix={INSTALL_LOCATION}"
-
-# THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
-LAUNCHER="binwalk"
-
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python3 setup.py install --prefix=/usr/local"

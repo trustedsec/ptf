@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/sensepost/mana"
 INSTALL_LOCATION="mana"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="libnl-dev,isc-dhcp-server,tinyproxy,libssl-dev,apache2,macchanger,python-dnspython,python-pcapy,dsniff,stunnel4,python-scapy"
+DEBIAN="libnl-3-dev,isc-dhcp-server,tinyproxy,libssl-dev,apache2,macchanger,python-dnspython,python-pcapy,dsniff,stunnel4,python-scapy"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git,libnl,dhcp-forwarder,tinyproxy,openssl,httpd,macchanger,python-dns,pcapy,dsniff,stunnel,scapy,sslsplit"
@@ -29,4 +29,4 @@ FEDORA="git,libnl,dhcp-forwarder,tinyproxy,openssl,httpd,macchanger,python-dns,p
 BYPASS_UPDATE="YES"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="git clone --depth 1 https://github.com/sensepost/mana {INSTALL_LOCATION},cd {INSTALL_LOCATION},git submodule init,git submodule update,make,make install"
+AFTER_COMMANDS="git clone --depth 1 https://github.com/sensepost/mana {INSTALL_LOCATION},cd {INSTALL_LOCATION},git submodule init,git submodule update,make -j4,make install"

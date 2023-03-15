@@ -14,13 +14,15 @@ DESCRIPTION="This module will install/update EyeWitness."
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/ChrisTruncer/EyeWitness"
+REPOSITORY_LOCATION="https://github.com/FortyNorthSecurity/EyeWitness"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="eyewitness"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python-setuptools"
+DEBIAN="git,python-setuptools,libffi-dev,libssl-dev"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},setup/setup.sh"
+AFTER_COMMANDS="cd {INSTALL_LOCATION}Python/setup,./setup.sh"
+
+LAUNCHER="eyewitness"

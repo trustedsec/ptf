@@ -20,7 +20,7 @@ REPOSITORY_LOCATION="https://github.com/trustedsec/ridenum"
 INSTALL_LOCATION="ridenum"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN=""
+DEBIAN="git samba-client"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"

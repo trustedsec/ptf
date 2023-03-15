@@ -4,7 +4,7 @@
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Jason Ashton (@jayw0k)"
+AUTHOR="Jason Ashton (ninewires)"
 
 # DESCRIPTION OF THE MODULE
 DESCRIPTION="This module will install/update xdotool - a keyboard/mouse activity simulator"
@@ -20,13 +20,13 @@ REPOSITORY_LOCATION="https://github.com/jordansissel/xdotool.git"
 INSTALL_LOCATION="xdotool"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="make,libx11-dev,libxtst-dev"
+DEBIAN="git,make,libx11-dev,libxtst-dev"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="make,libx11-devel,libxtst-devel"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},make -j4,make install"
 
 # CREATE LAUNCHER
 LAUNCHER="xdotool"

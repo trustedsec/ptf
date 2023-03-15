@@ -20,10 +20,12 @@ REPOSITORY_LOCATION="https://github.com/MasterMind555/shell-storm-api.git"
 INSTALL_LOCATION="shell-storm-api"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="git python"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS="cd {INSTALL_LOCATION}"
+
+LAUNCHER="shell-storm-api"

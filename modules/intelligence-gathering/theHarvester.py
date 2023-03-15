@@ -7,7 +7,7 @@
 AUTHOR="Mauro Risonho de Paula Assumpcao (firebits)"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update E-mail, subdomain and people names harvester"
+DESCRIPTION="This module will install/update theHarvester - E-mails, subdomains and names Harvester - OSINT"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -20,14 +20,13 @@ REPOSITORY_LOCATION="https://github.com/laramies/theHarvester.git"
 INSTALL_LOCATION="theharvester"
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python"
+DEBIAN="git,python3,python3-pip"
 
 # DEPENDS FOR FEDORA INSTALLS
 FEDORA="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
-#AFTER_COMMANDS="cd {INSTALL_LOCATION}"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},python3 -m pip install -r requirements/base.txt"
 
 # CREATE LAUNCHER
 LAUNCHER="theHarvester"

@@ -26,4 +26,4 @@ DEBIAN="git,gcc,make"
 FEDORA="git,gcc,make"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION},tar xzf onesixtyone-0.7.tar.gz, rm onesixtyone-0.7.tar.gz, cp onesixtyone-0.7/* {INSTALL_LOCATION},make,make install"
+AFTER_COMMANDS="cd {INSTALL_LOCATION},tar xzf onesixtyone-0.7.tar.gz, rm onesixtyone-0.7.tar.gz, cp onesixtyone-0.7/* {INSTALL_LOCATION},make -j4,make install"
