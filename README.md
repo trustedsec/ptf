@@ -216,7 +216,7 @@ or
 
 You can also run ptf by this argument to bypass the network check.
 ```
---no-network-connection 
+./ptf --no-network-connection 
 ```
 
 ### CHECK FOR INSTALLED PROGRAMS THROUGH PTF
