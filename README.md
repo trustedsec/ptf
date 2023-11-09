@@ -214,7 +214,7 @@ or
 ```
 # Running ptf with no internet connection
 
- You can also run ptf by this argument to bypass the network check.
+You can also run ptf by this argument to bypass the network check.
 ```
 --no-network-connection 
 ```
