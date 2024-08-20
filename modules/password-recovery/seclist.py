@@ -23,4 +23,4 @@ INSTALL_LOCATION="dictionary"
 DEBIAN="git"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS="cd {INSTALL_LOCATION}, cd ..,if [ -d '/usr/share/wordlists/' ]; then cp -r SecLists/ /usr/share/wordlists/; fi;"
+AFTER_COMMANDS="cp -r dictionary/ /usr/share/seclists"
