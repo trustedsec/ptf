@@ -25,7 +25,7 @@ TOOL_DEPEND="modules/wireless/aircrackng"
 DEBIAN="git,iw,awk,pciutils,xterm,procps"
 
 # COMMANDS TO RUN AFTER
-AFTER_COMMANDS=""
+AFTER_COMMANDS="cd {INSTALL_LOCATION}, chmod +x airgeddon.sh, ./airgeddon.sh, mv airgeddon.sh airgeddon"
 
 # THIS WILL CREATE AN AUTOMATIC LAUNCHER FOR THE TOOL
 LAUNCHER="airgeddon"
