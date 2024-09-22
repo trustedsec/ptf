@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 #####################################
-# Installation module for impacket
+# Installation module for cutycapt
 #####################################
 
 # AUTHOR OF MODULE NAME
-AUTHOR="Alberto Solino (@agsolino)" 
+AUTHOR="Björn Höhrmann"
 
 # DESCRIPTION OF THE MODULE
-DESCRIPTION="This module will install/update impacket, python exploitation framework"
+DESCRIPTION="This module will install/update Cutycapt"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
@@ -20,10 +20,10 @@ REPOSITORY_LOCATION=""
 INSTALL_LOCATION=""
 
 # DEPENDS FOR DEBIAN INSTALLS
-DEBIAN="python3-impacket"
+DEBIAN="cutycapt"
 
-# DEPENDS FOR FEDORA INSTALLS
-FEDORA="python3-impacket"
+# BYPASS UPDATES
+BYPASS_UPDATE="YES"
 
 # COMMANDS TO RUN AFTER
 AFTER_COMMANDS=""
