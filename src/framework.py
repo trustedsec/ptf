@@ -9,6 +9,7 @@ from src.core import *
 import sys
 import readline
 import os
+import platform
 import time
 import getpass
 from src.ptflogger import info, error, log
@@ -48,7 +49,7 @@ else: os_profile = profile_os()
 print_status("Operating system detected as: " + bcolors.BOLD + os_profile + bcolors.ENDC)
 
 # main intro here
-if profile_os() == "DEBIAN":
+if profile_os() == "DEBIAN" and platform.machine() == "x86_64":
     subprocess.Popen("sudo dpkg --add-architecture i386", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).wait()
 
 print_status("Welcome to PTF - where everything just works...Because.." +
