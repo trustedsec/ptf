@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update sap-dissector-wireshark - This Wire
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/SecureAuthCorp/SAP-Dissection-plug-in-for-Wireshark.git"
+REPOSITORY_LOCATION="https://github.com/SecureAuthCorp/SAP-Dissection-plug-in-for-Wireshark"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="sap-dissector-wireshark"

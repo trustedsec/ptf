@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update onedrive_user_enum - a user enumera
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/nyxgeek/onedrive_user_enum.git"
+REPOSITORY_LOCATION="https://github.com/nyxgeek/onedrive_user_enum"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="onedrive_user_enum"

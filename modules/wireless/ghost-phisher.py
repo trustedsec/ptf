@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update ghost-phisher - emulate access poin
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/savio-code/ghost-phisher.git"
+REPOSITORY_LOCATION="https://github.com/savio-code/ghost-phisher"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="ghost-phisher"

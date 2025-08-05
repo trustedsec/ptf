@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update dnscat2"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/iagox86/dnscat2.git"
+REPOSITORY_LOCATION="https://github.com/iagox86/dnscat2"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dnscat2"

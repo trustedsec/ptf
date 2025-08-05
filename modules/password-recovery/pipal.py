@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/upgrade pipal - a tool for analyzing crack
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/digininja/pipal.git"
+REPOSITORY_LOCATION="https://github.com/digininja/pipal"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="pipal"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Nullinux, a tool for enumerating SM
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/m8r0wn/nullinux.git"
+REPOSITORY_LOCATION="https://github.com/m8sec/nullinux"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="nullinux"

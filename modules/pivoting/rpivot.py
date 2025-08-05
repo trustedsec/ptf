@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update RPIVOT. It allows you to tunnel tra
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/artkond/rpivot"
+REPOSITORY_LOCATION="https://github.com/klsecservices/rpivot"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="rpivot"

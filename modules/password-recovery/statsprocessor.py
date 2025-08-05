@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Statsprocessor - Statsprocessor is 
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/hashcat/statsprocessor.git"
+REPOSITORY_LOCATION="https://github.com/hashcat/statsprocessor"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="statsprocessor"

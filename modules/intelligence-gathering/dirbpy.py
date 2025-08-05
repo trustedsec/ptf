@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update DirbPy - A new version of dirb in p
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/marcolivierbouch/dirbpy.git"
+REPOSITORY_LOCATION="https://github.com/marcolivierbouch/dirbpy"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dirbpy"

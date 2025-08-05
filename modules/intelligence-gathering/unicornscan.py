@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update unicornscan (Network Scanner)"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/dneufeld/unicornscan.git"
+REPOSITORY_LOCATION="https://github.com/dneufeld/unicornscan"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="unicornscan"

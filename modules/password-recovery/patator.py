@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Patator - Patator is a multi-thread
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/lanjelot/patator.git"
+REPOSITORY_LOCATION="https://github.com/lanjelot/patator"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="patator"

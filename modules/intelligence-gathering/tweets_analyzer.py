@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update tweets_analyzer by x0rz - Tweets me
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/x0rz/tweets_analyzer/"
+REPOSITORY_LOCATION="https://github.com/x0rz/tweets_analyzer"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="tweets_analyzer"

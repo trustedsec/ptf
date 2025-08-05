@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update hcxdumptool - a tool for capturing 
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/ZerBea/hcxdumptool.git"
+REPOSITORY_LOCATION="https://github.com/ZerBea/hcxdumptool"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hcxdumptool"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update hans. Hans allows you to tunnel IPv
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/friedrich/hans.git"
+REPOSITORY_LOCATION="https://github.com/friedrich/hans"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hans"

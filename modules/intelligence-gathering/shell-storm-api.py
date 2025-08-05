@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update shell-storm-api - Search and displa
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/MasterMind555/shell-storm-api.git"
+REPOSITORY_LOCATION="https://github.com/MasterMind555/shell-storm-api"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="shell-storm-api"

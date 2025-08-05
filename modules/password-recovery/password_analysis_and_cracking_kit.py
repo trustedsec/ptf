@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update PACK - a collection of utilities de
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Hydraze/pack.git"
+REPOSITORY_LOCATION="https://github.com/Hydraze/pack"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="pack"

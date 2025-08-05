@@ -14,7 +14,7 @@ DESCRIPTION="This module will install PostMan"
 INSTALL_TYPE="WGET"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://dl.pstmn.io/download/latest/linux32"
+REPOSITORY_LOCATION="https://dl.pstmn.io/download/latest/linux64"
 
 #X64 LOCATION
 X64_LOCATION="https://dl.pstmn.io/download/latest/linux64"

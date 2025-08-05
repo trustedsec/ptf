@@ -13,7 +13,7 @@ AUTHOR="Andrew Schwartz"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/sachinkamath/ntlmrecon.git"
+REPOSITORY_LOCATION="https://github.com/pwnfoo/NTLMRecon"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="ntlmrecon"

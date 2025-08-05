@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update radare2 - is a portable reversing f
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/radare/radare2"
+REPOSITORY_LOCATION="https://github.com/radareorg/radare2"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="radare2"

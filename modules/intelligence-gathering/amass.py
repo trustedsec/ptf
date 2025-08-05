@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update AMass - OSINT tool for discovery"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/OWASP/Amass"
+REPOSITORY_LOCATION="https://github.com/owasp-amass/amass"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="amass"

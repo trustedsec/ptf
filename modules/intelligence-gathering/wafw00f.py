@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update wafw00f (Sandro Gauci && Wendel G. 
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/sandrogauci/wafw00f.git"
+REPOSITORY_LOCATION="https://github.com/EnableSecurity/wafw00f"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="wafw00f"
