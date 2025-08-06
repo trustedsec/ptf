@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Wordsmith, a tailored wordlist gene
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/skahwah/wordsmith.git"
+REPOSITORY_LOCATION="https://github.com/skahwah/wordsmith"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="wordsmith"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update UDP-Proto-scanner"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/portcullislabs/udp-proto-scanner.git"
+REPOSITORY_LOCATION="https://github.com/CiscoCXSecurity/udp-proto-scanner"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="udpprotoscanner"

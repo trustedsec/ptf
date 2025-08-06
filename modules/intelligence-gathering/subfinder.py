@@ -13,7 +13,7 @@ DESCRIPTION="This module wil install/update Subfinder"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="github.com/Ice3man543/subfinder" 
+REPOSITORY_LOCATION="https://github.com/projectdiscovery/subfinder" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="subfinder"

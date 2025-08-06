@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update mdk3, a tool for wireless attacks"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/wi-fi-analyzer/mdk3-master" 
+REPOSITORY_LOCATION="https://github.com/aircrack-ng/mdk3" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="mdk3-master"

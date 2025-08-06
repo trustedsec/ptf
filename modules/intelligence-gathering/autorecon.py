@@ -15,7 +15,7 @@ DESCRIPTION="This module will install/update autorecon - a multi-threaded networ
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Tib3rius/AutoRecon.git"
+REPOSITORY_LOCATION="https://github.com/Tib3rius/AutoRecon"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="autorecon"

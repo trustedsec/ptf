@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update discover - an OSINT tool"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/leebaird/discover.git"
+REPOSITORY_LOCATION="https://github.com/leebaird/discover"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="discover"

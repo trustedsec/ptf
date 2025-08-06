@@ -14,7 +14,7 @@ DESCRIPTION="This module will install Hashcat (Legacy Version)- An advanced CPU-
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/hashcat/hashcat-legacy.git"
+REPOSITORY_LOCATION="https://github.com/hashcat/hashcat-legacy"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hashcat-legacy"

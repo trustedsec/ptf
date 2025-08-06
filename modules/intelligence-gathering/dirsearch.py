@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update dirsearch"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/maurosoria/dirsearch.git"
+REPOSITORY_LOCATION="https://github.com/maurosoria/dirsearch"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python"

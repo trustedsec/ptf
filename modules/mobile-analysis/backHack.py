@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update backHack."
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/MooseDojo/backHack.git"
+REPOSITORY_LOCATION="https://github.com/l0gan/backHack"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="backHack"

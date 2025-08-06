@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update CeWL - Custom Word List generator"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/digininja/CeWL.git"
+REPOSITORY_LOCATION="https://github.com/digininja/CeWL"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="CeWL"

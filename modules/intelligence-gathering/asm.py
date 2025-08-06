@@ -9,7 +9,7 @@ AUTHOR="Andrew Schwartz"
 
 INSTALL_TYPE="GIT"
 
-REPOSITORY_LOCATION="https://github.com/superhedgy/AttackSurfaceMapper.git"
+REPOSITORY_LOCATION="https://github.com/superhedgy/AttackSurfaceMapper"
 
 INSTALL_LOCATION="ASM"
 

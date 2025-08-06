@@ -14,7 +14,7 @@ DESCRIPTION="ssh-audit is a tool for ssh server auditing."
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/arthepsy/ssh-audit.git"
+REPOSITORY_LOCATION="https://github.com/arthepsy/ssh-audit"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="ssh-audit"

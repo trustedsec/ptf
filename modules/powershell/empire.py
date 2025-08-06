@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Empire and Deathstar - A PowerShell
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/BC-SECURITY/Empire/"
+REPOSITORY_LOCATION="https://github.com/BC-SECURITY/Empire"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="empire-ps"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update CUPP - Common User Passwords Profil
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Mebus/cupp.git"
+REPOSITORY_LOCATION="https://github.com/Mebus/cupp"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="cupp"

@@ -13,7 +13,7 @@ AUTHOR="Ronnie Flathers - ropnop"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/ropnop/go-windapsearch.git"
+REPOSITORY_LOCATION="https://github.com/ropnop/go-windapsearch"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="go-windapsearch"

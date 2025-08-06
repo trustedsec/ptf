@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update server-status PWN"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/mazen160/server-status_PWN.git"
+REPOSITORY_LOCATION="https://github.com/mazen160/server-status_PWN"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python"

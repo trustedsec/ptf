@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update altdns - A tool that allows for the
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/infosec-au/altdns.git"
+REPOSITORY_LOCATION="https://github.com/infosec-au/altdns"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="altdns"

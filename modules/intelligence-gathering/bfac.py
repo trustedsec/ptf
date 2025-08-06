@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update bfac"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/mazen160/bfac.git"
+REPOSITORY_LOCATION="https://github.com/mazen160/bfac"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python"

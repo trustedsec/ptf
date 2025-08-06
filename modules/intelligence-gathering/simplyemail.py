@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update SimplyEmail - harvester tool for em
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/killswitch-GUI/SimplyEmail"
+REPOSITORY_LOCATION="https://github.com/SimplySecurity/SimplyEmail"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="simplyemail"

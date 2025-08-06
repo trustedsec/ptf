@@ -14,7 +14,7 @@ DESCRIPTION="This module will install hash_extender, a tool for doing hash lengt
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/iagox86/hash_extender.git"
+REPOSITORY_LOCATION="https://github.com/iagox86/hash_extender"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hash_extender"

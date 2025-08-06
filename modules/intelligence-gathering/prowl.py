@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Nettitude's Prowl by @MattSPickford
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/nettitude/Prowl.git"
+REPOSITORY_LOCATION="https://github.com/nettitude/Prowl"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="prowl"

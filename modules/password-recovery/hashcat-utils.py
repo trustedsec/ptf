@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Hashcat-Utils - Small utilities tha
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/hashcat/hashcat-utils.git"
+REPOSITORY_LOCATION="https://github.com/hashcat/hashcat-utils"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hashcat-utils"

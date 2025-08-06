@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Veil 3"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Veil-Framework/Veil.git"
+REPOSITORY_LOCATION="https://github.com/Veil-Framework/Veil"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="veil-framework"

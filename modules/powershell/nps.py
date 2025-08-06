@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update NPS - Not PowerShell - execution of
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Ben0xA/nps"
+REPOSITORY_LOCATION="https://github.com/svespie/NotPowerShell"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="nps"

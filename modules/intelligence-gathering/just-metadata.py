@@ -12,7 +12,7 @@ INSTALL_TYPE="GIT"
 AUTHOR="Andrew Schwartz"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/FortyNorthSecurity/Just-Metadata"
+REPOSITORY_LOCATION="https://github.com/RedSiege/Just-Metadata"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="just-metadata"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update msfenum - A Metasploit auto auxilia
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/wez3/msfenum/"
+REPOSITORY_LOCATION="https://github.com/wez3/msfenum"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="msfenum"

@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update Hashcat - An advanced CPU-based pas
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/hashcat/oclhashcat.git"
+REPOSITORY_LOCATION="https://github.com/hashcat/hashcat"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hashcat"

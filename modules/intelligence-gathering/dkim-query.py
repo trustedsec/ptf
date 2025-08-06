@@ -13,7 +13,7 @@ AUTHOR="Andrew Schwartz"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/trailofbits/dkim-query.git"
+REPOSITORY_LOCATION="https://github.com/trailofbits/dkim-query"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dkim-query"

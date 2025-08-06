@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update EyeWitness."
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/FortyNorthSecurity/EyeWitness"
+REPOSITORY_LOCATION="https://github.com/RedSiege/EyeWitness"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="eyewitness"

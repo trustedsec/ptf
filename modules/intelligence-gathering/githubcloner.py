@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update GithubCloner"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/mazen160/GithubCloner.git"
+REPOSITORY_LOCATION="https://github.com/mazen160/GithubCloner"
 
 # DEPENDS FOR DEBIAN INSTALLS
 DEBIAN="python"

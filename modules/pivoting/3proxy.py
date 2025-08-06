@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update 3proxy. This tool the swiss army kn
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/z3APA3A/3proxy"
+REPOSITORY_LOCATION="https://github.com/3proxy/3proxy"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="3proxy"

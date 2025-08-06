@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update maskprocessor - High-Performance wo
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/hashcat/maskprocessor.git"
+REPOSITORY_LOCATION="https://github.com/hashcat/maskprocessor"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="maskprocessor"

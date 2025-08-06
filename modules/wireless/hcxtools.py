@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update hcxtools - tools for converting and
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/ZerBea/hcxtools.git"
+REPOSITORY_LOCATION="https://github.com/ZerBea/hcxtools"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="hcxtools"

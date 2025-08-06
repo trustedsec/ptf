@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update John the Ripper. The 'bleeding-jumb
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/magnumripper/JohnTheRipper.git"
+REPOSITORY_LOCATION="https://github.com/openwall/john"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="johntheripper"

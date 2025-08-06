@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update - Dradis is a collaboration and rep
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/dradis/dradis-ce.git"
+REPOSITORY_LOCATION="https://github.com/dradis/dradis-ce"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="dradisframework"

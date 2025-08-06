@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update keepnote - note taking software"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/mdrasmus/keepnote.git"
+REPOSITORY_LOCATION="https://github.com/mdrasmus/keepnote"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="keepnote"

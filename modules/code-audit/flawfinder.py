@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update flawfinder, a tool for static C/C++
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="http://git.code.sf.net/p/flawfinder/code" 
+REPOSITORY_LOCATION="https://github.com/david-a-wheeler/flawfinder" 
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="flawfinder"

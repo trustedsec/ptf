@@ -11,10 +11,10 @@ DESCRIPTION="This module will install/update rats, a tool for static C/C++ Code"
 
 # INSTALL TYPE GIT, SVN, FILE DOWNLOAD
 # OPTIONS = GIT, SVN, FILE
-INSTALL_TYPE="SVN"
+INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="http://rough-auditing-tool-for-security.googlecode.com/svn/trunk/" 
+REPOSITORY_LOCATION="https://github.com/andrew-d/rough-auditing-tool-for-security"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="rats"

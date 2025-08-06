@@ -8,7 +8,7 @@ DESCRIPTION="This module will install/update the statistically likely username p
 
 INSTALL_TYPE="GIT"
 
-REPOSITORY_LOCATION="https://github.com/insidetrust/statistically-likely-usernames.git"
+REPOSITORY_LOCATION="https://github.com/insidetrust/statistically-likely-usernames"
 
 INSTALL_LOCATION="statistically-likely-usernames"
 

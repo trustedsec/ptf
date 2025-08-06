@@ -14,7 +14,7 @@ DESCRIPTION="This module will install/update WSO - PHP webshell by Hardlinux"
 INSTALL_TYPE="GIT"
 
 # LOCATION OF THE FILE OR GIT/SVN REPOSITORY
-REPOSITORY_LOCATION="https://github.com/Josexv1/wso-webshell/"
+REPOSITORY_LOCATION="https://github.com/Josexv1/wso-webshell"
 
 # WHERE DO YOU WANT TO INSTALL IT
 INSTALL_LOCATION="wso"
